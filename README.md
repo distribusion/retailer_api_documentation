@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
+  <img src="http://distribusion.com/wp-content/uploads/2017/03/logo-distribusion-footer.png" alt="Distribusion: API Documentation" width="226">
   <br>
-  <a href="https://travis-ci.org/lord/slate"><img src="https://travis-ci.org/lord/slate.svg?branch=master" alt="Build Status"></a>
 </p>
 
-<p align="center">Slate helps you create beautiful, intelligent, responsive API documentation.</p>
+<p align="center">Welcome to Distribusion API! You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us! Documentation for the API v2 can still be found at <a href="https://api-demo.distribusion.com/reseller/v2/docs">Distribusion API</a>
 
-<p align="center"><img src="https://dl.dropboxusercontent.com/u/95847291/github%20images/slate/slate_screenshot_new.png" width=700 alt="Screenshot of Example Documentation created with Slate"></p>
+We have language bindings in Shell and Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-<p align="center"><em>The example above was created with Slate. Check it out at <a href="https://lord.github.io/slate">lord.github.io/slate</a>.</em></p>
+When integrating and testing on our API, please use the following URL: <a href="https://api-demo.distribusion.com/retailers/v3">https://api-demo.distribusion.com/retailers/v3</a>
+
 
 Features
 ------------
