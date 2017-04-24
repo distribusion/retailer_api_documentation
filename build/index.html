@@ -1,0 +1,2828 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Distribusion API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='mailto:partner@distribusion.com'>Sign Up for a Demo API Key</a></li>
+            <li><a href='http://distribusion.com/'>Visit our website</a></li>
+            <li><a href='mailto:partner@distribusion.com'>Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to Distribusion API! You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us! Documentation for the API v2 can still be found at <a href="https://api-demo.distribusion.com/reseller/v2/docs">Distribusion API</a> </p>
+
+<p>We have language bindings in Shell and Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<p>When integrating and testing on our API, please use the following URL: <a href="https://api-demo.distribusion.com/retailers/v3">https://api-demo.distribusion.com/retailers/v3</a></p>
+
+<h1 id="use-case">Use Case</h1>
+
+<p>When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking. </p>
+
+<h2 id="collect-initial-data">Collect Initial Data</h2>
+
+<p>The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a <a href="https://api.distribusion.com/retailers/v3/#stations">#stations</a> and a <a href="https://api.distribusion.com/retailers/v3/#marketing_carriers">#marketing_carriers</a> endpoints. To retrieve stations codes, simply send a GET request towards our <a href="https://api.distribusion.com/retailers/v3/#stations">#stations</a> endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The <a href="https://api.distribusion.com/retailers/v3/#marketing_carriers">#marketing_carriers</a> endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.</p>
+
+<h2 id="find-connections">Find Connections</h2>
+
+<p>After retrieving station codes, you can now start searching for connections by sending us <code class="prettyprint">GET</code> requests towards <a href="https://api.distribusion.com/retailers/v3/#find">connections#find</a>. We do not provide stations pair in order to allow our engines to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.</p>
+
+<aside class="success">
+Remember — to query information from our API, you need to get your own API key!
+</aside> 
+
+<h2 id="confirm-price-and-availability">Confirm Price and Availability</h2>
+
+<p>As <a href="https://api.distribusion.com/retailers/v3/#find">connections#find</a> provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling <a href="https://api.distribusion.com/retailers/v3/#vacancy">connections#vacancy</a>. This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date. </p>
+
+<h2 id="build-a-booking-form">Build a Booking Form</h2>
+
+<p>In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our <a href="https://api.distribusion.com/retailers/v3/#form-schema">bookings#form_schema</a> endpoint. </p>
+
+<h2 id="create-a-booking">Create a Booking</h2>
+
+<p>After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion&rsquo;s API on <a href="https://api.distribusion.com/retailers/v3/#create">bookings#create</a>. The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the <a href="https://api.distribusion.com/retailers/v3/#form-schema">bookings#form_schema</a>. In case any information is missing, the API will recognise it and inform you accordingly. </p>
+
+<h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Api-Key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI"</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your API key.</p>
+</blockquote>
+
+<p>Distribusion uses API keys to allow access to the API content and perform bookings. You can register a new Distribusion API key at our <a href="http://distribusion.com/">retailer portal</a>.</p>
+
+<p>Distribusion expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">Api-Key:AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code></p>
+
+<aside class="notice">
+You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your own API key.
+</aside>
+
+<h1 id="connections">Connections</h1>
+
+<h2 id="find">Find</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"departure_stations": "DEBERZOB","arrival_stations": "DEBONHBF","departure_date": "2017-01-01","pax": 1,"locale": "en","currency": "EUR"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/connections/find'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB-DEDUSZOB-DEWEZFLU-2017-04-29T14:00-2017-04-29T15:30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connections"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"departure_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-29T14:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"arrival_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-29T15:30"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">5400</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cheapest_total_adult_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"booked_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"departure_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"arrival_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"marketing_carrier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Düsseldorf ZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The stop is located at the north end of the central railway station, directly next to the municipal public order office (</span><span class="se">\"</span><span class="s2">Ordnungsamt</span><span class="se">\"</span><span class="s2">). At the stop, there is a small snack bar as well as a covered waiting cabin."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worringer Straße"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40210"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.79472580000004</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.2223151</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeze Flughafen"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The bus stop is located directly in front of the terminal entrance."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flughafen-Ring 60"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47652"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.16098999999997</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.59388</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jetbus"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"legal_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RheinJet GmbH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"passenger_types"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passenger_types"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passenger_types"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dusseldorf"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeze"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The endpoint searches for and delivers all the connections matching your query. The delivered set of objects will have all the necessary data for displaying on the search results page.</p>
+
+<p>On our side we parallelize the outbound requests to the operating carrier integration systems to include as many connections as we&rsquo;re able to get from marketing carriers (excluding those which couldn&rsquo;t respond in time).</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://api.distribusion.com/retailers/v3/connections/find</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">departure_stations[]</code></td>
+<td>true</td>
+<td>8- or 9-letter alphanumeric uppercase code, available codes can be obtained from <code class="prettyprint">GET /stations</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">arrival_stations[]</code></td>
+<td>true</td>
+<td>8- or 9-letter alphanumeric uppercase code, available codes can be obtained from <code class="prettyprint">GET /stations</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">departure_date</code></td>
+<td>true</td>
+<td>Departure date in ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">pax</code></td>
+<td>true</td>
+<td>Number of passengers - Integer in a range of 1..9.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">locale</code></td>
+<td>true</td>
+<td>2-letter alphanumeric lowercase code, according to ISO 639-1 standard .</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>true</td>
+<td>3-letter alphanumeric uppercase code, according to ISO 4217 standard.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — to query information from our API, you need to get your own API key at http://distribusion.com/!
+</aside>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.101.002</td>
+<td>Departure stations are invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.003</td>
+<td>Arrival stations are invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.014</td>
+<td>Locale is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.015</td>
+<td>Currency is invalid or missing</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.501.000</td>
+<td>Not implemented at Distribusion on connections#find</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+<tr>
+<td>600.000.000</td>
+<td>Marketing Carrier remote system unavailable</td>
+</tr>
+<tr>
+<td>600.100.000</td>
+<td>Marketing Carrier remote system time-out</td>
+</tr>
+<tr>
+<td>600.400.000</td>
+<td>Marketing Carrier remote request invalid</td>
+</tr>
+<tr>
+<td>600.900.000</td>
+<td>Response received from a remote server technically cannot be processed</td>
+</tr>
+<tr>
+<td>600.901.000</td>
+<td>Response from remote server logically cannot be processed (is invalid)</td>
+</tr>
+</tbody></table>
+
+<h2 id="vacancy">Vacancy</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"marketing_carrier": "SPBS","departure_station": "DEBERZOB","arrival_station": "DEBONHBF","departure_time": "2017-01-01T00:00","arrival_time": "2017-01-01T01:00","pax": 1,"locale": "en","currency": "EUR"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/connections/vacancy'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB-DEDUSZOB-DEWEZFLU-2017-04-29T14:00-2017-04-29T15:30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connections"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"vacant"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint should be used during a booking to get a binding price and availability for a specified group of travellers. &ldquo;Specified&rdquo; is defined as having not only the right amount of passengers but also selected the passenger types for each passenger. The passenger types are marketing carrier specific (retrieved from connections#find or using #marketing_carriers). If you are looking into getting the general availability of a connection (true / false) please use the connections#find endpoint, which retrieve the availability directly from marketing carriers.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/connections/vacancy</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">marketing_carrier</code></td>
+<td>true</td>
+<td>4-letter alphanumeric uppercase code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">departure_station</code></td>
+<td>true</td>
+<td>8 or 9-letter alphanumeric uppercase code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">arrival_station</code></td>
+<td>true</td>
+<td>8 or 9-letter alphanumeric uppercase code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">departure_time</code></td>
+<td>true</td>
+<td>Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">arrival_time</code></td>
+<td>true</td>
+<td>Arrival time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">pax</code></td>
+<td>true</td>
+<td>Number of passengers - Integer in a range of 1..9.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">locale</code></td>
+<td>true</td>
+<td>2-letter alphanumeric lowercase code, according to ISO 639-1 standard.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>true</td>
+<td>3-letter alphanumeric uppercase code, according to ISO 4217 standard.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.101.004</td>
+<td>Departure station is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.005</td>
+<td>Arrival station is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.009</td>
+<td>PAX is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.014</td>
+<td>Locale is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.015</td>
+<td>Currency is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.044</td>
+<td>Departure date is in the past</td>
+</tr>
+<tr>
+<td>400.101.049</td>
+<td>Departure time must be before arrival time</td>
+</tr>
+<tr>
+<td>400.102.040</td>
+<td>Unknown marketing carrier</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.501.002</td>
+<td>Not implemented at Distribusion on connections#vacancy</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>400.800.040</td>
+<td>Marketing carrier not found</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+<tr>
+<td>600.000.000</td>
+<td>Marketing Carrier remote system unavailable</td>
+</tr>
+<tr>
+<td>600.100.000</td>
+<td>Marketing Carrier remote system time-out</td>
+</tr>
+<tr>
+<td>600.400.000</td>
+<td>Marketing Carrier remote request invalid</td>
+</tr>
+<tr>
+<td>600.500.000</td>
+<td>Marketing Carrier remote connection unknown error</td>
+</tr>
+<tr>
+<td>600.600.000</td>
+<td>Marketing Carrier remote vacancy unknown error</td>
+</tr>
+<tr>
+<td>600.900.000</td>
+<td>Response received from a remote server technically cannot be processed</td>
+</tr>
+<tr>
+<td>600.901.000</td>
+<td>Response from remote server logically cannot be processed (is invalid)</td>
+</tr>
+<tr>
+<td>600.703.026</td>
+<td>Booking price unknown</td>
+</tr>
+</tbody></table>
+
+<h1 id="bookings">Bookings</h1>
+
+<h2 id="form-schema">Form Schema</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"marketing_carrier": "SPBS"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/bookings/form_schema'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-04/schema#"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"marketing_carrier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[A-Z]{4}$"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"departure_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[A-Z]{8,9}$"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"arrival_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[A-Z]{8,9}$"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"departure_time"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"arrival_time"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"retailer_partner_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[0-9]{6}$"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mrs"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"minLength"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maxLength"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"minLength"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maxLength"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"execute_payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"demand_note"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"credit_card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sepa_direct_debit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"paypal"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payment_token"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payer_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"pax"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"flight_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[0-9A-Z]{3,9}$"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"terms_accepted"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[a-z]{2}$"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[A-Z]{3}$"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"send_customer_email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^[A-Z]{4}$"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"code"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"marketing_carrier"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"departure_station"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"arrival_station"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"departure_time"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"arrival_time"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"retailer_partner_number"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street_and_number"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zip_code"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"execute_payment"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_method"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_price"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pax"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"terms_accepted"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"send_customer_email"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To create a booking, you will need to retrieve specific information from the customer. In order to do so, you can render a booking form, which is specific to a certain connection and or marketing carrier. This endpoint will deliver you the JSON schema, describing the necessary parameters needed to perform a booking. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/bookings/form_schema</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">marketing_carrier</code></td>
+<td>true</td>
+<td>4-letter alphanumeric uppercase code.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.101.040</td>
+<td>Marketing carrier is invalid or missing</td>
+</tr>
+<tr>
+<td>400.501.004</td>
+<td>Not implemented at Distribusion on bookings#form_schema</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>400.800.040</td>
+<td>Marketing carrier not found</td>
+</tr>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+</tbody></table>
+
+<h2 id="create">Create</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"marketing_carrier": "SPBS","departure_station": "DEBERZOB","arrival_station": "DEBONHBF","departure_time": "2017-01-01T00:00","arrival_time": "2017-01-01T01:00","title": "mr","first_name": "John","last_name": "Doe","email": "john.doe@customer.example","phone": "+0 123 456 78 90","city": "Berlin","zip_code": "10123","street_and_number": "1st str.","execute_payment": true,"payment_method": "demand_note","payment_token": "da0b3dfb-9cdf-4c17-8549-e179bad45765","payer_id": "7E7MGXCWTTKK2","total_price": "1100","pax": 1,"flight_number": "141DE","terms_accepted": true,"locale": "en","currency": "EUR","send_customer_email": true,"passengers": [{"first_name": "Janeth","last_name": "Doe","type": "ADLT"}],"extras": [{"quantity": 1,"type": "COFE"}]}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/bookings/create'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ij8CE-9Wo-cQvrj7D5gQzA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"departure_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-29T14:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"arrival_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-29T15:30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">5400</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Balibalo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bateau"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@mail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4915237601929"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlinstr. 23"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"execute_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demand_note"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123455"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pax"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"flight_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"distribusion_booking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N3TNJK"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"marketing_carrier_booking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWspC1GQf8vV12AZjA4NFA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"terms_accepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"send_customer_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"retailer_partner_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"222222"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21T18:35"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"departure_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"arrival_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"marketing_carrier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"operating_carrier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"operating_carriers"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR-BATEAU-BALIBALO"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passengers"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Düsseldorf ZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The stop is located at the north end of the central railway station, directly next to the municipal public order office (</span><span class="se">\"</span><span class="s2">Ordnungsamt</span><span class="se">\"</span><span class="s2">). At the stop, there is a small snack bar as well as a covered waiting cabin."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worringer Straße"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.79472580000004</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.2223151</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeze Flughafen"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The bus stop is located directly in front of the terminal entrance."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flughafen-Ring 60"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.16098999999997</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.59388</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jetbus"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"legal_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RheinJet GmbH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Am Hövel 9, 40667 Meerbusch"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"089 230 505 05"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fax"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_service_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 89 230 505 05"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service@rheinjet.de"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commercial_register"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amtsgericht Neuss"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commercial_register_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HRB 13389"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authorised_representative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Martin Michael"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"white_label_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data:image/png;base64, picture"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"white_label_colour_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T&amp;C"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"flight_number_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cancellation_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cancellation_cutoff"</span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"operating_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jetbus"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"legal_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RheinJet GmbH"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR-BATEAU-BALIBALO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passengers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Balibalo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bateau"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dusseldorf"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeze"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to conduct bookings. Bookings created this way are the basis for invoicing. The endpoint currently supports one-way bookings only. It will also send out booking e-mails to customers. E-Mails are blocked on demo, so feel free to conduct tests bookings on our demo server (api-demo.distribusion.com).</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://api.distribusion.com/retailers/v3/bookings</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: center">Mandatory</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">marketing_carrier</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">4-letter alphanumeric uppercase code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">departure_station</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">8- or 9-letter alphanumeric uppercase code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">arrival_station</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">8- or 9-letter alphanumeric uppercase code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">departure_time</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">arrival_time</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">retailer_partner_number</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">6 digits number of retailer partner.</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td><code class="prettyprint">title</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Allowed values: &ldquo;mr&rdquo; or &ldquo;mrs&rdquo;.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">first_name</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">First name of the customer, 1-50-letter alphanumeric string.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">last_name</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Last name of the customer, 1-50-letter alphanumeric string.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">email</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Email address of the customer.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">phone</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Phone number of the customer, 8-20-number string.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">city</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">1-50-letter alphanumeric string.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">zip_code</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">2-10-letter alphanumeric string.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">street_and_number</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">1-99-letter alphanumeric string.</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td><code class="prettyprint">execute_payment</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Can be <code class="prettyprint">true</code> or <code class="prettyprint">false</code>. Flag signalling whether the payment transaction should be executed.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payment_method</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Allowed value: <code class="prettyprint">demand_note</code>, <code class="prettyprint">credit_card</code>, <code class="prettyprint">sepa_direct_debit</code>, <code class="prettyprint">paypal</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payment_token</code></td>
+<td style="text-align: center">false</td>
+<td style="text-align: left">Unique identifier supplied by the payment service provider.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payer_id</code></td>
+<td style="text-align: center">false</td>
+<td style="text-align: left">Unique identifier supplied by Paypal.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">total_price</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Total price of the requested passenger types and extras with added bus marketing carrier booking fee in fractional currency unit (if there is one, in cent) in requested currency. Minimum value - 0, maximum value - 9999900. Provided on successful vacancy request.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">pax</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Number of passengers. Integer in a range of 1..9.</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td><code class="prettyprint">flight_number</code></td>
+<td style="text-align: center">false</td>
+<td style="text-align: left">Required by marketing carriers in some cases. 3-9-letter alphanumeric uppercase code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">terms_accepted</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Flag signalling whether Terms &amp; Conditions of the marketing carrier have been accepted. Can be <code class="prettyprint">true</code> or <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td><code class="prettyprint">locale</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">2-letter alphanumeric lowercase code, according to ISO 639-1 standard.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">3-letter alphanumeric uppercase code, according to ISO 4217 standard.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">send_customer_email</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be <code class="prettyprint">true</code> or <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td><code class="prettyprint">passengers</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Array</td>
+</tr>
+<tr>
+<td><code class="prettyprint">fist_name</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">First name of the passenger, 1-50-letter alphanumeric string.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">last_name</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Last name of the customer, 1-50-letter alphanumeric string.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">type</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from <code class="prettyprint">GET /marketing_carriers</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td><code class="prettyprint">extras</code></td>
+<td style="text-align: center">false</td>
+<td style="text-align: left">Array</td>
+</tr>
+<tr>
+<td><code class="prettyprint">quantity</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Integer in a range of 1..999.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">type</code></td>
+<td style="text-align: center">true</td>
+<td style="text-align: left">Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from <code class="prettyprint">GET /marketing_carriers</code>.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">When sending request to our production environment, ensure that you don&rsquo;t play around with creating bookings, as you will have to pay for them! </aside>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.101.004</td>
+<td>Departure station is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.005</td>
+<td>Arrival station is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.007</td>
+<td>Departure time is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.008</td>
+<td>Arrival time is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.009</td>
+<td>PAX is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.010</td>
+<td>Retailer partner number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.011</td>
+<td>Payment method is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.012</td>
+<td>Payment token is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.013</td>
+<td>Payer ID is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.014</td>
+<td>Locale is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.015</td>
+<td>Currency is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.018</td>
+<td>Title is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.019</td>
+<td>First name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.020</td>
+<td>Last name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.021</td>
+<td>Email is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.022</td>
+<td>Phone is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.023</td>
+<td>City is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.024</td>
+<td>Zip code is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.025</td>
+<td>Street and number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.026</td>
+<td>Total price is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.027</td>
+<td>Customer currency is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.029</td>
+<td>Send customer email is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.030</td>
+<td>Passenger first name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.031</td>
+<td>Passenger last name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.032</td>
+<td>Passenger type is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.033</td>
+<td>Passenger type pax is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.034</td>
+<td>Passenger type code is missing or invalid</td>
+</tr>
+<tr>
+<td>400.101.035</td>
+<td>Terms accepted is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.036</td>
+<td>Flight number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.037</td>
+<td>Extra type is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.038</td>
+<td>Extra quantity is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.040</td>
+<td>Marketing carrier is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.042</td>
+<td>Execute payment is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.044</td>
+<td>Departure date is in the past</td>
+</tr>
+<tr>
+<td>400.101.049</td>
+<td>Departure time must be before arrival time</td>
+</tr>
+<tr>
+<td>400.101.050</td>
+<td>Extras are invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.051</td>
+<td>Passengers are invalid or missing</td>
+</tr>
+<tr>
+<td>400.102.040</td>
+<td>Unknown marketing carrier</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.501.003</td>
+<td>Not implemented at Distribusion on bookings#create</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>400.800.040</td>
+<td>Marketing carrier not found</td>
+</tr>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+<tr>
+<td>500.500.017</td>
+<td>Unique distribusion booking number cannot be generated</td>
+</tr>
+<tr>
+<td>500.500.041</td>
+<td>Unique booking id cannot be generated</td>
+</tr>
+<tr>
+<td>500.501.000</td>
+<td>Booking not vacant</td>
+</tr>
+<tr>
+<td>500.502.026</td>
+<td>Booking price increased</td>
+</tr>
+<tr>
+<td>500.502.026</td>
+<td>Booking price decreased</td>
+</tr>
+<tr>
+<td>600.000.000</td>
+<td>Marketing Carrier remote system unavailable</td>
+</tr>
+<tr>
+<td>600.100.000</td>
+<td>Marketing Carrier remote system time-out</td>
+</tr>
+<tr>
+<td>600.400.000</td>
+<td>Marketing Carrier remote request invalid</td>
+</tr>
+<tr>
+<td>600.500.000</td>
+<td>Marketing Carrier remote connection unknown error</td>
+</tr>
+<tr>
+<td>600.600.000</td>
+<td>Marketing Carrier remote vacancy unknown error</td>
+</tr>
+<tr>
+<td>600.700.000</td>
+<td>Marketing Carrier remote booking failed error (general)</td>
+</tr>
+<tr>
+<td>600.701.000</td>
+<td>Marketing Carrier remote booking capacity error</td>
+</tr>
+<tr>
+<td>600.702.000</td>
+<td>Marketing Carrier remote booking price change error</td>
+</tr>
+<tr>
+<td>600.703.000</td>
+<td>Marketing Carrier remote booking tariff unavailable error</td>
+</tr>
+<tr>
+<td>600.705.000</td>
+<td>Marketing Carrier remote booking vacancy unknown error</td>
+</tr>
+<tr>
+<td>600.900.000</td>
+<td>Response received from a remote server technically cannot be processed</td>
+</tr>
+<tr>
+<td>600.901.000</td>
+<td>Response from remote server logically cannot be processed (is invalid)</td>
+</tr>
+<tr>
+<td>600.703.026</td>
+<td>Booking price unknown</td>
+</tr>
+</tbody></table>
+
+<h2 id="show">Show</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"booking": "ij8CE-9Wo-cQvrj7D5gQzA"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/bookings/show'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ij8CE-9Wo-cQvrj7D5gQzA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"departure_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-29T14:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"arrival_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-29T15:30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">5400</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Balibalo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bateau"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@mail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4915237601929"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlinstr. 23"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"execute_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demand_note"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123455"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pax"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"flight_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"distribusion_booking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N3TNJK"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"marketing_carrier_booking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWspC1GQf8vV12AZjA4NFA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"terms_accepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"send_customer_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"retailer_partner_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"222222"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21T18:35"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"departure_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"arrival_station"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"marketing_carrier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"operating_carrier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"operating_carriers"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"passengers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR-BATEAU-BALIBALO"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passengers"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUSZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Düsseldorf ZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The stop is located at the north end of the central railway station, directly next to the municipal public order office (</span><span class="se">\"</span><span class="s2">Ordnungsamt</span><span class="se">\"</span><span class="s2">). At the stop, there is a small snack bar as well as a covered waiting cabin."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worringer Straße"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.79472580000004</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.2223151</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZFLU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeze Flughafen"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The bus stop is located directly in front of the terminal entrance."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flughafen-Ring 60"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.16098999999997</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.59388</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jetbus"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"legal_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RheinJet GmbH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Am Hövel 9, 40667 Meerbusch"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"089 230 505 05"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fax"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_service_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 89 230 505 05"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service@rheinjet.de"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commercial_register"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amtsgericht Neuss"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commercial_register_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HRB 13389"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authorised_representative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Martin Michael"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"white_label_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data:image/png;base64, picture"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"white_label_colour_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T&amp;C"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"flight_number_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cancellation_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cancellation_cutoff"</span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"operating_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jetbus"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"legal_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RheinJet GmbH"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR-BATEAU-BALIBALO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passengers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Balibalo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bateau"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEDUS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dusseldorf"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEWEZ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weeze"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To review data of a booking at a later stage without copying it into your system, you can use our bookings#show endpoint to retrieve it and show its data.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/bookings/show</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">booking</code></td>
+<td>true</td>
+<td>22-letter alphanumeric lowercase code, provided on successful booking.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.100.041</td>
+<td>Booking is invalid or missing</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+<tr>
+<td>400.501.005</td>
+<td>Not implemented at Distribusion on bookings#show</td>
+</tr>
+<tr>
+<td>400.800.041</td>
+<td>Booking not found</td>
+</tr>
+</tbody></table>
+
+<h2 id="tickets">Tickets</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'https://api.distribusion.com/retailers/v3/bookings/ij8CE-9Wo-cQvrj7D5gQzA/tickets'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<p>The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format).</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/bookings/{id}/tickets</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.100.041</td>
+<td>Booking is invalid or missing</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+<tr>
+<td>400.501.006</td>
+<td>Not implemented at Distribusion on bookings#ticket</td>
+</tr>
+<tr>
+<td>400.800.041</td>
+<td>Booking not found</td>
+</tr>
+</tbody></table>
+
+<h1 id="cancellations">Cancellations</h1>
+
+<h2 id="conditions">Conditions</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"booking": "ij8CE-9Wo-cQvrj7D5gQzA"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/cancellations/conditions'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ij8CE-9Wo-cQvrj7D5gQzA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancellations"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cutoff"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21T18:23:27.000+02:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint enable users to retrieve detailed information about the cancellation of a specific booking.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/cancellations/conditions</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">booking</code></td>
+<td>true</td>
+<td>22-letter alphanumeric lowercase code, provided on successful booking.</td>
+</tr>
+</tbody></table>
+
+<h2 id="client-errors">Client errors</h2>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.800.041</td>
+<td>Booking not found</td>
+</tr>
+<tr>
+<td>400.501.007</td>
+<td>Not implemented at Distribusion on cancellations#conditions</td>
+</tr>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+</tbody></table>
+
+<h2 id="create">Create</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"booking": "2PoHhetdJE02kRe1DhcgOg"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/cancellations/create'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vwmT-CI-keW3zWCc1F8jjQ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancellations"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_refund"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21T18:48"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint enables users to perform the cancellation of a specific booking.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST api.distribusion.com/retailers/v3/cancellations/create</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">booking</code></td>
+<td>true</td>
+<td>22-letter alphanumeric lowercase code, provided on successful booking.</td>
+</tr>
+</tbody></table>
+
+<h2 id="client-errors">Client errors</h2>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.502.041</td>
+<td>Booking already cancelled</td>
+</tr>
+<tr>
+<td>400.800.041</td>
+<td>Booking not found</td>
+</tr>
+<tr>
+<td>400.501.008</td>
+<td>Not implemented at Distribusion on cancellations#create</td>
+</tr>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+<tr>
+<td>500.600.041</td>
+<td>Unique cancellation id cannot be generated</td>
+</tr>
+</tbody></table>
+
+<h1 id="marketing-carriers">Marketing Carriers</h1>
+
+<h2 id="index">Index</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'https://api.distribusion.com/retailers/v3/marketing_carriers'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLBS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLBS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin Linien Bus"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MMAY"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MMAY"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mayer &amp; Mayer"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postbus"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="err">.....</span><span class="w">
+</span></code></pre>
+<p>This endpoint provides a list of marketing carriers with their trade name and code. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/marketing_carriers</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+</tbody></table>
+
+<h2 id="show">Show</h2>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"locale": "en", "currency": "EUR"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/marketing_carriers/JETB'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marketing_carriers"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JETB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trade_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jetbus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"legal_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RheinJet GmbH"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Am Hövel 9, 40667 Meerbusch"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"089 230 505 05"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fax"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customer_service_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 89 230 505 05"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service@rheinjet.de"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"commercial_register"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amtsgericht Neuss"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"commercial_register_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HRB 13389"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat_no"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"authorised_representative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Martin Michael"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"white_label_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data:image/png;base64, picture"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"white_label_colour_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T&amp;C"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"flight_number_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancellation_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancellation_cutoff"</span><span class="p">:</span><span class="w"> </span><span class="mi">720</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"passenger_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passenger_types"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"extra_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passenger_types"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNOR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, cancellations conditions, terms &amp; conditions, etc. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/marketing_carriers/{code}</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">locale</code></td>
+<td>true</td>
+<td>2-letter alphanumeric lowercase code, according to ISO 639-1 standard.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>true</td>
+<td>3-letter alphanumeric uppercase code, according to ISO 4217 standard.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.101.014</td>
+<td>Locale is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.015</td>
+<td>Currency is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.040</td>
+<td>Marketing carrier is invalid or missing</td>
+</tr>
+<tr>
+<td>400.501.004</td>
+<td>Not implemented at Distribusion on bookings#form_schema</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>400.800.040</td>
+<td>Marketing carrier not found</td>
+</tr>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+</tbody></table>
+
+<h1 id="stations">Stations</h1>
+<pre class="highlight shell tab-shell"><code>curl -i --data <span class="s1">'{"locale": "en"}'</span> <span class="s1">'https://api.distribusion.com/retailers/v3/stations'</span> --header <span class="s1">'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"jsonapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEEIBUFE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEEIBUFE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eisenach Uferstraße"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uferstraße 40"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99817"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bus station is located at the intersection of Schillerstrasse and Gabelsberger Strasse, roughly 100 metres north-west of the Deutsche Bahn train station"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.978095</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.327165</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEEIB"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEBHEZOB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stations"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEBHEZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad Hersfeld ZOB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street_and_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bahnhofstraße 20"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36251"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bus station is located on the courtyard south-west of the Deutsche Bahn train station."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.868954</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.715529</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time_zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEBHE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cities"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+
+      </span><span class="err">.....</span><span class="w">
+</span></code></pre>
+<p>This endpoint enable users to retrieve detailed information about stations, such as name, id, GPS location, address and description. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET api.distribusion.com/retailers/v3/stations</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">locale</code></td>
+<td>true</td>
+<td>2-letter alphanumeric lowercase code, according to ISO 639-1 standard.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+</tbody></table>
+
+          <h1 id="errors">Errors</h1>
+
+<p>We have developed a set of error codes, destined to provide you with helpful information when integrating Distribusion API. We categorised them into three main types: </p>
+
+<ul>
+<li><p><code class="prettyprint">400</code> - <a href="https://api.distribusion.com/retailers/v3/#client-errors">Client errors</a> </p></li>
+<li><p><code class="prettyprint">500</code> - <a href="https://api.distribusion.com/retailers/v3/#server-errors">Server errors</a> </p></li>
+<li><p><code class="prettyprint">600</code> - <a href="https://api.distribusion.com/retailers/v3/#remote-server-errors">Remote server errors</a>. </p></li>
+</ul>
+
+<h2 id="client-errors">Client errors</h2>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.000.000</td>
+<td>The provided json is invalid</td>
+</tr>
+<tr>
+<td>400.100.000</td>
+<td>Request invalid</td>
+</tr>
+<tr>
+<td>400.101.002</td>
+<td>Departure stations are invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.003</td>
+<td>Arrival stations are invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.004</td>
+<td>Departure station is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.005</td>
+<td>Arrival station is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.006</td>
+<td>Departure date is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.007</td>
+<td>Departure time is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.008</td>
+<td>Arrival time is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.009</td>
+<td>PAX is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.010</td>
+<td>Retailer partner number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.011</td>
+<td>Payment method is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.012</td>
+<td>Payment token is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.013</td>
+<td>Payer ID is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.014</td>
+<td>Locale is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.015</td>
+<td>Currency is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.016</td>
+<td>Operating carrier is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.017</td>
+<td>Distribusion booking number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.018</td>
+<td>Title is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.019</td>
+<td>First name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.020</td>
+<td>Last name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.021</td>
+<td>Email is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.022</td>
+<td>Phone is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.023</td>
+<td>City is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.024</td>
+<td>Zip code is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.025</td>
+<td>Street and number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.026</td>
+<td>Total price is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.027</td>
+<td>Customer currency is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.029</td>
+<td>Send customer email is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.030</td>
+<td>Passenger first name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.031</td>
+<td>Passenger last name is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.032</td>
+<td>Passenger type is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.033</td>
+<td>Passenger type pax is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.034</td>
+<td>Passenger type code is missing or invalid</td>
+</tr>
+<tr>
+<td>400.101.035</td>
+<td>Terms accepted is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.036</td>
+<td>Flight number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.037</td>
+<td>Extra type is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.038</td>
+<td>Extra quantity is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.039</td>
+<td>Marketing carrier booking number is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.040</td>
+<td>Marketing carrier is invalid or missing</td>
+</tr>
+<tr>
+<td>400.100.041</td>
+<td>Booking is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.042</td>
+<td>Execute payment is invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.044</td>
+<td>Departure date is in the past</td>
+</tr>
+<tr>
+<td>400.101.049</td>
+<td>Departure time must be before arrival time</td>
+</tr>
+<tr>
+<td>400.101.050</td>
+<td>Extras are invalid or missing</td>
+</tr>
+<tr>
+<td>400.101.051</td>
+<td>Passengers are invalid or missing</td>
+</tr>
+<tr>
+<td>400.102.040</td>
+<td>Unknown marketing carrier</td>
+</tr>
+<tr>
+<td>400.200.001</td>
+<td>API key is invalid or missing</td>
+</tr>
+<tr>
+<td>400.502.041</td>
+<td>Booking already cancelled</td>
+</tr>
+<tr>
+<td>400.800.000</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>400.800.040</td>
+<td>Marketing carrier not found</td>
+</tr>
+<tr>
+<td>400.800.041</td>
+<td>Booking not found</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400.501.000</td>
+<td>Not implemented at Distribusion on connections#find</td>
+</tr>
+<tr>
+<td>400.501.001</td>
+<td>Not implemented on connections#redirect_to_checkout</td>
+</tr>
+<tr>
+<td>400.501.002</td>
+<td>Not implemented at Distribusion on connections#vacancy</td>
+</tr>
+<tr>
+<td>400.501.003</td>
+<td>Not implemented at Distribusion on bookings#create</td>
+</tr>
+<tr>
+<td>400.501.004</td>
+<td>Not implemented at Distribusion on bookings#form_schema</td>
+</tr>
+<tr>
+<td>400.501.005</td>
+<td>Not implemented at Distribusion on bookings#show</td>
+</tr>
+<tr>
+<td>400.501.006</td>
+<td>Not implemented at Distribusion on bookings#tickets</td>
+</tr>
+<tr>
+<td>400.501.007</td>
+<td>Not implemented at Distribusion on cancellations#conditions</td>
+</tr>
+<tr>
+<td>400.501.008</td>
+<td>Not implemented at Distribusion on cancellations#create</td>
+</tr>
+<tr>
+<td>400.501.009</td>
+<td>Not implemented at Distribusion on marketing_carriers#index</td>
+</tr>
+<tr>
+<td>400.501.010</td>
+<td>Not implemented at Distribusion on marketing_carriers#show</td>
+</tr>
+<tr>
+<td>400.501.011</td>
+<td>Not implemented at Distribusion on stations#index</td>
+</tr>
+</tbody></table>
+
+<h2 id="server-errors">Server errors</h2>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>500.000.000</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>500.100.000</td>
+<td>Service Unavailable</td>
+</tr>
+<tr>
+<td>500.500.017</td>
+<td>Unique distribusion booking number cannot be generated</td>
+</tr>
+<tr>
+<td>500.500.041</td>
+<td>Unique booking id cannot be generated</td>
+</tr>
+<tr>
+<td>500.501.000</td>
+<td>Booking not vacant</td>
+</tr>
+<tr>
+<td>500.502.026</td>
+<td>Booking price increased</td>
+</tr>
+<tr>
+<td>500.502.026</td>
+<td>Booking price decreased</td>
+</tr>
+<tr>
+<td>500.600.041</td>
+<td>Unique cancellation id cannot be generated</td>
+</tr>
+</tbody></table>
+
+<h2 id="remote-server-errors">Remote server errors</h2>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>600.000.000</td>
+<td>Marketing Carrier remote system unavailable</td>
+</tr>
+<tr>
+<td>600.100.000</td>
+<td>Marketing Carrier remote system time-out</td>
+</tr>
+<tr>
+<td>600.400.000</td>
+<td>Marketing Carrier remote request invalid</td>
+</tr>
+<tr>
+<td>600.500.000</td>
+<td>Marketing Carrier remote connection unknown error</td>
+</tr>
+<tr>
+<td>600.600.000</td>
+<td>Marketing Carrier remote vacancy unknown error</td>
+</tr>
+<tr>
+<td>600.700.000</td>
+<td>Marketing Carrier remote booking failed error (general)</td>
+</tr>
+<tr>
+<td>600.701.000</td>
+<td>Marketing Carrier remote booking capacity error</td>
+</tr>
+<tr>
+<td>600.702.000</td>
+<td>Marketing Carrier remote booking price change error</td>
+</tr>
+<tr>
+<td>600.703.000</td>
+<td>Marketing Carrier remote booking tariff unavailable error</td>
+</tr>
+<tr>
+<td>600.704.000</td>
+<td>Marketing Carrier remote booking already cancelled error</td>
+</tr>
+<tr>
+<td>600.705.000</td>
+<td>Marketing Carrier remote booking vacancy unknown error</td>
+</tr>
+<tr>
+<td>600.900.000</td>
+<td>Response received from a remote server technically cannot be processed</td>
+</tr>
+<tr>
+<td>600.901.000</td>
+<td>Response from remote server logically cannot be processed (is invalid)</td>
+</tr>
+<tr>
+<td>600.703.026</td>
+<td>Booking price unknown</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
