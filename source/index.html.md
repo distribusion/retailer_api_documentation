@@ -29,11 +29,11 @@ When performing a booking through Distribusion API, they are multiple steps that
 
 ## Collect Initial Data
 
-The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a [#stations](https://api.distribusion.com/retailers/v3/docs/#stations) and a [#marketing_carriers](https://api.distribusion.com/retailers/v3/docs/#marketing_carriers) endpoints. To retrieve stations codes, simply send a GET request towards our [#stations](https://api.distribusion.com/retailers/v3/docs/#stations) endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api.distribusion.com/retailers/v3/docs/#marketing_carriers) endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.
+The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) and a [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers) endpoints. To retrieve stations codes, simply send a GET request towards our [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers) endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.
 
 ## Find Connections
 
-After retrieving station codes, you can now start searching for connections by sending us `GET` requests towards [connections#find](https://api.distribusion.com/retailers/v3/docs/#find). We do not provide stations pair in order to allow our engines to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
+After retrieving station codes, you can now start searching for connections by sending us `GET` requests towards [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find). We do not provide stations pair in order to allow our engines to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
 
 <aside class="success">
 Remember — to query information from our API, you need to get your own API key!
@@ -41,15 +41,15 @@ Remember — to query information from our API, you need to get your own API key
 
 ## Confirm Price and Availability
 
-As [connections#find](https://api.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date. 
+As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date. 
 
 ## Build a Booking Form
 
-In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our [bookings#form_schema](https://api.distribusion.com/retailers/v3/docs/#form-schema) endpoint. 
+In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint. 
 
 ## Create a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly. 
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly. 
 
 # Authentication
 
