@@ -29,7 +29,7 @@ When performing a booking through Distribusion API, they are multiple steps that
 
 ## Collect Initial Data
 
-The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) and a [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers) endpoints. To retrieve stations codes, simply send a GET request towards our [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers) endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.
+The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) and a [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoints. To retrieve stations codes, simply send a GET request towards our [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.
 
 ## Find Connections
 
@@ -51,6 +51,12 @@ In order to accomodate the specific requirements of each marketing carrier and i
 
 After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly. 
 
+## Postman
+
+Here’s a collection of sample queries in Postman that’ll help you get up to speed with our APIs faster.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f43f2b32817c094f82b0)
+
 # Authentication
 
 > To authorize, use this code:
@@ -63,7 +69,7 @@ curl "api_endpoint_here"
 
 > Make sure to replace `AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI` with your API key.
 
-Distribusion uses API keys to allow access to the API content and perform bookings. You can register a new Distribusion API key at our [retailer portal](http://distribusion.com/).
+Distribusion uses API keys to allow access to the API content and perform bookings. You can register a new Distribusion API key by contacting us at [partner@distribusion.com](mailto:partner@distribusion.com).
 
 Distribusion expects for the API key to be included in all API requests to the server in a header that looks like the following:
 

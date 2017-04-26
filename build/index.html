@@ -263,11 +263,11 @@
 
 <h2 id="collect-initial-data">Collect Initial Data</h2>
 
-<p>The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a <a href="https://api.distribusion.com/retailers/v3/docs/#stations">#stations</a> and a <a href="https://api.distribusion.com/retailers/v3/docs/#marketing_carriers">#marketing_carriers</a> endpoints. To retrieve stations codes, simply send a GET request towards our <a href="https://api.distribusion.com/retailers/v3/docs/#stations">#stations</a> endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The <a href="https://api.distribusion.com/retailers/v3/docs/#marketing_carriers">#marketing_carriers</a> endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.</p>
+<p>The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a <a href="https://api-demo.distribusion.com/retailers/v3/docs/#stations">#stations</a> and a <a href="https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers">#marketing_carriers</a> endpoints. To retrieve stations codes, simply send a GET request towards our <a href="https://api-demo.distribusion.com/retailers/v3/docs/#stations">#stations</a> endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The <a href="https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers">#marketing_carriers</a> endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.</p>
 
 <h2 id="find-connections">Find Connections</h2>
 
-<p>After retrieving station codes, you can now start searching for connections by sending us <code class="prettyprint">GET</code> requests towards <a href="https://api.distribusion.com/retailers/v3/docs/#find">connections#find</a>. We do not provide stations pair in order to allow our engines to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.</p>
+<p>After retrieving station codes, you can now start searching for connections by sending us <code class="prettyprint">GET</code> requests towards <a href="https://api-demo.distribusion.com/retailers/v3/docs/#find">connections#find</a>. We do not provide stations pair in order to allow our engines to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.</p>
 
 <aside class="success">
 Remember — to query information from our API, you need to get your own API key!
@@ -275,15 +275,15 @@ Remember — to query information from our API, you need to get your own API key
 
 <h2 id="confirm-price-and-availability">Confirm Price and Availability</h2>
 
-<p>As <a href="https://api.distribusion.com/retailers/v3/docs/#find">connections#find</a> provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling <a href="https://api.distribusion.com/retailers/v3/docs/#vacancy">connections#vacancy</a>. This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date. </p>
+<p>As <a href="https://api-demo.distribusion.com/retailers/v3/docs/#find">connections#find</a> provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling <a href="https://api-demo.distribusion.com/retailers/v3/docs/#vacancy">connections#vacancy</a>. This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date. </p>
 
 <h2 id="build-a-booking-form">Build a Booking Form</h2>
 
-<p>In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our <a href="https://api.distribusion.com/retailers/v3/docs/#form-schema">bookings#form_schema</a> endpoint. </p>
+<p>In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our <a href="https://api-demo.distribusion.com/retailers/v3/docs/#form-schema">bookings#form_schema</a> endpoint. </p>
 
 <h2 id="create-a-booking">Create a Booking</h2>
 
-<p>After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion&rsquo;s API on <a href="https://api.distribusion.com/retailers/v3/docs/#create">bookings#create</a>. The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the <a href="https://api.distribusion.com/retailers/v3/docs/#form-schema">bookings#form_schema</a>. In case any information is missing, the API will recognise it and inform you accordingly. </p>
+<p>After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion&rsquo;s API on <a href="https://api-demo.distribusion.com/retailers/v3/docs/#create">bookings#create</a>. The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the <a href="https://api-demo.distribusion.com/retailers/v3/docs/#form-schema">bookings#form_schema</a>. In case any information is missing, the API will recognise it and inform you accordingly. </p>
 
 <h1 id="authentication">Authentication</h1>
 
