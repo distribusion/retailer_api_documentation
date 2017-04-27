@@ -2,11 +2,11 @@
 
 We have developed a set of error codes, destined to provide you with helpful information when integrating Distribusion API. We categorised them into three main types: 
 
-- `400` - [Client errors](https://api.distribusion.com/retailers/v3/#client-errors) 
+- `400` - [Client errors](https://api-demo.distribusion.com/retailers/v3/docs/#client-errors) 
 
-- `500` - [Server errors](https://api.distribusion.com/retailers/v3/#server-errors) 
+- `500` - [Server errors](https://api-demo.distribusion.com/retailers/v3/docs/#server-errors) 
 
-- `600` - [Remote server errors](https://api.distribusion.com/retailers/v3/#remote-server-errors). 
+- `600` - [Remote server errors](https://api-demo.distribusion.com/retailers/v3/docs/#remote-server-errors). 
 
 
 
