@@ -1446,6 +1446,9 @@ Parameter           | Mandatory | Description
 
 Error Code  | Meaning
 ----------- | -------
+400.000.000 | The provided json is invalid
+400.100.000 | Request invalid
+400.101.014 | Locale is invalid or missing
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
 

@@ -263,7 +263,7 @@
 
 <h2 id="collect-initial-data">Collect Initial Data</h2>
 
-<p>The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a <a href="https://api-demo.distribusion.com/retailers/v3/docs/#stations">#stations</a> and a <a href="https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers">#marketing_carriers</a> endpoints. To retrieve stations codes, simply send a GET request towards our <a href="https://api-demo.distribusion.com/retailers/v3/docs/#stations">#stations</a> endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The <a href="https://api-demo.distribusion.com/retailers/v3/docs/#marketing_carriers">#marketing_carriers</a> endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.</p>
+<p>The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a <a href="https://api-demo.distribusion.com/retailers/v3/docs/#stations">#stations</a> and a <a href="https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers">#marketing_carriers</a> endpoints. To retrieve stations codes, simply send a GET request towards our <a href="https://api-demo.distribusion.com/retailers/v3/docs/#stations">#stations</a> endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The <a href="https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers">#marketing_carriers</a> endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.</p>
 
 <h2 id="find-connections">Find Connections</h2>
 
@@ -285,6 +285,12 @@ Remember — to query information from our API, you need to get your own API key
 
 <p>After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion&rsquo;s API on <a href="https://api-demo.distribusion.com/retailers/v3/docs/#create">bookings#create</a>. The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the <a href="https://api-demo.distribusion.com/retailers/v3/docs/#form-schema">bookings#form_schema</a>. In case any information is missing, the API will recognise it and inform you accordingly. </p>
 
+<h2 id="postman">Postman</h2>
+
+<p>Here’s a collection of sample queries in Postman that’ll help you get up to speed with our APIs faster.</p>
+
+<p><a href="https://app.getpostman.com/run-collection/f43f2b32817c094f82b0"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
 <h1 id="authentication">Authentication</h1>
 
 <blockquote>
@@ -298,7 +304,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>Make sure to replace <code class="prettyprint">AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your API key.</p>
 </blockquote>
 
-<p>Distribusion uses API keys to allow access to the API content and perform bookings. You can register a new Distribusion API key at our <a href="http://distribusion.com/">retailer portal</a>.</p>
+<p>Distribusion uses API keys to allow access to the API content and perform bookings. You can register a new Distribusion API key by contacting us at <a href="mailto:partner@distribusion.com">partner@distribusion.com</a>.</p>
 
 <p>Distribusion expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
