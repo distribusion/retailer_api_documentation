@@ -17,7 +17,7 @@ search: true
 
 # Introduction
 
-Welcome to Distribusion API! You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us! Documentation for the API v2 can still be found at [Distribusion API](https://api-demo.distribusion.com/reseller/v2/docs) 
+Welcome to Distribusion API! You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us! Documentation for the API v2 can still be found at [Distribusion API](https://api-demo.distribusion.com/reseller/v2/docs)
 
 We have language bindings in Shell and Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
@@ -25,7 +25,7 @@ When integrating and testing on our API, please use the following URL: [https://
 
 # Use Case
 
-When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking. 
+When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking.
 
 ## Collect Initial Data
 
@@ -37,19 +37,19 @@ After retrieving station codes, you can now start searching for connections by s
 
 <aside class="success">
 Remember — to query information from our API, you need to get your own API key!
-</aside> 
+</aside>
 
 ## Confirm Price and Availability
 
-As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date. 
+As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date.
 
 ## Build a Booking Form
 
-In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint. 
+In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint.
 
 ## Create a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly. 
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly.
 
 ## Postman
 
@@ -84,7 +84,7 @@ You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your 
 ## Find
 
 ```shell
-curl -i --data '{"departure_stations": "DEBERZOB","arrival_stations": "DEBONHBF","departure_date": "2017-01-01","pax": 1,"locale": "en","currency": "EUR"}' 'https://api.distribusion.com/retailers/v3/connections/find' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/connections/find?departure_stations%5B%5D=DEBERZOB&arrival_stations%5B%5D=DEBONHBF&departure_date=2017-01-01&pax=1&locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -527,7 +527,7 @@ curl -i --data '{"marketing_carrier": "SPBS"}' 'https://api.distribusion.com/ret
 }
 ```
 
-To create a booking, you will need to retrieve specific information from the customer. In order to do so, you can render a booking form, which is specific to a certain connection and or marketing carrier. This endpoint will deliver you the JSON schema, describing the necessary parameters needed to perform a booking. 
+To create a booking, you will need to retrieve specific information from the customer. In order to do so, you can render a booking form, which is specific to a certain connection and or marketing carrier. This endpoint will deliver you the JSON schema, describing the necessary parameters needed to perform a booking.
 
 ### HTTP Request
 
@@ -768,7 +768,7 @@ Parameter                 | Mandatory | Description
 `zip_code` | true | 2-10-letter alphanumeric string.
 `street_and_number`       | true      | 1-99-letter alphanumeric string.
                           |           |
-`execute_payment`         | true      | Can be `true` or `false`. Flag signalling whether the payment transaction should be executed. 
+`execute_payment`         | true      | Can be `true` or `false`. Flag signalling whether the payment transaction should be executed.
 `payment_method`          | true      | Allowed value: `demand_note`, `credit_card`, `sepa_direct_debit`, `paypal`.
 `payment_token`           | false     | Unique identifier supplied by the payment service provider.
 `payer_id`                | false     | Unique identifier supplied by Paypal.
@@ -777,14 +777,14 @@ Parameter                 | Mandatory | Description
                           |           |
  `flight_number`          | false     | Required by marketing carriers in some cases. 3-9-letter alphanumeric uppercase code.
  `terms_accepted`         | true      | Flag signalling whether Terms & Conditions of the marketing carrier have been accepted. Can be `true` or `false`.
-                          |           |  
+                          |           |
 `locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
-`send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`. 
+`send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`.
                           |           |
 `passengers`              | true      | Array
 `fist_name`               | true      | First name of the passenger, 1-50-letter alphanumeric string.
-`last_name`               | true      | Last name of the customer, 1-50-letter alphanumeric string. 
+`last_name`               | true      | Last name of the customer, 1-50-letter alphanumeric string.
 `type`                    | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
                           |           |
 `extras`                  | false     | Array
@@ -1167,7 +1167,7 @@ curl -i --data '{"booking": "2PoHhetdJE02kRe1DhcgOg"}' 'https://api.distribusion
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "jsonapi": {
     "version": "1.0"
@@ -1258,7 +1258,7 @@ curl -i --data 'https://api.distribusion.com/retailers/v3/marketing_carriers' --
     .....
 ```
 
-This endpoint provides a list of marketing carriers with their trade name and code. 
+This endpoint provides a list of marketing carriers with their trade name and code.
 
 ### HTTP Request
 
@@ -1337,7 +1337,7 @@ curl -i --data '{"locale": "en", "currency": "EUR"}' 'https://api.distribusion.c
 }
 ```
 
-This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, cancellations conditions, terms & conditions, etc. 
+This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, cancellations conditions, terms & conditions, etc.
 
 ### HTTP Request
 
@@ -1429,7 +1429,7 @@ curl -i --data '{"locale": "en"}' 'https://api.distribusion.com/retailers/v3/sta
       .....
 ```
 
-This endpoint enable users to retrieve detailed information about stations, such as name, id, GPS location, address and description. 
+This endpoint enable users to retrieve detailed information about stations, such as name, id, GPS location, address and description.
 
 
 ### HTTP Request
