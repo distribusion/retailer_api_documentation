@@ -11,7 +11,7 @@ toc_footers:
 
 includes:
   - errors
-  - terminology
+  - dictionary
 
 search: true
 ---
