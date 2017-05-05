@@ -11,21 +11,41 @@ toc_footers:
 
 includes:
   - errors
+  - terminology
 
 search: true
 ---
 
-# Introduction
+# Introduction to Distribusion API
 
-Welcome to Distribusion API! You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us! Documentation for the API v2 can still be found at [Distribusion API](https://api-demo.distribusion.com/reseller/v2/docs) 
+Dear partner,
 
-We have language bindings in Shell and Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+You made it - in front of you lies the most loved API in transporation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to partner@distribusion.com in case you are unhappy or our baby is not behaving as you expected.
 
-When integrating and testing on our API, please use the following URL: [https://api-demo.distribusion.com/retailers/v3](https://api-demo.distribusion.com/retailers/v3)
+You can trust on us working hard everyday to make it your most loved product.
 
-# Use Case
+Your Distribusion IT team
+
+[Picture of the whole Distribusion team]
+
+You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us! 
+
+In this new API, Distribusion aim to standardize the stations codes across the bus industry, the same way IATA did in the flight industry. Our stations code are designed to represent specific locations using a set of 8 capital letters. The construction of such code follow a simple logic: 
+
+- The first two letters represent the country
+- The next three, the city in which the station is located
+- The last three letters represent a more precise location
+
+Example: GBLONVSA - Great Britain / London / Victoria station
+
+When integrating and testing our API, please use the following URL: [https://api-demo.distribusion.com/retailers/v3](https://api-demo.distribusion.com/retailers/v3)
+Documentation for the API v2 can still be found at [Distribusion API](https://api-demo.distribusion.com/reseller/v2/docs) 
+
+# Getting Started
 
 When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking. 
+
+![alt text](/images/API_V3.0_Workflow.png)  
 
 ## Collect Initial Data
 
@@ -53,7 +73,7 @@ After gathering information on a specific connection and the passenger informati
 
 ## Postman
 
-Here’s a collection of sample queries in Postman that’ll help you get up to speed with our APIs faster.
+Here’s a collection of sample queries in Postman that’ll help you get up to speed with our API faster.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f43f2b32817c094f82b0)
 
@@ -84,7 +104,7 @@ You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your 
 ## Find
 
 ```shell
-curl -i --data '{"departure_stations": "DEBERZOB","arrival_stations": "DEBONHBF","departure_date": "2017-01-01","pax": 1,"locale": "en","currency": "EUR"}' 'https://api.distribusion.com/retailers/v3/connections/find' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/connections/find?departure_stations%5B%5D=DEBERZOB&arrival_stations%5B%5D=DEBONHBF&departure_date=2017-01-01&pax=1&locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -270,7 +290,7 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
-curl -i --data '{"marketing_carrier": "SPBS","departure_station": "DEBERZOB","arrival_station": "DEBONHBF","departure_time": "2017-01-01T00:00","arrival_time": "2017-01-01T01:00","pax": 1,"locale": "en","currency": "EUR"}' 'https://api.distribusion.com/retailers/v3/connections/vacancy' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=SPBS&departure_station=DEBERZOB&arrival_station=DEBONHBF&departure_time=2017-01-01T00:00&arrival_time=2017-01-01T01:00&pax=1&locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -346,7 +366,7 @@ Error Code  | Meaning
 ## Form Schema
 
 ```shell
-curl -i --data '{"marketing_carrier": "SPBS"}' 'https://api.distribusion.com/retailers/v3/bookings/form_schema' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/bookings/form_schema?marketing_carrier=SPBS' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -867,7 +887,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl -i --data '{"booking": "ij8CE-9Wo-cQvrj7D5gQzA"}' 'https://api.distribusion.com/retailers/v3/bookings/show' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/bookings/show?booking=ij8CE-9Wo-cQvrj7D5gQzA' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1081,10 +1101,10 @@ Error Code  | Meaning
 ## Tickets
 
 ```shell
-curl -i --data 'https://api.distribusion.com/retailers/v3/bookings/ij8CE-9Wo-cQvrj7D5gQzA/tickets' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/bookings/ij8CE-9Wo-cQvrj7D5gQzA/tickets' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
-The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format).
+This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format).
 
 ### HTTP Request
 
@@ -1109,7 +1129,7 @@ Error Code  | Meaning
 ## Conditions
 
 ```shell
-curl -i --data '{"booking": "ij8CE-9Wo-cQvrj7D5gQzA"}' 'https://api.distribusion.com/retailers/v3/cancellations/conditions' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/cancellations/conditions?booking=ij8CE-9Wo-cQvrj7D5gQzA' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1134,7 +1154,7 @@ curl -i --data '{"booking": "ij8CE-9Wo-cQvrj7D5gQzA"}' 'https://api.distribusion
 }
 ```
 
-This endpoint enable users to retrieve detailed information about the cancellation of a specific booking.
+This endpoint enable users to retrieve detailed information about the cancellation of a specific booking. Note that not all marketing carriers offer cancellations and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allow a full (or partial) refund of the booking, no options for vouchers are currently available. 
 
 ### HTTP Request
 
@@ -1219,7 +1239,7 @@ Error Code  | Meaning
 ## Index
 
 ```shell
-curl -i --data 'https://api.distribusion.com/retailers/v3/marketing_carriers' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/marketing_carriers' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1274,7 +1294,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl -i --data '{"locale": "en", "currency": "EUR"}' 'https://api.distribusion.com/retailers/v3/marketing_carriers/JETB' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/marketing_carriers/JETB?locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1368,7 +1388,7 @@ Error Code  | Meaning
 # Stations
 
 ```shell
-curl -i --data '{"locale": "en"}' 'https://api.distribusion.com/retailers/v3/stations' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/stations?locale=en' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
