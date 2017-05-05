@@ -290,7 +290,7 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
-curl -i --data '{"marketing_carrier": "SPBS","departure_station": "DEBERZOB","arrival_station": "DEBONHBF","departure_time": "2017-01-01T00:00","arrival_time": "2017-01-01T01:00","pax": 1,"locale": "en","currency": "EUR"}' 'https://api.distribusion.com/retailers/v3/connections/vacancy' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=SPBS&departure_station=DEBERZOB&arrival_station=DEBONHBF&departure_time=2017-01-01T00:00&arrival_time=2017-01-01T01:00&pax=1&locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -366,7 +366,7 @@ Error Code  | Meaning
 ## Form Schema
 
 ```shell
-curl -i --data '{"marketing_carrier": "SPBS"}' 'https://api.distribusion.com/retailers/v3/bookings/form_schema' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/bookings/form_schema?marketing_carrier=SPBS' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -887,7 +887,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl -i --data '{"booking": "ij8CE-9Wo-cQvrj7D5gQzA"}' 'https://api.distribusion.com/retailers/v3/bookings/show' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/bookings/show?booking=ij8CE-9Wo-cQvrj7D5gQzA' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1101,7 +1101,7 @@ Error Code  | Meaning
 ## Tickets
 
 ```shell
-curl -i --data 'https://api.distribusion.com/retailers/v3/bookings/ij8CE-9Wo-cQvrj7D5gQzA/tickets' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/bookings/ij8CE-9Wo-cQvrj7D5gQzA/tickets' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format).
@@ -1129,7 +1129,7 @@ Error Code  | Meaning
 ## Conditions
 
 ```shell
-curl -i --data '{"booking": "ij8CE-9Wo-cQvrj7D5gQzA"}' 'https://api.distribusion.com/retailers/v3/cancellations/conditions' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/cancellations/conditions?booking=ij8CE-9Wo-cQvrj7D5gQzA' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1239,7 +1239,7 @@ Error Code  | Meaning
 ## Index
 
 ```shell
-curl -i --data 'https://api.distribusion.com/retailers/v3/marketing_carriers' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/marketing_carriers' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1294,7 +1294,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl -i --data '{"locale": "en", "currency": "EUR"}' 'https://api.distribusion.com/retailers/v3/marketing_carriers/JETB' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/marketing_carriers/JETB?locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1388,7 +1388,7 @@ Error Code  | Meaning
 # Stations
 
 ```shell
-curl -i --data '{"locale": "en"}' 'https://api.distribusion.com/retailers/v3/stations' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl 'https://api.distribusion.com/retailers/v3/stations?locale=en' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
