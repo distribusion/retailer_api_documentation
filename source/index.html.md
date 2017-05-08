@@ -20,17 +20,17 @@ search: true
 
 Dear partner,
 
-You made it - in front of you lies the most loved API in transporation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to partner@distribusion.com in case you are unhappy or our baby is not behaving as you expected.
+You made it - in front of you lies the most loved API in transporation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to [mailto:partner@distribusion.com](partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
 
 You can trust on us working hard everyday to make it your most loved product.
 
 Your Distribusion IT team
 
-[Picture of the whole Distribusion team]
+![alt text](/images/distribusion-it-team.png)
 
-You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us! 
+You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
 
-In this new API, Distribusion aim to standardize the stations codes across the bus industry, the same way IATA did in the flight industry. Our stations code are designed to represent specific locations using a set of 8 capital letters. The construction of such code follow a simple logic: 
+In this new API, Distribusion aim to standardize the stations codes across the bus industry, the same way IATA did in the flight industry. Our stations code are designed to represent specific locations using a set of 8 capital letters. The construction of such code follow a simple logic:
 
 - The first two letters represent the country
 - The next three, the city in which the station is located
@@ -38,12 +38,12 @@ In this new API, Distribusion aim to standardize the stations codes across the b
 
 Example: GBLONVSA - Great Britain / London / Victoria station
 
-When integrating and testing our API, please use the following URL: [https://api-demo.distribusion.com/retailers/v3](https://api-demo.distribusion.com/retailers/v3)
-Documentation for the API v2 can still be found at [Distribusion API](https://api-demo.distribusion.com/reseller/v2/docs) 
+When integrating and testing our API, please use the following URL: `https://api-demo.distribusion.com/retailers/v3`
+Documentation for the API v2 can still be found at [https://api-demo.distribusion.com/reseller/v2/docs](https://api-demo.distribusion.com/reseller/v2/docs)
 
 # Getting Started
 
-When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking. 
+When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking.
 
 ![alt text](/images/API_V3.0_Workflow.png)  
 
@@ -57,19 +57,19 @@ After retrieving station codes, you can now start searching for connections by s
 
 <aside class="success">
 Remember — to query information from our API, you need to get your own API key!
-</aside> 
-
-## Confirm Price and Availability
-
-As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date. 
+</aside>
 
 ## Build a Booking Form
 
-In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint. 
+In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint.
+
+## Confirm Price and Availability
+
+As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date.
 
 ## Create a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly. 
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly.
 
 ## Postman
 
@@ -547,7 +547,7 @@ curl 'https://api.distribusion.com/retailers/v3/bookings/form_schema?marketing_c
 }
 ```
 
-To create a booking, you will need to retrieve specific information from the customer. In order to do so, you can render a booking form, which is specific to a certain connection and or marketing carrier. This endpoint will deliver you the JSON schema, describing the necessary parameters needed to perform a booking. 
+To create a booking, you will need to retrieve specific information from the customer. In order to do so, you can render a booking form, which is specific to a certain connection and or marketing carrier. This endpoint will deliver you the JSON schema, describing the necessary parameters needed to perform a booking.
 
 ### HTTP Request
 
@@ -788,7 +788,7 @@ Parameter                 | Mandatory | Description
 `zip_code` | true | 2-10-letter alphanumeric string.
 `street_and_number`       | true      | 1-99-letter alphanumeric string.
                           |           |
-`execute_payment`         | true      | Can be `true` or `false`. Flag signalling whether the payment transaction should be executed. 
+`execute_payment`         | true      | Can be `true` or `false`. Flag signalling whether the payment transaction should be executed.
 `payment_method`          | true      | Allowed value: `demand_note`, `credit_card`, `sepa_direct_debit`, `paypal`.
 `payment_token`           | false     | Unique identifier supplied by the payment service provider.
 `payer_id`                | false     | Unique identifier supplied by Paypal.
@@ -800,11 +800,11 @@ Parameter                 | Mandatory | Description
                           |           |  
 `locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
-`send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`. 
+`send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`.
                           |           |
 `passengers`              | true      | Array
 `fist_name`               | true      | First name of the passenger, 1-50-letter alphanumeric string.
-`last_name`               | true      | Last name of the customer, 1-50-letter alphanumeric string. 
+`last_name`               | true      | Last name of the customer, 1-50-letter alphanumeric string.
 `type`                    | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
                           |           |
 `extras`                  | false     | Array
@@ -1154,7 +1154,7 @@ curl 'https://api.distribusion.com/retailers/v3/cancellations/conditions?booking
 }
 ```
 
-This endpoint enable users to retrieve detailed information about the cancellation of a specific booking. Note that not all marketing carriers offer cancellations and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allow a full (or partial) refund of the booking, no options for vouchers are currently available. 
+This endpoint enable users to retrieve detailed information about the cancellation of a specific booking. Note that not all marketing carriers offer cancellations and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allow a full (or partial) refund of the booking, no options for vouchers are currently available.
 
 ### HTTP Request
 
@@ -1187,7 +1187,7 @@ curl -i --data '{"booking": "2PoHhetdJE02kRe1DhcgOg"}' 'https://api.distribusion
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "jsonapi": {
     "version": "1.0"
@@ -1278,7 +1278,7 @@ curl 'https://api.distribusion.com/retailers/v3/marketing_carriers' --header 'Ac
     .....
 ```
 
-This endpoint provides a list of marketing carriers with their trade name and code. 
+This endpoint provides a list of marketing carriers with their trade name and code.
 
 ### HTTP Request
 
@@ -1357,7 +1357,7 @@ curl 'https://api.distribusion.com/retailers/v3/marketing_carriers/JETB?locale=e
 }
 ```
 
-This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, cancellations conditions, terms & conditions, etc. 
+This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, cancellations conditions, terms & conditions, etc.
 
 ### HTTP Request
 
@@ -1449,7 +1449,7 @@ curl 'https://api.distribusion.com/retailers/v3/stations?locale=en' --header 'Ac
       .....
 ```
 
-This endpoint enable users to retrieve detailed information about stations, such as name, id, GPS location, address and description. 
+This endpoint enable users to retrieve detailed information about stations, such as name, id, GPS location, address and description.
 
 
 ### HTTP Request
@@ -1471,4 +1471,3 @@ Error Code  | Meaning
 400.101.014 | Locale is invalid or missing
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
-
