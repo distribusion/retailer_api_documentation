@@ -20,7 +20,7 @@ search: true
 
 Dear partner,
 
-You made it - in front of you lies the most loved API in transporation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to [mailto:partner@distribusion.com](partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
+You made it - in front of you lies the most loved API in transporation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to [partner@distribusion.com](mailto:partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
 
 You can trust on us working hard everyday to make it your most loved product.
 
@@ -45,7 +45,7 @@ Documentation for the API v2 can still be found at [https://api-demo.distribusio
 
 When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking.
 
-![alt text](/images/API_V3.0_Workflow.png)  
+![alt text](/images/API_V3.0_workflow.png)  
 
 ## Collect Initial Data
 
