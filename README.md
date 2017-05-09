@@ -25,4 +25,5 @@ In this new API, Distribusion aims to standardize the stations codes across the 
 Example: GBLONVSA - Great Britain / London / Victoria station
 
 When integrating and testing our API, please use the following URL: `https://api-demo.distribusion.com/retailers/v3`
+Documentation for the API v3 is available at [https://api-demo.distribusion.com/retailers/v3/docs/](https://api-demo.distribusion.com/retailers/v3/docs/)
 Documentation for the API v2 can still be found at [https://api-demo.distribusion.com/reseller/v2/docs](https://api-demo.distribusion.com/reseller/v2/docs)
