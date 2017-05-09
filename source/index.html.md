@@ -16,11 +16,11 @@ includes:
 search: true
 ---
 
-# Introduction to Distribusion API
+# Introduction
 
 Dear partner,
 
-You made it - in front of you lies the most loved API in transporation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to [partner@distribusion.com](mailto:partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
+You made it - in front of you lies the most loved API in transportation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to [partner@distribusion.com](mailto:partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
 
 You can trust on us working hard everyday to make it your most loved product.
 
