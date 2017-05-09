@@ -12,7 +12,7 @@ You can trust on us working hard everyday to make it your most loved product.
 
 Your Distribusion IT team
 
-![alt text](/images/distribusion-it-team.png)
+-------------------------
 
 You can use our API to access Distribusion content and book bus rides. We have put a lot of thought into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
 
