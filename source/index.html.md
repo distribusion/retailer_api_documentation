@@ -16,7 +16,7 @@ includes:
 search: true
 ---
 
-# Introduction to Distribusion API
+# Introduction
 
 Dear partner,
 
