@@ -20,7 +20,7 @@ search: true
 
 Dear partner,
 
-You made it - in front of you lies the most loved API in transportation industry. Actually it is mostly the love of our dev and product team so far due to it being super brand new, but hope you will fall in love soon too. Anytime feel free to write to me personally to [partner@distribusion.com](mailto:partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
+You made it - in front of you lies the most loved API in the transporation industry. Actually, so far it is mostly the love of our dev and product team, due to it being super brand new, but we hope you will fall in love soon too. Feel free to write to me personally anytime at [partner@distribusion.com](mailto:partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
 
 You can trust on us working hard everyday to make it your most loved product.
 
@@ -28,9 +28,9 @@ Your Distribusion IT team
 
 ![alt text](/images/distribusion-it-team.png)
 
-You can use our API to access Distribusion content and book bus rides. We have put a lot of thoughts into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
+You can use our API to access Distribusion content and book bus rides. We have put a lot of thought into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
 
-In this new API, Distribusion aim to standardize the stations codes across the bus industry, the same way IATA did in the flight industry. Our stations code are designed to represent specific locations using a set of 8 capital letters. The construction of such code follow a simple logic:
+In this new API, Distribusion aims to standardize the stations codes across the bus industry, the same way IATA did in the flight industry. Our station codes are designed to represent specific locations using a set of 8 capital letters. The construction of such code follow a simple logic:
 
 - The first two letters represent the country
 - The next three, the city in which the station is located
@@ -43,33 +43,33 @@ Documentation for the API v2 can still be found at [https://api-demo.distribusio
 
 # Getting Started
 
-When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, retrieve availability and prices, build the booking form and perform a booking.
+When performing a booking through Distribusion API, they are multiple steps that are required. This section is dedicated to describe the standard flow, necessary to search for connections, to retrieve availability and prices, and to build the booking form and perform a booking.
 
 ![alt text](/images/API_V3.0_workflow.png)  
 
 ## Collect Initial Data
 
-The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide a [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) and a [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoints. To retrieve stations codes, simply send a GET request towards our [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) endpoint, which will send you a list of the stations, with stations codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoint, provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy as well as terms and conditions.
+The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) and [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoints. To retrieve station codes, simply send a GET request to our [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
 
 ## Find Connections
 
-After retrieving station codes, you can now start searching for connections by sending us `GET` requests towards [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find). We do not provide stations pair in order to allow our engines to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
+After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find). We do not provide pairs of stations in order to allow our engine to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
 
 <aside class="success">
-Remember — to query information from our API, you need to get your own API key!
+Remember — in order to query information from our API, you need to get your own API key at [partner@distribusion.com](mailto:partner@distribusion.com)!
 </aside>
 
 ## Build a Booking Form
 
-In order to accomodate the specific requirements of each marketing carrier and increase conversion rate, we also deliver a dynamic booking form. Mandatory information as well as the validation rules applied to each parameters are provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint.
+In order to accomodate the specific requirements of each marketing carrier and to increase conversion rate, we also deliver a dynamic booking form. Required information, as well as the validation rules applied to each parameters, is provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint.
 
 ## Confirm Price and Availability
 
-As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to perform a booking, in order to ensure the prices and availability are still up to date.
+As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
 
 ## Create a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant of the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly.
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant on the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly.
 
 ## Postman
 
@@ -264,7 +264,7 @@ Parameter               | Mandatory | Description
 `currency`              | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 
 <aside class="success">
-Remember — to query information from our API, you need to get your own API key at http://distribusion.com/!
+Remember — to query information from our API, you need to get your own API key at [partner@distribusion.com](mailto:partner@distribusion.com)!
 </aside>
 
 ### Errors
@@ -761,7 +761,7 @@ curl -i --data '{"marketing_carrier": "SPBS","departure_station": "DEBERZOB","ar
 }
 ```
 
-Use this endpoint to conduct bookings. Bookings created this way are the basis for invoicing. The endpoint currently supports one-way bookings only. It will also send out booking e-mails to customers. E-Mails are blocked on demo, so feel free to conduct tests bookings on our demo server (api-demo.distribusion.com).
+Use this endpoint to conduct bookings. Bookings created in this way are the basis for invoicing. The endpoint currently supports one-way bookings only. It will also send out booking e-mails to customers. E-Mails are blocked on demo, so feel free to conduct tests bookings on our demo server (api-demo.distribusion.com).
 
 
 ### HTTP Request
@@ -1072,7 +1072,7 @@ curl 'https://api.distribusion.com/retailers/v3/bookings/show?booking=ij8CE-9Wo-
 }
 ```
 
-To review data of a booking at a later stage without copying it into your system, you can use our bookings#show endpoint to retrieve it and show its data.
+To review data of a booking at a later stage without copying it into your system, you can use our [bookings#show](https://api-demo.distribusion.com/retailers/v3/docs/#show) endpoint to retrieve it and show its data.
 
 ### HTTP Request
 
