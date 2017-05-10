@@ -83,11 +83,13 @@ Here’s a collection of sample queries in Postman that’ll help you get up to 
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"\
-  -H "Api-Key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI"
+curl\
+--header‘Accept: application/vnd.api+json’ \
+--header‘Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ’\
+'api,endpoint.here'
 ```
 
-> Make sure to replace `AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI` with your API key.
+> Make sure to replace `H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ’` with your API key.
 
 Distribusion uses API keys to allow access to the API content and perform bookings. You can register a new Distribusion API key by contacting us at [partner@distribusion.com](mailto:partner@distribusion.com).
 
