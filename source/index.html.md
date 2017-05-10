@@ -86,7 +86,7 @@ Here’s a collection of sample queries in Postman that’ll help you get up to 
 curl\
 --header‘Accept: application/vnd.api+json’ \
 --header‘Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ’\
-'api,endpoint.here'
+'https://api.distribusion.com/retailers/v3/#'
 ```
 
 > Make sure to replace `H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ’` with your API key.
