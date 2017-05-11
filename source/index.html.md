@@ -83,11 +83,12 @@ Here’s a collection of sample queries in Postman that’ll help you get up to 
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Api-Key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI"
+curl  'https://api.distribusion.com/retailers/v3/#' \
+      --header 'Accept: application/vnd.api+json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
-> Make sure to replace `AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI` with your API key.
+> Make sure to replace `H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ’` with your API key.
 
 Distribusion uses API keys to allow access to the API content and perform bookings. You can register a new Distribusion API key by contacting us at [partner@distribusion.com](mailto:partner@distribusion.com).
 
@@ -104,7 +105,9 @@ You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your 
 ## Find
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/connections/find?departure_stations%5B%5D=DEBERZOB&arrival_stations%5B%5D=DEBONHBF&departure_date=2017-01-01&pax=1&locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=DEDUSZOB&arrival_stations[]=DEWEZFLU&departure_date=2017-05-29&pax=1&locale=en&currency=EUR' \
+        --header 'Content-Type: application/json' \
+        --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -290,7 +293,9 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=SPBS&departure_station=DEBERZOB&arrival_station=DEBONHBF&departure_time=2017-01-01T00:00&arrival_time=2017-01-01T01:00&pax=1&locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=JETB&departure_station=DEDUSZOB&arrival_station=DEWEZFLU&departure_time=2017-05-29T14:00&arrival_time=2017-05-29T15:30&currency=EUR&passengers[][pax]=1&passengers[][type]=PNOR' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -329,9 +334,16 @@ Parameter           | Mandatory | Description
 `arrival_station`   | true      | 8 or 9-letter alphanumeric uppercase code.
 `departure_time`    | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
 `arrival_time`      | true      | Arrival time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
-`pax`               | true      | Number of passengers - Integer in a range of 1..9.
-`locale`            | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `currency`          | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
+                    |           |
+`passengers`        | true      | Array
+`fist_name`         | true      | First name of the passenger, 1-50-letter alphanumeric string.
+`last_name`         | true      | Last name of the customer, 1-50-letter alphanumeric string.
+`type`              | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
+                    |           |
+`extras`            | false     | Array
+`quantity`          | true      | Integer in a range of 1..999.
+`type`              | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
 
 ### Errors
 
@@ -366,7 +378,9 @@ Error Code  | Meaning
 ## Form Schema
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/bookings/form_schema?marketing_carrier=SPBS' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marketing_carrier=JETB' \
+      --header 'Accept: application/vnd.api+json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -576,7 +590,10 @@ Error Code  | Meaning
 ## Create
 
 ```shell
-curl -i --data '{"marketing_carrier": "SPBS","departure_station": "DEBERZOB","arrival_station": "DEBONHBF","departure_time": "2017-01-01T00:00","arrival_time": "2017-01-01T01:00","title": "mr","first_name": "John","last_name": "Doe","email": "john.doe@customer.example","phone": "+0 123 456 78 90","city": "Berlin","zip_code": "10123","street_and_number": "1st str.","execute_payment": true,"payment_method": "demand_note","payment_token": "da0b3dfb-9cdf-4c17-8549-e179bad45765","payer_id": "7E7MGXCWTTKK2","total_price": "1100","pax": 1,"flight_number": "141DE","terms_accepted": true,"locale": "en","currency": "EUR","send_customer_email": true,"passengers": [{"first_name": "Janeth","last_name": "Doe","type": "ADLT"}],"extras": [{"quantity": 1,"type": "COFE"}]}' 'https://api.distribusion.com/retailers/v3/bookings/create' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: 4yhHNqDxO8AQ2nvH8eAwjINrlBHJNLot0dBJVEZP' \
+      --data '{"marketing_carrier": "JETB", "departure_station": "DEDUSZOB", "arrival_station": "DEWEZFLU", "departure_time": "2017-05-29T14:00", "arrival_time": "2017-05-29T15:30", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@mail.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "payer_id": "123455", "total_price": 1500, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOR"}]}'
 ```
 
 > The above command returns JSON structured like this:
@@ -591,7 +608,7 @@ curl -i --data '{"marketing_carrier": "SPBS","departure_station": "DEBERZOB","ar
     "currency": "EUR"
   },
   "data": {
-    "id": "ij8CE-9Wo-cQvrj7D5gQzA",
+    "id": "t81uBDWA0eH8dr1RReUGog",
     "type": "bookings",
     "attributes": {
       "departure_time": "2017-04-29T14:00",
@@ -887,7 +904,9 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/bookings/show?booking=ij8CE-9Wo-cQvrj7D5gQzA' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/show?booking=t81uBDWA0eH8dr1RReUGog' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -902,7 +921,7 @@ curl 'https://api.distribusion.com/retailers/v3/bookings/show?booking=ij8CE-9Wo-
     "currency": "EUR"
   },
   "data": {
-    "id": "ij8CE-9Wo-cQvrj7D5gQzA",
+    "id": "t81uBDWA0eH8dr1RReUGog",
     "type": "bookings",
     "attributes": {
       "departure_time": "2017-04-29T14:00",
@@ -1101,7 +1120,9 @@ Error Code  | Meaning
 ## Tickets
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/bookings/ij8CE-9Wo-cQvrj7D5gQzA/tickets' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/t81uBDWA0eH8dr1RReUGog/tickets' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format).
@@ -1129,7 +1150,9 @@ Error Code  | Meaning
 ## Conditions
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/cancellations/conditions?booking=ij8CE-9Wo-cQvrj7D5gQzA' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?booking=t81uBDWA0eH8dr1RReUGog' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' 
 ```
 
 > The above command returns JSON structured like this:
@@ -1180,9 +1203,11 @@ Error Code  | Meaning
 
 
 ## Create
-
 ```shell
-curl -i --data '{"booking": "2PoHhetdJE02kRe1DhcgOg"}' 'https://api.distribusion.com/retailers/v3/cancellations/create' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/create' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: 4yhHNqDxO8AQ2nvH8eAwjINrlBHJNLot0dBJVEZP' \
+      --data '{"booking": "t81uBDWA0eH8dr1RReUGog"}'
 ```
 
 > The above command returns JSON structured like this:
@@ -1239,7 +1264,9 @@ Error Code  | Meaning
 ## Index
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/marketing_carriers' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1294,7 +1321,9 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/marketing_carriers/JETB?locale=en&currency=EUR' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/JETB?locale=en&currency=EUR' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
 
 > The above command returns JSON structured like this:
@@ -1388,7 +1417,9 @@ Error Code  | Meaning
 # Stations
 
 ```shell
-curl 'https://api.distribusion.com/retailers/v3/stations?locale=en' --header 'Accept: application/vnd.api+json, Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' 
 ```
 
 > The above command returns JSON structured like this:
