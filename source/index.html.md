@@ -834,7 +834,7 @@ Parameter                 | Mandatory | Description
 `type`                    | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
 
 <aside class="notice">
-You must replace <code>retailer_partner_number</code> with your own retailer number.</aside>
+You must use your own <code>retailer_partner_number</code> to conduct booking.</aside>
 
 <aside class="warning">When sending request to our production environment, ensure that you don't play around with creating bookings, as you will have to pay for them! </aside>
 
