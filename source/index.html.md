@@ -56,7 +56,7 @@ The first step in the booking process, is the collection of the stations and mar
 After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find). We do not provide pairs of stations in order to allow our engine to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
 
 <aside class="success">
-Remember — in order to query information from our API, you need to get your own API key at [partner@distribusion.com](mailto:partner@distribusion.com)!
+Remember — in order to query information from our API, you need to get your own API key at <a href='mailto:partner@distribusion.com'>partner@distribusion.com</a>!
 </aside>
 
 ## Build a Booking Form
@@ -833,6 +833,8 @@ Parameter                 | Mandatory | Description
 `quantity`                | true      | Integer in a range of 1..999.
 `type`                    | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
 
+<aside class="notice">
+You must replace <code>retailer_partner_number</code> with your own retailer number.</aside>
 
 <aside class="warning">When sending request to our production environment, ensure that you don't play around with creating bookings, as you will have to pay for them! </aside>
 
