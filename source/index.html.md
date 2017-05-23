@@ -114,22 +114,15 @@ curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/fi
 
 ```json
 {
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "currency": "EUR",
-    "locale": "en"
-  },
   "data": [
     {
-      "id": "JETB-DEDUSZOB-DEWEZFLU-2017-04-29T14:00-2017-04-29T15:30",
+      "id": "JETB-DEDUSZOB-DEWEZFLU-2017-05-29T14:00-2017-05-29T15:30",
       "type": "connections",
       "attributes": {
-        "departure_time": "2017-04-29T14:00",
-        "arrival_time": "2017-04-29T15:30",
+        "departure_time": "2017-05-29T14:00",
+        "arrival_time": "2017-05-29T15:30",
         "duration": 5400,
-        "cheapest_total_adult_price": 1500,
+        "cheapest_total_adult_price": 2000,
         "booked_out": false
       },
       "relationships": {
@@ -178,6 +171,13 @@ curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/fi
       }
     },
     {
+      "id": "DEDUS",
+      "type": "cities",
+      "attributes": {
+        "name": "Dusseldorf"
+      }
+    },
+    {
       "id": "DEWEZFLU",
       "type": "stations",
       "attributes": {
@@ -200,6 +200,13 @@ curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/fi
       }
     },
     {
+      "id": "DEWEZ",
+      "type": "cities",
+      "attributes": {
+        "name": "Weeze"
+      }
+    },
+    {
       "id": "JETB",
       "type": "marketing_carriers",
       "attributes": {
@@ -212,37 +219,33 @@ curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/fi
         "passenger_types": {
           "data": [
             {
-              "id": "PNOR",
+              "id": "PNOS",
               "type": "passenger_types"
             }
           ]
+        },
+        "extra_types": {
+          "data": []
         }
       }
     },
     {
-      "id": "PNOR",
+      "id": "PNOS",
       "type": "passenger_types",
       "attributes": {
-        "code": "PNOR",
+        "code": "PNOS",
         "name": "Normal",
         "description": null
       }
-    },
-    {
-      "id": "DEDUS",
-      "type": "cities",
-      "attributes": {
-        "name": "Dusseldorf"
-      }
-    },
-    {
-      "id": "DEWEZ",
-      "type": "cities",
-      "attributes": {
-        "name": "Weeze"
-      }
     }
-  ]
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -293,7 +296,7 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
-curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=JETB&departure_station=DEDUSZOB&arrival_station=DEWEZFLU&departure_time=2017-05-29T14:00&arrival_time=2017-05-29T15:30&currency=EUR&passengers[][pax]=1&passengers[][type]=PNOR' \
+curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=JETB&departure_station=DEDUSZOB&arrival_station=DEWEZFLU&departure_time=2017-05-29T14:00&arrival_time=2017-05-29T15:30&currency=EUR&passengers[][pax]=1&passengers[][type]=PNOS' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -302,19 +305,19 @@ curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vaca
 
 ```json
 {
+  "data": {
+    "id": "JETB-DEDUSZOB-DEWEZFLU-2017-05-29T14:00-2017-05-29T15:30",
+    "type": "vacancies",
+    "attributes": {
+      "vacant": true,
+      "total_price": 2000
+    }
+  },
   "jsonapi": {
     "version": "1.0"
   },
   "meta": {
     "currency": "EUR"
-  },
-  "data": {
-    "id": "JETB-DEDUSZOB-DEWEZFLU-2017-04-29T14:00-2017-04-29T15:30",
-    "type": "connections",
-    "attributes": {
-      "vacant": true,
-      "total_price": 1500
-    }
   }
 }
 ```
@@ -593,31 +596,24 @@ Error Code  | Meaning
 curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
-      --data '{"marketing_carrier": "JETB", "departure_station": "DEDUSZOB", "arrival_station": "DEWEZFLU", "departure_time": "2017-05-29T14:00", "arrival_time": "2017-05-29T15:30", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@mail.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "payer_id": "123455", "total_price": 1500, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOR"}]}'
+      --data '{"marketing_carrier": "JETB", "departure_station": "DEDUSZOB", "arrival_station": "DEWEZFLU", "departure_time": "2017-05-29T14:00", "arrival_time": "2017-05-29T15:30", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@mail.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "payer_id": "123455", "total_price": 2000, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOS"}]}'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en",
-    "currency": "EUR"
-  },
   "data": {
-    "id": "t81uBDWA0eH8dr1RReUGog",
+    "id": "hrX9ll-c8xSgK4bdTdvRQA",
     "type": "bookings",
     "attributes": {
-      "departure_time": "2017-04-29T14:00",
-      "arrival_time": "2017-04-29T15:30",
+      "departure_time": "2017-05-29T14:00",
+      "arrival_time": "2017-05-29T15:30",
       "duration": 5400,
       "title": "mr",
       "first_name": "Balibalo",
       "last_name": "Bateau",
-      "email": "test@mail.com",
+      "email": "quentin@mail.com",
       "phone": "4915237601929",
       "city": "Berlin",
       "zip_code": "10123",
@@ -626,15 +622,15 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       "payment_method": "demand_note",
       "payment_token": null,
       "payer_id": "123455",
-      "total_price": 1500,
+      "total_price": 2000,
       "pax": 1,
       "flight_number": null,
-      "distribusion_booking_number": "N3TNJK",
-      "marketing_carrier_booking_number": "JWspC1GQf8vV12AZjA4NFA",
+      "distribusion_booking_number": "JBGC18",
+      "marketing_carrier_booking_number": "gj_keo9bl06laBFR2zAqlg",
       "terms_accepted": true,
-      "send_customer_email": true,
+      "send_customer_email": false,
       "retailer_partner_number": "222222",
-      "created_at": "2017-04-21T18:35"
+      "created_at": "2017-05-23T16:13"
     },
     "relationships": {
       "departure_station": {
@@ -664,13 +660,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       "passengers": {
         "data": [
           {
-            "id": "PNOR-BATEAU-BALIBALO",
+            "id": "PNOS-BATEAU-BALIBALO",
             "type": "passengers"
           }
         ]
       },
       "extras": {
-        "data": null
+        "data": []
       }
     }
   },
@@ -683,6 +679,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
         "name": "Düsseldorf ZOB",
         "description": "The stop is located at the north end of the central railway station, directly next to the municipal public order office (\"Ordnungsamt\"). At the stop, there is a small snack bar as well as a covered waiting cabin.",
         "street_and_number": "Worringer Straße",
+        "zip_code": "40210",
         "longitude": 6.79472580000004,
         "latitude": 51.2223151,
         "time_zone": "Europe/Berlin"
@@ -697,6 +694,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       }
     },
     {
+      "id": "DEDUS",
+      "type": "cities",
+      "attributes": {
+        "name": "Dusseldorf"
+      }
+    },
+    {
       "id": "DEWEZFLU",
       "type": "stations",
       "attributes": {
@@ -704,6 +708,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
         "name": "Weeze Flughafen",
         "description": "The bus stop is located directly in front of the terminal entrance.",
         "street_and_number": "Flughafen-Ring 60",
+        "zip_code": "47652",
         "longitude": 6.16098999999997,
         "latitude": 51.59388,
         "time_zone": "Europe/Berlin"
@@ -715,6 +720,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
             "type": "cities"
           }
         }
+      }
+    },
+    {
+      "id": "DEWEZ",
+      "type": "cities",
+      "attributes": {
+        "name": "Weeze"
       }
     },
     {
@@ -731,8 +743,9 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
         "email": "service@rheinjet.de",
         "commercial_register": "Amtsgericht Neuss",
         "commercial_register_number": "HRB 13389",
+        "vat_no": null,
         "authorised_representative": "Martin Michael",
-        "white_label_logo": "data:image/png;base64, picture",
+        "white_label_logo": "data:image/png;base64",
         "white_label_colour_code": null,
         "terms": "T&C",
         "flight_number_required": true,
@@ -751,30 +764,22 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       }
     },
     {
-      "id": "PNOR-BATEAU-BALIBALO",
+      "id": "PNOS-BATEAU-BALIBALO",
       "type": "passengers",
       "attributes": {
         "first_name": "Balibalo",
         "last_name": "Bateau",
-        "type": "PNOR",
-        "price": 1500
-      }
-    },
-    {
-      "id": "DEDUS",
-      "type": "cities",
-      "attributes": {
-        "name": "Dusseldorf"
-      }
-    },
-    {
-      "id": "DEWEZ",
-      "type": "cities",
-      "attributes": {
-        "name": "Weeze"
+        "type": "PNOS"
       }
     }
-  ]
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -904,7 +909,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBzizCPg' \
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/hrX9ll-c8xSgK4bdTdvRQA' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -913,24 +918,17 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
 
 ```json
 {
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en",
-    "currency": "EUR"
-  },
   "data": {
-    "id": "t81uBDWA0eH8dr1RReUGog",
+    "id": "hrX9ll-c8xSgK4bdTdvRQA",
     "type": "bookings",
     "attributes": {
-      "departure_time": "2017-04-29T14:00",
-      "arrival_time": "2017-04-29T15:30",
+      "departure_time": "2017-05-29T14:00",
+      "arrival_time": "2017-05-29T15:30",
       "duration": 5400,
       "title": "mr",
       "first_name": "Balibalo",
       "last_name": "Bateau",
-      "email": "test@mail.com",
+      "email": "quentin@mail.com",
       "phone": "4915237601929",
       "city": "Berlin",
       "zip_code": "10123",
@@ -939,15 +937,15 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
       "payment_method": "demand_note",
       "payment_token": null,
       "payer_id": "123455",
-      "total_price": 1500,
+      "total_price": 2000,
       "pax": 1,
       "flight_number": null,
-      "distribusion_booking_number": "N3TNJK",
-      "marketing_carrier_booking_number": "JWspC1GQf8vV12AZjA4NFA",
+      "distribusion_booking_number": "JBGC18",
+      "marketing_carrier_booking_number": "gj_keo9bl06laBFR2zAqlg",
       "terms_accepted": true,
-      "send_customer_email": true,
+      "send_customer_email": false,
       "retailer_partner_number": "222222",
-      "created_at": "2017-04-21T18:35"
+      "created_at": "2017-05-23T16:13"
     },
     "relationships": {
       "departure_station": {
@@ -977,13 +975,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
       "passengers": {
         "data": [
           {
-            "id": "PNOR-BATEAU-BALIBALO",
+            "id": "PNOS-BATEAU-BALIBALO",
             "type": "passengers"
           }
         ]
       },
       "extras": {
-        "data": null
+        "data": []
       }
     }
   },
@@ -996,6 +994,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
         "name": "Düsseldorf ZOB",
         "description": "The stop is located at the north end of the central railway station, directly next to the municipal public order office (\"Ordnungsamt\"). At the stop, there is a small snack bar as well as a covered waiting cabin.",
         "street_and_number": "Worringer Straße",
+        "zip_code": "40210",
         "longitude": 6.79472580000004,
         "latitude": 51.2223151,
         "time_zone": "Europe/Berlin"
@@ -1010,6 +1009,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
       }
     },
     {
+      "id": "DEDUS",
+      "type": "cities",
+      "attributes": {
+        "name": "Dusseldorf"
+      }
+    },
+    {
       "id": "DEWEZFLU",
       "type": "stations",
       "attributes": {
@@ -1017,6 +1023,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
         "name": "Weeze Flughafen",
         "description": "The bus stop is located directly in front of the terminal entrance.",
         "street_and_number": "Flughafen-Ring 60",
+        "zip_code": "47652",
         "longitude": 6.16098999999997,
         "latitude": 51.59388,
         "time_zone": "Europe/Berlin"
@@ -1028,6 +1035,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
             "type": "cities"
           }
         }
+      }
+    },
+    {
+      "id": "DEWEZ",
+      "type": "cities",
+      "attributes": {
+        "name": "Weeze"
       }
     },
     {
@@ -1044,8 +1058,9 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
         "email": "service@rheinjet.de",
         "commercial_register": "Amtsgericht Neuss",
         "commercial_register_number": "HRB 13389",
+        "vat_no": null,
         "authorised_representative": "Martin Michael",
-        "white_label_logo": "data:image/png;base64, picture",
+        "white_label_logo": "data:image/png;base64",
         "white_label_colour_code": null,
         "terms": "T&C",
         "flight_number_required": true,
@@ -1064,30 +1079,22 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/tD01cTMGVAK-b7FBz
       }
     },
     {
-      "id": "PNOR-BATEAU-BALIBALO",
+      "id": "PNOS-BATEAU-BALIBALO",
       "type": "passengers",
       "attributes": {
         "first_name": "Balibalo",
         "last_name": "Bateau",
-        "type": "PNOR",
-        "price": 1500
-      }
-    },
-    {
-      "id": "DEDUS",
-      "type": "cities",
-      "attributes": {
-        "name": "Dusseldorf"
-      }
-    },
-    {
-      "id": "DEWEZ",
-      "type": "cities",
-      "attributes": {
-        "name": "Weeze"
+        "type": "PNOS"
       }
     }
-  ]
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -1120,7 +1127,7 @@ Error Code  | Meaning
 ## Tickets
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/t81uBDWA0eH8dr1RReUGog/tickets' \
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/hrX9ll-c8xSgK4bdTdvRQA/tickets' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -1159,20 +1166,20 @@ curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?b
 
 ```json
 {
+  "data": {
+    "id": "hrX9ll-c8xSgK4bdTdvRQA",
+    "type": "cancellation_conditions",
+    "attributes": {
+      "allowed": true,
+      "fee": 1500,
+      "cutoff": "2017-05-23T16:01"
+    }
+  },
   "jsonapi": {
     "version": "1.0"
   },
   "meta": {
     "currency": "EUR"
-  },
-  "data": {
-    "id": "ij8CE-9Wo-cQvrj7D5gQzA",
-    "type": "cancellations",
-    "attributes": {
-      "allowed": true,
-      "fee": 1500,
-      "cutoff": "2017-04-21T18:23:27.000+02:00"
-    }
   }
 }
 ```
@@ -1207,28 +1214,28 @@ Error Code  | Meaning
 curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/create' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
-      --data '{"booking": "t81uBDWA0eH8dr1RReUGog"}'
+      --data '{"booking": "hrX9ll-c8xSgK4bdTdvRQA"}'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
+  "data": {
+    "id": "6JXfs7hJpMe3FsF-JfudLA",
+    "type": "cancellations",
+    "attributes": {
+      "total_price": 2000,
+      "fee": 1500,
+      "total_refund": 500,
+      "created_at": "2017-05-23T16:21"
+    }
+  },
   "jsonapi": {
     "version": "1.0"
   },
   "meta": {
     "currency": "EUR"
-  },
-  "data": {
-    "id": "vwmT-CI-keW3zWCc1F8jjQ",
-    "type": "cancellations",
-    "attributes": {
-      "total_price": 1500,
-      "fee": 1500,
-      "total_refund": 0,
-      "created_at": "2017-04-21T18:48"
-    }
   }
 }
 ```
@@ -1273,36 +1280,45 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers' \
 
 ```json
 {
-  "jsonapi": {
-    "version": "1.0"
-  },
   "data": [
     {
-      "id": "BLBS",
+      "id": "EONL",
       "type": "marketing_carriers",
       "attributes": {
-        "code": "BLBS",
-        "trade_name": "Berlin Linien Bus"
+        "code": "EONL",
+        "trade_name": "Eurobus Online"
       }
     },
     {
-      "id": "MMAY",
+      "id": "ESBU",
       "type": "marketing_carriers",
       "attributes": {
-        "code": "MMAY",
-        "trade_name": "Mayer & Mayer"
+        "code": "ESBU",
+        "trade_name": "Eskana Bus"
       }
     },
     {
-      "id": "POST",
+      "id": "AKKM",
       "type": "marketing_carriers",
       "attributes": {
-        "code": "POST",
-        "trade_name": "Postbus"
+        "code": "AKKM",
+        "trade_name": "AS Karpaten & Krim Tours (Schevschenko)"
       }
     },
-
+    {
+      "id": "BLIE",
+      "type": "marketing_carriers",
+      "attributes": {
+        "code": "BLIE",
+        "trade_name": "Blue Line"
+      }
+    },
     .....
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  }
+}
 ```
 
 This endpoint provides a list of marketing carriers with their trade name and code.
@@ -1330,13 +1346,6 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/JETB?lo
 
 ```json
 {
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en",
-    "currency": "EUR"
-  },
   "data": {
     "id": "JETB",
     "type": "marketing_carriers",
@@ -1353,7 +1362,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/JETB?lo
       "commercial_register_number": "HRB 13389",
       "vat_no": null,
       "authorised_representative": "Martin Michael",
-      "white_label_logo": "data:image/png;base64, picture",
+      "white_label_logo": "data:image/png;base64",
       "white_label_colour_code": null,
       "terms": "T&C",
       "flight_number_required": true,
@@ -1362,27 +1371,37 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/JETB?lo
       "cancellation_cutoff": 720
     },
     "relationships": {
-      "passenger_types": [
-        {
-          "data": {
-            "id": "PNOR",
+      "passenger_types": {
+        "data": [
+          {
+            "id": "PNOS",
             "type": "passenger_types"
           }
-        }
-      ],
-      "extra_types": []
+        ]
+      },
+      "extra_types": {
+        "data": []
+      }
     }
   },
   "included": [
     {
-      "id": "PNOR",
+      "id": "PNOS",
       "type": "passenger_types",
       "attributes": {
-        "code": "PNOR",
-        "name": "Normal"
+        "code": "PNOS",
+        "name": "Normal",
+        "description": null
       }
     }
-  ]
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -1426,12 +1445,6 @@ curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
 
 ```json
 {
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en"
-  },
   "data": [
     {
       "id": "DEEIBUFE",
@@ -1439,11 +1452,11 @@ curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
       "attributes": {
         "code": "DEEIBUFE",
         "name": "Eisenach Uferstraße",
+        "description": "Bus station is located at the intersection of Schillerstrasse and Gabelsberger Strasse, roughly 100 metres north-west of the Deutsche Bahn train station",
         "street_and_number": "Uferstraße 40",
         "zip_code": "99817",
-        "description": "Bus station is located at the intersection of Schillerstrasse and Gabelsberger Strasse, roughly 100 metres north-west of the Deutsche Bahn train station",
-        "latitude": 50.978095,
         "longitude": 10.327165,
+        "latitude": 50.978095,
         "time_zone": "Europe/Berlin"
       },
       "relationships": {
@@ -1461,11 +1474,11 @@ curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
       "attributes": {
         "code": "DEBHEZOB",
         "name": "Bad Hersfeld ZOB",
+        "description": "Bus station is located on the courtyard south-west of the Deutsche Bahn train station.",
         "street_and_number": "Bahnhofstraße 20",
         "zip_code": "36251",
-        "description": "Bus station is located on the courtyard south-west of the Deutsche Bahn train station.",
-        "latitude": 50.868954,
         "longitude": 9.715529,
+        "latitude": 50.868954,
         "time_zone": "Europe/Berlin"
       },
       "relationships": {
@@ -1476,8 +1489,38 @@ curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
           }
         }
       }
-
+    },
+    {
+      "id": "DEBERBZO",
+      "type": "stations",
+      "attributes": {
+        "code": "DEBERBZO",
+        "name": "Berlin Bhf Zoo",
+        "description": "The bus stop for Berlin Zoo Train Station is located right at Berlin's Zoological Gardens, at Hardenbergplatz 11, and is the departure point for numerous intercity buses. The stop is thus located slightly beyond the stops serviced by the Berlin Transit Corporation, which are nevertheless also accessible when exiting the station towards Hardenbergplatz. The proximity to the Zoo Train Station, as well as to S-Bahn lines (S5, S7, S75), U-Bahn lines (U2, U9), and regional trains is a major plus for all travellers hoping to reach other areas of Berlin.",
+        "street_and_number": "Hardenbergplatz 15",
+        "zip_code": "10623",
+        "longitude": 13.33371,
+        "latitude": 52.508425,
+        "time_zone": "Europe/Berlin"
+      },
+      "relationships": {
+        "city": {
+          "data": {
+            "id": "DEBER",
+            "type": "cities"
+          }
+        }
+      }
+    },
       .....
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en"
+  }
+}
 ```
 
 This endpoint enable users to retrieve detailed information about stations, such as name, id, GPS location, address and description.
