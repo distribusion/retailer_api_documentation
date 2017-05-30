@@ -340,8 +340,7 @@ Parameter           | Mandatory | Description
 `currency`          | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
                     |           |
 `passengers`        | true      | Array
-`fist_name`         | true      | First name of the passenger, 1-50-letter alphanumeric string.
-`last_name`         | true      | Last name of the customer, 1-50-letter alphanumeric string.
+`pax`               | true      | Number of passenger for a specific passenger type
 `type`              | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
                     |           |
 `extras`            | false     | Array
@@ -788,7 +787,7 @@ Use this endpoint to conduct bookings. Bookings created in this way are the basi
 
 ### HTTP Request
 
-`POST https://api.distribusion.com/retailers/v3/bookings`
+`POST https://api.distribusion.com/retailers/v3/bookings/create`
 
 ### Query Parameters
 
