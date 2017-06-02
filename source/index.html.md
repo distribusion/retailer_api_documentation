@@ -595,7 +595,7 @@ Error Code  | Meaning
 curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
-      --data '{"marketing_carrier": "JETB", "departure_station": "DEDUSZOB", "arrival_station": "DEWEZFLU", "departure_time": "2017-05-29T14:00", "arrival_time": "2017-05-29T15:30", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@mail.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "payer_id": "123455", "total_price": 2000, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOS"}]}'
+      --data '{"marketing_carrier": "JETB", "departure_station": "DEDUSZOB", "arrival_station": "DEWEZFLU", "departure_time": "2017-05-29T14:00", "arrival_time": "2017-05-29T15:30", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@example.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "payer_id": "123455", "total_price": 2000, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOS"}]}'
 ```
 
 > The above command returns JSON structured like this:
