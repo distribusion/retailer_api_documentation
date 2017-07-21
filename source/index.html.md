@@ -114,138 +114,138 @@ curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/fi
 
 ```json
 {
-    "data": [
-        {
-            "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
-            "type": "connections",
-            "attributes": {
-                "departure_time": "2017-08-29T05:00",
-                "arrival_time": "2017-08-29T06:00",
-                "duration": 3600,
-                "cheapest_total_adult_price": 600,
-                "booked_out": false
-            },
-            "relationships": {
-                "departure_station": {
-                    "data": {
-                        "id": "ITROMVMA",
-                        "type": "stations"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "id": "ITZRRPGA",
-                        "type": "stations"
-                    }
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "id": "SIBU",
-                        "type": "marketing_carriers"
-                    }
-                }
-            }
-        },
-      ],
-      "included": [
-        {
+  "data": [
+    {
+      "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
+      "type": "connections",
+      "attributes": {
+        "departure_time": "2017-08-29T05:00",
+        "arrival_time": "2017-08-29T06:00",
+        "duration": 3600,
+        "cheapest_total_adult_price": 600,
+        "booked_out": false
+      },
+      "relationships": {
+        "departure_station": {
+          "data": {
             "id": "ITROMVMA",
-            "type": "stations",
-            "attributes": {
-                "code": "ITROMVMA",
-                "name": "Rome Termini",
-                "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
-                "street_and_number": "Via Marsala 5",
-                "zip_code": "00185",
-                "longitude": 12.5013283000001,
-                "latitude": 41.9028484,
-                "time_zone": "Europe/Rome"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ITROM",
-                        "type": "cities"
-                    }
-                }
-            }
+            "type": "stations"
+          }
         },
-        {
-            "id": "ITROM",
-            "type": "cities",
-            "attributes": {
-                "name": "Rome"
-            }
-        },
-        {
+        "arrival_station": {
+          "data": {
             "id": "ITZRRPGA",
-            "type": "stations",
-            "attributes": {
-                "code": "ITZRRPGA",
-                "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
-                "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
-                "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
-                "zip_code": "00054",
-                "longitude": 12.2360293,
-                "latitude": 41.7726232,
-                "time_zone": "Europe/Rome"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ITZRR",
-                        "type": "cities"
-                    }
-                }
-            }
+            "type": "stations"
+          }
         },
-        {
-            "id": "ITZRR",
-            "type": "cities",
-            "attributes": {
-                "name": "Fiumicino"
-            }
-        },
-        {
+        "marketing_carrier": {
+          "data": {
             "id": "SIBU",
-            "type": "marketing_carriers",
-            "attributes": {
-                "code": "SIBU",
-                "trade_name": "SitBus",
-                "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-                "booking_fee": 0
-            },
-            "relationships": {
-                "passenger_types": {
-                    "data": [
-                        {
-                            "id": "PNOS",
-                            "type": "passenger_types"
-                        }
-                    ]
-                },
-                "extra_types": {
-                    "data": []
-                }
-            }
-        },
-        {
-            "id": "PNOS",
-            "type": "passenger_types",
-            "attributes": {
-                "code": "PNOS",
-                "name": "Normal",
-                "description": null
-            }
+            "type": "marketing_carriers"
+          }
         }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "locale": "en",
-        "currency": "EUR"
+      }
     }
+  ],
+  "included": [
+    {
+      "id": "ITROMVMA",
+      "type": "stations",
+      "attributes": {
+        "code": "ITROMVMA",
+        "name": "Rome Termini",
+        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
+        "street_and_number": "Via Marsala 5",
+        "zip_code": "00185",
+        "longitude": 12.5013283000001,
+        "latitude": 41.9028484,
+        "time_zone": "Europe/Rome"
+      },
+      "relationships": {
+        "city": {
+          "data": {
+            "id": "ITROM",
+            "type": "cities"
+          }
+        }
+      }
+    },
+    {
+      "id": "ITROM",
+      "type": "cities",
+      "attributes": {
+        "name": "Rome"
+      }
+    },
+    {
+      "id": "ITZRRPGA",
+      "type": "stations",
+      "attributes": {
+        "code": "ITZRRPGA",
+        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
+        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
+        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
+        "zip_code": "00054",
+        "longitude": 12.2360293,
+        "latitude": 41.7726232,
+        "time_zone": "Europe/Rome"
+      },
+      "relationships": {
+        "city": {
+          "data": {
+            "id": "ITZRR",
+            "type": "cities"
+          }
+        }
+      }
+    },
+    {
+      "id": "ITZRR",
+      "type": "cities",
+      "attributes": {
+        "name": "Fiumicino"
+      }
+    },
+    {
+      "id": "SIBU",
+      "type": "marketing_carriers",
+      "attributes": {
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
+        "booking_fee": 0
+      },
+      "relationships": {
+        "passenger_types": {
+          "data": [
+            {
+              "id": "PNOS",
+              "type": "passenger_types"
+            }
+          ]
+        },
+        "extra_types": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "PNOS",
+      "type": "passenger_types",
+      "attributes": {
+        "code": "PNOS",
+        "name": "Normal",
+        "description": null
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -305,20 +305,20 @@ curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vaca
 
 ```json
 {
-    "data": {
-        "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
-        "type": "vacancies",
-        "attributes": {
-            "vacant": true,
-            "total_price": 600
-        }
-    },
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "currency": "EUR"
+  "data": {
+    "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
+    "type": "vacancies",
+    "attributes": {
+      "vacant": true,
+      "total_price": 600
     }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -389,189 +389,189 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marke
 
 ```json
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-        "marketing_carrier": {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "marketing_carrier": {
+      "type": "string",
+      "pattern": "^[A-Z]{4}$"
+    },
+    "departure_station": {
+      "type": "string",
+      "pattern": "^[A-Z]{8,9}$"
+    },
+    "arrival_station": {
+      "type": "string",
+      "pattern": "^[A-Z]{8,9}$"
+    },
+    "departure_time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
+    },
+    "arrival_time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
+    },
+    "retailer_partner_number": {
+      "type": "string",
+      "pattern": "^[0-9]{5,12}$"
+    },
+    "title": {
+      "type": "string",
+      "enum": [
+        "mr",
+        "mrs"
+      ]
+    },
+    "first_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "last_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "street_and_number": {
+      "type": "string",
+      "minLength": 1
+    },
+    "zip_code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "city": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execute_payment": {
+      "type": "boolean"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "demand_note",
+        "credit_card",
+        "sepa_direct_debit",
+        "paypal"
+      ]
+    },
+    "payment_token": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "total_price": {
+      "type": "integer"
+    },
+    "pax": {
+      "type": "integer"
+    },
+    "flight_number": {
+      "type": "string",
+      "pattern": "^[0-9A-Z]{3,9}$"
+    },
+    "terms_accepted": {
+      "type": "boolean"
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2}$"
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "send_customer_email": {
+      "type": "boolean"
+    },
+    "agent_email": {
+      "type": "string"
+    },
+    "passengers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "last_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
             "type": "string",
             "pattern": "^[A-Z]{4}$"
+          }
         },
-        "departure_station": {
-            "type": "string",
-            "pattern": "^[A-Z]{8,9}$"
-        },
-        "arrival_station": {
-            "type": "string",
-            "pattern": "^[A-Z]{8,9}$"
-        },
-        "departure_time": {
-            "type": "string",
-            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
-        },
-        "arrival_time": {
-            "type": "string",
-            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
-        },
-        "retailer_partner_number": {
-            "type": "string",
-            "pattern": "^[0-9]{5,12}$"
-        },
-        "title": {
-            "type": "string",
-            "enum": [
-                "mr",
-                "mrs"
-            ]
-        },
-        "first_name": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 50
-        },
-        "last_name": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 50
-        },
-        "street_and_number": {
-            "type": "string",
-            "minLength": 1
-        },
-        "zip_code": {
-            "type": "string",
-            "minLength": 1
-        },
-        "city": {
-            "type": "string",
-            "minLength": 1
-        },
-        "email": {
-            "type": "string",
-            "minLength": 1
-        },
-        "phone": {
-            "type": "string",
-            "minLength": 1
-        },
-        "execute_payment": {
-            "type": "boolean"
-        },
-        "payment_method": {
-            "type": "string",
-            "enum": [
-                "demand_note",
-                "credit_card",
-                "sepa_direct_debit",
-                "paypal"
-            ]
-        },
-        "payment_token": {
-            "type": "string",
-            "minLength": 1
-        },
-        "payer_id": {
-            "type": "string",
-            "minLength": 1
-        },
-        "total_price": {
-            "type": "integer"
-        },
-        "pax": {
-            "type": "integer"
-        },
-        "flight_number": {
-            "type": "string",
-            "pattern": "^[0-9A-Z]{3,9}$"
-        },
-        "terms_accepted": {
-            "type": "boolean"
-        },
-        "locale": {
-            "type": "string",
-            "pattern": "^[a-z]{2}$"
-        },
-        "currency": {
-            "type": "string",
-            "pattern": "^[A-Z]{3}$"
-        },
-        "send_customer_email": {
-            "type": "boolean"
-        },
-        "agent_email": {
-            "type": "string"
-        },
-        "passengers": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "first_name": {
-                        "type": "string",
-                        "minLength": 1
-                    },
-                    "last_name": {
-                        "type": "string",
-                        "minLength": 1
-                    },
-                    "type": {
-                        "type": "string",
-                        "pattern": "^[A-Z]{4}$"
-                    }
-                },
-                "additionalProperties": false,
-                "required": [
-                    "first_name",
-                    "last_name",
-                    "type"
-                ]
-            }
-        },
-        "extras": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "quantity": {
-                        "type": "integer"
-                    },
-                    "type": {
-                        "type": "string",
-                        "minLength": 1
-                    }
-                },
-                "additionalProperties": false,
-                "required": [
-                    "quantity",
-                    "type"
-                ]
-            }
-        }
+        "additionalProperties": false,
+        "required": [
+          "first_name",
+          "last_name",
+          "type"
+        ]
+      }
     },
-    "additionalProperties": false,
-    "required": [
-        "marketing_carrier",
-        "departure_station",
-        "arrival_station",
-        "departure_time",
-        "arrival_time",
-        "retailer_partner_number",
-        "title",
-        "first_name",
-        "last_name",
-        "street_and_number",
-        "zip_code",
-        "city",
-        "email",
-        "execute_payment",
-        "payment_method",
-        "total_price",
-        "pax",
-        "terms_accepted",
-        "locale",
-        "currency",
-        "send_customer_email",
-        "passengers"
-    ]
+    "extras": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "quantity",
+          "type"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "marketing_carrier",
+    "departure_station",
+    "arrival_station",
+    "departure_time",
+    "arrival_time",
+    "retailer_partner_number",
+    "title",
+    "first_name",
+    "last_name",
+    "street_and_number",
+    "zip_code",
+    "city",
+    "email",
+    "execute_payment",
+    "payment_method",
+    "total_price",
+    "pax",
+    "terms_accepted",
+    "locale",
+    "currency",
+    "send_customer_email",
+    "passengers"
+  ]
 }
 ```
 
@@ -614,186 +614,186 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
 
 ```json
 {
-    "data": {
-        "id": "ZpXv69xrzHzk8Nb-YHGllA",
-        "type": "bookings",
-        "attributes": {
-            "departure_time": "2017-08-29T05:00",
-            "arrival_time": "2017-08-29T06:00",
-            "duration": 3600,
-            "title": "mr",
-            "first_name": "Balibalo",
-            "last_name": "Bateau",
-            "email": "quentin@mail.com",
-            "phone": "4915237601929",
-            "city": "Berlin",
-            "zip_code": "10123",
-            "street_and_number": "Berlinstr. 23",
-            "execute_payment": false,
-            "payment_method": "demand_note",
-            "payment_token": null,
-            "payer_id": null,
-            "total_price": 600,
-            "pax": 1,
-            "flight_number": null,
-            "distribusion_booking_number": "752PUE",
-            "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
-            "terms_accepted": true,
-            "send_customer_email": false,
-            "retailer_partner_number": "222222",
-            "created_at": "2017-07-21T14:57"
-        },
-        "relationships": {
-            "departure_station": {
-                "data": {
-                    "id": "ITROMVMA",
-                    "type": "stations"
-                }
-            },
-            "arrival_station": {
-                "data": {
-                    "id": "ITZRRPGA",
-                    "type": "stations"
-                }
-            },
-            "marketing_carrier": {
-                "data": {
-                    "id": "SIBU",
-                    "type": "marketing_carriers"
-                }
-            },
-            "operating_carrier": {
-                "data": {
-                    "id": "SIBU",
-                    "type": "operating_carriers"
-                }
-            },
-            "cancellation": {
-                "data": null
-            },
-            "passengers": {
-                "data": [
-                    {
-                        "id": "PNOS-BATEAU-BALIBALO-1",
-                        "type": "passengers"
-                    }
-                ]
-            },
-            "extras": {
-                "data": []
-            }
-        }
+  "data": {
+    "id": "ZpXv69xrzHzk8Nb-YHGllA",
+    "type": "bookings",
+    "attributes": {
+      "departure_time": "2017-08-29T05:00",
+      "arrival_time": "2017-08-29T06:00",
+      "duration": 3600,
+      "title": "mr",
+      "first_name": "Balibalo",
+      "last_name": "Bateau",
+      "email": "quentin@mail.com",
+      "phone": "4915237601929",
+      "city": "Berlin",
+      "zip_code": "10123",
+      "street_and_number": "Berlinstr. 23",
+      "execute_payment": false,
+      "payment_method": "demand_note",
+      "payment_token": null,
+      "payer_id": null,
+      "total_price": 600,
+      "pax": 1,
+      "flight_number": null,
+      "distribusion_booking_number": "752PUE",
+      "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
+      "terms_accepted": true,
+      "send_customer_email": false,
+      "retailer_partner_number": "222222",
+      "created_at": "2017-07-21T14:57"
     },
-    "included": [
-        {
-            "id": "ITROMVMA",
-            "type": "stations",
-            "attributes": {
-                "code": "ITROMVMA",
-                "name": "Rome Termini",
-                "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
-                "street_and_number": "Via Marsala 5",
-                "zip_code": "00185",
-                "longitude": 12.5013283000001,
-                "latitude": 41.9028484,
-                "time_zone": "Europe/Rome"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ITROM",
-                        "type": "cities"
-                    }
-                }
-            }
-        },
-        {
-            "id": "ITROM",
-            "type": "cities",
-            "attributes": {
-                "name": "Rome"
-            }
-        },
-        {
-            "id": "ITZRRPGA",
-            "type": "stations",
-            "attributes": {
-                "code": "ITZRRPGA",
-                "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
-                "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
-                "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
-                "zip_code": "00054",
-                "longitude": 12.2360293,
-                "latitude": 41.7726232,
-                "time_zone": "Europe/Rome"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ITZRR",
-                        "type": "cities"
-                    }
-                }
-            }
-        },
-        {
-            "id": "ITZRR",
-            "type": "cities",
-            "attributes": {
-                "name": "Fiumicino"
-            }
-        },
-        {
-            "id": "SIBU",
-            "type": "marketing_carriers",
-            "attributes": {
-                "code": "SIBU",
-                "trade_name": "SitBus",
-                "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-                "address": "Via Ostiense 256, 00144 Rome, Italy",
-                "phone": "+39-06-5916826 / 5923507",
-                "fax": "+39-06-5917074",
-                "customer_service_phone": "+39065916826",
-                "email": "sit@sitbus.com",
-                "commercial_register": "Company House No.406335",
-                "commercial_register_number": "REN No.P50338",
-                "vat_no": "IT01041631001",
-                "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
-                "white_label_logo": "data:image/png;base64",
-                "white_label_colour_code": "#FFFFFF",
-                "terms": "T&C",
-                "flight_number_required": false,
-                "booking_fee": 0,
-                "cancellation_fee": 600,
-                "cancellation_cutoff": null
-            }
-        },
-        {
-            "id": "SIBU",
-            "type": "operating_carriers",
-            "attributes": {
-                "code": "SIBU",
-                "trade_name": "SitBus",
-                "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
-            }
-        },
-        {
+    "relationships": {
+      "departure_station": {
+        "data": {
+          "id": "ITROMVMA",
+          "type": "stations"
+        }
+      },
+      "arrival_station": {
+        "data": {
+          "id": "ITZRRPGA",
+          "type": "stations"
+        }
+      },
+      "marketing_carrier": {
+        "data": {
+          "id": "SIBU",
+          "type": "marketing_carriers"
+        }
+      },
+      "operating_carrier": {
+        "data": {
+          "id": "SIBU",
+          "type": "operating_carriers"
+        }
+      },
+      "cancellation": {
+        "data": null
+      },
+      "passengers": {
+        "data": [
+          {
             "id": "PNOS-BATEAU-BALIBALO-1",
-            "type": "passengers",
-            "attributes": {
-                "first_name": "Balibalo",
-                "last_name": "Bateau",
-                "type": "PNOS"
-            }
-        }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "locale": "en",
-        "currency": "EUR"
+            "type": "passengers"
+          }
+        ]
+      },
+      "extras": {
+        "data": []
+      }
     }
+  },
+  "included": [
+    {
+      "id": "ITROMVMA",
+      "type": "stations",
+      "attributes": {
+        "code": "ITROMVMA",
+        "name": "Rome Termini",
+        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
+        "street_and_number": "Via Marsala 5",
+        "zip_code": "00185",
+        "longitude": 12.5013283000001,
+        "latitude": 41.9028484,
+        "time_zone": "Europe/Rome"
+      },
+      "relationships": {
+        "city": {
+          "data": {
+            "id": "ITROM",
+            "type": "cities"
+          }
+        }
+      }
+    },
+    {
+      "id": "ITROM",
+      "type": "cities",
+      "attributes": {
+        "name": "Rome"
+      }
+    },
+    {
+      "id": "ITZRRPGA",
+      "type": "stations",
+      "attributes": {
+        "code": "ITZRRPGA",
+        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
+        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
+        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
+        "zip_code": "00054",
+        "longitude": 12.2360293,
+        "latitude": 41.7726232,
+        "time_zone": "Europe/Rome"
+      },
+      "relationships": {
+        "city": {
+          "data": {
+            "id": "ITZRR",
+            "type": "cities"
+          }
+        }
+      }
+    },
+    {
+      "id": "ITZRR",
+      "type": "cities",
+      "attributes": {
+        "name": "Fiumicino"
+      }
+    },
+    {
+      "id": "SIBU",
+      "type": "marketing_carriers",
+      "attributes": {
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
+        "address": "Via Ostiense 256, 00144 Rome, Italy",
+        "phone": "+39-06-5916826 / 5923507",
+        "fax": "+39-06-5917074",
+        "customer_service_phone": "+39065916826",
+        "email": "sit@sitbus.com",
+        "commercial_register": "Company House No.406335",
+        "commercial_register_number": "REN No.P50338",
+        "vat_no": "IT01041631001",
+        "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
+        "white_label_logo": "data:image/png;base64",
+        "white_label_colour_code": "#FFFFFF",
+        "terms": "T&C",
+        "flight_number_required": false,
+        "booking_fee": 0,
+        "cancellation_fee": 600,
+        "cancellation_cutoff": null
+      }
+    },
+    {
+      "id": "SIBU",
+      "type": "operating_carriers",
+      "attributes": {
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
+      }
+    },
+    {
+      "id": "PNOS-BATEAU-BALIBALO-1",
+      "type": "passengers",
+      "attributes": {
+        "first_name": "Balibalo",
+        "last_name": "Bateau",
+        "type": "PNOS"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -934,186 +934,186 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/ZpXv69xrzHzk8Nb-Y
 
 ```json
 {
-    "data": {
-        "id": "ZpXv69xrzHzk8Nb-YHGllA",
-        "type": "bookings",
-        "attributes": {
-            "departure_time": "2017-08-29T05:00",
-            "arrival_time": "2017-08-29T06:00",
-            "duration": 3600,
-            "title": "mr",
-            "first_name": "Balibalo",
-            "last_name": "Bateau",
-            "email": "quentin@mail.com",
-            "phone": "4915237601929",
-            "city": "Berlin",
-            "zip_code": "10123",
-            "street_and_number": "Berlinstr. 23",
-            "execute_payment": false,
-            "payment_method": "demand_note",
-            "payment_token": null,
-            "payer_id": null,
-            "total_price": 600,
-            "pax": 1,
-            "flight_number": null,
-            "distribusion_booking_number": "752PUE",
-            "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
-            "terms_accepted": true,
-            "send_customer_email": false,
-            "retailer_partner_number": "222222",
-            "created_at": "2017-07-21T14:57"
-        },
-        "relationships": {
-            "departure_station": {
-                "data": {
-                    "id": "ITROMVMA",
-                    "type": "stations"
-                }
-            },
-            "arrival_station": {
-                "data": {
-                    "id": "ITZRRPGA",
-                    "type": "stations"
-                }
-            },
-            "marketing_carrier": {
-                "data": {
-                    "id": "SIBU",
-                    "type": "marketing_carriers"
-                }
-            },
-            "operating_carrier": {
-                "data": {
-                    "id": "SIBU",
-                    "type": "operating_carriers"
-                }
-            },
-            "cancellation": {
-                "data": null
-            },
-            "passengers": {
-                "data": [
-                    {
-                        "id": "PNOS-BATEAU-BALIBALO-1",
-                        "type": "passengers"
-                    }
-                ]
-            },
-            "extras": {
-                "data": []
-            }
-        }
+  "data": {
+    "id": "ZpXv69xrzHzk8Nb-YHGllA",
+    "type": "bookings",
+    "attributes": {
+      "departure_time": "2017-08-29T05:00",
+      "arrival_time": "2017-08-29T06:00",
+      "duration": 3600,
+      "title": "mr",
+      "first_name": "Balibalo",
+      "last_name": "Bateau",
+      "email": "quentin@mail.com",
+      "phone": "4915237601929",
+      "city": "Berlin",
+      "zip_code": "10123",
+      "street_and_number": "Berlinstr. 23",
+      "execute_payment": false,
+      "payment_method": "demand_note",
+      "payment_token": null,
+      "payer_id": null,
+      "total_price": 600,
+      "pax": 1,
+      "flight_number": null,
+      "distribusion_booking_number": "752PUE",
+      "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
+      "terms_accepted": true,
+      "send_customer_email": false,
+      "retailer_partner_number": "222222",
+      "created_at": "2017-07-21T14:57"
     },
-    "included": [
-        {
-            "id": "ITROMVMA",
-            "type": "stations",
-            "attributes": {
-                "code": "ITROMVMA",
-                "name": "Rome Termini",
-                "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
-                "street_and_number": "Via Marsala 5",
-                "zip_code": "00185",
-                "longitude": 12.5013283000001,
-                "latitude": 41.9028484,
-                "time_zone": "Europe/Rome"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ITROM",
-                        "type": "cities"
-                    }
-                }
-            }
-        },
-        {
-            "id": "ITROM",
-            "type": "cities",
-            "attributes": {
-                "name": "Rome"
-            }
-        },
-        {
-            "id": "ITZRRPGA",
-            "type": "stations",
-            "attributes": {
-                "code": "ITZRRPGA",
-                "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
-                "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
-                "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
-                "zip_code": "00054",
-                "longitude": 12.2360293,
-                "latitude": 41.7726232,
-                "time_zone": "Europe/Rome"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ITZRR",
-                        "type": "cities"
-                    }
-                }
-            }
-        },
-        {
-            "id": "ITZRR",
-            "type": "cities",
-            "attributes": {
-                "name": "Fiumicino"
-            }
-        },
-        {
-            "id": "SIBU",
-            "type": "marketing_carriers",
-            "attributes": {
-                "code": "SIBU",
-                "trade_name": "SitBus",
-                "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-                "address": "Via Ostiense 256, 00144 Rome, Italy",
-                "phone": "+39-06-5916826 / 5923507",
-                "fax": "+39-06-5917074",
-                "customer_service_phone": "+39065916826",
-                "email": "sit@sitbus.com",
-                "commercial_register": "Company House No.406335",
-                "commercial_register_number": "REN No.P50338",
-                "vat_no": "IT01041631001",
-                "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
-                "white_label_logo": "data:image/png;base64",
-                "white_label_colour_code": "#FFFFFF",
-                "terms": "T&C",
-                "flight_number_required": false,
-                "booking_fee": 0,
-                "cancellation_fee": 600,
-                "cancellation_cutoff": null
-            }
-        },
-        {
-            "id": "SIBU",
-            "type": "operating_carriers",
-            "attributes": {
-                "code": "SIBU",
-                "trade_name": "SitBus",
-                "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
-            }
-        },
-        {
+    "relationships": {
+      "departure_station": {
+        "data": {
+          "id": "ITROMVMA",
+          "type": "stations"
+        }
+      },
+      "arrival_station": {
+        "data": {
+          "id": "ITZRRPGA",
+          "type": "stations"
+        }
+      },
+      "marketing_carrier": {
+        "data": {
+          "id": "SIBU",
+          "type": "marketing_carriers"
+        }
+      },
+      "operating_carrier": {
+        "data": {
+          "id": "SIBU",
+          "type": "operating_carriers"
+        }
+      },
+      "cancellation": {
+        "data": null
+      },
+      "passengers": {
+        "data": [
+          {
             "id": "PNOS-BATEAU-BALIBALO-1",
-            "type": "passengers",
-            "attributes": {
-                "first_name": "Balibalo",
-                "last_name": "Bateau",
-                "type": "PNOS"
-            }
-        }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "locale": "en",
-        "currency": "EUR"
+            "type": "passengers"
+          }
+        ]
+      },
+      "extras": {
+        "data": []
+      }
     }
+  },
+  "included": [
+    {
+      "id": "ITROMVMA",
+      "type": "stations",
+      "attributes": {
+        "code": "ITROMVMA",
+        "name": "Rome Termini",
+        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
+        "street_and_number": "Via Marsala 5",
+        "zip_code": "00185",
+        "longitude": 12.5013283000001,
+        "latitude": 41.9028484,
+        "time_zone": "Europe/Rome"
+      },
+      "relationships": {
+        "city": {
+          "data": {
+            "id": "ITROM",
+            "type": "cities"
+          }
+        }
+      }
+    },
+    {
+      "id": "ITROM",
+      "type": "cities",
+      "attributes": {
+        "name": "Rome"
+      }
+    },
+    {
+      "id": "ITZRRPGA",
+      "type": "stations",
+      "attributes": {
+        "code": "ITZRRPGA",
+        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
+        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
+        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
+        "zip_code": "00054",
+        "longitude": 12.2360293,
+        "latitude": 41.7726232,
+        "time_zone": "Europe/Rome"
+      },
+      "relationships": {
+        "city": {
+          "data": {
+            "id": "ITZRR",
+            "type": "cities"
+          }
+        }
+      }
+    },
+    {
+      "id": "ITZRR",
+      "type": "cities",
+      "attributes": {
+        "name": "Fiumicino"
+      }
+    },
+    {
+      "id": "SIBU",
+      "type": "marketing_carriers",
+      "attributes": {
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
+        "address": "Via Ostiense 256, 00144 Rome, Italy",
+        "phone": "+39-06-5916826 / 5923507",
+        "fax": "+39-06-5917074",
+        "customer_service_phone": "+39065916826",
+        "email": "sit@sitbus.com",
+        "commercial_register": "Company House No.406335",
+        "commercial_register_number": "REN No.P50338",
+        "vat_no": "IT01041631001",
+        "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
+        "white_label_logo": "data:image/png;base64",
+        "white_label_colour_code": "#FFFFFF",
+        "terms": "T&C",
+        "flight_number_required": false,
+        "booking_fee": 0,
+        "cancellation_fee": 600,
+        "cancellation_cutoff": null
+      }
+    },
+    {
+      "id": "SIBU",
+      "type": "operating_carriers",
+      "attributes": {
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
+      }
+    },
+    {
+      "id": "PNOS-BATEAU-BALIBALO-1",
+      "type": "passengers",
+      "attributes": {
+        "first_name": "Balibalo",
+        "last_name": "Bateau",
+        "type": "PNOS"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -1185,21 +1185,21 @@ curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?b
 
 ```json
 {
-    "data": {
-        "id": "ZpXv69xrzHzk8Nb-YHGllA",
-        "type": "cancellation_conditions",
-        "attributes": {
-            "allowed": false,
-            "fee": null,
-            "cutoff": null
-        }
-    },
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "currency": "EUR"
+  "data": {
+    "id": "ZpXv69xrzHzk8Nb-YHGllA",
+    "type": "cancellation_conditions",
+    "attributes": {
+      "allowed": false,
+      "fee": null,
+      "cutoff": null
     }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -1331,9 +1331,10 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers' \
         "code": "BLIE",
         "trade_name": "Blue Line"
       }
-    },
-    .....
+    }
   ],
+
+  -------
   "jsonapi": {
     "version": "1.0"
   }
@@ -1350,7 +1351,7 @@ This endpoint provides a list of marketing carriers with their trade name and co
 
 Error Code  | Meaning
 ----------- | -------
-500.000.000 | Internal Server Error
+500.000.000 | Intgit ernal Server Error
 500.100.000 | Service Unavailable
 
 ## Show
@@ -1365,62 +1366,62 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/SIBU?lo
 
 ```json
 {
-    "data": {
-        "id": "SIBU",
-        "type": "marketing_carriers",
-        "attributes": {
-            "code": "SIBU",
-            "trade_name": "SitBus",
-            "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-            "address": "Via Ostiense 256, 00144 Rome, Italy",
-            "phone": "+39-06-5916826 / 5923507",
-            "fax": "+39-06-5917074",
-            "customer_service_phone": "+39065916826",
-            "email": "sit@sitbus.com",
-            "commercial_register": "Company House No.406335",
-            "commercial_register_number": "REN No.P50338",
-            "vat_no": "IT01041631001",
-            "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
-            "white_label_logo": "data:image/png;base64",
-            "white_label_colour_code": "#FFFFFF",
-            "terms": "T&C",
-            "flight_number_required": false,
-            "booking_fee": 0,
-            "cancellation_fee": 600,
-            "cancellation_cutoff": null
-        },
-        "relationships": {
-            "passenger_types": {
-                "data": [
-                    {
-                        "id": "PNOS",
-                        "type": "passenger_types"
-                    }
-                ]
-            },
-            "extra_types": {
-                "data": []
-            }
-        }
+  "data": {
+    "id": "SIBU",
+    "type": "marketing_carriers",
+    "attributes": {
+      "code": "SIBU",
+      "trade_name": "SitBus",
+      "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
+      "address": "Via Ostiense 256, 00144 Rome, Italy",
+      "phone": "+39-06-5916826 / 5923507",
+      "fax": "+39-06-5917074",
+      "customer_service_phone": "+39065916826",
+      "email": "sit@sitbus.com",
+      "commercial_register": "Company House No.406335",
+      "commercial_register_number": "REN No.P50338",
+      "vat_no": "IT01041631001",
+      "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
+      "white_label_logo": "data:image/png;base64",
+      "white_label_colour_code": "#FFFFFF",
+      "terms": "T&C",
+      "flight_number_required": false,
+      "booking_fee": 0,
+      "cancellation_fee": 600,
+      "cancellation_cutoff": null
     },
-    "included": [
-        {
+    "relationships": {
+      "passenger_types": {
+        "data": [
+          {
             "id": "PNOS",
-            "type": "passenger_types",
-            "attributes": {
-                "code": "PNOS",
-                "name": "Normal",
-                "description": null
-            }
-        }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "locale": "en",
-        "currency": "EUR"
+            "type": "passenger_types"
+          }
+        ]
+      },
+      "extra_types": {
+        "data": []
+      }
     }
+  },
+  "included": [
+    {
+      "id": "PNOS",
+      "type": "passenger_types",
+      "attributes": {
+        "code": "PNOS",
+        "name": "Normal",
+        "description": null
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
 }
 ```
 
@@ -1530,7 +1531,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
           }
         }
       }
-    },
+    }
       .....
   ],
   "jsonapi": {
