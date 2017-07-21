@@ -1356,7 +1356,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/JETB?locale=en&currency=EUR' \
+curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/SIBU?locale=en&currency=EUR' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
