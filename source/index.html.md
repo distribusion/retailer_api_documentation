@@ -75,7 +75,7 @@ After gathering information on a specific connection and the passenger informati
 
 Here’s a collection of sample queries in Postman that’ll help you get up to speed with our API faster.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f43f2b32817c094f82b0)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2f5dc6ad260e4929ff87)
 
 # Authentication
 
@@ -105,7 +105,7 @@ You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your 
 ## Find
 
 ```shell
-curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=DEDUSZOB&arrival_stations[]=DEWEZFLU&departure_date=2017-05-29&pax=1&locale=en&currency=EUR' \
+curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ITROMVMA&arrival_stations[]=ITZRRPGA&departure_date=2017-08-29&pax=1&locale=en&currency=EUR' \
         --header 'Content-Type: application/json' \
         --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -116,31 +116,31 @@ curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/fi
 {
   "data": [
     {
-      "id": "JETB-DEDUSZOB-DEWEZFLU-2017-05-29T14:00-2017-05-29T15:30",
+      "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
       "type": "connections",
       "attributes": {
-        "departure_time": "2017-05-29T14:00",
-        "arrival_time": "2017-05-29T15:30",
-        "duration": 5400,
-        "cheapest_total_adult_price": 2000,
+        "departure_time": "2017-08-29T05:00",
+        "arrival_time": "2017-08-29T06:00",
+        "duration": 3600,
+        "cheapest_total_adult_price": 600,
         "booked_out": false
       },
       "relationships": {
         "departure_station": {
           "data": {
-            "id": "DEDUSZOB",
+            "id": "ITROMVMA",
             "type": "stations"
           }
         },
         "arrival_station": {
           "data": {
-            "id": "DEWEZFLU",
+            "id": "ITZRRPGA",
             "type": "stations"
           }
         },
         "marketing_carrier": {
           "data": {
-            "id": "JETB",
+            "id": "SIBU",
             "type": "marketing_carriers"
           }
         }
@@ -149,70 +149,70 @@ curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/fi
   ],
   "included": [
     {
-      "id": "DEDUSZOB",
+      "id": "ITROMVMA",
       "type": "stations",
       "attributes": {
-        "code": "DEDUSZOB",
-        "name": "Düsseldorf ZOB",
-        "description": "The stop is located at the north end of the central railway station, directly next to the municipal public order office (\"Ordnungsamt\"). At the stop, there is a small snack bar as well as a covered waiting cabin.",
-        "street_and_number": "Worringer Straße",
-        "zip_code": "40210",
-        "longitude": 6.79472580000004,
-        "latitude": 51.2223151,
-        "time_zone": "Europe/Berlin"
+        "code": "ITROMVMA",
+        "name": "Rome Termini",
+        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
+        "street_and_number": "Via Marsala 5",
+        "zip_code": "00185",
+        "longitude": 12.5013283000001,
+        "latitude": 41.9028484,
+        "time_zone": "Europe/Rome"
       },
       "relationships": {
         "city": {
           "data": {
-            "id": "DEDUS",
+            "id": "ITROM",
             "type": "cities"
           }
         }
       }
     },
     {
-      "id": "DEDUS",
+      "id": "ITROM",
       "type": "cities",
       "attributes": {
-        "name": "Dusseldorf"
+        "name": "Rome"
       }
     },
     {
-      "id": "DEWEZFLU",
+      "id": "ITZRRPGA",
       "type": "stations",
       "attributes": {
-        "code": "DEWEZFLU",
-        "name": "Weeze Flughafen",
-        "description": "The bus stop is located directly in front of the terminal entrance.",
-        "street_and_number": "Flughafen-Ring 60",
-        "zip_code": "47652",
-        "longitude": 6.16098999999997,
-        "latitude": 51.59388,
-        "time_zone": "Europe/Berlin"
+        "code": "ITZRRPGA",
+        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
+        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
+        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
+        "zip_code": "00054",
+        "longitude": 12.2360293,
+        "latitude": 41.7726232,
+        "time_zone": "Europe/Rome"
       },
       "relationships": {
         "city": {
           "data": {
-            "id": "DEWEZ",
+            "id": "ITZRR",
             "type": "cities"
           }
         }
       }
     },
     {
-      "id": "DEWEZ",
+      "id": "ITZRR",
       "type": "cities",
       "attributes": {
-        "name": "Weeze"
+        "name": "Fiumicino"
       }
     },
     {
-      "id": "JETB",
+      "id": "SIBU",
       "type": "marketing_carriers",
       "attributes": {
-        "code": "JETB",
-        "trade_name": "Jetbus",
-        "legal_name": "RheinJet GmbH",
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
         "booking_fee": 0
       },
       "relationships": {
@@ -296,7 +296,7 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
-curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=JETB&departure_station=DEDUSZOB&arrival_station=DEWEZFLU&departure_time=2017-05-29T14:00&arrival_time=2017-05-29T15:30&currency=EUR&passengers[][pax]=1&passengers[][type]=PNOS' \
+curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=SIBU&departure_station=ITROMVMA&arrival_station=ITZRRPGA&departure_time=2017-08-29T05:00&arrival_time=2017-08-29T06:00&currency=EUR&passengers[][pax]=1&passengers[][type]=PNOS' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -306,11 +306,11 @@ curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vaca
 ```json
 {
   "data": {
-    "id": "JETB-DEDUSZOB-DEWEZFLU-2017-05-29T14:00-2017-05-29T15:30",
+    "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
     "type": "vacancies",
     "attributes": {
       "vacant": true,
-      "total_price": 2000
+      "total_price": 600
     }
   },
   "jsonapi": {
@@ -380,7 +380,7 @@ Error Code  | Meaning
 ## Form Schema
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marketing_carrier=JETB' \
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marketing_carrier=SIBU' \
       --header 'Accept: application/vnd.api+json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -406,15 +406,15 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marke
     },
     "departure_time": {
       "type": "string",
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
     },
     "arrival_time": {
       "type": "string",
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
     },
     "retailer_partner_number": {
       "type": "string",
-      "pattern": "^[0-9]{6}$"
+      "pattern": "^[0-9]{5,12}$"
     },
     "title": {
       "type": "string",
@@ -434,20 +434,24 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marke
       "maxLength": 50
     },
     "street_and_number": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "zip_code": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "city": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "email": {
       "type": "string",
-      "format": "email"
+      "minLength": 1
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "execute_payment": {
       "type": "boolean"
@@ -462,10 +466,12 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marke
       ]
     },
     "payment_token": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "payer_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "total_price": {
       "type": "integer"
@@ -491,16 +497,21 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marke
     "send_customer_email": {
       "type": "boolean"
     },
+    "agent_email": {
+      "type": "string"
+    },
     "passengers": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "first_name": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "last_name": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "type": {
             "type": "string",
@@ -524,13 +535,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marke
             "type": "integer"
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": false,
         "required": [
           "quantity",
-          "code",
           "type"
         ]
       }
@@ -558,7 +569,8 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marke
     "terms_accepted",
     "locale",
     "currency",
-    "send_customer_email"
+    "send_customer_email",
+    "passengers"
   ]
 }
 ```
@@ -595,7 +607,7 @@ Error Code  | Meaning
 curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
-      --data '{"marketing_carrier": "JETB", "departure_station": "DEDUSZOB", "arrival_station": "DEWEZFLU", "departure_time": "2017-05-29T14:00", "arrival_time": "2017-05-29T15:30", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@example.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "payer_id": "123455", "total_price": 2000, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOS"}]}'
+      --data '{"marketing_carrier": "SIBU", "departure_station": "ITROMVMA", "arrival_station": "ITZRRPGA", "departure_time": "2017-08-29T05:00", "arrival_time": "2017-08-29T06:00", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@example.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "total_price": 600, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOS"}]}'
 ```
 
 > The above command returns JSON structured like this:
@@ -603,12 +615,12 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
 ```json
 {
   "data": {
-    "id": "hrX9ll-c8xSgK4bdTdvRQA",
+    "id": "ZpXv69xrzHzk8Nb-YHGllA",
     "type": "bookings",
     "attributes": {
-      "departure_time": "2017-05-29T14:00",
-      "arrival_time": "2017-05-29T15:30",
-      "duration": 5400,
+      "departure_time": "2017-08-29T05:00",
+      "arrival_time": "2017-08-29T06:00",
+      "duration": 3600,
       "title": "mr",
       "first_name": "Balibalo",
       "last_name": "Bateau",
@@ -620,46 +632,49 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
       "execute_payment": false,
       "payment_method": "demand_note",
       "payment_token": null,
-      "payer_id": "123455",
-      "total_price": 2000,
+      "payer_id": null,
+      "total_price": 600,
       "pax": 1,
       "flight_number": null,
-      "distribusion_booking_number": "JBGC18",
-      "marketing_carrier_booking_number": "gj_keo9bl06laBFR2zAqlg",
+      "distribusion_booking_number": "752PUE",
+      "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
       "terms_accepted": true,
       "send_customer_email": false,
       "retailer_partner_number": "222222",
-      "created_at": "2017-05-23T16:13"
+      "created_at": "2017-07-21T14:57"
     },
     "relationships": {
       "departure_station": {
         "data": {
-          "id": "DEDUSZOB",
+          "id": "ITROMVMA",
           "type": "stations"
         }
       },
       "arrival_station": {
         "data": {
-          "id": "DEWEZFLU",
+          "id": "ITZRRPGA",
           "type": "stations"
         }
       },
       "marketing_carrier": {
         "data": {
-          "id": "JETB",
+          "id": "SIBU",
           "type": "marketing_carriers"
         }
       },
       "operating_carrier": {
         "data": {
-          "id": "JETB",
+          "id": "SIBU",
           "type": "operating_carriers"
         }
+      },
+      "cancellation": {
+        "data": null
       },
       "passengers": {
         "data": [
           {
-            "id": "PNOS-BATEAU-BALIBALO",
+            "id": "PNOS-BATEAU-BALIBALO-1",
             "type": "passengers"
           }
         ]
@@ -671,99 +686,99 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
   },
   "included": [
     {
-      "id": "DEDUSZOB",
+      "id": "ITROMVMA",
       "type": "stations",
       "attributes": {
-        "code": "DEDUSZOB",
-        "name": "Düsseldorf ZOB",
-        "description": "The stop is located at the north end of the central railway station, directly next to the municipal public order office (\"Ordnungsamt\"). At the stop, there is a small snack bar as well as a covered waiting cabin.",
-        "street_and_number": "Worringer Straße",
-        "zip_code": "40210",
-        "longitude": 6.79472580000004,
-        "latitude": 51.2223151,
-        "time_zone": "Europe/Berlin"
+        "code": "ITROMVMA",
+        "name": "Rome Termini",
+        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
+        "street_and_number": "Via Marsala 5",
+        "zip_code": "00185",
+        "longitude": 12.5013283000001,
+        "latitude": 41.9028484,
+        "time_zone": "Europe/Rome"
       },
       "relationships": {
         "city": {
           "data": {
-            "id": "DEDUS",
+            "id": "ITROM",
             "type": "cities"
           }
         }
       }
     },
     {
-      "id": "DEDUS",
+      "id": "ITROM",
       "type": "cities",
       "attributes": {
-        "name": "Dusseldorf"
+        "name": "Rome"
       }
     },
     {
-      "id": "DEWEZFLU",
+      "id": "ITZRRPGA",
       "type": "stations",
       "attributes": {
-        "code": "DEWEZFLU",
-        "name": "Weeze Flughafen",
-        "description": "The bus stop is located directly in front of the terminal entrance.",
-        "street_and_number": "Flughafen-Ring 60",
-        "zip_code": "47652",
-        "longitude": 6.16098999999997,
-        "latitude": 51.59388,
-        "time_zone": "Europe/Berlin"
+        "code": "ITZRRPGA",
+        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
+        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
+        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
+        "zip_code": "00054",
+        "longitude": 12.2360293,
+        "latitude": 41.7726232,
+        "time_zone": "Europe/Rome"
       },
       "relationships": {
         "city": {
           "data": {
-            "id": "DEWEZ",
+            "id": "ITZRR",
             "type": "cities"
           }
         }
       }
     },
     {
-      "id": "DEWEZ",
+      "id": "ITZRR",
       "type": "cities",
       "attributes": {
-        "name": "Weeze"
+        "name": "Fiumicino"
       }
     },
     {
-      "id": "JETB",
+      "id": "SIBU",
       "type": "marketing_carriers",
       "attributes": {
-        "code": "JETB",
-        "trade_name": "Jetbus",
-        "legal_name": "RheinJet GmbH",
-        "address": "Am Hövel 9, 40667 Meerbusch",
-        "phone": "089 230 505 05",
-        "fax": null,
-        "customer_service_phone": "+49 89 230 505 05",
-        "email": "service@rheinjet.de",
-        "commercial_register": "Amtsgericht Neuss",
-        "commercial_register_number": "HRB 13389",
-        "vat_no": null,
-        "authorised_representative": "Martin Michael",
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
+        "address": "Via Ostiense 256, 00144 Rome, Italy",
+        "phone": "+39-06-5916826 / 5923507",
+        "fax": "+39-06-5917074",
+        "customer_service_phone": "+39065916826",
+        "email": "sit@sitbus.com",
+        "commercial_register": "Company House No.406335",
+        "commercial_register_number": "REN No.P50338",
+        "vat_no": "IT01041631001",
+        "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
         "white_label_logo": "data:image/png;base64",
-        "white_label_colour_code": null,
+        "white_label_colour_code": "#FFFFFF",
         "terms": "T&C",
-        "flight_number_required": true,
+        "flight_number_required": false,
         "booking_fee": 0,
-        "cancellation_fee": 1500,
-        "cancellation_cutoff": 720
+        "cancellation_fee": 600,
+        "cancellation_cutoff": null
       }
     },
     {
-      "id": "JETB",
+      "id": "SIBU",
       "type": "operating_carriers",
       "attributes": {
-        "code": "JETB",
-        "trade_name": "Jetbus",
-        "legal_name": "RheinJet GmbH"
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
       }
     },
     {
-      "id": "PNOS-BATEAU-BALIBALO",
+      "id": "PNOS-BATEAU-BALIBALO-1",
       "type": "passengers",
       "attributes": {
         "first_name": "Balibalo",
@@ -798,7 +813,7 @@ Parameter                 | Mandatory | Description
 `arrival_station`         | true      | 8- or 9-letter alphanumeric uppercase code.
 `departure_time`          | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
 `arrival_time`            | true      | departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
-`retailer_partner_number` | true      | 6 digits number of retailer partner.
+`retailer_partner_number` | true      | 5 - 12 digits number of retailer partner.
                           |           |
 `title`                   | true      | Allowed values: "mr" or "mrs".
 `first_name`              | true      | First name of the customer, 1-50-letter alphanumeric string.
@@ -910,7 +925,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/hrX9ll-c8xSgK4bdTdvRQA' \
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/ZpXv69xrzHzk8Nb-YHGllA' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -920,12 +935,12 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/hrX9ll-c8xSgK4bdT
 ```json
 {
   "data": {
-    "id": "hrX9ll-c8xSgK4bdTdvRQA",
+    "id": "ZpXv69xrzHzk8Nb-YHGllA",
     "type": "bookings",
     "attributes": {
-      "departure_time": "2017-05-29T14:00",
-      "arrival_time": "2017-05-29T15:30",
-      "duration": 5400,
+      "departure_time": "2017-08-29T05:00",
+      "arrival_time": "2017-08-29T06:00",
+      "duration": 3600,
       "title": "mr",
       "first_name": "Balibalo",
       "last_name": "Bateau",
@@ -937,46 +952,49 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/hrX9ll-c8xSgK4bdT
       "execute_payment": false,
       "payment_method": "demand_note",
       "payment_token": null,
-      "payer_id": "123455",
-      "total_price": 2000,
+      "payer_id": null,
+      "total_price": 600,
       "pax": 1,
       "flight_number": null,
-      "distribusion_booking_number": "JBGC18",
-      "marketing_carrier_booking_number": "gj_keo9bl06laBFR2zAqlg",
+      "distribusion_booking_number": "752PUE",
+      "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
       "terms_accepted": true,
       "send_customer_email": false,
       "retailer_partner_number": "222222",
-      "created_at": "2017-05-23T16:13"
+      "created_at": "2017-07-21T14:57"
     },
     "relationships": {
       "departure_station": {
         "data": {
-          "id": "DEDUSZOB",
+          "id": "ITROMVMA",
           "type": "stations"
         }
       },
       "arrival_station": {
         "data": {
-          "id": "DEWEZFLU",
+          "id": "ITZRRPGA",
           "type": "stations"
         }
       },
       "marketing_carrier": {
         "data": {
-          "id": "JETB",
+          "id": "SIBU",
           "type": "marketing_carriers"
         }
       },
       "operating_carrier": {
         "data": {
-          "id": "JETB",
+          "id": "SIBU",
           "type": "operating_carriers"
         }
+      },
+      "cancellation": {
+        "data": null
       },
       "passengers": {
         "data": [
           {
-            "id": "PNOS-BATEAU-BALIBALO",
+            "id": "PNOS-BATEAU-BALIBALO-1",
             "type": "passengers"
           }
         ]
@@ -988,99 +1006,99 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings/hrX9ll-c8xSgK4bdT
   },
   "included": [
     {
-      "id": "DEDUSZOB",
+      "id": "ITROMVMA",
       "type": "stations",
       "attributes": {
-        "code": "DEDUSZOB",
-        "name": "Düsseldorf ZOB",
-        "description": "The stop is located at the north end of the central railway station, directly next to the municipal public order office (\"Ordnungsamt\"). At the stop, there is a small snack bar as well as a covered waiting cabin.",
-        "street_and_number": "Worringer Straße",
-        "zip_code": "40210",
-        "longitude": 6.79472580000004,
-        "latitude": 51.2223151,
-        "time_zone": "Europe/Berlin"
+        "code": "ITROMVMA",
+        "name": "Rome Termini",
+        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
+        "street_and_number": "Via Marsala 5",
+        "zip_code": "00185",
+        "longitude": 12.5013283000001,
+        "latitude": 41.9028484,
+        "time_zone": "Europe/Rome"
       },
       "relationships": {
         "city": {
           "data": {
-            "id": "DEDUS",
+            "id": "ITROM",
             "type": "cities"
           }
         }
       }
     },
     {
-      "id": "DEDUS",
+      "id": "ITROM",
       "type": "cities",
       "attributes": {
-        "name": "Dusseldorf"
+        "name": "Rome"
       }
     },
     {
-      "id": "DEWEZFLU",
+      "id": "ITZRRPGA",
       "type": "stations",
       "attributes": {
-        "code": "DEWEZFLU",
-        "name": "Weeze Flughafen",
-        "description": "The bus stop is located directly in front of the terminal entrance.",
-        "street_and_number": "Flughafen-Ring 60",
-        "zip_code": "47652",
-        "longitude": 6.16098999999997,
-        "latitude": 51.59388,
-        "time_zone": "Europe/Berlin"
+        "code": "ITZRRPGA",
+        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
+        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
+        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
+        "zip_code": "00054",
+        "longitude": 12.2360293,
+        "latitude": 41.7726232,
+        "time_zone": "Europe/Rome"
       },
       "relationships": {
         "city": {
           "data": {
-            "id": "DEWEZ",
+            "id": "ITZRR",
             "type": "cities"
           }
         }
       }
     },
     {
-      "id": "DEWEZ",
+      "id": "ITZRR",
       "type": "cities",
       "attributes": {
-        "name": "Weeze"
+        "name": "Fiumicino"
       }
     },
     {
-      "id": "JETB",
+      "id": "SIBU",
       "type": "marketing_carriers",
       "attributes": {
-        "code": "JETB",
-        "trade_name": "Jetbus",
-        "legal_name": "RheinJet GmbH",
-        "address": "Am Hövel 9, 40667 Meerbusch",
-        "phone": "089 230 505 05",
-        "fax": null,
-        "customer_service_phone": "+49 89 230 505 05",
-        "email": "service@rheinjet.de",
-        "commercial_register": "Amtsgericht Neuss",
-        "commercial_register_number": "HRB 13389",
-        "vat_no": null,
-        "authorised_representative": "Martin Michael",
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
+        "address": "Via Ostiense 256, 00144 Rome, Italy",
+        "phone": "+39-06-5916826 / 5923507",
+        "fax": "+39-06-5917074",
+        "customer_service_phone": "+39065916826",
+        "email": "sit@sitbus.com",
+        "commercial_register": "Company House No.406335",
+        "commercial_register_number": "REN No.P50338",
+        "vat_no": "IT01041631001",
+        "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
         "white_label_logo": "data:image/png;base64",
-        "white_label_colour_code": null,
+        "white_label_colour_code": "#FFFFFF",
         "terms": "T&C",
-        "flight_number_required": true,
+        "flight_number_required": false,
         "booking_fee": 0,
-        "cancellation_fee": 1500,
-        "cancellation_cutoff": 720
+        "cancellation_fee": 600,
+        "cancellation_cutoff": null
       }
     },
     {
-      "id": "JETB",
+      "id": "SIBU",
       "type": "operating_carriers",
       "attributes": {
-        "code": "JETB",
-        "trade_name": "Jetbus",
-        "legal_name": "RheinJet GmbH"
+        "code": "SIBU",
+        "trade_name": "SitBus",
+        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
       }
     },
     {
-      "id": "PNOS-BATEAU-BALIBALO",
+      "id": "PNOS-BATEAU-BALIBALO-1",
       "type": "passengers",
       "attributes": {
         "first_name": "Balibalo",
@@ -1128,7 +1146,7 @@ Error Code  | Meaning
 ## Tickets
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/hrX9ll-c8xSgK4bdTdvRQA/tickets' \
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings/ZpXv69xrzHzk8Nb-YHGllA/tickets' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -1158,7 +1176,7 @@ Error Code  | Meaning
 ## Conditions
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?booking=t81uBDWA0eH8dr1RReUGog' \
+curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?booking=ZpXv69xrzHzk8Nb-YHGllA' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' 
 ```
@@ -1168,12 +1186,12 @@ curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?b
 ```json
 {
   "data": {
-    "id": "hrX9ll-c8xSgK4bdTdvRQA",
+    "id": "ZpXv69xrzHzk8Nb-YHGllA",
     "type": "cancellation_conditions",
     "attributes": {
-      "allowed": true,
-      "fee": 1500,
-      "cutoff": "2017-05-23T16:01"
+      "allowed": false,
+      "fee": null,
+      "cutoff": null
     }
   },
   "jsonapi": {
@@ -1215,7 +1233,7 @@ Error Code  | Meaning
 curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/create' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
-      --data '{"booking": "hrX9ll-c8xSgK4bdTdvRQA"}'
+      --data '{"booking": "6JXfs7hJpMe3FsF-JfudLA"}'
 ```
 
 > The above command returns JSON structured like this:
@@ -1241,7 +1259,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/create' \
 }
 ```
 
-This endpoint enables users to perform the cancellation of a specific booking.
+This endpoint enables users to perform the cancellation of a specific booking. Note: The example is not linked to the previous booking as it is not cancellable (see bookings#conditions). 
 
 ### HTTP Request
 
@@ -1313,9 +1331,10 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers' \
         "code": "BLIE",
         "trade_name": "Blue Line"
       }
-    },
-    .....
+    }
   ],
+
+  -------
   "jsonapi": {
     "version": "1.0"
   }
@@ -1338,7 +1357,7 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/JETB?locale=en&currency=EUR' \
+curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/SIBU?locale=en&currency=EUR' \
       --header 'Content-Type: application/json' \
       --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
 ```
@@ -1348,28 +1367,28 @@ curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/JETB?lo
 ```json
 {
   "data": {
-    "id": "JETB",
+    "id": "SIBU",
     "type": "marketing_carriers",
     "attributes": {
-      "code": "JETB",
-      "trade_name": "Jetbus",
-      "legal_name": "RheinJet GmbH",
-      "address": "Am Hövel 9, 40667 Meerbusch",
-      "phone": "089 230 505 05",
-      "fax": null,
-      "customer_service_phone": "+49 89 230 505 05",
-      "email": "service@rheinjet.de",
-      "commercial_register": "Amtsgericht Neuss",
-      "commercial_register_number": "HRB 13389",
-      "vat_no": null,
-      "authorised_representative": "Martin Michael",
+      "code": "SIBU",
+      "trade_name": "SitBus",
+      "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
+      "address": "Via Ostiense 256, 00144 Rome, Italy",
+      "phone": "+39-06-5916826 / 5923507",
+      "fax": "+39-06-5917074",
+      "customer_service_phone": "+39065916826",
+      "email": "sit@sitbus.com",
+      "commercial_register": "Company House No.406335",
+      "commercial_register_number": "REN No.P50338",
+      "vat_no": "IT01041631001",
+      "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
       "white_label_logo": "data:image/png;base64",
-      "white_label_colour_code": null,
+      "white_label_colour_code": "#FFFFFF",
       "terms": "T&C",
-      "flight_number_required": true,
+      "flight_number_required": false,
       "booking_fee": 0,
-      "cancellation_fee": 1500,
-      "cancellation_cutoff": 720
+      "cancellation_fee": 600,
+      "cancellation_cutoff": null
     },
     "relationships": {
       "passenger_types": {
@@ -1512,7 +1531,7 @@ curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
           }
         }
       }
-    },
+    }
       .....
   ],
   "jsonapi": {
