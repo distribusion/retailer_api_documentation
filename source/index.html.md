@@ -1351,7 +1351,7 @@ This endpoint provides a list of marketing carriers with their trade name and co
 
 Error Code  | Meaning
 ----------- | -------
-500.000.000 | Intgit ernal Server Error
+500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
 
 ## Show
