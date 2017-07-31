@@ -921,6 +921,93 @@ Error Code  | Meaning
 600.901.000 | Response from remote server logically cannot be processed (is invalid)
 600.703.026 | Booking price unknown
 
+## Index
+
+```shell
+curl  'https://api-demo.distribusion.com/retailers/v3/bookings' \
+      --header 'Content-Type: application/json' \
+      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": "qxYan0wvPw4Xh9bUOwd6fg",
+      "type": "bookings",
+      "attributes": {
+        "departure_time": "2017-07-14T14:00",
+        "last_name": "Smith",
+        "total_price": 15000,
+        "pax": 2,
+        "distribusion_booking_number": "ZN8FX2",
+        "created_at": "2017-07-05T15:31"
+      },
+      "relationships": {
+        "departure_station": {
+          "data": {
+            "id": "DEBERCBS",
+            "type": "stations"
+          }
+        },
+        "arrival_station": {
+          "data": {
+            "id": "UAIEVZOB",
+            "type": "stations"
+          }
+        },
+        "marketing_carrier": {
+          "data": {
+            "id": "AKKM",
+            "type": "marketing_carriers"
+          }
+        },
+        "cancellation": {
+          "data": {
+            "id": "7Zr0AWGXiL-pCAb14d-9tA",
+            "type": "cancellations"
+          }
+        }
+      }
+    }
+  ],
+
+  -------
+
+  "included": [
+    {
+      "id": "AKKM",
+      "type": "marketing_carriers",
+      "attributes": {
+        "trade_name": "AS Karpaten & Krim Tours (Schevschenko)"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "meta": {
+    "locale": "en",
+    "currency": "EUR"
+  }
+}
+```
+
+You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v3/docs/#index).
+
+### HTTP Request
+
+`GET api.distribusion.com/retailers/v3/bookings`
+
+### Errors
+
+Error Code  | Meaning
+----------- | -------
+400.200.001 | API key is invalid or missing
+500.000.000 | Internal Server Error
+500.100.000 | Service Unavailable
 
 ## Show
 
@@ -1121,7 +1208,7 @@ To review data of a booking at a later stage without copying it into your system
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/bookings/show`
+`GET api.distribusion.com/retailers/v3/bookings/`
 
 ### URL Parameters
 
