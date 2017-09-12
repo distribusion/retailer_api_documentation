@@ -108,6 +108,7 @@ You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your 
 ## Find
 
 ```shell
+
     curl -X GET \
   'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations%5B%5D=FRLILBDT&arrival_stations%5B%5D=FRLYSPER&departure_date=2017-09-29&pax=1&locale=en&currency=EUR' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
@@ -735,6 +736,7 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
+
 curl -X GET \
   'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=OUIB&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2017-09-29T12%3A00&arrival_time=2017-09-29T21%3A55&currency=EUR&passengers%5B%5D%5Bpax%5D=1&passengers%5B%5D%5Btype%5D=PADU' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
@@ -2091,6 +2093,8 @@ curl -X GET \
       }
     }
   ],
+
+  -------
   "jsonapi": {
     "version": "1.0"
   }
