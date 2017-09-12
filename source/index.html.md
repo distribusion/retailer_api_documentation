@@ -163,135 +163,6 @@ You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your 
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T21:30",
-            "type": "connections",
-            "attributes": {
-                "departure_time": "2017-09-29T06:30",
-                "arrival_time": "2017-09-29T21:30",
-                "duration": 54000,
-                "cheapest_total_adult_price": 4800,
-                "booked_out": false
-            },
-            "relationships": {
-                "departure_station": {
-                    "data": {
-                        "id": "FRLILBDT",
-                        "type": "stations"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "id": "FRLYSPER",
-                        "type": "stations"
-                    }
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "id": "OUIB",
-                        "type": "marketing_carriers"
-                    }
-                },
-                "segments": {
-                    "data": [
-                        {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T21:30-0",
-                            "type": "segments"
-                        },
-                        {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T21:30-1",
-                            "type": "segments"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T19:05",
-            "type": "connections",
-            "attributes": {
-                "departure_time": "2017-09-29T07:30",
-                "arrival_time": "2017-09-29T19:05",
-                "duration": 41700,
-                "cheapest_total_adult_price": 3800,
-                "booked_out": false
-            },
-            "relationships": {
-                "departure_station": {
-                    "data": {
-                        "id": "FRLILBDT",
-                        "type": "stations"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "id": "FRLYSPER",
-                        "type": "stations"
-                    }
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "id": "OUIB",
-                        "type": "marketing_carriers"
-                    }
-                },
-                "segments": {
-                    "data": [
-                        {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T19:05-0",
-                            "type": "segments"
-                        },
-                        {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T19:05-1",
-                            "type": "segments"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T21:30",
-            "type": "connections",
-            "attributes": {
-                "departure_time": "2017-09-29T07:30",
-                "arrival_time": "2017-09-29T21:30",
-                "duration": 50400,
-                "cheapest_total_adult_price": 3800,
-                "booked_out": false
-            },
-            "relationships": {
-                "departure_station": {
-                    "data": {
-                        "id": "FRLILBDT",
-                        "type": "stations"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "id": "FRLYSPER",
-                        "type": "stations"
-                    }
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "id": "OUIB",
-                        "type": "marketing_carriers"
-                    }
-                },
-                "segments": {
-                    "data": [
-                        {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T21:30-0",
-                            "type": "segments"
-                        },
-                        {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T21:30-1",
-                            "type": "segments"
-                        }
-                    ]
-                }
-            }
-        },
-        {
             "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55",
             "type": "connections",
             "attributes": {
@@ -2074,7 +1945,7 @@ curl -X GET \
     "attributes": {
       "allowed": true,
       "fee": 1500,
-      "cutoff": 1440
+      "cutoff": "2017-09-28T12:00"
     }
   },
   "jsonapi": {
@@ -2143,7 +2014,9 @@ curl -X POST \
 }
 ```
 
-This endpoint enables users to perform the cancellation of a specific booking. Note: The example is not linked to the previous booking as it is not cancellable (see bookings#conditions). 
+This endpoint enables users to perform the cancellation of a specific booking. 
+
+Note: The example is not linked to the previous booking as it is not cancellable (see bookings#conditions). 
 
 ### HTTP Request
 
@@ -2218,8 +2091,6 @@ curl -X GET \
       }
     }
   ],
-
-  -------
   "jsonapi": {
     "version": "1.0"
   }
