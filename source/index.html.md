@@ -38,8 +38,9 @@ In this new API, Distribusion aims to standardize the stations codes across the 
 
 Example: GBLONVSA - Great Britain / London / Victoria station
 
-When integrating and testing our API, please use the following URL: `https://api-demo.distribusion.com/retailers/v3`
+When integrating and testing our API, please use the following URL: `https://api-demo.distribusion.com/retailers/v4`
 Documentation for the API v2 can still be found at [https://api-demo.distribusion.com/reseller/v2/docs](https://api-demo.distribusion.com/reseller/v2/docs)
+Documentation for the API v3 can still be found at [https://api-demo.distribusion.com/retailers/v3/docs](https://api-demo.distribusion.com/retailers/v3/docs) 
 
 # Getting Started
 
@@ -49,11 +50,11 @@ When performing a booking through Distribusion API, they are multiple steps that
 
 ## Collect Initial Data
 
-The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) and [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoints. To retrieve station codes, simply send a GET request to our [#stations](https://api-demo.distribusion.com/retailers/v3/docs/#stations) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v3/docs/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
+The first step in the booking process, is the collection of the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) and [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoints. To retrieve station codes, simply send a GET request to our [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, GPS location, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
 
 ## Find Connections
 
-After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find). We do not provide pairs of stations in order to allow our engine to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
+After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). We do not provide pairs of stations in order to allow our engine to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
 
 <aside class="success">
 Remember — in order to query information from our API, you need to get your own API key at <a href='mailto:partner@distribusion.com'>partner@distribusion.com</a>!
@@ -61,21 +62,23 @@ Remember — in order to query information from our API, you need to get your ow
 
 ## Build a Booking Form
 
-In order to accomodate the specific requirements of each marketing carrier and to increase conversion rate, we also deliver a dynamic booking form. Required information, as well as the validation rules applied to each parameters, is provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema) endpoint.
+In order to accomodate the specific requirements of each marketing carrier and to increase conversion rate, we also deliver a dynamic booking form. Required information, as well as the validation rules applied to each parameters, is provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v4/docs/#form-schema) endpoint.
 
 ## Confirm Price and Availability
 
-As [connections#find](https://api-demo.distribusion.com/retailers/v3/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v3/docs/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
+As [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v4/docs/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
 
 ## Create a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v3/docs/#create). The parameters to be sent are dependant on the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v3/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly.
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). The parameters to be sent are dependant on the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v4/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly.
+
+Note: we currently support EUR, USD, GBP and CHF currencies.
 
 ## Postman
 
 Here’s a collection of sample queries in Postman that’ll help you get up to speed with our API faster.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2f5dc6ad260e4929ff87)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/098f3f2ed1dab2ed66fe)
 
 # Authentication
 
@@ -83,9 +86,9 @@ Here’s a collection of sample queries in Postman that’ll help you get up to 
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl  'https://api.distribusion.com/retailers/v3/#' \
+curl  'https://api.distribusion.com/retailers/v4/#' \
       --header 'Accept: application/vnd.api+json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+      --header 'Api-Key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI'
 ```
 
 > Make sure to replace `H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ’` with your API key.
@@ -105,147 +108,584 @@ You must replace <code>AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI</code> with your 
 ## Find
 
 ```shell
-curl    --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ITROMVMA&arrival_stations[]=ITZRRPGA&departure_date=2017-08-29&pax=1&locale=en&currency=EUR' \
-        --header 'Content-Type: application/json' \
-        --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+
+    curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations%5B%5D=FRLILBDT&arrival_stations%5B%5D=FRLYSPER&departure_date=2017-09-29&pax=1&locale=en&currency=EUR' \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data": [
-    {
-      "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
-      "type": "connections",
-      "attributes": {
-        "departure_time": "2017-08-29T05:00",
-        "arrival_time": "2017-08-29T06:00",
-        "duration": 3600,
-        "cheapest_total_adult_price": 600,
-        "booked_out": false
-      },
-      "relationships": {
-        "departure_station": {
-          "data": {
-            "id": "ITROMVMA",
-            "type": "stations"
-          }
-        },
-        "arrival_station": {
-          "data": {
-            "id": "ITZRRPGA",
-            "type": "stations"
-          }
-        },
-        "marketing_carrier": {
-          "data": {
-            "id": "SIBU",
-            "type": "marketing_carriers"
-          }
-        }
-      }
-    }
-  ],
-  "included": [
-    {
-      "id": "ITROMVMA",
-      "type": "stations",
-      "attributes": {
-        "code": "ITROMVMA",
-        "name": "Rome Termini",
-        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
-        "street_and_number": "Via Marsala 5",
-        "zip_code": "00185",
-        "longitude": 12.5013283000001,
-        "latitude": 41.9028484,
-        "time_zone": "Europe/Rome"
-      },
-      "relationships": {
-        "city": {
-          "data": {
-            "id": "ITROM",
-            "type": "cities"
-          }
-        }
-      }
-    },
-    {
-      "id": "ITROM",
-      "type": "cities",
-      "attributes": {
-        "name": "Rome"
-      }
-    },
-    {
-      "id": "ITZRRPGA",
-      "type": "stations",
-      "attributes": {
-        "code": "ITZRRPGA",
-        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
-        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
-        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
-        "zip_code": "00054",
-        "longitude": 12.2360293,
-        "latitude": 41.7726232,
-        "time_zone": "Europe/Rome"
-      },
-      "relationships": {
-        "city": {
-          "data": {
-            "id": "ITZRR",
-            "type": "cities"
-          }
-        }
-      }
-    },
-    {
-      "id": "ITZRR",
-      "type": "cities",
-      "attributes": {
-        "name": "Fiumicino"
-      }
-    },
-    {
-      "id": "SIBU",
-      "type": "marketing_carriers",
-      "attributes": {
-        "code": "SIBU",
-        "trade_name": "SitBus",
-        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-        "booking_fee": 0
-      },
-      "relationships": {
-        "passenger_types": {
-          "data": [
-            {
-              "id": "PNOS",
-              "type": "passenger_types"
+    "data": [
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05",
+            "type": "connections",
+            "attributes": {
+                "departure_time": "2017-09-29T06:30",
+                "arrival_time": "2017-09-29T19:05",
+                "duration": 45300,
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "marketing_carriers"
+                    }
+                },
+                "segments": {
+                    "data": [
+                        {
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-0",
+                            "type": "segments"
+                        },
+                        {
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-1",
+                            "type": "segments"
+                        }
+                    ]
+                }
             }
-          ]
         },
-        "extra_types": {
-          "data": []
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55",
+            "type": "connections",
+            "attributes": {
+                "departure_time": "2017-09-29T12:00",
+                "arrival_time": "2017-09-29T21:55",
+                "duration": 35700,
+                "cheapest_total_adult_price": 3800,
+                "booked_out": false
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "marketing_carriers"
+                    }
+                },
+                "segments": {
+                    "data": [
+                        {
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+                            "type": "segments"
+                        },
+                        {
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+                            "type": "segments"
+                        }
+                    ]
+                }
+            }
         }
-      }
+    ],
+    "included": [
+        {
+            "id": "FRLILBDT",
+            "type": "stations",
+            "attributes": {
+                "code": "FRLILBDT",
+                "name": "Lille Boulevard de Turin",
+                "description": "The bus stop is located at the south side of Lille Europe station, right on the Boulevard de Turin.",
+                "street_and_number": "Boulevard de Turin 179",
+                "zip_code": "59800",
+                "longitude": 3.07739100000003,
+                "latitude": 50.6381531,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRLIL",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRLIL",
+            "type": "cities",
+            "attributes": {
+                "name": "Lille"
+            }
+        },
+        {
+            "id": "FRLYSPER",
+            "type": "stations",
+            "attributes": {
+                "code": "FRLYSPER",
+                "name": "Lyon Perrache SNCF Train Station",
+                "description": "The stop is located in front of Metro Station Perrache at Cours de Verdun Gensoul.",
+                "street_and_number": "Cours de Verdun Gensoul 1 ,sous le pont de Perrache",
+                "zip_code": "69002",
+                "longitude": 4.82631130000004,
+                "latitude": 45.7492462,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRLYS",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRLYS",
+            "type": "cities",
+            "attributes": {
+                "name": "Lyon"
+            }
+        },
+        {
+            "id": "OUIB",
+            "type": "marketing_carriers",
+            "attributes": {
+                "code": "OUIB",
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6",
+                "booking_fee": 0
+            },
+            "relationships": {
+                "passenger_types": {
+                    "data": [
+                        {
+                            "id": "PADU",
+                            "type": "passenger_types"
+                        },
+                        {
+                            "id": "PBMD",
+                            "type": "passenger_types"
+                        },
+                        {
+                            "id": "PYOH",
+                            "type": "passenger_types"
+                        },
+                        {
+                            "id": "PYUT",
+                            "type": "passenger_types"
+                        },
+                        {
+                            "id": "PYUH",
+                            "type": "passenger_types"
+                        }
+                    ]
+                },
+                "extra_types": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "PADU",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PADU",
+                "name": "Adults (18+)",
+                "description": "Adults"
+            }
+        },
+        {
+            "id": "PBMD",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PBMD",
+                "name": "Baby (under 2 years)",
+                "description": "Baby (under 2 years)"
+            }
+        },
+        {
+            "id": "PYOH",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PYOH",
+                "name": "Youth (2-11)",
+                "description": null
+            }
+        },
+        {
+            "id": "PYUT",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PYUT",
+                "name": "Youth (12-15)",
+                "description": null
+            }
+        },
+        {
+            "id": "PYUH",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PYUH",
+                "name": "Youth (16-17)",
+                "description": null
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-0",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T06:30",
+                "arrival_time": "2017-09-29T09:30",
+                "index": 0
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRPARBER",
+            "type": "stations",
+            "attributes": {
+                "code": "FRPARBER",
+                "name": "Paris Bercy",
+                "description": "The bus stop is located in front of the main entrance of the train station \"Paris Bercy\".",
+                "street_and_number": "Boulevard de Bercy 48",
+                "zip_code": "75012",
+                "longitude": 2.38268140000002,
+                "latitude": 48.8382267,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRPAR",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRPAR",
+            "type": "cities",
+            "attributes": {
+                "name": "Paris"
+            }
+        },
+        {
+            "id": "OUIB",
+            "type": "operating_carriers",
+            "attributes": {
+                "code": "OUIB",
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6"
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-1",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T12:30",
+                "arrival_time": "2017-09-29T19:05",
+                "index": 1
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T21:30-0",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T06:30",
+                "arrival_time": "2017-09-29T09:30",
+                "index": 0
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T21:30-1",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T13:30",
+                "arrival_time": "2017-09-29T21:30",
+                "index": 1
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T19:05-0",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T07:30",
+                "arrival_time": "2017-09-29T10:30",
+                "index": 0
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T19:05-1",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T12:30",
+                "arrival_time": "2017-09-29T19:05",
+                "index": 1
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T21:30-0",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T07:30",
+                "arrival_time": "2017-09-29T10:30",
+                "index": 0
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T21:30-1",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T13:30",
+                "arrival_time": "2017-09-29T21:30",
+                "index": 1
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T12:00",
+                "arrival_time": "2017-09-29T14:55",
+                "index": 0
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T16:00",
+                "arrival_time": "2017-09-29T21:55",
+                "index": 1
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
     },
-    {
-      "id": "PNOS",
-      "type": "passenger_types",
-      "attributes": {
-        "code": "PNOS",
-        "name": "Normal",
-        "description": null
-      }
+    "meta": {
+        "locale": "en",
+        "currency": "EUR"
     }
-  ],
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en",
-    "currency": "EUR"
-  }
 }
 ```
 
@@ -256,7 +696,7 @@ On our side we parallelize the outbound requests to the operating carrier integr
 
 ### HTTP Request
 
-`GET https://api.distribusion.com/retailers/v3/connections/find`
+`GET https://api.distribusion.com/retailers/v4/connections/find`
 
 ### Query Parameters
 
@@ -296,29 +736,31 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
-curl  --globoff 'https://api-demo.distribusion.com/retailers/v3/connections/vacancy?marketing_carrier=SIBU&departure_station=ITROMVMA&arrival_station=ITZRRPGA&departure_time=2017-08-29T05:00&arrival_time=2017-08-29T06:00&currency=EUR&passengers[][pax]=1&passengers[][type]=PNOS' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+
+curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=OUIB&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2017-09-29T12%3A00&arrival_time=2017-09-29T21%3A55&currency=EUR&passengers%5B%5D%5Bpax%5D=1&passengers%5B%5D%5Btype%5D=PADU' \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data": {
-    "id": "SIBU-ITROMVMA-ITZRRPGA-2017-08-29T05:00-2017-08-29T06:00",
-    "type": "vacancies",
-    "attributes": {
-      "vacant": true,
-      "total_price": 600
+    "data": {
+        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55",
+        "type": "vacancies",
+        "attributes": {
+            "vacant": true,
+            "total_price": 3800
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "currency": "EUR"
     }
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "currency": "EUR"
-  }
 }
 ```
 
@@ -326,7 +768,7 @@ This endpoint should be used during a booking to get a binding price and availab
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/connections/vacancy`
+`GET api.distribusion.com/retailers/v4/connections/vacancy`
 
 ### URL Parameters
 
@@ -380,198 +822,203 @@ Error Code  | Meaning
 ## Form Schema
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/form_schema?marketing_carrier=SIBU' \
-      --header 'Accept: application/vnd.api+json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/bookings/form_schema?marketing_carrier=OUIB' \
+  -H 'api-key: n7ATNr14tXYbC7A7i5MZnBaG40L2g0FOJuLfhyJE' \
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "marketing_carrier": {
-      "type": "string",
-      "pattern": "^[A-Z]{4}$"
-    },
-    "departure_station": {
-      "type": "string",
-      "pattern": "^[A-Z]{8,9}$"
-    },
-    "arrival_station": {
-      "type": "string",
-      "pattern": "^[A-Z]{8,9}$"
-    },
-    "departure_time": {
-      "type": "string",
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
-    },
-    "arrival_time": {
-      "type": "string",
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
-    },
-    "retailer_partner_number": {
-      "type": "string",
-      "pattern": "^[0-9]{5,12}$"
-    },
-    "title": {
-      "type": "string",
-      "enum": [
-        "mr",
-        "mrs"
-      ]
-    },
-    "first_name": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 50
-    },
-    "last_name": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 50
-    },
-    "street_and_number": {
-      "type": "string",
-      "minLength": 1
-    },
-    "zip_code": {
-      "type": "string",
-      "minLength": 1
-    },
-    "city": {
-      "type": "string",
-      "minLength": 1
-    },
-    "email": {
-      "type": "string",
-      "minLength": 1
-    },
-    "phone": {
-      "type": "string",
-      "minLength": 1
-    },
-    "execute_payment": {
-      "type": "boolean"
-    },
-    "payment_method": {
-      "type": "string",
-      "enum": [
-        "demand_note",
-        "credit_card",
-        "sepa_direct_debit",
-        "paypal"
-      ]
-    },
-    "payment_token": {
-      "type": "string",
-      "minLength": 1
-    },
-    "payer_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "total_price": {
-      "type": "integer"
-    },
-    "pax": {
-      "type": "integer"
-    },
-    "flight_number": {
-      "type": "string",
-      "pattern": "^[0-9A-Z]{3,9}$"
-    },
-    "terms_accepted": {
-      "type": "boolean"
-    },
-    "locale": {
-      "type": "string",
-      "pattern": "^[a-z]{2}$"
-    },
-    "currency": {
-      "type": "string",
-      "pattern": "^[A-Z]{3}$"
-    },
-    "send_customer_email": {
-      "type": "boolean"
-    },
-    "agent_email": {
-      "type": "string"
-    },
-    "passengers": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "first_name": {
-            "type": "string",
-            "minLength": 1
-          },
-          "last_name": {
-            "type": "string",
-            "minLength": 1
-          },
-          "type": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "marketing_carrier": {
             "type": "string",
             "pattern": "^[A-Z]{4}$"
-          }
         },
-        "additionalProperties": false,
-        "required": [
-          "first_name",
-          "last_name",
-          "type"
-        ]
-      }
-    },
-    "extras": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "type": "integer"
-          },
-          "type": {
+        "departure_station": {
+            "type": "string",
+            "pattern": "^[A-Z]{8,9}$"
+        },
+        "arrival_station": {
+            "type": "string",
+            "pattern": "^[A-Z]{8,9}$"
+        },
+        "departure_time": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
+        },
+        "arrival_time": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}$"
+        },
+        "retailer_partner_number": {
+            "type": "string",
+            "pattern": "^[0-9]{5,12}$"
+        },
+        "title": {
+            "type": "string",
+            "enum": [
+                "mr",
+                "mrs"
+            ]
+        },
+        "first_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+        },
+        "last_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+        },
+        "street_and_number": {
             "type": "string",
             "minLength": 1
-          }
         },
-        "additionalProperties": false,
-        "required": [
-          "quantity",
-          "type"
-        ]
-      }
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "marketing_carrier",
-    "departure_station",
-    "arrival_station",
-    "departure_time",
-    "arrival_time",
-    "retailer_partner_number",
-    "title",
-    "first_name",
-    "last_name",
-    "street_and_number",
-    "zip_code",
-    "city",
-    "email",
-    "execute_payment",
-    "payment_method",
-    "total_price",
-    "pax",
-    "terms_accepted",
-    "locale",
-    "currency",
-    "send_customer_email",
-    "passengers"
-  ]
+        "zip_code": {
+            "type": "string",
+            "minLength": 1
+        },
+        "city": {
+            "type": "string",
+            "minLength": 1
+        },
+        "email": {
+            "type": "string",
+            "minLength": 1
+        },
+        "phone": {
+            "type": "string",
+            "minLength": 1
+        },
+        "execute_payment": {
+            "type": "boolean"
+        },
+        "payment_method": {
+            "type": "string",
+            "enum": [
+                "demand_note",
+                "credit_card",
+                "sepa_direct_debit",
+                "paypal"
+            ]
+        },
+        "payment_token": {
+            "type": "string",
+            "minLength": 1
+        },
+        "payer_id": {
+            "type": "string",
+            "minLength": 1
+        },
+        "total_price": {
+            "type": "integer"
+        },
+        "discount_code": {
+            "type": "string",
+            "minLength": 3
+        },
+        "pax": {
+            "type": "integer"
+        },
+        "flight_number": {
+            "type": "string",
+            "pattern": "^[0-9A-Z]{3,9}$"
+        },
+        "terms_accepted": {
+            "type": "boolean"
+        },
+        "locale": {
+            "type": "string",
+            "pattern": "^[a-z]{2}$"
+        },
+        "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+        },
+        "send_customer_email": {
+            "type": "boolean"
+        },
+        "agent_email": {
+            "type": "string"
+        },
+        "passengers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "type": {
+                        "type": "string",
+                        "pattern": "^[A-Z]{4}$"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "first_name",
+                    "last_name",
+                    "type"
+                ]
+            }
+        },
+        "extras": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "quantity": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "quantity",
+                    "type"
+                ]
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "marketing_carrier",
+        "departure_station",
+        "arrival_station",
+        "departure_time",
+        "arrival_time",
+        "retailer_partner_number",
+        "title",
+        "first_name",
+        "last_name",
+        "street_and_number",
+        "zip_code",
+        "city",
+        "email",
+        "execute_payment",
+        "payment_method",
+        "total_price",
+        "pax",
+        "terms_accepted",
+        "locale",
+        "currency",
+        "send_customer_email",
+        "passengers"
+    ]
 }
 ```
 
@@ -579,7 +1026,7 @@ To create a booking, you will need to retrieve specific information from the cus
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/bookings/form_schema`
+`GET api.distribusion.com/retailers/v4/bookings/form_schema`
 
 ### URL Parameters
 
@@ -604,205 +1051,330 @@ Error Code  | Meaning
 ## Create
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/create' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
-      --data '{"marketing_carrier": "SIBU", "departure_station": "ITROMVMA", "arrival_station": "ITZRRPGA", "departure_time": "2017-08-29T05:00", "arrival_time": "2017-08-29T06:00", "retailer_partner_number": "222222", "title": "mr","first_name": "Balibalo", "last_name": "Bateau", "email": "quentin@example.com", "phone": "4915237601929", "city": "Berlin", "zip_code": "10123", "street_and_number": "Berlinstr. 23", "execute_payment": false, "payment_method": "demand_note", "total_price": 600, "pax": 1, "terms_accepted": true, "locale": "en", "currency": "EUR", "send_customer_email": false, "passengers":[{"first_name": "Balibalo", "last_name": "Bateau", "type": "PNOS"}]}'
+curl -X POST \
+  https://api-demo.distribusion.com/retailers/v4/bookings/create \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' \
+  -d '{
+       "marketing_carrier": "OUIB",
+       "departure_station": "FRLILBDT",
+       "arrival_station": "FRLYSPER",
+       "departure_time": "2017-09-29T12:00",
+       "arrival_time": "2017-09-29T21:55",
+       "retailer_partner_number": "222222",
+       "title": "mr",
+       "first_name": "Balibalo",
+       "last_name": "Bateau",
+       "email": "quentin@mail.com",
+       "phone": "4915237601929",
+       "city": "Berlin",
+       "zip_code": "10123",
+       "street_and_number": "Berlinstr. 23",
+       "execute_payment": false,
+       "payment_method": "demand_note",
+       "total_price": 3800,
+       "pax": 1,
+       "terms_accepted": true,
+       "locale": "en",
+       "currency": "EUR",
+       "send_customer_email": false,
+       "passengers":[
+          { 
+            "first_name": "Balibalo",
+            "last_name": "Bateau",
+            "type": "PADU"
+          }
+        ]
+    }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data": {
-    "id": "ZpXv69xrzHzk8Nb-YHGllA",
-    "type": "bookings",
-    "attributes": {
-      "departure_time": "2017-08-29T05:00",
-      "arrival_time": "2017-08-29T06:00",
-      "duration": 3600,
-      "title": "mr",
-      "first_name": "Balibalo",
-      "last_name": "Bateau",
-      "email": "quentin@example.com",
-      "phone": "4915237601929",
-      "city": "Berlin",
-      "zip_code": "10123",
-      "street_and_number": "Berlinstr. 23",
-      "execute_payment": false,
-      "payment_method": "demand_note",
-      "payment_token": null,
-      "payer_id": null,
-      "total_price": 600,
-      "pax": 1,
-      "flight_number": null,
-      "distribusion_booking_number": "752PUE",
-      "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
-      "terms_accepted": true,
-      "send_customer_email": false,
-      "retailer_partner_number": "222222",
-      "created_at": "2017-07-21T14:57"
+    "data": {
+        "id": "G0zphTalaiG8Ak4td82D2w",
+        "type": "bookings",
+        "attributes": {
+            "departure_time": "2017-09-29T12:00",
+            "arrival_time": "2017-09-29T21:55",
+            "duration": 35700,
+            "title": "mr",
+            "first_name": "Balibalo",
+            "last_name": "Bateau",
+            "email": "quentin@mail.com",
+            "phone": "4915237601929",
+            "city": "Berlin",
+            "zip_code": "10123",
+            "street_and_number": "Berlinstr. 23",
+            "execute_payment": false,
+            "payment_method": "demand_note",
+            "payment_token": null,
+            "payer_id": null,
+            "total_price": 3800,
+            "pax": 1,
+            "flight_number": null,
+            "distribusion_booking_number": "86MMQA",
+            "marketing_carrier_booking_number": "X8XTA9",
+            "terms_accepted": true,
+            "send_customer_email": false,
+            "retailer_partner_number": "222222",
+            "created_at": "2017-08-30T14:31"
+        },
+        "relationships": {
+            "departure_station": {
+                "data": {
+                    "id": "FRLILBDT",
+                    "type": "stations"
+                }
+            },
+            "arrival_station": {
+                "data": {
+                    "id": "FRLYSPER",
+                    "type": "stations"
+                }
+            },
+            "marketing_carrier": {
+                "data": {
+                    "id": "OUIB",
+                    "type": "marketing_carriers"
+                }
+            },
+            "cancellation": {
+                "data": null
+            },
+            "segments": {
+                "data": [
+                    {
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+                        "type": "segments"
+                    },
+                    {
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+                        "type": "segments"
+                    }
+                ]
+            },
+            "passengers": {
+                "data": [
+                    {
+                        "id": "PADU-BATEAU-BALIBALO-1",
+                        "type": "passengers"
+                    }
+                ]
+            },
+            "extras": {
+                "data": []
+            }
+        }
     },
-    "relationships": {
-      "departure_station": {
-        "data": {
-          "id": "ITROMVMA",
-          "type": "stations"
+    "included": [
+        {
+            "id": "FRLILBDT",
+            "type": "stations",
+            "attributes": {
+                "code": "FRLILBDT",
+                "name": "Lille Boulevard de Turin",
+                "description": "The bus stop is located at the south side of Lille Europe station, right on the Boulevard de Turin.",
+                "street_and_number": "Boulevard de Turin 179",
+                "zip_code": "59800",
+                "longitude": 3.07739100000003,
+                "latitude": 50.6381531,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRLIL",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRLIL",
+            "type": "cities",
+            "attributes": {
+                "name": "Lille"
+            }
+        },
+        {
+            "id": "FRLYSPER",
+            "type": "stations",
+            "attributes": {
+                "code": "FRLYSPER",
+                "name": "Lyon Perrache SNCF Train Station",
+                "description": "The stop is located in front of Metro Station Perrache at Cours de Verdun Gensoul.",
+                "street_and_number": "Cours de Verdun Gensoul 1 ,sous le pont de Perrache",
+                "zip_code": "69002",
+                "longitude": 4.82631130000004,
+                "latitude": 45.7492462,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRLYS",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRLYS",
+            "type": "cities",
+            "attributes": {
+                "name": "Lyon"
+            }
+        },
+        {
+            "id": "OUIB",
+            "type": "marketing_carriers",
+            "attributes": {
+                "code": "OUIB",
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6",
+                "address": "38 RUE DE SEINE",
+                "phone": "0033601331661",
+                "fax": null,
+                "customer_service_phone": "+331 71 53 51 99",
+                "email": null,
+                "commercial_register": "Registre du commerce et des societes de Creteil",
+                "commercial_register_number": null,
+                "vat_no": "FR 38 51 90 37 147",
+                "authorised_representative": "Monsieur Roland de Barbentane",
+                "white_label_logo": "data:image/png;base64",
+                "white_label_colour_code": null,
+                "terms": "T&C",
+                "flight_number_required": false,
+                "booking_fee": 0,
+                "cancellation_fee": 0,
+                "cancellation_cutoff": 86400
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T12:00",
+                "arrival_time": "2017-09-29T14:55",
+                "index": 0
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRPARBER",
+            "type": "stations",
+            "attributes": {
+                "code": "FRPARBER",
+                "name": "Paris Bercy",
+                "description": "The bus stop is located in front of the main entrance of the train station \"Paris Bercy\".",
+                "street_and_number": "Boulevard de Bercy 48",
+                "zip_code": "75012",
+                "longitude": 2.38268140000002,
+                "latitude": 48.8382267,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRPAR",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRPAR",
+            "type": "cities",
+            "attributes": {
+                "name": "Paris"
+            }
+        },
+        {
+            "id": "OUIB",
+            "type": "operating_carriers",
+            "attributes": {
+                "code": "OUIB",
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6"
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T16:00",
+                "arrival_time": "2017-09-29T21:55",
+                "index": 1
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "PADU-BATEAU-BALIBALO-1",
+            "type": "passengers",
+            "attributes": {
+                "first_name": "Balibalo",
+                "last_name": "Bateau",
+                "type": "PADU"
+            }
         }
-      },
-      "arrival_station": {
-        "data": {
-          "id": "ITZRRPGA",
-          "type": "stations"
-        }
-      },
-      "marketing_carrier": {
-        "data": {
-          "id": "SIBU",
-          "type": "marketing_carriers"
-        }
-      },
-      "operating_carrier": {
-        "data": {
-          "id": "SIBU",
-          "type": "operating_carriers"
-        }
-      },
-      "cancellation": {
-        "data": null
-      },
-      "passengers": {
-        "data": [
-          {
-            "id": "PNOS-BATEAU-BALIBALO-1",
-            "type": "passengers"
-          }
-        ]
-      },
-      "extras": {
-        "data": []
-      }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "locale": "en",
+        "currency": "EUR"
     }
-  },
-  "included": [
-    {
-      "id": "ITROMVMA",
-      "type": "stations",
-      "attributes": {
-        "code": "ITROMVMA",
-        "name": "Rome Termini",
-        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
-        "street_and_number": "Via Marsala 5",
-        "zip_code": "00185",
-        "longitude": 12.5013283000001,
-        "latitude": 41.9028484,
-        "time_zone": "Europe/Rome"
-      },
-      "relationships": {
-        "city": {
-          "data": {
-            "id": "ITROM",
-            "type": "cities"
-          }
-        }
-      }
-    },
-    {
-      "id": "ITROM",
-      "type": "cities",
-      "attributes": {
-        "name": "Rome"
-      }
-    },
-    {
-      "id": "ITZRRPGA",
-      "type": "stations",
-      "attributes": {
-        "code": "ITZRRPGA",
-        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
-        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
-        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
-        "zip_code": "00054",
-        "longitude": 12.2360293,
-        "latitude": 41.7726232,
-        "time_zone": "Europe/Rome"
-      },
-      "relationships": {
-        "city": {
-          "data": {
-            "id": "ITZRR",
-            "type": "cities"
-          }
-        }
-      }
-    },
-    {
-      "id": "ITZRR",
-      "type": "cities",
-      "attributes": {
-        "name": "Fiumicino"
-      }
-    },
-    {
-      "id": "SIBU",
-      "type": "marketing_carriers",
-      "attributes": {
-        "code": "SIBU",
-        "trade_name": "SitBus",
-        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-        "address": "Via Ostiense 256, 00144 Rome, Italy",
-        "phone": "+39-06-5916826 / 5923507",
-        "fax": "+39-06-5917074",
-        "customer_service_phone": "+39065916826",
-        "email": "sit@sitbus.com",
-        "commercial_register": "Company House No.406335",
-        "commercial_register_number": "REN No.P50338",
-        "vat_no": "IT01041631001",
-        "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
-        "white_label_logo": "data:image/png;base64",
-        "white_label_colour_code": "#FFFFFF",
-        "terms": "T&C",
-        "flight_number_required": false,
-        "booking_fee": 0,
-        "cancellation_fee": 600,
-        "cancellation_cutoff": null
-      }
-    },
-    {
-      "id": "SIBU",
-      "type": "operating_carriers",
-      "attributes": {
-        "code": "SIBU",
-        "trade_name": "SitBus",
-        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
-      }
-    },
-    {
-      "id": "PNOS-BATEAU-BALIBALO-1",
-      "type": "passengers",
-      "attributes": {
-        "first_name": "Balibalo",
-        "last_name": "Bateau",
-        "type": "PNOS"
-      }
-    }
-  ],
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en",
-    "currency": "EUR"
-  }
 }
 ```
 
 Use this endpoint to conduct bookings. Bookings created in this way are the basis for invoicing. The endpoint currently supports one-way bookings only. It will also send out booking e-mails to customers. E-Mails are blocked on demo, so feel free to conduct tests bookings on our demo server (api-demo.distribusion.com).
 
+Note: we currently support EUR, USD, GBP and CHF currencies.
 
 ### HTTP Request
 
-`POST https://api.distribusion.com/retailers/v3/bookings/create`
+`POST https://api.distribusion.com/retailers/v4/bookings/create`
 
 ### Query Parameters
 
@@ -924,9 +1496,10 @@ Error Code  | Meaning
 ## Index
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl -X GET \
+  https://api-demo.distribusion.com/retailers/v4/bookings/ \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' 
 ```
 
 > The above command returns JSON structured like this:
@@ -995,11 +1568,11 @@ curl  'https://api-demo.distribusion.com/retailers/v3/bookings' \
 }
 ```
 
-You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v3/docs/#index).
+You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index).
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/bookings`
+`GET api.distribusion.com/retailers/v4/bookings`
 
 ### Errors
 
@@ -1012,203 +1585,297 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/ZpXv69xrzHzk8Nb-YHGllA' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl -X GET \
+  https://api-demo.distribusion.com/retailers/v4/bookings/G0zphTalaiG8Ak4td82D2w \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' 
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data": {
-    "id": "ZpXv69xrzHzk8Nb-YHGllA",
-    "type": "bookings",
-    "attributes": {
-      "departure_time": "2017-08-29T05:00",
-      "arrival_time": "2017-08-29T06:00",
-      "duration": 3600,
-      "title": "mr",
-      "first_name": "Balibalo",
-      "last_name": "Bateau",
-      "email": "quentin@example.com",
-      "phone": "4915237601929",
-      "city": "Berlin",
-      "zip_code": "10123",
-      "street_and_number": "Berlinstr. 23",
-      "execute_payment": false,
-      "payment_method": "demand_note",
-      "payment_token": null,
-      "payer_id": null,
-      "total_price": 600,
-      "pax": 1,
-      "flight_number": null,
-      "distribusion_booking_number": "752PUE",
-      "marketing_carrier_booking_number": "P_Md4rT6S2zXUmyhk0r9Fw",
-      "terms_accepted": true,
-      "send_customer_email": false,
-      "retailer_partner_number": "222222",
-      "created_at": "2017-07-21T14:57"
+    "data": {
+        "id": "G0zphTalaiG8Ak4td82D2w",
+        "type": "bookings",
+        "attributes": {
+            "departure_time": "2017-09-29T12:00",
+            "arrival_time": "2017-09-29T21:55",
+            "duration": 35700,
+            "title": "mr",
+            "first_name": "Balibalo",
+            "last_name": "Bateau",
+            "email": "quentin@mail.com",
+            "phone": "4915237601929",
+            "city": "Berlin",
+            "zip_code": "10123",
+            "street_and_number": "Berlinstr. 23",
+            "execute_payment": false,
+            "payment_method": "demand_note",
+            "payment_token": null,
+            "payer_id": null,
+            "total_price": 3800,
+            "pax": 1,
+            "flight_number": null,
+            "distribusion_booking_number": "86MMQA",
+            "marketing_carrier_booking_number": "X8XTA9",
+            "terms_accepted": true,
+            "send_customer_email": false,
+            "retailer_partner_number": "222222",
+            "created_at": "2017-08-30T14:31"
+        },
+        "relationships": {
+            "departure_station": {
+                "data": {
+                    "id": "FRLILBDT",
+                    "type": "stations"
+                }
+            },
+            "arrival_station": {
+                "data": {
+                    "id": "FRLYSPER",
+                    "type": "stations"
+                }
+            },
+            "marketing_carrier": {
+                "data": {
+                    "id": "OUIB",
+                    "type": "marketing_carriers"
+                }
+            },
+            "cancellation": {
+                "data": null
+            },
+            "segments": {
+                "data": [
+                    {
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+                        "type": "segments"
+                    },
+                    {
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+                        "type": "segments"
+                    }
+                ]
+            },
+            "passengers": {
+                "data": [
+                    {
+                        "id": "PADU-BATEAU-BALIBALO-1",
+                        "type": "passengers"
+                    }
+                ]
+            },
+            "extras": {
+                "data": []
+            }
+        }
     },
-    "relationships": {
-      "departure_station": {
-        "data": {
-          "id": "ITROMVMA",
-          "type": "stations"
+    "included": [
+        {
+            "id": "FRLILBDT",
+            "type": "stations",
+            "attributes": {
+                "code": "FRLILBDT",
+                "name": "Lille Boulevard de Turin",
+                "description": "The bus stop is located at the south side of Lille Europe station, right on the Boulevard de Turin.",
+                "street_and_number": "Boulevard de Turin 179",
+                "zip_code": "59800",
+                "longitude": 3.07739100000003,
+                "latitude": 50.6381531,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRLIL",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRLIL",
+            "type": "cities",
+            "attributes": {
+                "name": "Lille"
+            }
+        },
+        {
+            "id": "FRLYSPER",
+            "type": "stations",
+            "attributes": {
+                "code": "FRLYSPER",
+                "name": "Lyon Perrache SNCF Train Station",
+                "description": "The stop is located in front of Metro Station Perrache at Cours de Verdun Gensoul.",
+                "street_and_number": "Cours de Verdun Gensoul 1 ,sous le pont de Perrache",
+                "zip_code": "69002",
+                "longitude": 4.82631130000004,
+                "latitude": 45.7492462,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRLYS",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRLYS",
+            "type": "cities",
+            "attributes": {
+                "name": "Lyon"
+            }
+        },
+        {
+            "id": "OUIB",
+            "type": "marketing_carriers",
+            "attributes": {
+                "code": "OUIB",
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6",
+                "address": "38 RUE DE SEINE",
+                "phone": "0033601331661",
+                "fax": null,
+                "customer_service_phone": "+331 71 53 51 99",
+                "email": null,
+                "commercial_register": "Registre du commerce et des societes de Creteil",
+                "commercial_register_number": null,
+                "vat_no": "FR 38 51 90 37 147",
+                "authorised_representative": "Monsieur Roland de Barbentane",
+                "white_label_logo": "data:image/png;base64",
+                "white_label_colour_code": null,
+                "terms": "T&C",
+                "flight_number_required": false,
+                "booking_fee": 0,
+                "cancellation_fee": 0,
+                "cancellation_cutoff": 86400
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T12:00",
+                "arrival_time": "2017-09-29T14:55",
+                "index": 0
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRLILBDT",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRPARBER",
+            "type": "stations",
+            "attributes": {
+                "code": "FRPARBER",
+                "name": "Paris Bercy",
+                "description": "The bus stop is located in front of the main entrance of the train station \"Paris Bercy\".",
+                "street_and_number": "Boulevard de Bercy 48",
+                "zip_code": "75012",
+                "longitude": 2.38268140000002,
+                "latitude": 48.8382267,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRPAR",
+                        "type": "cities"
+                    }
+                }
+            }
+        },
+        {
+            "id": "FRPAR",
+            "type": "cities",
+            "attributes": {
+                "name": "Paris"
+            }
+        },
+        {
+            "id": "OUIB",
+            "type": "operating_carriers",
+            "attributes": {
+                "code": "OUIB",
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6"
+            }
+        },
+        {
+            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+            "type": "segments",
+            "attributes": {
+                "departure_time": "2017-09-29T16:00",
+                "arrival_time": "2017-09-29T21:55",
+                "index": 1
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "FRPARBER",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "FRLYSPER",
+                        "type": "stations"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "id": "OUIB",
+                        "type": "operating_carriers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "PADU-BATEAU-BALIBALO-1",
+            "type": "passengers",
+            "attributes": {
+                "first_name": "Balibalo",
+                "last_name": "Bateau",
+                "type": "PADU"
+            }
         }
-      },
-      "arrival_station": {
-        "data": {
-          "id": "ITZRRPGA",
-          "type": "stations"
-        }
-      },
-      "marketing_carrier": {
-        "data": {
-          "id": "SIBU",
-          "type": "marketing_carriers"
-        }
-      },
-      "operating_carrier": {
-        "data": {
-          "id": "SIBU",
-          "type": "operating_carriers"
-        }
-      },
-      "cancellation": {
-        "data": null
-      },
-      "passengers": {
-        "data": [
-          {
-            "id": "PNOS-BATEAU-BALIBALO-1",
-            "type": "passengers"
-          }
-        ]
-      },
-      "extras": {
-        "data": []
-      }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "locale": "en",
+        "currency": "EUR"
     }
-  },
-  "included": [
-    {
-      "id": "ITROMVMA",
-      "type": "stations",
-      "attributes": {
-        "code": "ITROMVMA",
-        "name": "Rome Termini",
-        "description": "The bus stop is located on Via Marsala, 5, on the opposite side of the street from Hotel Royal Santina, near Roma Termini Railway Station",
-        "street_and_number": "Via Marsala 5",
-        "zip_code": "00185",
-        "longitude": 12.5013283000001,
-        "latitude": 41.9028484,
-        "time_zone": "Europe/Rome"
-      },
-      "relationships": {
-        "city": {
-          "data": {
-            "id": "ITROM",
-            "type": "cities"
-          }
-        }
-      }
-    },
-    {
-      "id": "ITROM",
-      "type": "cities",
-      "attributes": {
-        "name": "Rome"
-      }
-    },
-    {
-      "id": "ITZRRPGA",
-      "type": "stations",
-      "attributes": {
-        "code": "ITZRRPGA",
-        "name": "Fiumicino Piazza Generale Carlo Alberto dalla Chiesa",
-        "description": "Bus stop is located at Piazza Generale Carlo Alberto dalla Chiesa, in front of the Municipality of Fiumicino (Comune di Fiumicino)",
-        "street_and_number": "Piazza Generale Carlo Alberto dalla Chiesa",
-        "zip_code": "00054",
-        "longitude": 12.2360293,
-        "latitude": 41.7726232,
-        "time_zone": "Europe/Rome"
-      },
-      "relationships": {
-        "city": {
-          "data": {
-            "id": "ITZRR",
-            "type": "cities"
-          }
-        }
-      }
-    },
-    {
-      "id": "ITZRR",
-      "type": "cities",
-      "attributes": {
-        "name": "Fiumicino"
-      }
-    },
-    {
-      "id": "SIBU",
-      "type": "marketing_carriers",
-      "attributes": {
-        "code": "SIBU",
-        "trade_name": "SitBus",
-        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-        "address": "Via Ostiense 256, 00144 Rome, Italy",
-        "phone": "+39-06-5916826 / 5923507",
-        "fax": "+39-06-5917074",
-        "customer_service_phone": "+39065916826",
-        "email": "sit@sitbus.com",
-        "commercial_register": "Company House No.406335",
-        "commercial_register_number": "REN No.P50338",
-        "vat_no": "IT01041631001",
-        "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
-        "white_label_logo": "data:image/png;base64",
-        "white_label_colour_code": "#FFFFFF",
-        "terms": "T&C",
-        "flight_number_required": false,
-        "booking_fee": 0,
-        "cancellation_fee": 600,
-        "cancellation_cutoff": null
-      }
-    },
-    {
-      "id": "SIBU",
-      "type": "operating_carriers",
-      "attributes": {
-        "code": "SIBU",
-        "trade_name": "SitBus",
-        "legal_name": "S.I.T. Societa' Italiana Trasporti SRL"
-      }
-    },
-    {
-      "id": "PNOS-BATEAU-BALIBALO-1",
-      "type": "passengers",
-      "attributes": {
-        "first_name": "Balibalo",
-        "last_name": "Bateau",
-        "type": "PNOS"
-      }
-    }
-  ],
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en",
-    "currency": "EUR"
-  }
 }
 ```
 
-To review data of a booking at a later stage without copying it into your system, you can use our [bookings#show](https://api-demo.distribusion.com/retailers/v3/docs/#show) endpoint to retrieve it and show its data.
+To review data of a booking at a later stage without copying it into your system, you can use our [bookings#show](https://api-demo.distribusion.com/retailers/v4/docs/#show) endpoint to retrieve it and show its data.
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/bookings/`
+`GET api.distribusion.com/retailers/v4/bookings/`
 
 ### URL Parameters
 
@@ -1233,16 +1900,17 @@ Error Code  | Meaning
 ## Tickets
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/bookings/ZpXv69xrzHzk8Nb-YHGllA/tickets' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl -X GET \
+  https://api-demo.distribusion.com/retailers/v4/bookings/G0zphTalaiG8Ak4td82D2w/tickets \
+  -H 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
+  -H 'Content-Type: application/json'
 ```
 
 This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format).
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/bookings/{id}/tickets`
+`GET api.distribusion.com/retailers/v4/bookings/{id}/tickets`
 
 ### Errors
 
@@ -1263,9 +1931,10 @@ Error Code  | Meaning
 ## Conditions
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?booking=ZpXv69xrzHzk8Nb-YHGllA' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' 
+curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/cancellations/conditions?booking=ZpXv69xrzHzk8Nb-YHGllA' \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' 
 ```
 
 > The above command returns JSON structured like this:
@@ -1276,9 +1945,9 @@ curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/conditions?b
     "id": "ZpXv69xrzHzk8Nb-YHGllA",
     "type": "cancellation_conditions",
     "attributes": {
-      "allowed": false,
-      "fee": null,
-      "cutoff": null
+      "allowed": true,
+      "fee": 1500,
+      "cutoff": "2017-09-28T12:00"
     }
   },
   "jsonapi": {
@@ -1294,7 +1963,7 @@ This endpoint enable users to retrieve detailed information about the cancellati
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/cancellations/conditions`
+`GET api.distribusion.com/retailers/v4/cancellations/conditions`
 
 ### URL Parameters
 
@@ -1317,10 +1986,11 @@ Error Code  | Meaning
 
 ## Create
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/create' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
-      --data '{"booking": "6JXfs7hJpMe3FsF-JfudLA"}'
+curl -X POST \
+  https://api-demo.distribusion.com/retailers/v4/cancellations/create \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' \
+  -d '{ "booking": "ZpXv69xrzHzk8Nb-YHGllA" }'
 ```
 
 > The above command returns JSON structured like this:
@@ -1346,11 +2016,13 @@ curl  'https://api-demo.distribusion.com/retailers/v3/cancellations/create' \
 }
 ```
 
-This endpoint enables users to perform the cancellation of a specific booking. Note: The example is not linked to the previous booking as it is not cancellable (see bookings#conditions). 
+This endpoint enables users to perform the cancellation of a specific booking. 
+
+Note: The example is not linked to the previous booking as it is not cancellable (see bookings#conditions). 
 
 ### HTTP Request
 
-`POST api.distribusion.com/retailers/v3/cancellations/create`
+`POST api.distribusion.com/retailers/v4/cancellations/create`
 
 ### URL Parameters
 
@@ -1377,9 +2049,10 @@ Error Code  | Meaning
 ## Index
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl -X GET \
+  https://api-demo.distribusion.com/retailers/v4/marketing_carriers \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' 
 ```
 
 > The above command returns JSON structured like this:
@@ -1432,7 +2105,7 @@ This endpoint provides a list of marketing carriers with their trade name and co
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/marketing_carriers`
+`GET api.distribusion.com/retailers/v4/marketing_carriers`
 
 ### Errors
 
@@ -1444,9 +2117,10 @@ Error Code  | Meaning
 ## Show
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/marketing_carriers/SIBU?locale=en&currency=EUR' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ'
+curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/marketing_carriers/SIBU?locale=en&currency=EUR' \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' 
 ```
 
 > The above command returns JSON structured like this:
@@ -1516,7 +2190,7 @@ This endpoint enable users to retrieve detailed information about marketing carr
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/marketing_carriers/{code}`
+`GET api.distribusion.com/retailers/v4/marketing_carriers/{code}`
 
 ### URL Parameters
 
@@ -1543,9 +2217,10 @@ Error Code  | Meaning
 # Stations
 
 ```shell
-curl  'https://api-demo.distribusion.com/retailers/v3/stations?locale=en' \
-      --header 'Content-Type: application/json' \
-      --header 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' 
+curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/stations?locale=en' \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' 
 ```
 
 > The above command returns JSON structured like this:
@@ -1635,7 +2310,7 @@ This endpoint enable users to retrieve detailed information about stations, such
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v3/stations`
+`GET api.distribusion.com/retailers/v4/stations`
 
 ### URL Parameters
 
