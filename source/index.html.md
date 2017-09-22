@@ -1493,6 +1493,50 @@ Error Code  | Meaning
 600.901.000 | Response from remote server logically cannot be processed (is invalid)
 600.703.026 | Booking price unknown
 
+## Redirect for Affiliates
+
+```http
+https://belladonna-demo.distribusion.com/bookings/checkout?departure_station_code=ITCASCNA&arrival_station_code=ITROMRCA&departure_time=2017-10-21T14:25&arrival_time=2017-10-21T16:27&locale=en&currency=EUR&retailer_partner_number=222222&marketing_carrier_code=FEFR
+```
+
+Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). 
+
+We currently supports 7 currencies:
+    * EUR: Euro
+    * USD: US Dollar
+    * CHF: Swiss Franc
+    * GBP: British Pound
+    * MXN: Mexican Peso
+    * PLN: Polish Zloty
+    * CAD: Canadian Dollar
+
+The locale will be taken from the setting of the browser, which the customer is using.
+
+You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index).
+
+### Checkout Link
+
+`GET https://belladonna-demo.distribusion.com/bookings/checkout`
+
+### URL Parameters
+
+Parameter                 | Mandatory | Description
+------------------------- | :-------: | :----------
+`marketing_carrier`       | true      | 4-letter alphanumeric uppercase code.
+`departure_station`       | true      | 8- or 9-letter alphanumeric uppercase code.
+`arrival_station`         | true      | 8- or 9-letter alphanumeric uppercase code.
+`departure_time`          | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+`arrival_time`            | true      | departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+`retailer_partner_number` | true      | 5 - 12 digits number of retailer partner.
+`currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
+
+### Errors
+
+Error Code  | Meaning
+----------- | -------
+500.000.000 | Internal Server Error
+500.100.000 | Service Unavailable
+
 ## Index
 
 ```shell
