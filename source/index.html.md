@@ -1534,7 +1534,6 @@ Parameter                 | Mandatory | Description
 
 Error Code  | Meaning
 ----------- | -------
-400.200.001 | API key is invalid or missing
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
 
