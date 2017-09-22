@@ -1502,7 +1502,7 @@ https://belladonna-demo.distribusion.com/bookings/checkout?departure_station_cod
 Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). 
 
 We currently supports 7 currencies:
-    - EUR: Euro
+    * EUR: Euro
     * USD: US Dollar
     * CHF: Swiss Franc
     * GBP: British Pound
@@ -1516,7 +1516,7 @@ You can now retrieve a list of all your booking by calling the [bookings#index](
 
 ### Checkout Link
 
-`GET https://belladonna.distribusion.com/bookings/checkout`
+`GET https://belladonna-demo.distribusion.com/bookings/checkout`
 
 ### URL Parameters
 
