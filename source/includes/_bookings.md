@@ -695,7 +695,7 @@ You can now retrieve a list of all your booking by calling the [bookings#index](
 
 ### Checkout Link
 
-`GET https://belladonna-demo.distribusion.com/bookings/checkout`
+`GET https://belladonna.distribusion.com/bookings/checkout`
 
 ### URL Parameters
 
