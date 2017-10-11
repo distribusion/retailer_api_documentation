@@ -117,7 +117,7 @@ In the example bellow, Barcelona Airport is mapped with **"Barcelona Airport T1"
 
 Code description:
 
-- *+ESBCN**: Barcelona City
+- **ESBCN**: Barcelona City
 - **ESBCNBA**: Barcelona Airport
 
 For example, while searching from Barcelona Airport to Barcelona City, you could perform the following request:

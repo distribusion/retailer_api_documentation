@@ -3,8 +3,7 @@
 ## Find
 
 ```shell
-
-    curl -X GET \
+curl -X GET \
   'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations%5B%5D=FRLILBDT&arrival_stations%5B%5D=FRLYSPER&departure_date=2017-09-29&pax=1&locale=en&currency=EUR' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json'
@@ -606,7 +605,7 @@ Parameter               | Mandatory | Description
 `currency`              | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 
 <aside class="success">
-Remember — to query information from our API, you need to get your own API key at [partner@distribusion.com](mailto:partner@distribusion.com)!
+Remember — to query information from our API, you need to get your own API key at <a href='mailto:partner@distribusion.com'>partner@distribusion.com</a>!
 </aside>
 
 ### Errors
@@ -632,7 +631,6 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
-
 curl -X GET \
   'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=OUIB&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2017-09-29T12%3A00&arrival_time=2017-09-29T21%3A55&currency=EUR&passengers%5B%5D%5Bpax%5D=1&passengers%5B%5D%5Btype%5D=PADU' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
@@ -679,12 +677,13 @@ Parameter           | Mandatory | Description
 `discount_code`     | false     | Code consisting of minimum 3 alphanumeric characters.
                     |           |
 `passengers`        | true      | Array
-    `pax`           | true      | Number of passenger for a specific passenger type
-    `type`          | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
+_`pax`            | true      | Number of passenger for a specific passenger type
+_`type`           | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
                     |           |
 `extras`            | false     | Array
-    `quantity`      | true      | Integer in a range of 1..999.
-    `type`          | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
+_`quantity`       | true      | Integer in a range of 1..999.
+_`type`           | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
+
 
 ### Errors
 
