@@ -3,9 +3,10 @@
 ## Find
 
 ```shell
-curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations%5B%5D=FRLILBDT&arrival_stations%5B%5D=FRLYSPER&departure_date=2017-09-29&pax=1&locale=en&currency=EUR' \
+  curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations%5B%5D=FRLILBDT&departure_stations%5B%5D=FRLILCSA&departure_stations%5B%5D=FRLILGEU&departure_stations%5B%5D=FRLILGFA&departure_stations%5B%5D=FRLILZOB&arrival_stations%5B%5D=FRLYSAIR&arrival_stations%5B%5D=FRLYSDAR&arrival_stations%5B%5D=FRLYSIHO&arrival_stations%5B%5D=FRLYSPDB&arrival_stations%5B%5D=FRLYSPER&arrival_stations%5B%5D=FRLYSZOB&departure_date=2017-11-29&pax=1&locale=en&currency=EUR' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'cache-control: no-cache' \
   -H 'content-type: application/json'
 ```
 
@@ -698,6 +699,7 @@ Error Code  | Meaning
 400.101.015 | Currency is invalid or missing
 400.101.044 | Departure date is in the past
 400.101.049 | Departure time must be before arrival time
+400.101.052 | Discount code is invalid or missing
 400.102.040 | Unknown marketing carrier
 400.200.001 | API key is invalid or missing
 400.501.002 | Not implemented at Distribusion on connections#vacancy

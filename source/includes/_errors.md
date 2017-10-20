@@ -54,12 +54,14 @@ Error Code  | Meaning
 400.101.038 | Extra quantity is invalid or missing
 400.101.039 | Marketing carrier booking number is invalid or missing
 400.101.040 | Marketing carrier is invalid or missing
-400.100.041 | Booking is invalid or missing
+400.101.041 | Booking is invalid or missing
 400.101.042 | Execute payment is invalid or missing
 400.101.044 | Departure date is in the past
 400.101.049 | Departure time must be before arrival time
 400.101.050 | Extras are invalid or missing
 400.101.051 | Passengers are invalid or missing
+400.101.052 | Discount code is invalid or missing
+400.101.053 | Bus Number is missing or invalid
 400.102.040 | Unknown marketing carrier
 400.200.001 | API key is invalid or missing
 400.502.041 | Booking already cancelled
