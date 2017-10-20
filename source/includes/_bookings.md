@@ -242,7 +242,7 @@ curl -X POST \
        "arrival_station": "FRLYSPER",
        "departure_time": "2017-09-29T12:00",
        "arrival_time": "2017-09-29T21:55",
-       "retailer_partner_number": "222222",
+       "retailer_partner_number": "123456",
        "title": "mr",
        "first_name": "Balibalo",
        "last_name": "Bateau",
@@ -299,7 +299,7 @@ curl -X POST \
             "marketing_carrier_booking_number": "X8XTA9",
             "terms_accepted": true,
             "send_customer_email": false,
-            "retailer_partner_number": "222222",
+            "retailer_partner_number": "123456",
             "created_at": "2017-08-30T14:31"
         },
         "relationships": {
@@ -647,6 +647,7 @@ Error Code  | Meaning
 400.101.049 | Departure time must be before arrival time
 400.101.050 | Extras are invalid or missing
 400.101.051 | Passengers are invalid or missing
+400.101.052 | Discount code is invalid or missing
 400.102.040 | Unknown marketing carrier
 400.200.001 | API key is invalid or missing
 400.501.003 | Not implemented at Distribusion on bookings#create
@@ -676,7 +677,7 @@ Error Code  | Meaning
 ## Redirect for Affiliates
 
 ```curl
-https://belladonna-demo.distribusion.com/bookings/checkout?departure_station_code=ITCASCNA&arrival_station_code=ITROMRCA&departure_time=2017-10-21T14:25&arrival_time=2017-10-21T16:27&locale=en&currency=EUR&retailer_partner_number=222222&marketing_carrier_code=FEFR
+https://bustickets-demo.distribusion.com/bookings/checkout?departure_station_code=ITROMFAI&arrival_station_code=ITRROMET&departure_time=2018-02-22T12:55&arrival_time=2018-02-22T16:02&locale=en&currency=EUR&retailer_partner_number=123456&marketing_carrier_code=FEFR
 ```
 
 Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. The currency can be set within the redirect link. 
@@ -695,7 +696,7 @@ You can now retrieve a list of all your booking by calling the [bookings#index](
 
 ### Checkout Link
 
-`GET https://belladonna.distribusion.com/bookings/checkout`
+`GET https://bustickets.distribusion.com/bookings/checkout`
 
 ### URL Parameters
 
@@ -844,7 +845,7 @@ curl -X GET \
             "marketing_carrier_booking_number": "X8XTA9",
             "terms_accepted": true,
             "send_customer_email": false,
-            "retailer_partner_number": "222222",
+            "retailer_partner_number": "123456",
             "created_at": "2017-08-30T14:31"
         },
         "relationships": {

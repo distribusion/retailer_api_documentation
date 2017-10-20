@@ -162,4 +162,4 @@ Once you start making bookings, you will certainly want to monitor them and some
 
 Here’s a collection of sample queries in Postman that’ll help you get up to speed with our API faster.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/098f3f2ed1dab2ed66fe)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/92ecc4b28e8ad018f563)
