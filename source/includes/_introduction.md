@@ -155,6 +155,10 @@ Remember — in order to query information from our API, you need to get your ow
 
 In order to accomodate the specific requirements of each marketing carrier and to increase conversion rate, we also deliver a dynamic booking form. Required information, as well as the validation rules applied to each parameters, is provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v4/docs/#form-schema) endpoint.
 
+## Passenger types
+
+We also thrive to standardise passenger (ticket) types accross multiple carriers, every time it is possible. Two carriers having the same definition of a ticket type, will have the same passenger type code. For example, every time a carrier have the same definition of an adult that an other carrier, they will both share the same passenger type code. 
+
 ## Confirm Price and Availability
 
 As [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v4/docs/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
