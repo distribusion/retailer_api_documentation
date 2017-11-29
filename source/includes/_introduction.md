@@ -157,7 +157,7 @@ In order to accomodate the specific requirements of each marketing carrier and t
 
 ## Passenger types
 
-We also thrive to standardise passenger (ticket) types accross multiple carriers, every time it is possible. Two carriers having the same definition of a ticket type, will have the same passenger type code. For example, every time a carrier have the same definition of an adult that an other carrier, they will both share the same passenger type code. 
+We also thrive to standardise passenger (ticket) types across multiple carriers, every time it is possible. Two carriers having the same definition of a ticket type, will have the same passenger type code. For example, every time a carrier have the same definition of an adult that an other carrier, they will both share the same passenger type code. 
 
 ## Confirm Price and Availability
 
