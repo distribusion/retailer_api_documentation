@@ -1113,7 +1113,7 @@ Error Code  | Meaning
 ----------- | -------
 400.000.000 | The provided json is invalid
 400.100.000 | Request invalid
-400.100.041 | Booking is invalid or missing
+400.101.041 | Booking is invalid or missing
 400.200.001 | API key is invalid or missing
 400.800.000 | Not Found
 500.000.000 | Internal Server Error
@@ -1142,7 +1142,7 @@ Error Code  | Meaning
 ----------- | -------
 400.000.000 | The provided json is invalid
 400.100.000 | Request invalid
-400.100.041 | Booking is invalid or missing
+400.101.041 | Booking is invalid or missing
 400.200.001 | API key is invalid or missing
 400.800.000 | Not Found
 500.000.000 | Internal Server Error

@@ -33,6 +33,17 @@ When performing a booking through Distribusion API, there are multiple steps tha
 
 ![alt text](/images/API_V3.0_workflow.png)
 
+## Integration Workflow
+
+1. _(1-4 weeks)_ **Integrate our API**, using this documenation. 
+If you have any questions, do not hesitate to write us at [partner@distribusion.com](mailto:partner@distribusion.com)
+
+2. _(Up to 1 week)_ In order to get access to our production environment, we will first test the integration logic (from search to booking, and if implemented, cancellations) and the data mapping logic (stations associations to cities and airports). For this, we will require **access to your demo environment**, with all the necessary information to perform bookings (test payment credentials, etc). 
+
+3. _(Up to 2 week after launch)_ Once this is validated, we will provide you the production API key for you to start mapping stations on the production environment. A few weeks after your launch, we will have our customer experience team going through your integration and provide a **full report to improve data mapping and overall L/B ratio**. 
+
+4. Later on, our team will get in touch with you in order to support your processes related to L/B ratio optimisation and overall customer journey: from searching to booking and after sales services. 
+
 ## Station Coding
 
 Distribusion aims to standardize the station codes across the bus industry, the same way IATA did in the flight industry. Our station codes are designed to represent specific locations using a **set of 8 capital letters**. The construction of such code follow a simple logic:
@@ -143,6 +154,10 @@ Remember — in order to query information from our API, you need to get your ow
 ## Build a Booking Form
 
 In order to accomodate the specific requirements of each marketing carrier and to increase conversion rate, we also deliver a dynamic booking form. Required information, as well as the validation rules applied to each parameters, is provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v4/docs/#form-schema) endpoint.
+
+## Passenger types
+
+We also thrive to standardise passenger (ticket) types across multiple carriers, every time it is possible. Two carriers having the same definition of a ticket type, will have the same passenger type code. For example, every time a carrier have the same definition of an adult that an other carrier, they will both share the same passenger type code. 
 
 ## Confirm Price and Availability
 
