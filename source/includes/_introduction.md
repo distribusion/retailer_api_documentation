@@ -36,7 +36,7 @@ When performing a booking through Distribusion API, there are multiple steps tha
 ## Integration Workflow
 
 1. _(1-4 weeks)_ **Integrate our API**, using this documenation. 
-If you have any questions, do not hesitate to write me directly at [quentin.leroy@distribusion.com](mailto:quentin.leroy@distribusion.com)
+If you have any questions, do not hesitate to write us at [partner@distribusion.com](mailto:partner@distribusion.com)
 
 2. _(Up to 1 week)_ In order to get access to our production environment, we will first test the integration logic (from search to booking, and if implemented, cancellations) and the data mapping logic (stations associations to cities and airports). For this, we will require **access to your demo environment**, with all the necessary information to perform bookings (test payment credentials, etc). 
 
