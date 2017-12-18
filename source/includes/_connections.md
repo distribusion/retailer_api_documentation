@@ -705,6 +705,7 @@ Error Code  | Meaning
 400.501.002 | Not implemented at Distribusion on connections#vacancy
 400.800.000 | Not Found
 400.800.040 | Marketing carrier not found
+429.000.000 | Too Many Requests
 500.100.000 | Service Unavailable
 600.000.000 | Marketing Carrier remote system unavailable
 600.100.000 | Marketing Carrier remote system time-out
