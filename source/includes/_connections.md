@@ -4,7 +4,7 @@
 
 ```shell
 curl -g -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=FRLILBDT&departure_stations[]=FRLILCSA&departure_stations[]=FRLILGEU&departure_stations[]=FRLILGFA&departure_stations[]=FRLILZOB&arrival_stations[]=FRLYSAIR&arrival_stations[]=FRLYSDAR&arrival_stations[]=FRLYSIHO&arrival_stations[]=FRLYSPDB&arrival_stations[]=FRLYSPER&arrival_stations[]=FRLYSZOB&departure_date=2017-11-29&pax=1&locale=en&currency=EUR' \
+  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=FRLILBDT&departure_stations[]=FRLILCSA&departure_stations[]=FRLILGEU&departure_stations[]=FRLILGFA&departure_stations[]=FRLILZOB&arrival_stations[]=FRLYSAIR&arrival_stations[]=FRLYSDAR&arrival_stations[]=FRLYSIHO&arrival_stations[]=FRLYSPDB&arrival_stations[]=FRLYSPER&arrival_stations[]=FRLYSZOB&departure_date=2018-03-29&pax=1&locale=en&currency=EUR' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json'
@@ -16,11 +16,11 @@ curl -g -X GET \
 {
     "data": [
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T06:30-2018-03-29T19:05",
             "type": "connections",
             "attributes": {
-                "departure_time": "2017-09-29T06:30",
-                "arrival_time": "2017-09-29T19:05",
+                "departure_time": "2018-03-29T06:30",
+                "arrival_time": "2018-03-29T19:05",
                 "duration": 45300,
                 "cheapest_total_adult_price": 4800,
                 "booked_out": false
@@ -47,11 +47,11 @@ curl -g -X GET \
                 "segments": {
                     "data": [
                         {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-0",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T06:30-2018-03-29T19:05-0",
                             "type": "segments"
                         },
                         {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-1",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T06:30-2018-03-29T19:05-1",
                             "type": "segments"
                         }
                     ]
@@ -59,11 +59,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55",
             "type": "connections",
             "attributes": {
-                "departure_time": "2017-09-29T12:00",
-                "arrival_time": "2017-09-29T21:55",
+                "departure_time": "2018-03-29T12:00",
+                "arrival_time": "2018-03-29T21:55",
                 "duration": 35700,
                 "cheapest_total_adult_price": 3800,
                 "booked_out": false
@@ -90,11 +90,11 @@ curl -g -X GET \
                 "segments": {
                     "data": [
                         {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
                             "type": "segments"
                         },
                         {
-                            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
                             "type": "segments"
                         }
                     ]
@@ -247,11 +247,11 @@ curl -g -X GET \
         },
         {
 
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-0",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T06:30-2018-03-29T19:05-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T06:30",
-                "arrival_time": "2017-09-29T09:30",
+                "departure_time": "2018-03-29T06:30",
+                "arrival_time": "2018-03-29T09:30",
                 "index": 0
             },
             "relationships": {
@@ -314,11 +314,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T19:05-1",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T06:30-2018-03-29T19:05-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T12:30",
-                "arrival_time": "2017-09-29T19:05",
+                "departure_time": "2018-03-29T12:30",
+                "arrival_time": "2018-03-29T19:05",
                 "index": 1
             },
             "relationships": {
@@ -343,11 +343,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T21:30-0",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T06:30-2018-03-29T21:30-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T06:30",
-                "arrival_time": "2017-09-29T09:30",
+                "departure_time": "2018-03-29T06:30",
+                "arrival_time": "2018-03-29T09:30",
                 "index": 0
             },
             "relationships": {
@@ -372,11 +372,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T06:30-2017-09-29T21:30-1",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T06:30-2018-03-29T21:30-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T13:30",
-                "arrival_time": "2017-09-29T21:30",
+                "departure_time": "2018-03-29T13:30",
+                "arrival_time": "2018-03-29T21:30",
                 "index": 1
             },
             "relationships": {
@@ -401,11 +401,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T19:05-0",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T07:30-2018-03-29T19:05-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T07:30",
-                "arrival_time": "2017-09-29T10:30",
+                "departure_time": "2018-03-29T07:30",
+                "arrival_time": "2018-03-29T10:30",
                 "index": 0
             },
             "relationships": {
@@ -430,11 +430,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T19:05-1",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T07:30-2018-03-29T19:05-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T12:30",
-                "arrival_time": "2017-09-29T19:05",
+                "departure_time": "2018-03-29T12:30",
+                "arrival_time": "2018-03-29T19:05",
                 "index": 1
             },
             "relationships": {
@@ -459,11 +459,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T21:30-0",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T07:30-2018-03-29T21:30-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T07:30",
-                "arrival_time": "2017-09-29T10:30",
+                "departure_time": "2018-03-29T07:30",
+                "arrival_time": "2018-03-29T10:30",
                 "index": 0
             },
             "relationships": {
@@ -488,11 +488,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T07:30-2017-09-29T21:30-1",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T07:30-2018-03-29T21:30-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T13:30",
-                "arrival_time": "2017-09-29T21:30",
+                "departure_time": "2018-03-29T13:30",
+                "arrival_time": "2018-03-29T21:30",
                 "index": 1
             },
             "relationships": {
@@ -517,11 +517,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T12:00",
-                "arrival_time": "2017-09-29T14:55",
+                "departure_time": "2018-03-29T12:00",
+                "arrival_time": "2018-03-29T14:55",
                 "index": 0
             },
             "relationships": {
@@ -546,11 +546,11 @@ curl -g -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T16:00",
-                "arrival_time": "2017-09-29T21:55",
+                "departure_time": "2018-039-29T16:00",
+                "arrival_time": "2018-03-29T21:55",
                 "index": 1
             },
             "relationships": {
@@ -633,7 +633,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=OUIB&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2017-09-29T12%3A00&arrival_time=2017-09-29T21%3A55&currency=EUR&passengers%5B%5D%5Bpax%5D=1&passengers%5B%5D%5Btype%5D=PADU' \
+  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=OUIB&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2018-03-29T12%3A00&arrival_time=2018-03-29T21%3A55&currency=EUR&passengers%5B%5D%5Bpax%5D=1&passengers%5B%5D%5Btype%5D=PADU' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json'
 ```
@@ -643,7 +643,7 @@ curl -X GET \
 ```json
 {
     "data": {
-        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55",
+        "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55",
         "type": "vacancies",
         "attributes": {
             "vacant": true,

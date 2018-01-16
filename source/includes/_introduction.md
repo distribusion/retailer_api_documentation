@@ -139,11 +139,11 @@ For example, while searching from Barcelona Airport to Barcelona City, you could
 arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
 arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
 arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2017-09-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
+departure_date=2018-03-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
 arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
 arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
 arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2017-09-29&pax=1&currency=EUR&locale=en)
+departure_date=2018-03-29&pax=1&currency=EUR&locale=en)
 
 ## Find Connections
 

@@ -240,8 +240,8 @@ curl -X POST \
        "marketing_carrier": "OUIB",
        "departure_station": "FRLILBDT",
        "arrival_station": "FRLYSPER",
-       "departure_time": "2017-09-29T12:00",
-       "arrival_time": "2017-09-29T21:55",
+       "departure_time": "2018-03-29T12:00",
+       "arrival_time": "2018-03-29T21:55",
        "retailer_partner_number": "123456",
        "title": "mr",
        "first_name": "Balibalo",
@@ -277,8 +277,8 @@ curl -X POST \
         "id": "G0zphTalaiG8Ak4td82D2w",
         "type": "bookings",
         "attributes": {
-            "departure_time": "2017-09-29T12:00",
-            "arrival_time": "2017-09-29T21:55",
+            "departure_time": "2018-03-29T12:00",
+            "arrival_time": "2018-03-29T21:55",
             "duration": 35700,
             "title": "mr",
             "first_name": "Balibalo",
@@ -300,7 +300,7 @@ curl -X POST \
             "terms_accepted": true,
             "send_customer_email": false,
             "retailer_partner_number": "123456",
-            "created_at": "2017-08-30T14:31"
+            "created_at": "2017-12-30T14:31"
         },
         "relationships": {
             "departure_station": {
@@ -327,11 +327,11 @@ curl -X POST \
             "segments": {
                 "data": [
                     {
-                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
                         "type": "segments"
                     },
                     {
-                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
                         "type": "segments"
                     }
                 ]
@@ -434,11 +434,11 @@ curl -X POST \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T12:00",
-                "arrival_time": "2017-09-29T14:55",
+                "departure_time": "2018-03-29T12:00",
+                "arrival_time": "2018-03-29T14:55",
                 "index": 0
             },
             "relationships": {
@@ -501,11 +501,11 @@ curl -X POST \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T16:00",
-                "arrival_time": "2017-09-29T21:55",
+                "departure_time": "2018-03-29T16:00",
+                "arrival_time": "2018-03-29T21:55",
                 "index": 1
             },
             "relationships": {
@@ -823,8 +823,8 @@ curl -X GET \
         "id": "G0zphTalaiG8Ak4td82D2w",
         "type": "bookings",
         "attributes": {
-            "departure_time": "2017-09-29T12:00",
-            "arrival_time": "2017-09-29T21:55",
+            "departure_time": "2018-03-29T12:00",
+            "arrival_time": "2018-03-29T21:55",
             "duration": 35700,
             "title": "mr",
             "first_name": "Balibalo",
@@ -846,7 +846,7 @@ curl -X GET \
             "terms_accepted": true,
             "send_customer_email": false,
             "retailer_partner_number": "123456",
-            "created_at": "2017-08-30T14:31"
+            "created_at": "2017-12-30T14:31"
         },
         "relationships": {
             "departure_station": {
@@ -873,11 +873,11 @@ curl -X GET \
             "segments": {
                 "data": [
                     {
-                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
                         "type": "segments"
                     },
                     {
-                        "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+                        "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
                         "type": "segments"
                     }
                 ]
@@ -980,11 +980,11 @@ curl -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-0",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T12:00",
-                "arrival_time": "2017-09-29T14:55",
+                "departure_time": "2018-03-29T12:00",
+                "arrival_time": "2018-03-29T14:55",
                 "index": 0
             },
             "relationships": {
@@ -1047,11 +1047,11 @@ curl -X GET \
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2017-09-29T12:00-2017-09-29T21:55-1",
+            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2017-09-29T16:00",
-                "arrival_time": "2017-09-29T21:55",
+                "departure_time": "2018-03-29T16:00",
+                "arrival_time": "2018-03-29T21:55",
                 "index": 1
             },
             "relationships": {
