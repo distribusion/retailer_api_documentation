@@ -60,6 +60,8 @@ Distribusion aims to standardize the station codes across the bus industry, the 
 
 The first step in the booking process, is collecting the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) and [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoints. To retrieve station codes, simply send a `GET` request to our [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, coordinates, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
 
+Currently our content can be fetch in English, French, Italian and German, with the following locale values: en, fr, it and de.
+
 ## Map Stations to Cities and Areas
 
 ```json
@@ -137,11 +139,11 @@ For example, while searching from Barcelona Airport to Barcelona City, you could
 arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
 arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
 arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2017-09-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
+departure_date=2018-03-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
 arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
 arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
 arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2017-09-29&pax=1&currency=EUR&locale=en)
+departure_date=2018-03-29&pax=1&currency=EUR&locale=en)
 
 ## Find Connections
 

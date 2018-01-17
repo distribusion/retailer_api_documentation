@@ -19,7 +19,7 @@ curl -X GET \
     "attributes": {
       "allowed": true,
       "fee": 1500,
-      "cutoff": "2017-09-28T12:00"
+      "cutoff": "2018-03-28T12:00"
     }
   },
   "jsonapi": {
