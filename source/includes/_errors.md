@@ -1,12 +1,12 @@
 # Errors
 
-We have developed a set of error codes, destined to provide you with helpful information when integrating Distribusion API. We categorised them into three main types: 
+We have developed a set of error codes, destined to provide you with helpful information when integrating Distribusion API. We categorised them into three main types:
 
-- `400` - [Client errors](https://api-demo.distribusion.com/retailers/v3/docs/#client-errors) 
+- `400` - [Client errors](https://api-demo.distribusion.com/retailers/v3/docs/#client-errors)
 
-- `500` - [Server errors](https://api-demo.distribusion.com/retailers/v3/docs/#server-errors) 
+- `500` - [Server errors](https://api-demo.distribusion.com/retailers/v3/docs/#server-errors)
 
-- `600` - [Remote server errors](https://api-demo.distribusion.com/retailers/v3/docs/#remote-server-errors). 
+- `600` - [Remote server errors](https://api-demo.distribusion.com/retailers/v3/docs/#remote-server-errors).
 
 
 
@@ -68,6 +68,7 @@ Error Code  | Meaning
 400.800.000 | Not Found
 400.800.040 | Marketing carrier not found
 400.800.041 | Booking not found
+429.000.000 | Too Many Requests
 
 Error Code  | Meaning
 ----------- | -------
