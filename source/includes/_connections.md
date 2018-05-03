@@ -604,7 +604,7 @@ Parameter               | Mandatory | Description
 `pax`                   | true      | Number of passengers - Integer in a range of 1..9.
 `locale`                | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard .
 `currency`              | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
-`departure_start_time`  | false     | String, `HH:MM` or `HH:MM:SS`, defaults to `00:00`
+`departure_start_time`  | false     | String, `HH:MM` or `HH:MM:SS`, defaults to `00:00:00`
 `departure_end_time`    | false     | String, `HH:MM` or `HH:MM:SS`, defaults to `23:59:59`
 
 <aside class="success">
