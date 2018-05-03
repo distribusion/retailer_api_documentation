@@ -51,6 +51,7 @@ Error Code  | Meaning
 400.100.000 | Request invalid
 400.200.001 | API key is invalid or missing
 400.800.041 | Booking not found
+400.500.041 | Cancellation is not allowed
 400.501.007 | Not implemented at Distribusion on cancellations#conditions
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable

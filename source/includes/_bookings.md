@@ -677,10 +677,10 @@ Error Code  | Meaning
 ## Redirect for Affiliates
 
 ```curl
-https://bustickets-demo.distribusion.com/bookings/checkout?departure_station_code=ITROMFAI&arrival_station_code=ITRROMET&departure_time=2018-02-22T12:55&arrival_time=2018-02-22T16:02&locale=en&currency=EUR&retailer_partner_number=123456&marketing_carrier_code=FEFR
+https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=FEFR&departure_station_code=ITRROMET&arrival_station_code=ITROMFAI&departure_time=2018-05-16T05:15&arrival_time=2018-05-16T08:22&currency=EUR&retailer_partner_number=170886&locale=en
 ```
 
-Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. The currency can be set within the redirect link. 
+Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. The currency can be set within the redirect link. You can use the following
 
 We currently supports 7 currencies:
 
@@ -692,23 +692,24 @@ We currently supports 7 currencies:
 * PLN: Polish Zloty
 * CAD: Canadian Dollar
 
-You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index).
+You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index). 
 
 ### Checkout Link
 
-`GET https://bustickets.distribusion.com/bookings/checkout`
+`GET https://bustickets.distribusion.com/bookings/redirect`
 
 ### URL Parameters
 
 Parameter                 | Mandatory | Description
 ------------------------- | :-------: | :----------
 `marketing_carrier`       | true      | 4-letter alphanumeric uppercase code.
-`departure_station`       | true      | 8- or 9-letter alphanumeric uppercase code.
-`arrival_station`         | true      | 8- or 9-letter alphanumeric uppercase code.
+`departure_station_code`  | true      | 8- or 9-letter alphanumeric uppercase code.
+`arrival_station_code`    | true      | 8- or 9-letter alphanumeric uppercase code.
 `departure_time`          | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
 `arrival_time`            | true      | departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
 `retailer_partner_number` | true      | 5 - 12 digits number of retailer partner.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
+`locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 
 ### Errors
 
