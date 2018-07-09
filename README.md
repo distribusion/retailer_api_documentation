@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="http://distribusion.com/wp-content/uploads/2017/03/logo-distribusion-footer.png" alt="Distribusion: API Documentation" width="226">
+  <img src="https://distribusion.com/wp-content/uploads/elementor/thumbs/logo-distribusion-footer-nny0t30380wu729uv6rsad1a0rqmiggahat7kitf7e.png" alt="Distribusion: API Documentation" width="226">
   <br>
 </p>
 
