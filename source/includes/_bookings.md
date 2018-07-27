@@ -188,7 +188,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/orders/EUSA-338d8528-103d-4538-bf5d-5eb61aa2adc8 \
+  https://api-demo.distribusion.com/retailers/v4/orders/EUSA-338d8528-103d-4538-bf5d-5eb61aa2adc8 \
   -H 'Cache-Control: no-cache' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI'
 ```
@@ -1401,11 +1401,17 @@ curl -X GET \
   -H 'Content-Type: application/json'
 ```
 
-This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format).
+This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format). You can also retrieve your ticket in HTML format, by adding the `type` parameter.
 
 ### HTTP Request
 
 `GET api.distribusion.com/retailers/v4/bookings/{id}/tickets`
+
+### URL Parameters
+
+Parameter           | Mandatory | Description
+------------------- | --------- | -----------
+`type`              | false     | Allowed value: html
 
 ### Errors
 
