@@ -167,7 +167,7 @@ As [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find)
 
 ## Create an Order or a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). You can also perform an order, and later retrieve it status by calling our [orders#create] (https://api-demo.distribusion.com/retailers/v4/docs/#orders-create) endpoint. In case any information is missing, the API will recognise it and inform you accordingly.
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). You can also perform an order, and later retrieve it status by calling our [orders#create] (https://api-demo.distribusion.com/retailers/v4/docs/#create-orders) endpoint. In case any information is missing, the API will recognise it and inform you accordingly.
 
 Note: we currently support *EUR*, *USD*, *GBP* and *CHF* currencies.
 
