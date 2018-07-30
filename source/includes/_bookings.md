@@ -59,6 +59,7 @@ curl -X POST \
 ```
 
 Use this endpoint to conduct an order. Orders created in this way are not a booking per se, but a confirmation that your booking have been successfully taken in account by our platform. In order to retrieve the status of your booking, please call [orders/{:id}] (https://api-demo.distribusion.com/retailers/v4/docs/#orders-status). 
+
 The endpoint currently supports one-way bookings only. It will also send out booking e-mails to customers. E-Mails are blocked on demo, so feel free to conduct tests bookings on our demo server (api-demo.distribusion.com).
 
 Note: we currently support EUR, USD, GBP and CHF currencies.
