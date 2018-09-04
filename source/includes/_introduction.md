@@ -165,9 +165,9 @@ We also thrive to standardise passenger (ticket) types across multiple carriers,
 
 As [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v4/docs/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
 
-## Create a Booking
+## Create an Order or a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). The parameters to be sent are dependant on the marketing carrier and should have been delivered to you through the [bookings#form_schema](https://api-demo.distribusion.com/retailers/v4/docs/#form-schema). In case any information is missing, the API will recognise it and inform you accordingly.
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). You can also perform an order, and later retrieve it status by calling our [orders#create] (https://api-demo.distribusion.com/retailers/v4/docs/#create-orders) endpoint. In case any information is missing, the API will recognise it and inform you accordingly.
 
 Note: we currently support *EUR*, *USD*, *GBP* and *CHF* currencies.
 
