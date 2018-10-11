@@ -1,14 +1,6 @@
 # Introduction
 
-Dear partner,
-
-You made it - in front of you lies the most loved API in the transporation industry. Actually, so far it is mostly the love of our dev and product team, due to it being super brand new, but we hope you will fall in love soon too. Feel free to write to me personally anytime at [partner@distribusion.com](mailto:partner@distribusion.com) in case you are unhappy or our baby is not behaving as you expected.
-
-You can trust on us working hard everyday to make it your most loved product.
-
-Your Distribusion IT team
-
-![alt text](/images/distribusion-it-team.png)
+![alt text](/images/distribusion-overview.png)
 
 You can use our API to access Distribusion content and book bus rides. We have put a lot of thought into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
 
