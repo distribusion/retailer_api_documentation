@@ -167,3 +167,65 @@ Error Code  | Meaning
 400.800.040 | Marketing carrier not found
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
+
+## Stations
+
+```shell
+curl -X GET \
+  https://api-demo.distribusion.com/retailers/v4/marketing_carriers/SIBU/stations \
+  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'content-type: application/json' 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+        {
+            "id": "ITROMCGI",
+            "type": "stations"
+        },
+        {
+            "id": "ITROMVMA",
+            "type": "stations"
+        },
+        {
+            "id": "ITZRRPGA",
+            "type": "stations"
+        },
+        {
+            "id": "ITROMVCE",
+            "type": "stations"
+        },
+        {
+            "id": "ITROMRCF",
+            "type": "stations"
+        },
+        {
+            "id": "ITROMRVA",
+            "type": "stations"
+        },
+        {
+            "id": "ITROMRFB",
+            "type": "stations"
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    }
+}
+```
+
+This endpoint provides a list of stations attached to a specific marketing carrier. This can help you map stations based on the marketing carrier you wish to display in your application.
+
+### HTTP Request
+
+`GET api.distribusion.com/retailers/v4/marketing_carriers/{code}/stations`
+
+### Errors
+
+Error Code  | Meaning
+----------- | -------
+500.000.000 | Internal Server Error
+500.100.000 | Service Unavailable

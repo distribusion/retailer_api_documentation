@@ -4,7 +4,7 @@
 
 ```shell
 curl -g -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=FRLILBDT&departure_stations[]=FRLILCSA&departure_stations[]=FRLILGEU&departure_stations[]=FRLILGFA&departure_stations[]=FRLILZOB&arrival_stations[]=FRLYSAIR&arrival_stations[]=FRLYSDAR&arrival_stations[]=FRLYSIHO&arrival_stations[]=FRLYSPDB&arrival_stations[]=FRLYSPER&arrival_stations[]=FRLYSZOB&departure_date=2018-09-15&pax=1&locale=en&currency=EUR' \
+  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=FRLILBDT&departure_stations[]=FRLILCSA&departure_stations[]=FRLILGEU&departure_stations[]=FRLILGFA&departure_stations[]=FRLILZOB&arrival_stations[]=FRLYSAIR&arrival_stations[]=FRLYSDAR&arrival_stations[]=FRLYSIHO&arrival_stations[]=FRLYSPDB&arrival_stations[]=FRLYSPER&arrival_stations[]=FRLYSZOB&departure_date=2019-01-15&pax=1&locale=en&currency=EUR' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json'
@@ -25,10 +25,16 @@ curl -g -X GET \
         {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-0"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
-                        "id": "ISIL"
+                        "id": "EUSA"
                     }
                 },
                 "departure_station": {
@@ -44,20 +50,26 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T21:15-0",
+            "id": "EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2018-09-15T07:45",
-                "arrival_time": "2018-09-15T10:40"
+                "departure_time": "2019-01-15T13:45",
+                "arrival_time": "2019-01-15T15:30"
             }
         },
         {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-1"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
-                        "id": "EUSA"
+                        "id": "ISIL"
                     }
                 },
                 "departure_station": {
@@ -73,11 +85,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T21:15-1",
+            "id": "EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2018-09-15T14:30",
-                "arrival_time": "2018-09-15T21:15"
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40"
             }
         },
         {
@@ -121,20 +133,20 @@ curl -g -X GET \
         },
         {
             "type": "operating_carriers",
-            "id": "ISIL",
-            "attributes": {
-                "trade_name": "Isilines",
-                "legal_name": "Isilines",
-                "code": "ISIL"
-            }
-        },
-        {
-            "type": "operating_carriers",
             "id": "EUSA",
             "attributes": {
                 "trade_name": "Eurolines SA",
                 "legal_name": "Eurolines SA",
                 "code": "EUSA"
+            }
+        },
+        {
+            "type": "operating_carriers",
+            "id": "ISIL",
+            "attributes": {
+                "trade_name": "Isilines",
+                "legal_name": "Isilines",
+                "code": "ISIL"
             }
         },
         {
@@ -197,7 +209,7 @@ curl -g -X GET \
             },
             "id": "FRLILBDT",
             "attributes": {
-                "zip_code": "59800",
+                "zip_code": "59777",
                 "time_zone": "Europe/Paris",
                 "street_and_number": "Boulevard de Turin",
                 "name": "Lille Boulevard de Turin",
@@ -236,7 +248,7 @@ curl -g -X GET \
                 "name": "Paris Gallieni (Bagnolet)",
                 "longitude": 2.414311,
                 "latitude": 48.865442,
-                "description": "Paris's internation bus station is located in the eastern part of the city, and is connected to the metro line M3. At the station, there is a taxi stand, a snack bar, and parking areas.",
+                "description": "Paris international bus station is located in the eastern part of the city, and is connected to the metro line M3. At the station, there is a taxi stand, a snack bar, and parking areas.",
                 "code": "FRPARGBA"
             }
         },
@@ -282,8 +294,45 @@ curl -g -X GET \
             }
         },
         {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-1"
+        },
+        {
+            "type": "vehicle_types",
+            "id": "BUS",
+            "attributes": {
+                "code": "BUS"
+            }
+        },
+        {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -303,74 +352,22 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T23:45-0",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2018-09-15T12:00",
-                "arrival_time": "2018-09-15T14:50"
+                "departure_time": "2019-01-15T17:00",
+                "arrival_time": "2019-01-15T20:05"
             }
         },
         {
             "type": "segments",
             "relationships": {
-                "operating_carrier": {
+                "vehicle": {
                     "data": {
-                        "type": "operating_carriers",
-                        "id": "EUSA"
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1"
                     }
                 },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T23:45-1",
-            "attributes": {
-                "index": 1,
-                "departure_time": "2018-09-15T17:00",
-                "arrival_time": "2018-09-15T23:45"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2018-09-15T13:00",
-                "arrival_time": "2018-09-15T15:30"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -390,276 +387,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-1",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2018-09-15T16:30",
-                "arrival_time": "2018-09-15T22:15"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T23:45-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2018-09-15T13:00",
-                "arrival_time": "2018-09-15T15:30"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T23:45-1",
-            "attributes": {
-                "index": 1,
-                "departure_time": "2018-09-15T17:00",
-                "arrival_time": "2018-09-15T23:45"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRDIJHBF"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T16:00-2018-09-16T05:15-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2018-09-15T16:00",
-                "arrival_time": "2018-09-15T22:40"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "ISIL"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRDIJHBF"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T16:00-2018-09-16T05:15-1",
-            "attributes": {
-                "index": 1,
-                "departure_time": "2018-09-16T02:50",
-                "arrival_time": "2018-09-16T05:15"
-            }
-        },
-        {
-            "type": "stations",
-            "relationships": {
-                "city": {
-                    "data": {
-                        "type": "cities",
-                        "id": "FRDIJ"
-                    }
-                },
-                "area": {
-                    "data": null
-                }
-            },
-            "id": "FRDIJHBF",
-            "attributes": {
-                "zip_code": "21000",
-                "time_zone": "Europe/Paris",
-                "street_and_number": "Cour de la gare",
-                "name": "Dijon Main Train Station",
-                "longitude": 5.02808070000003,
-                "latitude": 47.3236042,
-                "description": "The bus stops on the parking lot in front of main train station. Near the parking lot there are cash mashine and car rental facilities.",
-                "code": "FRDIJHBF"
-            }
-        },
-        {
-            "type": "cities",
-            "id": "FRDIJ",
-            "attributes": {
-                "name": "Dijon",
-                "code": "FRDIJ"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T19:30-2018-09-16T05:40-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2018-09-15T19:30",
-                "arrival_time": "2018-09-15T22:45"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "ISIL"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T19:30-2018-09-16T05:40-1",
-            "attributes": {
-                "index": 1,
-                "departure_time": "2018-09-15T23:30",
-                "arrival_time": "2018-09-16T05:40"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "ISIL"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                }
-            },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T19:55-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2018-09-15T07:45",
-                "arrival_time": "2018-09-15T10:40"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "ISIL"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRPARGBA"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T19:55-1",
-            "attributes": {
-                "index": 1,
-                "departure_time": "2018-09-15T13:00",
-                "arrival_time": "2018-09-15T19:55"
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40"
             }
         },
         {
@@ -702,8 +434,38 @@ curl -g -X GET \
             }
         },
         {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1"
+        },
+        {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-0"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -723,16 +485,22 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T22:15-0",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2018-09-15T12:00",
-                "arrival_time": "2018-09-15T14:50"
+                "departure_time": "2019-01-15T14:15",
+                "arrival_time": "2019-01-15T16:45"
             }
         },
         {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-1"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -752,16 +520,46 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T22:15-1",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2018-09-15T16:30",
-                "arrival_time": "2018-09-15T22:15"
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40"
             }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-1"
         },
         {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-0"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -781,16 +579,22 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T17:00-2018-09-16T05:40-0",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2018-09-15T17:00",
-                "arrival_time": "2018-09-15T20:05"
+                "departure_time": "2019-01-15T19:00",
+                "arrival_time": "2019-01-15T21:30"
             }
         },
         {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-1"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -810,16 +614,46 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T17:00-2018-09-16T05:40-1",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2018-09-15T23:30",
-                "arrival_time": "2018-09-16T05:40"
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40"
             }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-1"
         },
         {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-0"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -835,20 +669,61 @@ curl -g -X GET \
                 "arrival_station": {
                     "data": {
                         "type": "stations",
-                        "id": "FRPARGBA"
+                        "id": "FRCQFCVB"
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T19:00-2018-09-16T05:40-0",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2018-09-15T19:00",
-                "arrival_time": "2018-09-15T21:30"
+                "departure_time": "2019-01-15T11:30",
+                "arrival_time": "2019-01-15T13:30"
             }
         },
         {
             "type": "segments",
             "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "ISIL"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRCQFCVB"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARGBA"
+                    }
+                }
+            },
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T14:45",
+                "arrival_time": "2019-01-15T20:05"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-2"
+                    }
+                },
                 "operating_carrier": {
                     "data": {
                         "type": "operating_carriers",
@@ -868,12 +743,972 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T19:00-2018-09-16T05:40-1",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-2",
+            "attributes": {
+                "index": 2,
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40"
+            }
+        },
+        {
+            "type": "stations",
+            "relationships": {
+                "city": {
+                    "data": {
+                        "type": "cities",
+                        "id": "FRCQF"
+                    }
+                },
+                "area": {
+                    "data": null
+                }
+            },
+            "id": "FRCQFCVB",
+            "attributes": {
+                "zip_code": "62100",
+                "time_zone": "Europe/Paris",
+                "street_and_number": "Quai du Rhin",
+                "name": "Calais Ville Bus Stop",
+                "longitude": 1.84969,
+                "latitude": 50.95384,
+                "description": "The bus stop is located at Quai du Rhin street and in close vicinity to the train station. When exiting the train station on the Boulevard Jacquard street turn left and walk till Quai du Rhin street, then turn left and the stop will be in front of you.",
+                "code": "FRCQFCVB"
+            }
+        },
+        {
+            "type": "cities",
+            "id": "FRCQF",
+            "attributes": {
+                "name": "Calais",
+                "code": "FRCQF"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-1"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-2"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T09:00",
+                "arrival_time": "2019-01-15T12:50"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2018-09-15T23:30",
-                "arrival_time": "2018-09-16T05:40"
+                "departure_time": "2019-01-15T13:30",
+                "arrival_time": "2019-01-15T21:45"
             }
+        },
+        {
+            "type": "marketing_carriers",
+            "relationships": {
+                "passenger_types": {
+                    "data": [
+                        {
+                            "type": "passenger_types",
+                            "id": "PADU"
+                        },
+                        {
+                            "type": "passenger_types",
+                            "id": "PBMD"
+                        },
+                        {
+                            "type": "passenger_types",
+                            "id": "PCIL"
+                        }
+                    ]
+                },
+                "extra_types": {
+                    "data": []
+                }
+            },
+            "id": "OUIB",
+            "attributes": {
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6",
+                "code": "OUIB",
+                "booking_fee": 0
+            }
+        },
+        {
+            "type": "operating_carriers",
+            "id": "OUIB",
+            "attributes": {
+                "trade_name": "Ouibus",
+                "legal_name": "Ouibus SNCF C6",
+                "code": "OUIB"
+            }
+        },
+        {
+            "type": "passenger_types",
+            "id": "PADU",
+            "attributes": {
+                "name": "Adults over 18",
+                "description": "",
+                "code": "PADU"
+            }
+        },
+        {
+            "type": "passenger_types",
+            "id": "PBMD",
+            "attributes": {
+                "name": "Children 0-2",
+                "description": "",
+                "code": "PBMD"
+            }
+        },
+        {
+            "type": "passenger_types",
+            "id": "PCIL",
+            "attributes": {
+                "name": "Children 2-12",
+                "description": "",
+                "code": "PCIL"
+            }
+        },
+        {
+            "type": "stations",
+            "relationships": {
+                "city": {
+                    "data": {
+                        "type": "cities",
+                        "id": "FRPAR"
+                    }
+                },
+                "area": {
+                    "data": null
+                }
+            },
+            "id": "FRPARBER",
+            "attributes": {
+                "zip_code": "75012",
+                "time_zone": "Europe/Paris",
+                "street_and_number": "Boulevard de Bercy 48",
+                "name": "Paris Bercy Train Station",
+                "longitude": 2.382411,
+                "latitude": 48.838424,
+                "description": "The bus stop is located near the train station \"Paris Bercy\". The bus stops next to the Paris Bercy station. When leaving subway stations 6 and 14, take exit no. 2.",
+                "code": "FRPARBER"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T07:15",
+                "arrival_time": "2019-01-15T10:55"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T13:30",
+                "arrival_time": "2019-01-15T21:45"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T11:45",
+                "arrival_time": "2019-01-15T14:40"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T16:00",
+                "arrival_time": "2019-01-15T21:55"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T16:00-2019-01-16T01:05-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T16:00-2019-01-16T01:05-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T16:00",
+                "arrival_time": "2019-01-16T01:05"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T16:00-2019-01-16T01:05-0"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T12:15",
+                "arrival_time": "2019-01-15T16:35"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T19:20",
+                "arrival_time": "2019-01-16T01:05"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T13:00",
+                "arrival_time": "2019-01-15T16:30"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T19:20",
+                "arrival_time": "2019-01-16T01:05"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T17:55",
+                "arrival_time": "2019-01-15T22:50"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T23:45",
+                "arrival_time": "2019-01-16T06:55"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T07:15",
+                "arrival_time": "2019-01-15T10:55"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T12:15",
+                "arrival_time": "2019-01-15T18:50"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-01-15T17:55",
+                "arrival_time": "2019-01-15T22:50"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRPARBER"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-01-15T23:20",
+                "arrival_time": "2019-01-16T05:15"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-1"
         }
     ],
     "data": [
@@ -884,11 +1719,11 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T21:15-0"
+                            "id": "EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-0"
                         },
                         {
                             "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T21:15-1"
+                            "id": "EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40-1"
                         }
                     ]
                 },
@@ -911,99 +1746,13 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T21:15",
+            "id": "EUSA-FRLILBDT-FRLYSPER-2019-01-15T13:45-2019-01-16T05:40",
             "attributes": {
-                "duration": 48600,
-                "departure_time": "2018-09-15T07:45",
-                "cheapest_total_adult_price": 3100,
-                "booked_out": false,
-                "arrival_time": "2018-09-15T21:15"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T23:45-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T23:45-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T23:45",
-            "attributes": {
-                "duration": 42300,
-                "departure_time": "2018-09-15T12:00",
-                "cheapest_total_adult_price": 3900,
-                "booked_out": false,
-                "arrival_time": "2018-09-15T23:45"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15",
-            "attributes": {
-                "duration": 33300,
-                "departure_time": "2018-09-15T13:00",
+                "duration": 57300,
+                "departure_time": "2019-01-15T13:45",
                 "cheapest_total_adult_price": 2900,
                 "booked_out": false,
-                "arrival_time": "2018-09-15T22:15"
+                "arrival_time": "2019-01-16T05:40"
             }
         },
         {
@@ -1013,140 +1762,11 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T23:45-0"
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0"
                         },
                         {
                             "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T23:45-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T23:45",
-            "attributes": {
-                "duration": 38700,
-                "departure_time": "2018-09-15T13:00",
-                "cheapest_total_adult_price": 4600,
-                "booked_out": false,
-                "arrival_time": "2018-09-15T23:45"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T16:00-2018-09-16T05:15-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T16:00-2018-09-16T05:15-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T16:00-2018-09-16T05:15",
-            "attributes": {
-                "duration": 47700,
-                "departure_time": "2018-09-15T16:00",
-                "cheapest_total_adult_price": 2200,
-                "booked_out": false,
-                "arrival_time": "2018-09-16T05:15"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T19:30-2018-09-16T05:40-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T19:30-2018-09-16T05:40-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "EUSA"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T19:30-2018-09-16T05:40",
-            "attributes": {
-                "duration": 36600,
-                "departure_time": "2018-09-15T19:30",
-                "cheapest_total_adult_price": 2400,
-                "booked_out": false,
-                "arrival_time": "2018-09-16T05:40"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T19:55-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T19:55-1"
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1"
                         }
                     ]
                 },
@@ -1169,99 +1789,13 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T07:45-2018-09-15T19:55",
-            "attributes": {
-                "duration": 43800,
-                "departure_time": "2018-09-15T07:45",
-                "cheapest_total_adult_price": 2200,
-                "booked_out": false,
-                "arrival_time": "2018-09-15T19:55"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T22:15-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T22:15-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "ISIL"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T12:00-2018-09-15T22:15",
-            "attributes": {
-                "duration": 36900,
-                "departure_time": "2018-09-15T12:00",
-                "cheapest_total_adult_price": 2200,
-                "booked_out": false,
-                "arrival_time": "2018-09-15T22:15"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T17:00-2018-09-16T05:40-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T17:00-2018-09-16T05:40-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "ISIL"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLILBDT"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "FRLYSPER"
-                    }
-                }
-            },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T17:00-2018-09-16T05:40",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40",
             "attributes": {
                 "duration": 45600,
-                "departure_time": "2018-09-15T17:00",
+                "departure_time": "2019-01-15T17:00",
                 "cheapest_total_adult_price": 2000,
                 "booked_out": false,
-                "arrival_time": "2018-09-16T05:40"
+                "arrival_time": "2019-01-16T05:40"
             }
         },
         {
@@ -1271,11 +1805,11 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T19:00-2018-09-16T05:40-0"
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-0"
                         },
                         {
                             "type": "segments",
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T19:00-2018-09-16T05:40-1"
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40-1"
                         }
                     ]
                 },
@@ -1298,13 +1832,486 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T19:00-2018-09-16T05:40",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T14:15-2019-01-16T05:40",
             "attributes": {
-                "duration": 38400,
-                "departure_time": "2018-09-15T19:00",
+                "duration": 55500,
+                "departure_time": "2019-01-15T14:15",
                 "cheapest_total_adult_price": 2000,
                 "booked_out": false,
-                "arrival_time": "2018-09-16T05:40"
+                "arrival_time": "2019-01-16T05:40"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "ISIL"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T19:00-2019-01-16T05:40",
+            "attributes": {
+                "duration": 38400,
+                "departure_time": "2019-01-15T19:00",
+                "cheapest_total_adult_price": 2000,
+                "booked_out": false,
+                "arrival_time": "2019-01-16T05:40"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-1"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40-2"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "ISIL"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T11:30-2019-01-16T05:40",
+            "attributes": {
+                "duration": 65400,
+                "departure_time": "2019-01-15T11:30",
+                "cheapest_total_adult_price": 3100,
+                "booked_out": false,
+                "arrival_time": "2019-01-16T05:40"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T09:00-2019-01-15T21:45",
+            "attributes": {
+                "duration": 45900,
+                "departure_time": "2019-01-15T09:00",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-15T21:45"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T21:45",
+            "attributes": {
+                "duration": 52200,
+                "departure_time": "2019-01-15T07:15",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-15T21:45"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T11:45-2019-01-15T21:55",
+            "attributes": {
+                "duration": 36600,
+                "departure_time": "2019-01-15T11:45",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-15T21:55"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T16:00-2019-01-16T01:05-0"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T16:00-2019-01-16T01:05",
+            "attributes": {
+                "duration": 32700,
+                "departure_time": "2019-01-15T16:00",
+                "cheapest_total_adult_price": 4500,
+                "booked_out": false,
+                "arrival_time": "2019-01-16T01:05"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T12:15-2019-01-16T01:05",
+            "attributes": {
+                "duration": 46200,
+                "departure_time": "2019-01-15T12:15",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-16T01:05"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T13:00-2019-01-16T01:05",
+            "attributes": {
+                "duration": 43500,
+                "departure_time": "2019-01-15T13:00",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-16T01:05"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T06:55",
+            "attributes": {
+                "duration": 46800,
+                "departure_time": "2019-01-15T17:55",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-16T06:55"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T07:15-2019-01-15T18:50",
+            "attributes": {
+                "duration": 41700,
+                "departure_time": "2019-01-15T07:15",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-15T18:50"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "OUIB"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLILBDT"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "FRLYSPER"
+                    }
+                }
+            },
+            "id": "OUIB-FRLILBDT-FRLYSPER-2019-01-15T17:55-2019-01-16T05:15",
+            "attributes": {
+                "duration": 40800,
+                "departure_time": "2019-01-15T17:55",
+                "cheapest_total_adult_price": 4800,
+                "booked_out": false,
+                "arrival_time": "2019-01-16T05:15"
             }
         }
     ]
@@ -1315,6 +2322,10 @@ The endpoint searches for and delivers all the connections matching your query. 
 
 On our side we parallelize the outbound requests to the operating carrier integration systems to include as many connections as we're able to get from marketing carriers (excluding those which couldn't respond in time).
 
+You can also add two optional parameters in the header:
+
+- `accept-encoding` with `deflate, gzip` value in order to receive compressed responses, reducing network time.
+- `collect_within` with an integer representing the maximum time (in seconds) allowed by our application to retrieve results from operators. This value can range from 1 to 10.
 
 ### HTTP Request
 
@@ -1361,7 +2372,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=EUSA&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2018-09-15T13:00&arrival_time=2018-09-15T22:15&passengers[][type]=PADX&passengers[][pax]=1&currency=EUR' \
+  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=ISIL&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&passengers[][pax]=2&passengers[][type]=PADX' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json'
 ```
@@ -1371,11 +2382,11 @@ curl -X GET \
 ```json
 {
     "data": {
-        "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15",
+        "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40",
         "type": "vacancies",
         "attributes": {
             "vacant": true,
-            "total_price": 2900
+            "total_price": 4000
         }
     },
     "jsonapi": {
