@@ -8,11 +8,11 @@ curl -X POST \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json' \
   -d '{
-       "marketing_carrier": "EUSA",
+       "marketing_carrier": "ISIL",
        "departure_station": "FRLILBDT",
        "arrival_station": "FRLYSPER",
-       "departure_time": "2018-09-15T13:00",
-       "arrival_time": "2018-09-15T22:15",
+       "departure_time": "2019-01-15T17:00",
+       "arrival_time": "2019-01-16T05:40",
        "retailer_partner_number": "123456",
        "title": "mr",
        "first_name": "Balibalo",
@@ -24,8 +24,8 @@ curl -X POST \
        "street_and_number": "Berlinstr. 23",
        "execute_payment": false,
        "payment_method": "demand_note",
-       "total_price": 2900,
-       "pax": 1,
+       "total_price": 4000,
+       "pax": 2,
        "terms_accepted": true,
        "locale": "en",
        "currency": "EUR",
@@ -33,6 +33,11 @@ curl -X POST \
        "passengers":[
           { 
             "first_name": "Balibalo",
+            "last_name": "Bateau",
+            "type": "PADX"
+          },
+          { 
+            "first_name": "Bilou",
             "last_name": "Bateau",
             "type": "PADX"
           }
@@ -45,11 +50,11 @@ curl -X POST \
 ```json
 {
     "data": {
-        "id": "EUSA-5207fa45-fc88-4c01-ace6-b1e77e028cdd",
+        "id": "ISIL-60a4ec9b-a021-4a07-b720-947b813956f0",
         "type": "orders",
         "attributes": {
             "state": "created",
-            "created_at": "2018-07-27T17:25"
+            "created_at": "2018-10-11T14:27"
         }
     },
     "jsonapi": {
@@ -189,7 +194,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/orders/EUSA-338d8528-103d-4538-bf5d-5eb61aa2adc8 \
+  https://api-demo.distribusion.com/retailers/v4/orders/ISIL-60a4ec9b-a021-4a07-b720-947b813956f0 \
   -H 'Cache-Control: no-cache' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI'
 ```
@@ -199,16 +204,16 @@ curl -X GET \
 ```json
 {
     "data": {
-        "id": "EUSA-26f1dea7-caac-401c-95a6-7f0e950b7da0",
+        "id": "ISIL-60a4ec9b-a021-4a07-b720-947b813956f0",
         "type": "orders",
         "attributes": {
             "state": "executed",
-            "executed_at": "2018-07-27T17:26"
+            "executed_at": "2018-10-11T14:27"
         },
         "relationships": {
             "booking": {
                 "data": {
-                    "id": "LWoJPJJ7knsI3t7SQ7gz9A",
+                    "id": "6RazURqZbL-9arqdIV5sAg",
                     "type": "bookings"
                 }
             }
@@ -223,29 +228,29 @@ curl -X GET \
     },
     "included": [
         {
-            "id": "LWoJPJJ7knsI3t7SQ7gz9A",
+            "id": "6RazURqZbL-9arqdIV5sAg",
             "type": "bookings",
             "attributes": {
-                "departure_time": "2018-09-15T13:00",
-                "arrival_time": "2018-09-15T22:15",
-                "duration": 33300,
-                "total_price": 2900,
-                "pax": 1,
+                "departure_time": "2019-01-15T17:00",
+                "arrival_time": "2019-01-16T05:40",
+                "duration": 45600,
+                "total_price": 4000,
+                "pax": 2,
                 "flight_number": null,
-                "distribusion_booking_number": "JSEXFG",
-                "marketing_carrier_booking_number": "180727020666",
+                "distribusion_booking_number": "SRZ5EB",
+                "marketing_carrier_booking_number": "181011380125",
                 "connection_reference": null,
-                "created_at": "2018-07-27T17:26"
+                "created_at": "2018-10-11T14:27"
             },
             "relationships": {
                 "segments": {
                     "data": [
                         {
-                            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-0",
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
                             "type": "segments"
                         },
                         {
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-1",
+                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
                             "type": "segments"
                         }
                     ]
@@ -253,7 +258,11 @@ curl -X GET \
                 "passengers": {
                     "data": [
                         {
-                            "id": "PADX-BATEAU-BALIBALO-1",
+                            "id": "PADX-BATEAU-BALIBALO-1-0",
+                            "type": "passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-0",
                             "type": "passengers"
                         }
                     ]
@@ -261,11 +270,11 @@ curl -X GET \
             }
         },
         {
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-0",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2018-09-15T13:00",
-                "arrival_time": "2018-09-15T15:30",
+                "departure_time": "2019-01-15T17:00",
+                "arrival_time": "2019-01-15T20:05",
                 "index": 0
             },
             "relationships": {
@@ -274,17 +283,21 @@ curl -X GET \
                         {
                             "id": "PADX-BATEAU-BALIBALO-1-0",
                             "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-0",
+                            "type": "segment_passengers"
                         }
                     ]
                 }
             }
         },
         {
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-15T22:15-1",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2018-09-15T16:30",
-                "arrival_time": "2018-09-15T22:15",
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40",
                 "index": 1
             },
             "relationships": {
@@ -292,6 +305,10 @@ curl -X GET \
                     "data": [
                         {
                             "id": "PADX-BATEAU-BALIBALO-1-1",
+                            "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-1",
                             "type": "segment_passengers"
                         }
                     ]
@@ -314,6 +331,21 @@ curl -X GET \
             }
         },
         {
+            "id": "PADX-BATEAU-BILOU-2-0",
+            "type": "segment_passengers",
+            "attributes": {
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BILOU-2",
+                        "type": "passengers"
+                    }
+                }
+            }
+        },
+        {
             "id": "PADX-BATEAU-BALIBALO-1-1",
             "type": "segment_passengers",
             "attributes": {
@@ -329,12 +361,37 @@ curl -X GET \
             }
         },
         {
-            "id": "PADX-BATEAU-BALIBALO-1",
+            "id": "PADX-BATEAU-BILOU-2-1",
+            "type": "segment_passengers",
+            "attributes": {
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BILOU-2",
+                        "type": "passengers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BALIBALO-1-0",
             "type": "passengers",
             "attributes": {
                 "first_name": "Balibalo",
                 "last_name": "Bateau",
-                "serial_code": "00000000180727676667         Bateau       Balibalo199201010000000UT50A000000000000",
+                "serial_code": "00000000181011952873         Bateau       Balibalo19920101000000FA011A000000000000",
+                "type": "PADX"
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BILOU-2-0",
+            "type": "passengers",
+            "attributes": {
+                "first_name": "Bilou",
+                "last_name": "Bateau",
+                "serial_code": "00000000181011755484         Bateau          Bilou19920101000000FA011A000000000000",
                 "type": "PADX"
             }
         }
@@ -439,11 +496,11 @@ curl -X POST \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json' \
   -d '{
-       "marketing_carrier": "EUSA",
+       "marketing_carrier": "ISIL",
        "departure_station": "FRLILBDT",
        "arrival_station": "FRLYSPER",
-       "departure_time": "2018-09-15T13:00",
-       "arrival_time": "2018-09-15T22:15",
+       "departure_time": "2019-01-15T17:00",
+       "arrival_time": "2019-01-16T05:40",
        "retailer_partner_number": "123456",
        "title": "mr",
        "first_name": "Balibalo",
@@ -455,8 +512,8 @@ curl -X POST \
        "street_and_number": "Berlinstr. 23",
        "execute_payment": false,
        "payment_method": "demand_note",
-       "total_price": 2900,
-       "pax": 1,
+       "total_price": 4000,
+       "pax": 2,
        "terms_accepted": true,
        "locale": "en",
        "currency": "EUR",
@@ -464,6 +521,11 @@ curl -X POST \
        "passengers":[
           { 
             "first_name": "Balibalo",
+            "last_name": "Bateau",
+            "type": "PADX"
+          },
+          { 
+            "first_name": "Bilou",
             "last_name": "Bateau",
             "type": "PADX"
           }
@@ -476,12 +538,12 @@ curl -X POST \
 ```json
 {
     "data": {
-        "id": "nMzSlZzYuGeqTUWkobtzvw",
+        "id": "9KRtPqq5YM5dKl9D6A_igA",
         "type": "bookings",
         "attributes": {
-            "departure_time": "2018-09-15T13:00",
-            "arrival_time": "2018-09-15T22:15",
-            "duration": 33300,
+            "departure_time": "2019-01-15T17:00",
+            "arrival_time": "2019-01-16T05:40",
+            "duration": 45600,
             "title": "mr",
             "first_name": "Balibalo",
             "last_name": "Bateau",
@@ -494,16 +556,16 @@ curl -X POST \
             "payment_method": "demand_note",
             "payment_token": null,
             "payer_id": null,
-            "total_price": 2900,
-            "pax": 1,
+            "total_price": 4000,
+            "pax": 2,
             "flight_number": null,
-            "distribusion_booking_number": "UQZH4X",
-            "marketing_carrier_booking_number": "180727710099",
+            "distribusion_booking_number": "7P7JF8",
+            "marketing_carrier_booking_number": "181011273961",
             "terms_accepted": true,
             "send_customer_email": false,
             "retailer_partner_number": "123456",
             "connection_reference": null,
-            "created_at": "2018-07-27T14:42"
+            "created_at": "2018-10-11T14:24"
         },
         "relationships": {
             "departure_station": {
@@ -520,7 +582,7 @@ curl -X POST \
             },
             "marketing_carrier": {
                 "data": {
-                    "id": "EUSA",
+                    "id": "ISIL",
                     "type": "marketing_carriers"
                 }
             },
@@ -530,11 +592,11 @@ curl -X POST \
             "segments": {
                 "data": [
                     {
-                        "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-29T22:15-0",
+                        "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
                         "type": "segments"
                     },
                     {
-                        "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-29T22:15-1",
+                        "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
                         "type": "segments"
                     }
                 ]
@@ -543,6 +605,10 @@ curl -X POST \
                 "data": [
                     {
                         "id": "PADX-BATEAU-BALIBALO-1",
+                        "type": "passengers"
+                    },
+                    {
+                        "id": "PADX-BATEAU-BILOU-2",
                         "type": "passengers"
                     }
                 ]
@@ -564,11 +630,12 @@ curl -X POST \
             "id": "FRLILBDT",
             "type": "stations",
             "attributes": {
+                "station_type": "bus_station",
                 "code": "FRLILBDT",
                 "name": "Lille Boulevard de Turin",
                 "description": "The bus stop is located at the south side of Lille Europe station, right on the Boulevard de Turin, near \"Suite Novotel\".",
                 "street_and_number": "Boulevard de Turin",
-                "zip_code": "59800",
+                "zip_code": "59777",
                 "longitude": 3.076675,
                 "latitude": 50.638756,
                 "time_zone": "Europe/Paris"
@@ -597,6 +664,7 @@ curl -X POST \
             "id": "FRLYSPER",
             "type": "stations",
             "attributes": {
+                "station_type": "bus_station",
                 "code": "FRLYSPER",
                 "name": "Lyon Perrache SNCF Train Station",
                 "description": "Central bus station of the center exchange of Lyon Perrache on the 1st floor Rhône Est side. Access to the platforms via Gallery D. Warning: Every departure between 12:30 a.m. and 4:45 a.m will take place at 30 Cours de Verdun Perrache 69002 Lyon in front of the \"Brasserie Georges\", less than 5 min walking from the bus station of Perrache, which is closed during this period.",
@@ -627,24 +695,24 @@ curl -X POST \
             }
         },
         {
-            "id": "EUSA",
+            "id": "ISIL",
             "type": "marketing_carriers",
             "attributes": {
-                "code": "EUSA",
-                "trade_name": "Eurolines SA",
-                "legal_name": "Eurolines SA",
+                "code": "ISIL",
+                "trade_name": "Isilines",
+                "legal_name": "Isilines",
                 "address": "215 avenue Georges Clemenceau, 92024 Nanterre cedex, France",
                 "phone": "+33(0)157662830",
                 "fax": "",
                 "customer_service_phone": "",
-                "email": "service@eurolines.de",
+                "email": "",
                 "commercial_register": "Tribunal de Commerce de Nanterre",
                 "commercial_register_number": "RCS:391144300",
                 "vat_no": "FR50391144300",
                 "authorised_representative": "Hugo Roncal",
                 "white_label_logo": "data:image/png;base64",
                 "white_label_colour_code": "",
-                "terms": "EUROLINES / ISILINES T&Cs",
+                "terms": "T&Cs",
                 "flight_number_required": false,
                 "booking_fee": 0,
                 "cancellation_fee": 0,
@@ -652,11 +720,11 @@ curl -X POST \
             }
         },
         {
-            "id": "EUSA-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-29T22:15-0",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2018-09-15T13:00",
-                "arrival_time": "2018-09-15T15:30",
+                "departure_time": "2019-01-15T17:00",
+                "arrival_time": "2019-01-15T20:05",
                 "index": 0
             },
             "relationships": {
@@ -674,8 +742,14 @@ curl -X POST \
                 },
                 "operating_carrier": {
                     "data": {
-                        "id": "EUSA",
+                        "id": "ISIL",
                         "type": "operating_carriers"
+                    }
+                },
+                "vehicle": {
+                    "data": {
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+                        "type": "vehicles"
                     }
                 },
                 "segment_passengers": {
@@ -683,17 +757,21 @@ curl -X POST \
                         {
                             "id": "PADX-BATEAU-BALIBALO-1-0",
                             "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-0",
+                            "type": "segment_passengers"
                         }
                     ]
                 }
             }
         },
         {
-            "id": "ISIL-FRLILBDT-FRLYSPER-2018-09-15T13:00-2018-09-29T22:15-1",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2018-09-15T16:30",
-                "arrival_time": "2018-09-15T22:15",
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40",
                 "index": 1
             },
             "relationships": {
@@ -715,10 +793,20 @@ curl -X POST \
                         "type": "operating_carriers"
                     }
                 },
+                "vehicle": {
+                    "data": {
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
+                        "type": "vehicles"
+                    }
+                },
                 "segment_passengers": {
                     "data": [
                         {
                             "id": "PADX-BATEAU-BALIBALO-1-1",
+                            "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-1",
                             "type": "segment_passengers"
                         }
                     ]
@@ -729,9 +817,10 @@ curl -X POST \
             "id": "FRPARGBA",
             "type": "stations",
             "attributes": {
+                "station_type": "bus_station",
                 "code": "FRPARGBA",
                 "name": "Paris Gallieni (Bagnolet)",
-                "description": "Paris's internation bus station is located in the eastern part of the city, and is connected to the metro line M3. At the station, there is a taxi stand, a snack bar, and parking areas.",
+                "description": "Paris international bus station is located in the eastern part of the city, and is connected to the metro line M3. At the station, there is a taxi stand, a snack bar, and parking areas.",
                 "street_and_number": "Av. du Général de Gaulle 28",
                 "zip_code": "93170",
                 "longitude": 2.414311,
@@ -759,12 +848,12 @@ curl -X POST \
             }
         },
         {
-            "id": "EUSA",
+            "id": "ISIL",
             "type": "operating_carriers",
             "attributes": {
-                "code": "EUSA",
-                "trade_name": "Eurolines SA",
-                "legal_name": "Eurolines SA"
+                "code": "ISIL",
+                "trade_name": "Isilines",
+                "legal_name": "Isilines"
             }
         },
         {
@@ -783,12 +872,39 @@ curl -X POST \
             }
         },
         {
-            "id": "ISIL",
-            "type": "operating_carriers",
+            "id": "PADX-BATEAU-BILOU-2-0",
+            "type": "segment_passengers",
             "attributes": {
-                "code": "ISIL",
-                "trade_name": "Isilines",
-                "legal_name": "Isilines"
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BILOU-2",
+                        "type": "passengers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "id": "BUS",
+                        "type": "vehicle_types"
+                    }
+                }
+            }
+        },
+        {
+            "id": "BUS",
+            "type": "vehicle_types",
+            "attributes": {
+                "code": "BUS",
+                "name": "Bus",
+                "description": "Long vehicle which is usually transporting a group of people (ca. 45) on streets."
             }
         },
         {
@@ -807,12 +923,49 @@ curl -X POST \
             }
         },
         {
+            "id": "PADX-BATEAU-BILOU-2-1",
+            "type": "segment_passengers",
+            "attributes": {
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BILOU-2",
+                        "type": "passengers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "id": "BUS",
+                        "type": "vehicle_types"
+                    }
+                }
+            }
+        },
+        {
             "id": "PADX-BATEAU-BALIBALO-1",
             "type": "passengers",
             "attributes": {
                 "first_name": "Balibalo",
                 "last_name": "Bateau",
-                "serial_code": "00000000180727129429         Bateau       Balibalo199201010000000UT50A000000000000",
+                "serial_code": "00000000181011477332         Bateau       Balibalo19920101000000FA011A000000000000",
+                "type": "PADX"
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BILOU-2",
+            "type": "passengers",
+            "attributes": {
+                "first_name": "Bilou",
+                "last_name": "Bateau",
+                "serial_code": "00000000181011013117         Bateau          Bilou19920101000000FA011A000000000000",
                 "type": "PADX"
             }
         }
@@ -948,10 +1101,10 @@ Error Code  | Meaning
 ## Redirect for Affiliates
 
 ```curl
-https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=FEFR&departure_station_code=ITRROMET&arrival_station_code=ITROMFAI&departure_time=2018-05-16T05:15&arrival_time=2018-05-16T08:22&currency=EUR&retailer_partner_number=170886&locale=en
+https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=ISIL&departure_station_code=FRLILBDT&arrival_station_code=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&retailer_partner_number=123456&locale=en
 ```
 
-Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. The currency can be set within the redirect link. You can use the following
+Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. Alternatively, you can overwrite this functionality by sending your own locale (the order of priority is: locale parameter in URL, then cached locale in browser, and finally the browser locale). The currency can be set within the redirect link.
 
 We currently supports 7 currencies:
 
@@ -967,7 +1120,7 @@ You can now retrieve a list of all your booking by calling the [bookings#index](
 
 ### Checkout Link
 
-`GET https://bustickets.distribusion.com/bookings/redirect`
+`GET https://bustickets.distribusion.com/redirect`
 
 ### URL Parameters
 
@@ -980,7 +1133,7 @@ Parameter                 | Mandatory | Description
 `arrival_time`            | true      | departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
 `retailer_partner_number` | true      | 5 - 12 digits number of retailer partner.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
-`locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
+`locale`                  | false     | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 
 ### Errors
 
@@ -993,7 +1146,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/bookings/ \
+  https://api-demo.distribusion.com/retailers/v4/bookings?created_at=2018-10-01 \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json' 
 ```
@@ -1007,12 +1160,12 @@ curl -X GET \
       "id": "qxYan0wvPw4Xh9bUOwd6fg",
       "type": "bookings",
       "attributes": {
-        "departure_time": "2017-07-14T14:00",
+        "departure_time": "2018-10-10T14:00",
         "last_name": "Smith",
         "total_price": 15000,
         "pax": 2,
         "distribusion_booking_number": "ZN8FX2",
-        "created_at": "2017-07-05T15:31"
+        "created_at": "2018-10-01T15:31"
       },
       "relationships": {
         "departure_station": {
@@ -1064,7 +1217,13 @@ curl -X GET \
 }
 ```
 
-You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index).
+You can now retrieve a list of all your booking by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index). Alternatively, you can filter your booking list for a specific day by using the parameter bellow:
+
+### URL Parameters
+
+Parameter           | Mandatory | Description
+------------------- | --------- | -----------
+`created_at`        | false     | Departure date in ISO 8601 format.
 
 ### HTTP Request
 
@@ -1082,7 +1241,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/bookings/G0zphTalaiG8Ak4td82D2w \
+  https://api-demo.distribusion.com/retailers/v4/bookings/9KRtPqq5YM5dKl9D6A_igA \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json' 
 ```
@@ -1092,12 +1251,12 @@ curl -X GET \
 ```json
 {
     "data": {
-        "id": "G0zphTalaiG8Ak4td82D2w",
+        "id": "9KRtPqq5YM5dKl9D6A_igA",
         "type": "bookings",
         "attributes": {
-            "departure_time": "2018-03-29T12:00",
-            "arrival_time": "2018-03-29T21:55",
-            "duration": 35700,
+            "departure_time": "2019-01-15T17:00",
+            "arrival_time": "2019-01-16T05:40",
+            "duration": 45600,
             "title": "mr",
             "first_name": "Balibalo",
             "last_name": "Bateau",
@@ -1110,15 +1269,16 @@ curl -X GET \
             "payment_method": "demand_note",
             "payment_token": null,
             "payer_id": null,
-            "total_price": 3800,
-            "pax": 1,
+            "total_price": 4000,
+            "pax": 2,
             "flight_number": null,
-            "distribusion_booking_number": "86MMQA",
-            "marketing_carrier_booking_number": "X8XTA9",
+            "distribusion_booking_number": "7P7JF8",
+            "marketing_carrier_booking_number": "181011273961",
             "terms_accepted": true,
             "send_customer_email": false,
             "retailer_partner_number": "123456",
-            "created_at": "2017-12-30T14:31"
+            "connection_reference": null,
+            "created_at": "2018-10-11T14:24"
         },
         "relationships": {
             "departure_station": {
@@ -1135,7 +1295,7 @@ curl -X GET \
             },
             "marketing_carrier": {
                 "data": {
-                    "id": "OUIB",
+                    "id": "ISIL",
                     "type": "marketing_carriers"
                 }
             },
@@ -1145,11 +1305,11 @@ curl -X GET \
             "segments": {
                 "data": [
                     {
-                        "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
+                        "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
                         "type": "segments"
                     },
                     {
-                        "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
+                        "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
                         "type": "segments"
                     }
                 ]
@@ -1157,7 +1317,11 @@ curl -X GET \
             "passengers": {
                 "data": [
                     {
-                        "id": "PADU-BATEAU-BALIBALO-1",
+                        "id": "PADX-BATEAU-BALIBALO-1",
+                        "type": "passengers"
+                    },
+                    {
+                        "id": "PADX-BATEAU-BILOU-2",
                         "type": "passengers"
                     }
                 ]
@@ -1167,18 +1331,26 @@ curl -X GET \
             }
         }
     },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "locale": "en",
+        "currency": "EUR"
+    },
     "included": [
         {
             "id": "FRLILBDT",
             "type": "stations",
             "attributes": {
+                "station_type": "bus_station",
                 "code": "FRLILBDT",
                 "name": "Lille Boulevard de Turin",
-                "description": "The bus stop is located at the south side of Lille Europe station, right on the Boulevard de Turin.",
-                "street_and_number": "Boulevard de Turin 179",
-                "zip_code": "59800",
-                "longitude": 3.07739100000003,
-                "latitude": 50.6381531,
+                "description": "The bus stop is located at the south side of Lille Europe station, right on the Boulevard de Turin, near \"Suite Novotel\".",
+                "street_and_number": "Boulevard de Turin",
+                "zip_code": "59777",
+                "longitude": 3.076675,
+                "latitude": 50.638756,
                 "time_zone": "Europe/Paris"
             },
             "relationships": {
@@ -1187,6 +1359,9 @@ curl -X GET \
                         "id": "FRLIL",
                         "type": "cities"
                     }
+                },
+                "area": {
+                    "data": null
                 }
             }
         },
@@ -1194,6 +1369,7 @@ curl -X GET \
             "id": "FRLIL",
             "type": "cities",
             "attributes": {
+                "code": "FRLIL",
                 "name": "Lille"
             }
         },
@@ -1201,13 +1377,14 @@ curl -X GET \
             "id": "FRLYSPER",
             "type": "stations",
             "attributes": {
+                "station_type": "bus_station",
                 "code": "FRLYSPER",
                 "name": "Lyon Perrache SNCF Train Station",
-                "description": "The stop is located in front of Metro Station Perrache at Cours de Verdun Gensoul.",
-                "street_and_number": "Cours de Verdun Gensoul 1 ,sous le pont de Perrache",
+                "description": "Central bus station of the center exchange of Lyon Perrache on the 1st floor Rhône Est side. Access to the platforms via Gallery D. Warning: Every departure between 12:30 a.m. and 4:45 a.m will take place at 30 Cours de Verdun Perrache 69002 Lyon in front of the \"Brasserie Georges\", less than 5 min walking from the bus station of Perrache, which is closed during this period.",
+                "street_and_number": "Cours de Verdun Gensoul 14",
                 "zip_code": "69002",
-                "longitude": 4.82631130000004,
-                "latitude": 45.7492462,
+                "longitude": 4.826788,
+                "latitude": 45.749711,
                 "time_zone": "Europe/Paris"
             },
             "relationships": {
@@ -1216,6 +1393,9 @@ curl -X GET \
                         "id": "FRLYS",
                         "type": "cities"
                     }
+                },
+                "area": {
+                    "data": null
                 }
             }
         },
@@ -1223,40 +1403,41 @@ curl -X GET \
             "id": "FRLYS",
             "type": "cities",
             "attributes": {
+                "code": "FRLYS",
                 "name": "Lyon"
             }
         },
         {
-            "id": "OUIB",
+            "id": "ISIL",
             "type": "marketing_carriers",
             "attributes": {
-                "code": "OUIB",
-                "trade_name": "Ouibus",
-                "legal_name": "Ouibus SNCF C6",
-                "address": "38 RUE DE SEINE",
-                "phone": "0033601331661",
-                "fax": null,
-                "customer_service_phone": "+331 71 53 51 99",
-                "email": null,
-                "commercial_register": "Registre du commerce et des societes de Creteil",
-                "commercial_register_number": null,
-                "vat_no": "FR 38 51 90 37 147",
-                "authorised_representative": "Monsieur Roland de Barbentane",
+                "code": "ISIL",
+                "trade_name": "Isilines",
+                "legal_name": "Isilines",
+                "address": "215 avenue Georges Clemenceau, 92024 Nanterre cedex, France",
+                "phone": "+33(0)157662830",
+                "fax": "",
+                "customer_service_phone": "",
+                "email": "",
+                "commercial_register": "Tribunal de Commerce de Nanterre",
+                "commercial_register_number": "RCS:391144300",
+                "vat_no": "FR50391144300",
+                "authorised_representative": "Hugo Roncal",
                 "white_label_logo": "data:image/png;base64",
-                "white_label_colour_code": null,
-                "terms": "T&C",
+                "white_label_colour_code": "",
+                "terms": "T&Cs",
                 "flight_number_required": false,
                 "booking_fee": 0,
                 "cancellation_fee": 0,
-                "cancellation_cutoff": 86400
+                "cancellation_cutoff": null
             }
         },
         {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-0",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2018-03-29T12:00",
-                "arrival_time": "2018-03-29T14:55",
+                "departure_time": "2019-01-15T17:00",
+                "arrival_time": "2019-01-15T20:05",
                 "index": 0
             },
             "relationships": {
@@ -1268,68 +1449,48 @@ curl -X GET \
                 },
                 "arrival_station": {
                     "data": {
-                        "id": "FRPARBER",
+                        "id": "FRPARGBA",
                         "type": "stations"
                     }
                 },
                 "operating_carrier": {
                     "data": {
-                        "id": "OUIB",
+                        "id": "ISIL",
                         "type": "operating_carriers"
                     }
-                }
-            }
-        },
-        {
-            "id": "FRPARBER",
-            "type": "stations",
-            "attributes": {
-                "code": "FRPARBER",
-                "name": "Paris Bercy",
-                "description": "The bus stop is located in front of the main entrance of the train station \"Paris Bercy\".",
-                "street_and_number": "Boulevard de Bercy 48",
-                "zip_code": "75012",
-                "longitude": 2.38268140000002,
-                "latitude": 48.8382267,
-                "time_zone": "Europe/Paris"
-            },
-            "relationships": {
-                "city": {
+                },
+                "vehicle": {
                     "data": {
-                        "id": "FRPAR",
-                        "type": "cities"
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+                        "type": "vehicles"
                     }
+                },
+                "segment_passengers": {
+                    "data": [
+                        {
+                            "id": "PADX-BATEAU-BALIBALO-1-0",
+                            "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-0",
+                            "type": "segment_passengers"
+                        }
+                    ]
                 }
             }
         },
         {
-            "id": "FRPAR",
-            "type": "cities",
-            "attributes": {
-                "name": "Paris"
-            }
-        },
-        {
-            "id": "OUIB",
-            "type": "operating_carriers",
-            "attributes": {
-                "code": "OUIB",
-                "trade_name": "Ouibus",
-                "legal_name": "Ouibus SNCF C6"
-            }
-        },
-        {
-            "id": "OUIB-FRLILBDT-FRLYSPER-2018-03-29T12:00-2018-03-29T21:55-1",
+            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
             "type": "segments",
             "attributes": {
-                "departure_time": "2018-03-29T16:00",
-                "arrival_time": "2018-03-29T21:55",
+                "departure_time": "2019-01-15T23:30",
+                "arrival_time": "2019-01-16T05:40",
                 "index": 1
             },
             "relationships": {
                 "departure_station": {
                     "data": {
-                        "id": "FRPARBER",
+                        "id": "FRPARGBA",
                         "type": "stations"
                     }
                 },
@@ -1341,33 +1502,191 @@ curl -X GET \
                 },
                 "operating_carrier": {
                     "data": {
-                        "id": "OUIB",
+                        "id": "ISIL",
                         "type": "operating_carriers"
+                    }
+                },
+                "vehicle": {
+                    "data": {
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
+                        "type": "vehicles"
+                    }
+                },
+                "segment_passengers": {
+                    "data": [
+                        {
+                            "id": "PADX-BATEAU-BALIBALO-1-1",
+                            "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-1",
+                            "type": "segment_passengers"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "FRPARGBA",
+            "type": "stations",
+            "attributes": {
+                "station_type": "bus_station",
+                "code": "FRPARGBA",
+                "name": "Paris Gallieni (Bagnolet)",
+                "description": "Paris international bus station is located in the eastern part of the city, and is connected to the metro line M3. At the station, there is a taxi stand, a snack bar, and parking areas.",
+                "street_and_number": "Av. du Général de Gaulle 28",
+                "zip_code": "93170",
+                "longitude": 2.414311,
+                "latitude": 48.865442,
+                "time_zone": "Europe/Paris"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "FRPAR",
+                        "type": "cities"
+                    }
+                },
+                "area": {
+                    "data": null
+                }
+            }
+        },
+        {
+            "id": "FRPAR",
+            "type": "cities",
+            "attributes": {
+                "code": "FRPAR",
+                "name": "Paris"
+            }
+        },
+        {
+            "id": "ISIL",
+            "type": "operating_carriers",
+            "attributes": {
+                "code": "ISIL",
+                "trade_name": "Isilines",
+                "legal_name": "Isilines"
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BALIBALO-1-0",
+            "type": "segment_passengers",
+            "attributes": {
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BALIBALO-1",
+                        "type": "passengers"
                     }
                 }
             }
         },
         {
-            "id": "PADU-BATEAU-BALIBALO-1",
+            "id": "PADX-BATEAU-BILOU-2-0",
+            "type": "segment_passengers",
+            "attributes": {
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BILOU-2",
+                        "type": "passengers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "id": "BUS",
+                        "type": "vehicle_types"
+                    }
+                }
+            }
+        },
+        {
+            "id": "BUS",
+            "type": "vehicle_types",
+            "attributes": {
+                "code": "BUS",
+                "name": "Bus",
+                "description": "Long vehicle which is usually transporting a group of people (ca. 45) on streets."
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BALIBALO-1-1",
+            "type": "segment_passengers",
+            "attributes": {
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BALIBALO-1",
+                        "type": "passengers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BILOU-2-1",
+            "type": "segment_passengers",
+            "attributes": {
+                "seat_number": null
+            },
+            "relationships": {
+                "passenger": {
+                    "data": {
+                        "id": "PADX-BATEAU-BILOU-2",
+                        "type": "passengers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "id": "BUS",
+                        "type": "vehicle_types"
+                    }
+                }
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BALIBALO-1",
             "type": "passengers",
             "attributes": {
                 "first_name": "Balibalo",
                 "last_name": "Bateau",
-                "type": "PADU"
+                "serial_code": "00000000181011477332         Bateau       Balibalo19920101000000FA011A000000000000",
+                "type": "PADX"
+            }
+        },
+        {
+            "id": "PADX-BATEAU-BILOU-2",
+            "type": "passengers",
+            "attributes": {
+                "first_name": "Bilou",
+                "last_name": "Bateau",
+                "serial_code": "00000000181011013117         Bateau          Bilou19920101000000FA011A000000000000",
+                "type": "PADX"
             }
         }
-    ],
-    "jsonapi": {
-        "version": "1.0"
-    },
-    "meta": {
-        "locale": "en",
-        "currency": "EUR"
-    }
+    ]
 }
 ```
 
-To review data of a booking at a later stage without copying it into your system, you can use our [bookings#show](https://api-demo.distribusion.com/retailers/v4/docs/#show) endpoint to retrieve it and show its data.
+To review data of a booking at a later stage without saving all information into your system, you can use our [bookings#show](https://api-demo.distribusion.com/retailers/v4/docs/#show) endpoint to retrieve it and show its data.
 
 ### HTTP Request
 
@@ -1397,12 +1716,14 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/bookings/G0zphTalaiG8Ak4td82D2w/tickets \
+  https://api-demo.distribusion.com/retailers/v4/bookings/9KRtPqq5YM5dKl9D6A_igA/tickets \
   -H 'Api-Key: H4gtqUn04qDh7mmZpFJYmmcW7JVw7hMIaCUcdWhZ' \
   -H 'Content-Type: application/json'
 ```
 
 This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format). You can also retrieve your ticket in HTML format, by adding the `type` parameter.
+
+![alt text](/images/tickets_7P7JF8.png)
 
 ### HTTP Request
 
