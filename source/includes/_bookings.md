@@ -1104,7 +1104,7 @@ Error Code  | Meaning
 https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=ISIL&departure_station_code=FRLILBDT&arrival_station_code=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&retailer_partner_number=123456&locale=en
 ```
 
-Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. Alternatively, you can overwrite this functionality by sending your own locale. The currency can be set within the redirect link.
+Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. Alternatively, you can overwrite this functionality by sending your own locale (the order of priority is: locale parameter in URL, then cached locale in browser, and finally the browser locale). The currency can be set within the redirect link.
 
 We currently supports 7 currencies:
 
