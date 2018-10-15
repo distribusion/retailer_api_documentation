@@ -145,10 +145,6 @@ After retrieving station codes, you can now start searching for connections by s
 Remember — in order to query information from our API, you need to get your own API key by submitting a request to <a href='mailto:partner@distribusion.com'>partner@distribusion.com</a>!
 </aside>
 
-## Build a Booking Form
-
-In order to accomodate the specific requirements of each marketing carrier and to increase conversion rate, we also deliver a dynamic booking form. Required information, as well as the validation rules applied to each parameters, is provided through our [bookings#form_schema](https://api-demo.distribusion.com/retailers/v4/docs/#form-schema) endpoint.
-
 ## Passenger types
 
 We also thrive to standardise passenger (ticket) types across multiple carriers, every time it is possible. Two carriers having the same definition of a ticket type, will have the same passenger type code. For example, every time a carrier have the same definition of an adult that an other carrier, they will both share the same passenger type code. 
