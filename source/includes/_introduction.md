@@ -23,11 +23,11 @@ When performing a booking through Distribusion API, there are multiple steps tha
 - Build the booking form
 - Conducting the booking
 
-![alt text](/images/API_V3.0_workflow.png)
+![alt text](/images/API_V4.0_workflow.png)
 
 ## Integration Workflow
 
-1. _(1-4 weeks)_ **Integrate our API**, using this documenation. 
+1. _(1-4 weeks)_ **Integrate our API**, using this documentation. 
 If you have any questions, do not hesitate to write us at [partner@distribusion.com](mailto:partner@distribusion.com)
 
 2. _(Up to 1 week)_ In order to get access to our production environment, we will first test the integration logic (from search to booking, and if implemented, cancellations) and the data mapping logic (stations associations to cities and airports). For this, we will require **access to your demo environment**, with all the necessary information to perform bookings (test payment credentials, etc). 
@@ -52,7 +52,7 @@ Distribusion aims to standardize the station codes across the bus industry, the 
 
 The first step in the booking process, is collecting the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) and [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoints. To retrieve station codes, simply send a `GET` request to our [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, coordinates, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
 
-Currently our content can be fetch in English, French, Italian and German, with the following locale values: en, fr, it and de.
+Currently our content can be fetch in English, French, Italian, Spanish, Dutch, Swedish, Bulgarian and German, with the following locale values: en, fr, it, es, nl, sv, bg and de.
 
 ## Map Stations to Cities and Areas
 
@@ -171,4 +171,4 @@ Once you start making bookings, you will certainly want to monitor them and some
 
 Here’s a collection of sample queries in Postman that’ll help you get up to speed with our API faster.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/92ecc4b28e8ad018f563)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4b85e2eca75d5ec340dc)
