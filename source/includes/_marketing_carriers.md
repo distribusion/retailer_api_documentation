@@ -81,66 +81,148 @@ curl -X GET \
 
 ```json
 {
-  "data": {
-    "id": "SIBU",
-    "type": "marketing_carriers",
-    "attributes": {
-      "code": "SIBU",
-      "trade_name": "SitBus",
-      "legal_name": "S.I.T. Societa' Italiana Trasporti SRL",
-      "address": "Via Ostiense 256, 00144 Rome, Italy",
-      "phone": "+39-06-5916826 / 5923507",
-      "fax": "+39-06-5917074",
-      "customer_service_phone": "+39065916826",
-      "email": "sit@sitbus.com",
-      "commercial_register": "Company House No.406335",
-      "commercial_register_number": "REN No.P50338",
-      "vat_no": "IT01041631001",
-      "authorised_representative": "Enrico Fraticelli, Clara Fraticelli, Dino Fraticelli, Monica Germani",
-      "white_label_logo": "data:image/png;base64",
-      "white_label_colour_code": "#FFFFFF",
-      "terms": "T&C",
-      "flight_number_required": false,
-      "booking_fee": 0,
-      "cancellation_fee": 600,
-      "cancellation_cutoff": null
+    "data": {
+        "id": "NEXP",
+        "type": "marketing_carriers",
+        "attributes": {
+            "code": "NEXP",
+            "trade_name": "National Express",
+            "legal_name": "National Express Limited",
+            "address": "Birmingham Coach Station, Mill Lane, Birmingham B5 6DD, United Kingdom",
+            "phone": "+44 (0)3717 818181",
+            "fax": "",
+            "customer_service_phone": "+44 (0)3717 818181",
+            "email": "customerrelations@nationalexpress.com",
+            "commercial_register": "",
+            "commercial_register_number": "0023767",
+            "vat_no": "GB487038714",
+            "authorised_representative": "Tom Stables",
+            "white_label_logo": "data:image/png;base64",
+            "white_label_colour_code": "",
+            "terms": "Issued subject to National Express Conditions of Carriage, which can be viewed at \r\n<a href=\"https://www.nationalexpress.com/en/help/conditions-of-carriage\" target=\"blank\">https://www.nationalexpress.com/en/help/conditions-of-carriage</a>",
+            "flight_number_required": false,
+            "has_mobile_tickets": false,
+            "booking_fee": 116,
+            "cancellation_fee": 0,
+            "cancellation_cutoff": null
+        },
+        "relationships": {
+            "default_passenger_type": {
+                "data": {
+                    "id": "PADV",
+                    "type": "passenger_types"
+                }
+            },
+            "passenger_types": {
+                "data": [
+                    {
+                        "id": "PADV",
+                        "type": "passenger_types"
+                    }
+                ]
+            },
+            "extra_types": {
+                "data": []
+            },
+            "vehicle_types": {
+                "data": [
+                    {
+                        "id": "BUS",
+                        "type": "vehicle_types"
+                    }
+                ]
+            },
+            "fare_classes": {
+                "data": [
+                    {
+                        "id": "FARE-1",
+                        "type": "fare_classes"
+                    },
+                    {
+                        "id": "FARE-2",
+                        "type": "fare_classes"
+                    },
+                    {
+                        "id": "FARE-3",
+                        "type": "fare_classes"
+                    }
+                ]
+            }
+        }
     },
-    "relationships": {
-      "passenger_types": {
-        "data": [
-          {
-            "id": "PNOS",
-            "type": "passenger_types"
-          }
-        ]
-      },
-      "extra_types": {
-        "data": []
-      }
-    }
-  },
-  "included": [
-    {
-      "id": "PNOS",
-      "type": "passenger_types",
-      "attributes": {
-        "code": "PNOS",
-        "name": "Normal",
-        "description": null
-      }
-    }
-  ],
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en",
-    "currency": "EUR"
-  }
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "locale": "it",
+        "currency": "EUR"
+    },
+    "included": [
+        {
+            "id": "PADV",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PADV",
+                "name": "Adulti",
+                "description": ""
+            }
+        },
+        {
+            "id": "BUS",
+            "type": "vehicle_types",
+            "attributes": {
+                "code": "BUS",
+                "name": "Bus",
+                "description": "Long vehicle which is usually transporting a group of people (ca. 45) on streets."
+            }
+        },
+        {
+            "id": "FARE-1",
+            "type": "fare_classes",
+            "attributes": {
+                "code": "FARE-1",
+                "name": "Standard",
+                "iata_category": null
+            },
+            "relationships": {
+                "fare_features": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "FARE-2",
+            "type": "fare_classes",
+            "attributes": {
+                "code": "FARE-2",
+                "name": "Restricted",
+                "iata_category": null
+            },
+            "relationships": {
+                "fare_features": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "FARE-3",
+            "type": "fare_classes",
+            "attributes": {
+                "code": "FARE-3",
+                "name": "Fully Flexible",
+                "iata_category": null
+            },
+            "relationships": {
+                "fare_features": {
+                    "data": []
+                }
+            }
+        }
+    ]
 }
 ```
 
-This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, cancellations conditions, terms & conditions, etc.
+This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, fare classes, cancellations conditions, terms & conditions, etc.
 
 ### HTTP Request
 

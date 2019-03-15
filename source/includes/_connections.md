@@ -2398,7 +2398,7 @@ curl -X GET \
 }
 ```
 
-This endpoint should be used during a booking to get a binding price and availability for a specified group of travellers. "Specified" is defined as having not only the right amount of passengers but also selected the passenger types for each passenger. The passenger types are marketing carrier specific (retrieved from connections#find or using #marketing_carriers). If you are looking into getting the general availability of a connection (true / false) please use the connections#find endpoint, which retrieve the availability directly from marketing carriers.
+This endpoint should be used during a booking to get a binding price and availability for a specified group of travellers. "Specified" is defined as having not only the right amount of passengers but also selected the passenger types for each passenger and the fare class. The passenger types can be used in two ways: standardised or specific to each marketing carrier. The fare class are marketing carrier specific (both can be retrieved from connections#find or using #marketing_carriers). If you are looking into getting the general availability of a connection (true / false) please use the connections#find endpoint, which also show the availability at the last point in time this connection was requested by our system.
 
 ### HTTP Request
 
@@ -2415,6 +2415,7 @@ Parameter           | Mandatory | Description
 `arrival_time`      | true      | Arrival time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
 `currency`          | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `discount_code`     | false     | Code consisting of minimum 3 alphanumeric characters.
+`fare_class`        | false     | Code consisting of 6-7 alphanumerical characters.
                     |           |
 `passengers`        | true      | Array
 _`pax`              | true      | Number of passenger for a specific passenger type

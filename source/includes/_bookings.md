@@ -1721,7 +1721,13 @@ curl -X GET \
   -H 'Content-Type: application/json'
 ```
 
-This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format). You can also retrieve your ticket in HTML format, by adding the `type` parameter.
+This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. 
+
+The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format). You can also retrieve your ticket in HTML, or in mobile format by adding the `type` parameter.
+
+Note: Not all carriers support mobile tickets. To know if a specific marketing carrier supports mobile ticket, call [marketing_carriers#show](https://docs.distribusion.com/#show30) and look for `has_mobile_tickets` parameter.  
+
+<aside class="notice">When retrieving the ticket in .pkpass format, you will be provided with a link to download the mobile ticket from AWS.</aside>
 
 ![alt text](/images/tickets_7P7JF8.png)
 
@@ -1733,7 +1739,7 @@ This endpoint is dedicated to retailers sending their own confirmation email. If
 
 Parameter           | Mandatory | Description
 ------------------- | --------- | -----------
-`type`              | false     | Allowed value: html
+`type`              | false     | Allowed value: html, pkpass
 
 ### Errors
 

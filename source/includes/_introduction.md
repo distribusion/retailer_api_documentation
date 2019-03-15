@@ -1,18 +1,16 @@
 # Introduction
 
-![alt text](/images/distribusion-overview.png)
+![alt text](/images/bus-picture.png)
 
 You can use our API to access Distribusion content and book bus rides. We have put a lot of thought into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
 
-When integrating and testing our API, please use the following URL:
+**When integrating and testing our API, please use the following URL:**
 
 [https://api-demo.distribusion.com/retailers/v4](https://api-demo.distribusion.com/retailers/v4)
 
-## Deprecated APIs
+## Deprecated API
 
 [Retailer API v2](https://api-demo.distribusion.com/reseller/v2/docs)
-
-[Retailer API v3](https://api-demo.distribusion.com/retailers/v3/docs)
 
 # Getting Started
 
@@ -20,8 +18,10 @@ When performing a booking through Distribusion API, there are multiple steps tha
 
 - Searching for connections
 - Retrieving availability and prices
-- Build the booking form
-- Conducting the booking
+- Conducting bookings
+- Retrieving tickets
+- Retrieving cancellation conditions
+- Performing cancellations
 
 ![alt text](/images/API_V4.0_workflow.png)
 
@@ -127,15 +127,7 @@ Code description:
 
 For example, while searching from Barcelona Airport to Barcelona City, you could perform the following request:
 
-[https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
-arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
-arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
-arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2018-03-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
-arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
-arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
-arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2018-03-29&pax=1&currency=EUR&locale=en)
+[https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2019-03-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2019-03-29&pax=1&currency=EUR&locale=en)
 
 ## Find Connections
 
@@ -147,7 +139,12 @@ Remember — in order to query information from our API, you need to get your ow
 
 ## Passenger types
 
-We also thrive to standardise passenger (ticket) types across multiple carriers, every time it is possible. Two carriers having the same definition of a ticket type, will have the same passenger type code. For example, every time a carrier have the same definition of an adult that an other carrier, they will both share the same passenger type code. 
+We also thrive to standardise passenger (ticket) types across multiple carriers. While booking through Distribusion API, you can choose the use the specific passenger types of the operator, or use Distribusion own standardise definition of an infant, child and adult. 
+
+## Fare Classes
+
+Operators are often providing different service class and features to their consumers. You will find the possibility to select each fare based on the operator offer. Fares classes are covering a large amount of features, such as 1st/2nd class, extra leg seats, drinks, cancellation policies, validity period, etc.
+
 
 ## Confirm Price and Availability
 
@@ -155,9 +152,9 @@ As [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find)
 
 ## Create an Order or a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). You can also perform an order, and later retrieve it status by calling our [orders#create] (https://api-demo.distribusion.com/retailers/v4/docs/#create-orders) endpoint. In case any information is missing, the API will recognise it and inform you accordingly.
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). You can also perform an order, and later retrieve it status by calling our [orders#create] (https://api-demo.distribusion.com/retailers/v4/docs/#create-orders) endpoint. The main difference between a booking and an order is the workflow. A booking is synchronous, while an order is asynchronous. In case any information is missing, the API will recognise it and inform you accordingly.
 
-Note: we currently support *EUR*, *USD*, *GBP* and *CHF* currencies.
+Note: we currently support *EUR*, *USD*, *GBP* *SEK*, *MYR*, *PLN* and *CHF* currencies. More can be enabled on demand.
 
 ## Manage your Bookings
 
