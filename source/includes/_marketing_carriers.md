@@ -230,7 +230,17 @@ curl -X GET \
             },
             "relationships": {
                 "fare_features": {
-                    "data": []
+                    "data": [
+
+{
+  "id": "amendable",
+   "type": "fare_features"
+   },
+   {
+   "id": "cancellable",
+   "type": "fare_features"
+  }
+]
                 }
             }
         }
