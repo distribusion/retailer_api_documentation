@@ -1276,7 +1276,7 @@ curl -X GET \
             "marketing_carrier_booking_number": "181011273961",
             "terms_accepted": true,
             "send_customer_email": false,
-            "retailer_partner_number": "123456",
+            "retailer_partner_number": "{number}",
             "connection_reference": null,
             "created_at": "2018-10-11T14:24"
         },
