@@ -186,7 +186,16 @@ curl -X GET \
             },
             "relationships": {
                 "fare_features": {
-                    "data": []
+                    "data": [
+{
+  "id": "amendable",
+   "type": "fare_features"
+   },
+   {
+   "id": "not cancellable",
+   "type": "fare_features"
+   }
+]
                 }
             }
         },
@@ -200,7 +209,14 @@ curl -X GET \
             },
             "relationships": {
                 "fare_features": {
-                    "data": []
+                    "data": [{
+              "id": "not amendable",
+              "type": "fare_features"
+            },
+            {
+              "id": "not cancellable",
+              "type": "fare_features"
+            }]
                 }
             }
         },
@@ -214,7 +230,17 @@ curl -X GET \
             },
             "relationships": {
                 "fare_features": {
-                    "data": []
+                    "data": [
+
+{
+  "id": "amendable",
+   "type": "fare_features"
+   },
+   {
+   "id": "cancellable",
+   "type": "fare_features"
+  }
+]
                 }
             }
         }
