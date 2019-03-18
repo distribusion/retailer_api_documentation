@@ -8,15 +8,15 @@ curl -X POST \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json' \
   -d '{
-       "marketing_carrier": "ISIL",
-       "departure_station": "FRLILBDT",
-       "arrival_station": "FRLYSPER",
-       "departure_time": "2019-01-15T17:00",
-       "arrival_time": "2019-01-16T05:40",
+       "marketing_carrier": "NEXP",
+       "departure_station": "GBXVHPET",
+       "arrival_station": "GBCBGCCE",
+       "departure_time": "2019-08-15T09:15",
+       "arrival_time": "2019-08-15T10:15",
        "retailer_partner_number": "{number}",
        "title": "mr",
        "first_name": "Balibalo",
-       "last_name": "Bateau",
+       "last_name": "Bateau",  
        "email": "quentin@mail.com",
        "phone": "4915237601929",
        "city": "Berlin",
@@ -24,22 +24,23 @@ curl -X POST \
        "street_and_number": "Berlinstr. 23",
        "execute_payment": false,
        "payment_method": "demand_note",
-       "total_price": 4000,
+       "total_price": 2020,
        "pax": 2,
        "terms_accepted": true,
        "locale": "en",
        "currency": "EUR",
        "send_customer_email": false,
+       "fare_class": "FARE-1",
        "passengers":[
           { 
-            "first_name": "Balibalo",
+            "first_name": "Charlotte",
             "last_name": "Bateau",
-            "type": "PADX"
+            "type": "PADV"
           },
           { 
-            "first_name": "Bilou",
+            "first_name": "Paul",
             "last_name": "Bateau",
-            "type": "PADX"
+            "type": "PADV"
           }
         ]
     }'
@@ -50,11 +51,11 @@ curl -X POST \
 ```json
 {
     "data": {
-        "id": "ISIL-60a4ec9b-a021-4a07-b720-947b813956f0",
+        "id": "NEXP-43927b28-ed74-4cf1-b454-b7b687a2db95",
         "type": "orders",
         "attributes": {
             "state": "created",
-            "created_at": "2018-10-11T14:27"
+            "created_at": "2019-03-18T16:07"
         }
     },
     "jsonapi": {
@@ -105,6 +106,7 @@ Parameter                 | Mandatory | Description
 `locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`.
+`fare_class`              | false     | Code consisting of 6-7 alphanumerical characters.
                           |           |
 `passengers`              | true      | Array
     `fist_name`           | true      | First name of the passenger, 1-50-letter alphanumeric string.
@@ -194,7 +196,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/orders/ISIL-60a4ec9b-a021-4a07-b720-947b813956f0 \
+  https://api-demo.distribusion.com/retailers/v4/orders/NEXP-43927b28-ed74-4cf1-b454-b7b687a2db95 \
   -H 'Cache-Control: no-cache' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI'
 ```
@@ -204,16 +206,16 @@ curl -X GET \
 ```json
 {
     "data": {
-        "id": "ISIL-60a4ec9b-a021-4a07-b720-947b813956f0",
+        "id": "NEXP-43927b28-ed74-4cf1-b454-b7b687a2db95",
         "type": "orders",
         "attributes": {
             "state": "executed",
-            "executed_at": "2018-10-11T14:27"
+            "executed_at": "2019-03-18T16:07"
         },
         "relationships": {
             "booking": {
                 "data": {
-                    "id": "6RazURqZbL-9arqdIV5sAg",
+                    "id": "Ip0LPaBCZLWzHFq3ln-qkg",
                     "type": "bookings"
                 }
             }
@@ -228,29 +230,31 @@ curl -X GET \
     },
     "included": [
         {
-            "id": "6RazURqZbL-9arqdIV5sAg",
+            "id": "Ip0LPaBCZLWzHFq3ln-qkg",
             "type": "bookings",
             "attributes": {
-                "departure_time": "2019-01-15T17:00",
-                "arrival_time": "2019-01-16T05:40",
-                "duration": 45600,
-                "total_price": 4000,
+                "departure_time": "2019-08-15T09:15",
+                "arrival_time": "2019-08-15T10:15",
+                "duration": 3600,
+                "total_price": 2020,
                 "pax": 2,
                 "flight_number": null,
-                "distribusion_booking_number": "SRZ5EB",
-                "marketing_carrier_booking_number": "181011380125",
+                "distribusion_booking_number": "KKAEMD",
+                "marketing_carrier_booking_number": "P3BA7826",
                 "connection_reference": null,
-                "created_at": "2018-10-11T14:27"
+                "created_at": "2019-03-18T16:07"
             },
             "relationships": {
+                "fare_class": {
+                    "data": {
+                        "id": "FARE-1",
+                        "type": "fare_classes"
+                    }
+                },
                 "segments": {
                     "data": [
                         {
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
-                            "type": "segments"
-                        },
-                        {
-                            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0",
                             "type": "segments"
                         }
                     ]
@@ -258,11 +262,11 @@ curl -X GET \
                 "passengers": {
                     "data": [
                         {
-                            "id": "PADX-BATEAU-BALIBALO-1-0",
+                            "id": "PADV-BATEAU-CHARLOTTE-1-0",
                             "type": "passengers"
                         },
                         {
-                            "id": "PADX-BATEAU-BILOU-2-0",
+                            "id": "PADV-BATEAU-PAUL-2-0",
                             "type": "passengers"
                         }
                     ]
@@ -270,22 +274,22 @@ curl -X GET \
             }
         },
         {
-            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2019-01-15T17:00",
-                "arrival_time": "2019-01-15T20:05",
+                "departure_time": "2019-08-15T09:15",
+                "arrival_time": "2019-08-15T10:15",
                 "index": 0
             },
             "relationships": {
                 "segment_passengers": {
                     "data": [
                         {
-                            "id": "PADX-BATEAU-BALIBALO-1-0",
+                            "id": "PADV-BATEAU-CHARLOTTE-1-0",
                             "type": "segment_passengers"
                         },
                         {
-                            "id": "PADX-BATEAU-BILOU-2-0",
+                            "id": "PADV-BATEAU-PAUL-2-0",
                             "type": "segment_passengers"
                         }
                     ]
@@ -293,30 +297,7 @@ curl -X GET \
             }
         },
         {
-            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
-            "type": "segments",
-            "attributes": {
-                "departure_time": "2019-01-15T23:30",
-                "arrival_time": "2019-01-16T05:40",
-                "index": 1
-            },
-            "relationships": {
-                "segment_passengers": {
-                    "data": [
-                        {
-                            "id": "PADX-BATEAU-BALIBALO-1-1",
-                            "type": "segment_passengers"
-                        },
-                        {
-                            "id": "PADX-BATEAU-BILOU-2-1",
-                            "type": "segment_passengers"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "id": "PADX-BATEAU-BALIBALO-1-0",
+            "id": "PADV-BATEAU-CHARLOTTE-1-0",
             "type": "segment_passengers",
             "attributes": {
                 "seat_number": null
@@ -324,14 +305,14 @@ curl -X GET \
             "relationships": {
                 "passenger": {
                     "data": {
-                        "id": "PADX-BATEAU-BALIBALO-1",
+                        "id": "PADV-BATEAU-CHARLOTTE-1",
                         "type": "passengers"
                     }
                 }
             }
         },
         {
-            "id": "PADX-BATEAU-BILOU-2-0",
+            "id": "PADV-BATEAU-PAUL-2-0",
             "type": "segment_passengers",
             "attributes": {
                 "seat_number": null
@@ -339,60 +320,51 @@ curl -X GET \
             "relationships": {
                 "passenger": {
                     "data": {
-                        "id": "PADX-BATEAU-BILOU-2",
+                        "id": "PADV-BATEAU-PAUL-2",
                         "type": "passengers"
                     }
                 }
             }
         },
         {
-            "id": "PADX-BATEAU-BALIBALO-1-1",
-            "type": "segment_passengers",
-            "attributes": {
-                "seat_number": null
-            },
-            "relationships": {
-                "passenger": {
-                    "data": {
-                        "id": "PADX-BATEAU-BALIBALO-1",
-                        "type": "passengers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "PADX-BATEAU-BILOU-2-1",
-            "type": "segment_passengers",
-            "attributes": {
-                "seat_number": null
-            },
-            "relationships": {
-                "passenger": {
-                    "data": {
-                        "id": "PADX-BATEAU-BILOU-2",
-                        "type": "passengers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "PADX-BATEAU-BALIBALO-1-0",
+            "id": "PADV-BATEAU-CHARLOTTE-1-0",
             "type": "passengers",
             "attributes": {
-                "first_name": "Balibalo",
+                "first_name": "Charlotte",
                 "last_name": "Bateau",
-                "serial_code": "00000000181011952873         Bateau       Balibalo19920101000000FA011A000000000000",
-                "type": "PADX"
+                "serial_code": null,
+                "type": "PADV"
             }
         },
         {
-            "id": "PADX-BATEAU-BILOU-2-0",
+            "id": "PADV-BATEAU-PAUL-2-0",
             "type": "passengers",
             "attributes": {
-                "first_name": "Bilou",
+                "first_name": "Paul",
                 "last_name": "Bateau",
-                "serial_code": "00000000181011755484         Bateau          Bilou19920101000000FA011A000000000000",
-                "type": "PADX"
+                "serial_code": null,
+                "type": "PADV"
+            }
+        },
+        {
+            "id": "FARE-1",
+            "type": "fare_classes",
+            "attributes": {
+                "code": "FARE-1",
+                "name": "Standard",
+                "iata_category": null
+            },
+            "relationships": {
+                "fare_features": {
+                    "data": [{
+              "id": "not amendable",
+              "type": "fare_features"
+            },
+            {
+              "id": "not cancellable",
+              "type": "fare_features"
+            }]
+                }
             }
         }
     ]
@@ -496,15 +468,15 @@ curl -X POST \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json' \
   -d '{
-       "marketing_carrier": "ISIL",
-       "departure_station": "FRLILBDT",
-       "arrival_station": "FRLYSPER",
-       "departure_time": "2019-01-15T17:00",
-       "arrival_time": "2019-01-16T05:40",
-       "retailer_partner_number": "{number}",
+       "marketing_carrier": "NEXP",
+       "departure_station": "GBXVHPET",
+       "arrival_station": "GBCBGCCE",
+       "departure_time": "2019-08-15T09:15",
+       "arrival_time": "2019-08-15T10:15",
+       "retailer_partner_number": "123456",
        "title": "mr",
        "first_name": "Balibalo",
-       "last_name": "Bateau",
+       "last_name": "Bateau",  
        "email": "quentin@mail.com",
        "phone": "4915237601929",
        "city": "Berlin",
@@ -512,22 +484,23 @@ curl -X POST \
        "street_and_number": "Berlinstr. 23",
        "execute_payment": false,
        "payment_method": "demand_note",
-       "total_price": 4000,
+       "total_price": 2020,
        "pax": 2,
        "terms_accepted": true,
        "locale": "en",
        "currency": "EUR",
        "send_customer_email": false,
+       "fare_class": "FARE-1",
        "passengers":[
           { 
-            "first_name": "Balibalo",
+            "first_name": "Charlotte",
             "last_name": "Bateau",
-            "type": "PADX"
+            "type": "PADV"
           },
           { 
-            "first_name": "Bilou",
+            "first_name": "Paul",
             "last_name": "Bateau",
-            "type": "PADX"
+            "type": "PADV"
           }
         ]
     }'
@@ -538,12 +511,12 @@ curl -X POST \
 ```json
 {
     "data": {
-        "id": "9KRtPqq5YM5dKl9D6A_igA",
+        "id": "gznKjrRA2x9LhxYCdwt4pw",
         "type": "bookings",
         "attributes": {
-            "departure_time": "2019-01-15T17:00",
-            "arrival_time": "2019-01-16T05:40",
-            "duration": 45600,
+            "departure_time": "2019-08-15T09:15",
+            "arrival_time": "2019-08-15T10:15",
+            "duration": 3600,
             "title": "mr",
             "first_name": "Balibalo",
             "last_name": "Bateau",
@@ -556,47 +529,50 @@ curl -X POST \
             "payment_method": "demand_note",
             "payment_token": null,
             "payer_id": null,
-            "total_price": 4000,
+            "total_price": 2020,
             "pax": 2,
             "flight_number": null,
-            "distribusion_booking_number": "7P7JF8",
-            "marketing_carrier_booking_number": "181011273961",
+            "distribusion_booking_number": "FPH5XC",
+            "marketing_carrier_booking_number": "P3BA7827",
             "terms_accepted": true,
             "send_customer_email": false,
-            "retailer_partner_number": "{number}",
+            "send_marketing_emails": null,
+            "retailer_partner_number": "123456",
             "connection_reference": null,
-            "created_at": "2018-10-11T14:24"
+            "created_at": "2019-03-18T16:09"
         },
         "relationships": {
             "departure_station": {
                 "data": {
-                    "id": "FRLILBDT",
+                    "id": "GBXVHPET",
                     "type": "stations"
                 }
             },
             "arrival_station": {
                 "data": {
-                    "id": "FRLYSPER",
+                    "id": "GBCBGCCE",
                     "type": "stations"
                 }
             },
             "marketing_carrier": {
                 "data": {
-                    "id": "ISIL",
+                    "id": "NEXP",
                     "type": "marketing_carriers"
                 }
             },
             "cancellation": {
                 "data": null
             },
+            "fare_class": {
+                "data": {
+                    "id": "FARE-1",
+                    "type": "fare_classes"
+                }
+            },
             "segments": {
                 "data": [
                     {
-                        "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
-                        "type": "segments"
-                    },
-                    {
-                        "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
+                        "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0",
                         "type": "segments"
                     }
                 ]
@@ -604,11 +580,11 @@ curl -X POST \
             "passengers": {
                 "data": [
                     {
-                        "id": "PADX-BATEAU-BALIBALO-1",
+                        "id": "PADV-BATEAU-CHARLOTTE-1",
                         "type": "passengers"
                     },
                     {
-                        "id": "PADX-BATEAU-BILOU-2",
+                        "id": "PADV-BATEAU-PAUL-2",
                         "type": "passengers"
                     }
                 ]
@@ -627,23 +603,23 @@ curl -X POST \
     },
     "included": [
         {
-            "id": "FRLILBDT",
+            "id": "GBXVHPET",
             "type": "stations",
             "attributes": {
                 "station_type": "bus_station",
-                "code": "FRLILBDT",
-                "name": "Lille Boulevard de Turin",
-                "description": "The bus stop is located at the south side of Lille Europe station, right on the Boulevard de Turin, near \"Suite Novotel\".",
-                "street_and_number": "Boulevard de Turin",
-                "zip_code": "59777",
-                "longitude": 3.076675,
-                "latitude": 50.638756,
-                "time_zone": "Europe/Paris"
+                "code": "GBXVHPET",
+                "name": "Peterborough",
+                "description": "The bus stop is located near Peterborough Station.",
+                "street_and_number": "Westgate",
+                "zip_code": "PE1 1NL",
+                "longitude": -0.24632,
+                "latitude": 52.57511,
+                "time_zone": "Europe/London"
             },
             "relationships": {
                 "city": {
                     "data": {
-                        "id": "FRLIL",
+                        "id": "GBXVH",
                         "type": "cities"
                     }
                 },
@@ -653,31 +629,31 @@ curl -X POST \
             }
         },
         {
-            "id": "FRLIL",
+            "id": "GBXVH",
             "type": "cities",
             "attributes": {
-                "code": "FRLIL",
-                "name": "Lille"
+                "code": "GBXVH",
+                "name": "Peterborough"
             }
         },
         {
-            "id": "FRLYSPER",
+            "id": "GBCBGCCE",
             "type": "stations",
             "attributes": {
                 "station_type": "bus_station",
-                "code": "FRLYSPER",
-                "name": "Lyon Perrache SNCF Train Station",
-                "description": "Central bus station of the center exchange of Lyon Perrache on the 1st floor Rhône Est side. Access to the platforms via Gallery D. Warning: Every departure between 12:30 a.m. and 4:45 a.m will take place at 30 Cours de Verdun Perrache 69002 Lyon in front of the \"Brasserie Georges\", less than 5 min walking from the bus station of Perrache, which is closed during this period.",
-                "street_and_number": "Cours de Verdun Gensoul 14",
-                "zip_code": "69002",
-                "longitude": 4.826788,
-                "latitude": 45.749711,
-                "time_zone": "Europe/Paris"
+                "code": "GBCBGCCE",
+                "name": "Cambridge City Centre",
+                "description": "The bus stop is located in front of Parkers Piece park. For National Express passengers, from 18/03/2019 - 22/03/2019 from 9pm - 6am the stop will be East Rd, Fire Station; 05/05/2019, the bus will stop at Trumpington Park & Ride, Hauxton Rd.",
+                "street_and_number": "Parkside 32",
+                "zip_code": "CB1 1JE",
+                "longitude": 0.12938269999995,
+                "latitude": 52.2032877,
+                "time_zone": "Europe/London"
             },
             "relationships": {
                 "city": {
                     "data": {
-                        "id": "FRLYS",
+                        "id": "GBCBG",
                         "type": "cities"
                     }
                 },
@@ -687,79 +663,79 @@ curl -X POST \
             }
         },
         {
-            "id": "FRLYS",
+            "id": "GBCBG",
             "type": "cities",
             "attributes": {
-                "code": "FRLYS",
-                "name": "Lyon"
+                "code": "GBCBG",
+                "name": "Cambridge"
             }
         },
         {
-            "id": "ISIL",
+            "id": "NEXP",
             "type": "marketing_carriers",
             "attributes": {
-                "code": "ISIL",
-                "trade_name": "Isilines",
-                "legal_name": "Isilines",
-                "address": "215 avenue Georges Clemenceau, 92024 Nanterre cedex, France",
-                "phone": "+33(0)157662830",
+                "code": "NEXP",
+                "trade_name": "National Express",
+                "legal_name": "National Express Limited",
+                "address": "Birmingham Coach Station, Mill Lane, Birmingham B5 6DD, United Kingdom",
+                "phone": "+44 (0)3717 818181",
                 "fax": "",
-                "customer_service_phone": "",
-                "email": "",
-                "commercial_register": "Tribunal de Commerce de Nanterre",
-                "commercial_register_number": "RCS:391144300",
-                "vat_no": "FR50391144300",
-                "authorised_representative": "Hugo Roncal",
+                "customer_service_phone": "+44 (0)3717 818181",
+                "email": "customerrelations@nationalexpress.com",
+                "commercial_register": "",
+                "commercial_register_number": "0023767",
+                "vat_no": "GB487038714",
+                "authorised_representative": "Tom Stables",
                 "white_label_logo": "data:image/png;base64",
                 "white_label_colour_code": "",
-                "terms": "T&Cs",
+                "terms": "Issued subject to National Express Conditions of Carriage, which can be viewed at \r\n<a href=\"https://www.nationalexpress.com/en/help/conditions-of-carriage\" target=\"blank\">https://www.nationalexpress.com/en/help/conditions-of-carriage</a>",
                 "flight_number_required": false,
-                "booking_fee": 0,
+                "booking_fee": 117,
                 "cancellation_fee": 0,
                 "cancellation_cutoff": null
             }
         },
         {
-            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0",
             "type": "segments",
             "attributes": {
-                "departure_time": "2019-01-15T17:00",
-                "arrival_time": "2019-01-15T20:05",
+                "departure_time": "2019-08-15T09:15",
+                "arrival_time": "2019-08-15T10:15",
                 "index": 0
             },
             "relationships": {
                 "departure_station": {
                     "data": {
-                        "id": "FRLILBDT",
+                        "id": "GBXVHPET",
                         "type": "stations"
                     }
                 },
                 "arrival_station": {
                     "data": {
-                        "id": "FRPARGBA",
+                        "id": "GBCBGCCE",
                         "type": "stations"
                     }
                 },
                 "operating_carrier": {
                     "data": {
-                        "id": "ISIL",
+                        "id": "NEXP",
                         "type": "operating_carriers"
                     }
                 },
                 "vehicle": {
                     "data": {
-                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0",
                         "type": "vehicles"
                     }
                 },
                 "segment_passengers": {
                     "data": [
                         {
-                            "id": "PADX-BATEAU-BALIBALO-1-0",
+                            "id": "PADV-BATEAU-CHARLOTTE-1-0",
                             "type": "segment_passengers"
                         },
                         {
-                            "id": "PADX-BATEAU-BILOU-2-0",
+                            "id": "PADV-BATEAU-PAUL-2-0",
                             "type": "segment_passengers"
                         }
                     ]
@@ -767,97 +743,16 @@ curl -X POST \
             }
         },
         {
-            "id": "ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
-            "type": "segments",
-            "attributes": {
-                "departure_time": "2019-01-15T23:30",
-                "arrival_time": "2019-01-16T05:40",
-                "index": 1
-            },
-            "relationships": {
-                "departure_station": {
-                    "data": {
-                        "id": "FRPARGBA",
-                        "type": "stations"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "id": "FRLYSPER",
-                        "type": "stations"
-                    }
-                },
-                "operating_carrier": {
-                    "data": {
-                        "id": "ISIL",
-                        "type": "operating_carriers"
-                    }
-                },
-                "vehicle": {
-                    "data": {
-                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
-                        "type": "vehicles"
-                    }
-                },
-                "segment_passengers": {
-                    "data": [
-                        {
-                            "id": "PADX-BATEAU-BALIBALO-1-1",
-                            "type": "segment_passengers"
-                        },
-                        {
-                            "id": "PADX-BATEAU-BILOU-2-1",
-                            "type": "segment_passengers"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "id": "FRPARGBA",
-            "type": "stations",
-            "attributes": {
-                "station_type": "bus_station",
-                "code": "FRPARGBA",
-                "name": "Paris Gallieni (Bagnolet)",
-                "description": "Paris international bus station is located in the eastern part of the city, and is connected to the metro line M3. At the station, there is a taxi stand, a snack bar, and parking areas.",
-                "street_and_number": "Av. du Général de Gaulle 28",
-                "zip_code": "93170",
-                "longitude": 2.414311,
-                "latitude": 48.865442,
-                "time_zone": "Europe/Paris"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "FRPAR",
-                        "type": "cities"
-                    }
-                },
-                "area": {
-                    "data": null
-                }
-            }
-        },
-        {
-            "id": "FRPAR",
-            "type": "cities",
-            "attributes": {
-                "code": "FRPAR",
-                "name": "Paris"
-            }
-        },
-        {
-            "id": "ISIL",
+            "id": "NEXP",
             "type": "operating_carriers",
             "attributes": {
-                "code": "ISIL",
-                "trade_name": "Isilines",
-                "legal_name": "Isilines"
+                "code": "NEXP",
+                "trade_name": "National Express",
+                "legal_name": "National Express Limited"
             }
         },
         {
-            "id": "PADX-BATEAU-BALIBALO-1-0",
+            "id": "PADV-BATEAU-CHARLOTTE-1-0",
             "type": "segment_passengers",
             "attributes": {
                 "seat_number": null
@@ -865,14 +760,14 @@ curl -X POST \
             "relationships": {
                 "passenger": {
                     "data": {
-                        "id": "PADX-BATEAU-BALIBALO-1",
+                        "id": "PADV-BATEAU-CHARLOTTE-1",
                         "type": "passengers"
                     }
                 }
             }
         },
         {
-            "id": "PADX-BATEAU-BILOU-2-0",
+            "id": "PADV-BATEAU-PAUL-2-0",
             "type": "segment_passengers",
             "attributes": {
                 "seat_number": null
@@ -880,14 +775,14 @@ curl -X POST \
             "relationships": {
                 "passenger": {
                     "data": {
-                        "id": "PADX-BATEAU-BILOU-2",
+                        "id": "PADV-BATEAU-PAUL-2",
                         "type": "passengers"
                     }
                 }
             }
         },
         {
-            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-0",
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0",
             "type": "vehicles",
             "relationships": {
                 "vehicle_type": {
@@ -908,65 +803,44 @@ curl -X POST \
             }
         },
         {
-            "id": "PADX-BATEAU-BALIBALO-1-1",
-            "type": "segment_passengers",
-            "attributes": {
-                "seat_number": null
-            },
-            "relationships": {
-                "passenger": {
-                    "data": {
-                        "id": "PADX-BATEAU-BALIBALO-1",
-                        "type": "passengers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "PADX-BATEAU-BILOU-2-1",
-            "type": "segment_passengers",
-            "attributes": {
-                "seat_number": null
-            },
-            "relationships": {
-                "passenger": {
-                    "data": {
-                        "id": "PADX-BATEAU-BILOU-2",
-                        "type": "passengers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
-            "type": "vehicles",
-            "relationships": {
-                "vehicle_type": {
-                    "data": {
-                        "id": "BUS",
-                        "type": "vehicle_types"
-                    }
-                }
-            }
-        },
-        {
-            "id": "PADX-BATEAU-BALIBALO-1",
+            "id": "PADV-BATEAU-CHARLOTTE-1",
             "type": "passengers",
             "attributes": {
-                "first_name": "Balibalo",
+                "first_name": "Charlotte",
                 "last_name": "Bateau",
-                "serial_code": "00000000181011477332         Bateau       Balibalo19920101000000FA011A000000000000",
-                "type": "PADX"
+                "serial_code": null,
+                "type": "PADV"
             }
         },
         {
-            "id": "PADX-BATEAU-BILOU-2",
+            "id": "PADV-BATEAU-PAUL-2",
             "type": "passengers",
             "attributes": {
-                "first_name": "Bilou",
+                "first_name": "Paul",
                 "last_name": "Bateau",
-                "serial_code": "00000000181011013117         Bateau          Bilou19920101000000FA011A000000000000",
-                "type": "PADX"
+                "serial_code": null,
+                "type": "PADV"
+            }
+        },
+        {
+            "id": "FARE-1",
+            "type": "fare_classes",
+            "attributes": {
+                "code": "FARE-1",
+                "name": "Standard",
+                "iata_category": null
+            },
+            "relationships": {
+                "fare_features": {
+                    "data": [{
+               "id": "amendable",
+               "type": "fare_features"
+            },
+            {
+               "id": "not cancellable",
+               "type": "fare_features"
+            }]
+                }
             }
         }
     ]
@@ -1013,6 +887,7 @@ Parameter                 | Mandatory | Description
 `locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`.
+`fare_class`              | false     | Code consisting of 6-7 alphanumerical characters.
                           |           |
 `passengers`              | true      | Array
     `fist_name`           | true      | First name of the passenger, 1-50-letter alphanumeric string.
