@@ -13,7 +13,7 @@ curl -X POST \
        "arrival_station": "FRLYSPER",
        "departure_time": "2019-01-15T17:00",
        "arrival_time": "2019-01-16T05:40",
-       "retailer_partner_number": "123456",
+       "retailer_partner_number": "{number}",
        "title": "mr",
        "first_name": "Balibalo",
        "last_name": "Bateau",
