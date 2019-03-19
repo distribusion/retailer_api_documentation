@@ -196,13 +196,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-<<<<<<< HEAD
   https://api-demo.distribusion.com/retailers/v4/orders/NEXP-43927b28-ed74-4cf1-b454-b7b687a2db95 \
-=======
-  https://api-demo.distribusion.com/retailers/v4/orders/ISIL-60a4ec9b-a021-4a07-b720-947b813956f0 \
->>>>>>> master
-  -H 'Cache-Control: no-cache' \
-  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI'
 ```
 
 > The above command returns JSON structured like this:
@@ -481,7 +475,7 @@ curl -X POST \
        "arrival_station": "GBCBGCCE",
        "departure_time": "2019-08-15T09:15",
        "arrival_time": "2019-08-15T10:15",
-       "retailer_partner_number": "123456",
+       "retailer_partner_number": "{number}",
        "title": "mr",
        "first_name": "Balibalo",
        "last_name": "Bateau",  
@@ -545,7 +539,7 @@ curl -X POST \
             "terms_accepted": true,
             "send_customer_email": false,
             "send_marketing_emails": null,
-            "retailer_partner_number": "123456",
+            "retailer_partner_number": "{number}",
             "connection_reference": null,
             "created_at": "2019-03-18T16:09"
         },
@@ -998,11 +992,7 @@ Error Code  | Meaning
 ## Redirect for Affiliates
 
 ```curl
-<<<<<<< HEAD
 https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=ISIL&departure_station_code=FRLILBDT&arrival_station_code=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&retailer_partner_number={number}&locale=en
-=======
-https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=ISIL&departure_station_code=FRLILBDT&arrival_station_code=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&retailer_partner_number=123456&locale=en
->>>>>>> master
 ```
 
 Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. Alternatively, you can overwrite this functionality by sending your own locale (the order of priority is: locale parameter in URL, then cached locale in browser, and finally the browser locale). The currency can be set within the redirect link.
@@ -1178,7 +1168,7 @@ curl -X GET \
             "terms_accepted": true,
             "send_customer_email": false,
             "send_marketing_emails": null,
-            "retailer_partner_number": "123456",
+            "retailer_partner_number": "{number}",
             "connection_reference": null,
             "created_at": "2019-03-18T16:09"
         },
