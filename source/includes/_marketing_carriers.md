@@ -104,7 +104,7 @@ curl -X GET \
             "has_mobile_tickets": false,
             "tickets_validity_in_hours": null,
             "tickets_validity_info": "In case of traveling from/to an airport this ticket is valid for 12 hours after the departure time stated above.",
-            "booking_fee": 116,
+            "booking_fee": 117,
             "cancellation_fee": 0,
             "cancellation_cutoff": null
         },
@@ -188,14 +188,7 @@ curl -X GET \
             },
             "relationships": {
                 "fare_features": {
-                    "data": [{
-               "id": "amendable",
-               "type": "fare_features"
-            },
-            {
-               "id": "not cancellable",
-               "type": "fare_features"
-            }]
+                    "data": []
                 }
             }
         },
@@ -209,14 +202,7 @@ curl -X GET \
             },
             "relationships": {
                 "fare_features": {
-                    "data": [{
-              "id": "not amendable",
-              "type": "fare_features"
-            },
-            {
-              "id": "not cancellable",
-              "type": "fare_features"
-            }]
+                    "data": []
                 }
             }
         },
@@ -230,45 +216,11 @@ curl -X GET \
             },
             "relationships": {
                 "fare_features": {
-                    "data": [{
-              "id": "amendable",
-              "type": "fare_features"
-            },
-            {
-              "id": "cancellable",
-              "type": "fare_features"
-            }]
+                    "data": []
                 }
             }
-        },
-        {
-          "id": "amendable",
-          "type": "fare_features",
-          "attributes": {
-            "code": "amendable",
-            "name": "Amendable",
-            "description": "You can make changes to your booking for an additional fee (starting from £5) by contacting National Express customer service."
-          }
-        },
-        {
-          "id": "not cancellable",
-          "type": "fare_features",
-          "attributes": {
-            "code": "not cancellable",
-            "name": "Not Cancellable",
-            "description": "No refund or cancellation possible."
-          }
-        },
-        {
-          "id": "cancellable",
-          "type": "fare_features",
-          "attributes": {
-            "code": "cancellable",
-            "name": "Cancellable",
-            "description": "Cancellable up to 72h before the departure of your trip."
-          }
         }
-    ] 
+    ]
 }
 ```
 

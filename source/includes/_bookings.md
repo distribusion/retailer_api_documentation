@@ -1537,8 +1537,6 @@ Note: Not all carriers support mobile tickets. To know if a specific marketing c
 
 ![alt text](/images/tickets_7P7JF8.png)
 
-![alt text](/images/tickets_7P7JF8.png)
-
 ### HTTP Request
 
 `GET api.distribusion.com/retailers/v4/bookings/{id}/tickets`
