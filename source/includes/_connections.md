@@ -4,7 +4,11 @@
 
 ```shell
 curl -g -X GET \
+<<<<<<< HEAD
   'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=GBXVHPET&arrival_stations[]=GBCBGCAM&arrival_stations[]=GBCBGCCE&arrival_stations[]=GBCBGCMA&arrival_stations[]=GBCBGCPR&arrival_stations[]=GBCBGTPR&arrival_stations[]=GBCBGTRU&departure_date=2019-08-15&pax=1&locale=en&currency=EUR' \
+=======
+  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=FRLILBDT&departure_stations[]=FRLILCSA&departure_stations[]=FRLILGEU&departure_stations[]=FRLILGFA&departure_stations[]=FRLILZOB&arrival_stations[]=FRLYSAIR&arrival_stations[]=FRLYSDAR&arrival_stations[]=FRLYSIHO&arrival_stations[]=FRLYSPDB&arrival_stations[]=FRLYSPER&arrival_stations[]=FRLYSZOB&departure_date=2019-01-15&pax=1&locale=en&currency=EUR' \
+>>>>>>> master
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json'
@@ -1033,8 +1037,13 @@ Error Code  | Meaning
 ## Vacancy
 
 ```shell
+<<<<<<< HEAD
 curl -g -X GET \
   'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=NEXP&departure_station=GBXVHPET&arrival_station=GBCBGCCE&departure_time=2019-08-15T09:15&arrival_time=2019-08-15T10:15&currency=EUR&passengers[][pax]=2&passengers[][type]=PADV&fare_class=FARE-1' \
+=======
+curl -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=ISIL&departure_station=FRLILBDT&arrival_station=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&passengers[][pax]=2&passengers[][type]=PADX' \
+>>>>>>> master
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json'
 ```

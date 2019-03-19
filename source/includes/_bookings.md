@@ -196,7 +196,11 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
+<<<<<<< HEAD
   https://api-demo.distribusion.com/retailers/v4/orders/NEXP-43927b28-ed74-4cf1-b454-b7b687a2db95 \
+=======
+  https://api-demo.distribusion.com/retailers/v4/orders/ISIL-60a4ec9b-a021-4a07-b720-947b813956f0 \
+>>>>>>> master
   -H 'Cache-Control: no-cache' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI'
 ```
@@ -290,6 +294,10 @@ curl -X GET \
                         },
                         {
                             "id": "PADV-BATEAU-PAUL-2-0",
+                            "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-1",
                             "type": "segment_passengers"
                         }
                     ]
@@ -586,6 +594,10 @@ curl -X POST \
                     {
                         "id": "PADV-BATEAU-PAUL-2",
                         "type": "passengers"
+                    },
+                    {
+                        "id": "PADX-BATEAU-BILOU-2",
+                        "type": "passengers"
                     }
                 ]
             },
@@ -728,6 +740,12 @@ curl -X POST \
                         "type": "vehicles"
                     }
                 },
+                "vehicle": {
+                    "data": {
+                        "id": "BUS-ISIL-FRLILBDT-FRLYSPER-2019-01-15T17:00-2019-01-16T05:40-1",
+                        "type": "vehicles"
+                    }
+                },
                 "segment_passengers": {
                     "data": [
                         {
@@ -736,6 +754,10 @@ curl -X POST \
                         },
                         {
                             "id": "PADV-BATEAU-PAUL-2-0",
+                            "type": "segment_passengers"
+                        },
+                        {
+                            "id": "PADX-BATEAU-BILOU-2-1",
                             "type": "segment_passengers"
                         }
                     ]
@@ -976,7 +998,11 @@ Error Code  | Meaning
 ## Redirect for Affiliates
 
 ```curl
+<<<<<<< HEAD
 https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=ISIL&departure_station_code=FRLILBDT&arrival_station_code=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&retailer_partner_number={number}&locale=en
+=======
+https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=ISIL&departure_station_code=FRLILBDT&arrival_station_code=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&retailer_partner_number=123456&locale=en
+>>>>>>> master
 ```
 
 Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. Alternatively, you can overwrite this functionality by sending your own locale (the order of priority is: locale parameter in URL, then cached locale in browser, and finally the browser locale). The currency can be set within the redirect link.
@@ -1603,6 +1629,8 @@ The ticket either has one page containing the information of all the passengers,
 Note: Not all carriers support mobile tickets. To know if a specific marketing carrier supports mobile ticket, call [marketing_carriers#show](https://docs.distribusion.com/#show30) and look for `has_mobile_tickets` parameter.  
 
 <aside class="notice">When retrieving the ticket in .pkpass format, you will be provided with a link to download the mobile ticket from AWS.</aside>
+
+![alt text](/images/tickets_7P7JF8.png)
 
 ![alt text](/images/tickets_7P7JF8.png)
 
