@@ -1,18 +1,16 @@
 # Introduction
 
-![alt text](/images/distribusion-overview.png)
+![alt text](/images/bus-picture.png)
 
 You can use our API to access Distribusion content and book bus rides. We have put a lot of thought into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
 
-When integrating and testing our API, please use the following URL:
+**When integrating and testing our API, please use the following URL:**
 
 [https://api-demo.distribusion.com/retailers/v4](https://api-demo.distribusion.com/retailers/v4)
 
-## Deprecated APIs
+## Deprecated API
 
 [Retailer API v2](https://api-demo.distribusion.com/reseller/v2/docs)
-
-[Retailer API v3](https://api-demo.distribusion.com/retailers/v3/docs)
 
 # Getting Started
 
@@ -20,8 +18,10 @@ When performing a booking through Distribusion API, there are multiple steps tha
 
 - Searching for connections
 - Retrieving availability and prices
-- Build the booking form
-- Conducting the booking
+- Conducting bookings
+- Retrieving tickets
+- Retrieving cancellation conditions
+- Performing cancellations
 
 ![alt text](/images/API_V4.0_workflow.png)
 
@@ -50,7 +50,7 @@ Distribusion aims to standardize the station codes across the bus industry, the 
 
 ## Importing Master Data
 
-The first step in the booking process, is collecting the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) and [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoints. To retrieve station codes, simply send a `GET` request to our [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, coordinates, associated city, etc). The [#marketing_carriers](https://api-demo.distribusion.com/retailers/v4/docs/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
+The first step in the booking process, is collecting the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://docs.distribusion.com/#stations7) and [#marketing_carriers](https://docs.distribusion.com/#marketing-carriers) endpoints. To retrieve station codes, simply send a `GET` request to our [#stations](https://docs.distribusion.com/#stations7) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, coordinates, associated city, etc). The [#marketing_carriers](https://docs.distribusion.com/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
 
 Currently our content can be fetch in English, French, Italian, Spanish, Dutch, Swedish, Bulgarian and German, with the following locale values: en, fr, it, es, nl, sv, bg and de.
 
@@ -118,7 +118,7 @@ Currently our content can be fetch in English, French, Italian, Spanish, Dutch, 
 Our API maps stations to cities, allowing you to easily groupe stations together when they belong to the same city. This is to facilite city to city search.
 We also recently introduced the notion of areas. An area is smaller than a city, represent multiple stations, and can only be attached to one city.
 
-In the example bellow, Barcelona Airport is mapped with **"Barcelona Airport T1"** and **"Barcelona Airport T2"** stations, while the area and the stations are all mapped to Barcelona city. Bellow is an extract of our [#stations](https://api-demo.distribusion.com/retailers/v4/docs/#stations) endpoint response:
+In the example bellow, Barcelona Airport is mapped with **"Barcelona Airport T1"** and **"Barcelona Airport T2"** stations, while the area and the stations are all mapped to Barcelona city. Bellow is an extract of our [#stations](https://docs.distribusion.com/#stations7) endpoint response:
 
 Code description:
 
@@ -127,19 +127,11 @@ Code description:
 
 For example, while searching from Barcelona Airport to Barcelona City, you could perform the following request:
 
-[https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
-arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
-arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
-arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2018-03-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v3/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&
-arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&
-arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&
-arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&
-departure_date=2018-03-29&pax=1&currency=EUR&locale=en)
+[https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2019-03-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2019-03-29&pax=1&currency=EUR&locale=en)
 
 ## Find Connections
 
-After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). We do not provide pairs of stations in order to allow our engine to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
+After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://docs.distribusion.com/#find). We do not provide pairs of stations in order to allow our engine to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
 
 <aside class="success">
 Remember — in order to query information from our API, you need to get your own API key by submitting a request to <a href='mailto:partner@distribusion.com'>partner@distribusion.com</a>!
@@ -147,21 +139,26 @@ Remember — in order to query information from our API, you need to get your ow
 
 ## Passenger types
 
-We also thrive to standardise passenger (ticket) types across multiple carriers, every time it is possible. Two carriers having the same definition of a ticket type, will have the same passenger type code. For example, every time a carrier have the same definition of an adult that an other carrier, they will both share the same passenger type code. 
+We also thrive to standardise passenger (ticket) types across multiple carriers. While booking through Distribusion API, you can choose the use the specific passenger types of the operator, or use Distribusion own standardise definition of an infant, child and adult. 
+
+## Fare Classes
+
+Operators are often providing different service class and features to their consumers. You will find the possibility to select each fare based on the operator offer. Fares classes are covering a large amount of features, such as 1st/2nd class, extra leg seats, drinks, cancellation policies, validity period, etc.
+
 
 ## Confirm Price and Availability
 
-As [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://api-demo.distribusion.com/retailers/v4/docs/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
+As [connections#find](https://docs.distribusion.com/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://docs.distribusion.com/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
 
 ## Create an Order or a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create). You can also perform an order, and later retrieve it status by calling our [orders#create] (https://api-demo.distribusion.com/retailers/v4/docs/#create-orders) endpoint. In case any information is missing, the API will recognise it and inform you accordingly.
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://docs.distribusion.com/#create). You can also perform an order, and later retrieve it status by calling our [orders#create](https://docs.distribusion.com/#create-orders) endpoint. The main difference between a booking and an order is the workflow. A booking is synchronous, while an order is asynchronous. In case any information is missing, the API will recognise it and inform you accordingly.
 
-Note: we currently support *EUR*, *USD*, *GBP* and *CHF* currencies.
+Note: we currently support *EUR*, *USD*, *GBP* *SEK*, *MYR*, *PLN* and *CHF* currencies. More can be enabled on demand.
 
 ## Manage your Bookings
 
-Once you start making bookings, you will certainly want to monitor them and sometime, if need be, cancel them. For this, we created a new feature, allowing you to retrieve a full list of your bookings: [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index). Once you have this list, you can call [bookings#show](https://api-demo.distribusion.com/retailers/v4/docs/#show) for more details on a specific booking, or call [cancellations#conditions](https://api-demo.distribusion.com/retailers/v4/docs/#conditions) and [cancellations#create](https://api-demo.distribusion.com/retailers/v4/docs/#create23) to cancel a booking.
+Once you start making bookings, you will certainly want to monitor them and sometime, if need be, cancel them. For this, we created a new feature, allowing you to retrieve a full list of your bookings: [bookings#index](https://docs.distribusion.com/#index). Once you have this list, you can call [bookings#show](https://docs.distribusion.com/#show) for more details on a specific booking, or call [cancellations#conditions](https://docs.distribusion.com/#conditions) and [cancellations#create](https://docs.distribusion.com/#create27) to cancel a booking.
 
 ## Postman
 

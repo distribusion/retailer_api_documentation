@@ -64,6 +64,7 @@ Error Code  | Meaning
 400.101.053 | Bus Number is missing or invalid
 400.102.040 | Unknown marketing carrier
 400.200.001 | API key is invalid or missing
+400.500.041 | Cancellation is not allowed
 400.502.041 | Booking already cancelled
 400.800.000 | Not Found
 400.800.040 | Marketing carrier not found
