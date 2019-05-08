@@ -112,7 +112,12 @@ Error Code  | Meaning
 400.200.001 | API key is invalid or missing
 400.502.041 | Booking already cancelled
 400.800.041 | Booking not found
-400.501.008 | Not implemented at Distribusion on cancellations#create
+400.800.042 | Webhook not defined
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
 500.600.041 | Unique cancellation id cannot be generated
+
+## Webhook
+
+Distribusion offer the possibility for retailer to get informed about cancellations happening outside their own environment (on marketing carrier or Distribusion's side). To enable this functionality, please contact your integration manager. 
+
