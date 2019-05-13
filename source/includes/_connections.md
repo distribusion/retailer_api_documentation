@@ -28,7 +28,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
                     }
                 },
                 "operating_carrier": {
@@ -50,11 +50,46 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2019-08-15T21:00",
-                "arrival_time": "2019-08-15T21:50"
+                "departure_time": "2019-08-15T06:10",
+                "arrival_time": "2019-08-15T07:40"
+            }
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGTPR"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1",
+            "attributes": {
+                "index": 1,
+                "departure_time": "2019-08-15T09:05",
+                "arrival_time": "2019-08-15T09:15"
             }
         },
         {
@@ -64,7 +99,7 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "passenger_types",
-                            "id": "PADV"
+                            "id": "PNOS"
                         }
                     ]
                 },
@@ -107,11 +142,13 @@ curl -g -X GET \
         },
         {
             "type": "passenger_types",
-            "id": "PADV",
+            "id": "PNOS",
             "attributes": {
                 "name": "Adults",
+                "min_age": 0,
+                "max_age": 99,
                 "description": "",
-                "code": "PADV"
+                "code": "PNOS"
             }
         },
         {
@@ -181,6 +218,31 @@ curl -g -X GET \
             }
         },
         {
+            "type": "stations",
+            "relationships": {
+                "city": {
+                    "data": {
+                        "type": "cities",
+                        "id": "GBCBG"
+                    }
+                },
+                "area": {
+                    "data": null
+                }
+            },
+            "id": "GBCBGTPR",
+            "attributes": {
+                "zip_code": "CB2 9FT",
+                "time_zone": "Europe/London",
+                "street_and_number": "Hauxton Rd",
+                "name": "Cambridge Trumpington P+R",
+                "longitude": 0.10806,
+                "latitude": 52.16772,
+                "description": "The bus stop is inside Trumpington Park & Ride. From 43 Hauxton Rd, follow the sign \"park & ride\" to reach the parking lot. There is bus lane and bus sign.",
+                "code": "GBCBGTPR"
+            }
+        },
+        {
             "type": "vehicles",
             "relationships": {
                 "vehicle_type": {
@@ -190,7 +252,19 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
         },
         {
             "type": "vehicle_types",
@@ -341,172 +415,6 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
-                    }
-                },
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBXVHPET"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGCCE"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2019-08-15T06:10",
-                "arrival_time": "2019-08-15T07:40"
-            }
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "vehicle": {
-                    "data": {
-                        "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
-                    }
-                },
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGCCE"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGTPR"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1",
-            "attributes": {
-                "index": 1,
-                "departure_time": "2019-08-15T09:05",
-                "arrival_time": "2019-08-15T09:15"
-            }
-        },
-        {
-            "type": "stations",
-            "relationships": {
-                "city": {
-                    "data": {
-                        "type": "cities",
-                        "id": "GBCBG"
-                    }
-                },
-                "area": {
-                    "data": null
-                }
-            },
-            "id": "GBCBGTPR",
-            "attributes": {
-                "zip_code": "CB2 9FT",
-                "time_zone": "Europe/London",
-                "street_and_number": "Hauxton Rd",
-                "name": "Cambridge Trumpington P+R",
-                "longitude": 0.10806,
-                "latitude": 52.16772,
-                "description": "The bus stop is inside Trumpington Park & Ride. From 43 Hauxton Rd, follow the sign \"park & ride\" to reach the parking lot. There is bus lane and bus sign.",
-                "code": "GBCBGTPR"
-            }
-        },
-        {
-            "type": "vehicles",
-            "relationships": {
-                "vehicle_type": {
-                    "data": {
-                        "type": "vehicle_types",
-                        "id": "BUS"
-                    }
-                }
-            },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
-        },
-        {
-            "type": "vehicles",
-            "relationships": {
-                "vehicle_type": {
-                    "data": {
-                        "type": "vehicle_types",
-                        "id": "BUS"
-                    }
-                }
-            },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "vehicle": {
-                    "data": {
-                        "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
-                    }
-                },
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBXVHPET"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGCCE"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2019-08-15T06:10",
-                "arrival_time": "2019-08-15T07:40"
-            }
-        },
-        {
-            "type": "vehicles",
-            "relationships": {
-                "vehicle_type": {
-                    "data": {
-                        "type": "vehicle_types",
-                        "id": "BUS"
-                    }
-                }
-            },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "vehicle": {
-                    "data": {
-                        "type": "vehicles",
                         "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-0"
                     }
                 },
@@ -594,6 +502,100 @@ curl -g -X GET \
                 }
             },
             "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-1"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-08-15T06:10",
+                "arrival_time": "2019-08-15T07:40"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-08-15T21:00",
+                "arrival_time": "2019-08-15T21:50"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
         },
         {
             "type": "segments",
@@ -698,7 +700,11 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
                         }
                     ]
                 },
@@ -717,17 +723,17 @@ curl -g -X GET \
                 "arrival_station": {
                     "data": {
                         "type": "stations",
-                        "id": "GBCBGCCE"
+                        "id": "GBCBGTPR"
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15",
             "attributes": {
-                "duration": 3000,
-                "departure_time": "2019-08-15T21:00",
-                "cheapest_total_adult_price": 1221,
+                "duration": 11100,
+                "departure_time": "2019-08-15T06:10",
+                "cheapest_total_adult_price": 1273,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T21:50"
+                "arrival_time": "2019-08-15T09:15"
             }
         },
         {
@@ -764,7 +770,7 @@ curl -g -X GET \
             "attributes": {
                 "duration": 3000,
                 "departure_time": "2019-08-15T02:25",
-                "cheapest_total_adult_price": 1069,
+                "cheapest_total_adult_price": 1273,
                 "booked_out": false,
                 "arrival_time": "2019-08-15T03:15"
             }
@@ -803,91 +809,9 @@ curl -g -X GET \
             "attributes": {
                 "duration": 3600,
                 "departure_time": "2019-08-15T09:15",
-                "cheapest_total_adult_price": 1069,
+                "cheapest_total_adult_price": 1203,
                 "booked_out": false,
                 "arrival_time": "2019-08-15T10:15"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBXVHPET"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGTPR"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15",
-            "attributes": {
-                "duration": 11100,
-                "departure_time": "2019-08-15T06:10",
-                "cheapest_total_adult_price": 1456,
-                "booked_out": false,
-                "arrival_time": "2019-08-15T09:15"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBXVHPET"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGCCE"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40",
-            "attributes": {
-                "duration": 5400,
-                "departure_time": "2019-08-15T06:10",
-                "cheapest_total_adult_price": 1221,
-                "booked_out": false,
-                "arrival_time": "2019-08-15T07:40"
             }
         },
         {
@@ -928,9 +852,87 @@ curl -g -X GET \
             "attributes": {
                 "duration": 8100,
                 "departure_time": "2019-08-15T09:15",
-                "cheapest_total_adult_price": 1303,
+                "cheapest_total_adult_price": 1435,
                 "booked_out": false,
                 "arrival_time": "2019-08-15T11:30"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40",
+            "attributes": {
+                "duration": 5400,
+                "departure_time": "2019-08-15T06:10",
+                "cheapest_total_adult_price": 1041,
+                "booked_out": false,
+                "arrival_time": "2019-08-15T07:40"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50",
+            "attributes": {
+                "duration": 3000,
+                "departure_time": "2019-08-15T21:00",
+                "cheapest_total_adult_price": 1053,
+                "booked_out": false,
+                "arrival_time": "2019-08-15T21:50"
             }
         },
         {
@@ -971,7 +973,7 @@ curl -g -X GET \
             "attributes": {
                 "duration": 6900,
                 "departure_time": "2019-08-15T02:25",
-                "cheapest_total_adult_price": 1303,
+                "cheapest_total_adult_price": 1516,
                 "booked_out": false,
                 "arrival_time": "2019-08-15T04:20"
             }
