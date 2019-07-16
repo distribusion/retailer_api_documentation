@@ -727,7 +727,17 @@ curl -g -X GET \
                 "departure_time": "2019-08-15T21:00",
                 "cheapest_total_adult_price": 1221,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T21:50"
+                "arrival_time": "2019-08-15T21:50",
+                "fare_class_pricings": [
+                    {
+                        "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-FARE-1",
+                        "type": "fare_class_pricings",
+                        "attributes": {
+                            "fare_class_code": "FARE-1",
+                            "price": 1221
+                        }
+                    }
+                ]
             }
         },
         {
@@ -766,7 +776,17 @@ curl -g -X GET \
                 "departure_time": "2019-08-15T02:25",
                 "cheapest_total_adult_price": 1069,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T03:15"
+                "arrival_time": "2019-08-15T03:15",
+                "fare_class_pricings": [
+                    {
+                        "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T02:25-2019-08-15T03:15-FARE-1",
+                        "type": "fare_class_pricings",
+                        "attributes": {
+                            "fare_class_code": "FARE-1",
+                            "price": 1069
+                        }
+                    }
+                ]
             }
         },
         {
@@ -805,7 +825,17 @@ curl -g -X GET \
                 "departure_time": "2019-08-15T09:15",
                 "cheapest_total_adult_price": 1069,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T10:15"
+                "arrival_time": "2019-08-15T10:15",
+                "fare_class_pricings": [
+                    {
+                        "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-FARE-1",
+                        "type": "fare_class_pricings",
+                        "attributes": {
+                            "fare_class_code": "FARE-1",
+                            "price": 1069
+                        }
+                    }
+                ]
             }
         },
         {
@@ -848,7 +878,17 @@ curl -g -X GET \
                 "departure_time": "2019-08-15T06:10",
                 "cheapest_total_adult_price": 1456,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T09:15"
+                "arrival_time": "2019-08-15T09:15",
+                "fare_class_pricings": [
+                    {
+                        "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-FARE-1",
+                        "type": "fare_class_pricings",
+                        "attributes": {
+                            "fare_class_code": "FARE-1",
+                            "price": 1456
+                        }
+                    }
+                ]
             }
         },
         {
@@ -887,7 +927,17 @@ curl -g -X GET \
                 "departure_time": "2019-08-15T06:10",
                 "cheapest_total_adult_price": 1221,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T07:40"
+                "arrival_time": "2019-08-15T07:40",
+                "fare_class_pricings": [
+                    {
+                        "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-FARE-1",
+                        "type": "fare_class_pricings",
+                        "attributes": {
+                            "fare_class_code": "FARE-1",
+                            "price": 1221
+                        }
+                    }
+                ]
             }
         },
         {
@@ -930,7 +980,17 @@ curl -g -X GET \
                 "departure_time": "2019-08-15T09:15",
                 "cheapest_total_adult_price": 1303,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T11:30"
+                "arrival_time": "2019-08-15T11:30",
+                "fare_class_pricings": [
+                    {
+                        "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-FARE-1",
+                        "type": "fare_class_pricings",
+                        "attributes": {
+                            "fare_class_code": "FARE-1",
+                            "price": 1303
+                        }
+                    }
+                ]
             }
         },
         {
@@ -973,7 +1033,17 @@ curl -g -X GET \
                 "departure_time": "2019-08-15T02:25",
                 "cheapest_total_adult_price": 1303,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T04:20"
+                "arrival_time": "2019-08-15T04:20",
+                "fare_class_pricings": [
+                    {
+                        "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-FARE-1",
+                        "type": "fare_class_pricings",
+                        "attributes": {
+                            "fare_class_code": "FARE-1",
+                            "price": 1303
+                        }
+                    }
+                ]
             }
         }
     ]
