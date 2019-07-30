@@ -1320,7 +1320,7 @@ curl -g -X GET \
             }
         }
     ]
-}        
+ }
 ```
 
 The endpoint searches for and delivers all the connections matching your query. The delivered set of objects will have all the necessary data for displaying on the search results page.
