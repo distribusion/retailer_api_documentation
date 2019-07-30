@@ -4,7 +4,7 @@
 
 ```shell
 curl -g -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=GBXVHPET&arrival_stations[]=GBCBGCAM&arrival_stations[]=GBCBGCCE&arrival_stations[]=GBCBGCMA&arrival_stations[]=GBCBGCPR&arrival_stations[]=GBCBGTPR&arrival_stations[]=GBCBGTRU&departure_date=2019-08-15&pax=1&locale=en&currency=EUR' \
+  'https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=GBXVHPET&arrival_stations[]=GBCBGCAM&arrival_stations[]=GBCBGCCE&arrival_stations[]=GBCBGCMA&arrival_stations[]=GBCBGCPR&arrival_stations[]=GBCBGTPR&arrival_stations[]=GBCBGTRU&departure_date=2019-12-15&pax=1&locale=en&currency=EUR' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json'
@@ -13,7 +13,7 @@ curl -g -X GET \
 > The above command returns JSON structured like this:
 
 ```json
-{
+ {
     "meta": {
         "locale": "en",
         "currency": "EUR"
@@ -28,7 +28,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T02:25-2019-12-15T03:15-0"
                     }
                 },
                 "operating_carrier": {
@@ -50,11 +50,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T02:25-2019-12-15T03:15-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2019-08-15T21:00",
-                "arrival_time": "2019-08-15T21:50"
+                "departure_time": "2019-12-15T02:25",
+                "arrival_time": "2019-12-15T03:15"
             }
         },
         {
@@ -64,7 +64,7 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "passenger_types",
-                            "id": "PADV"
+                            "id": "PNOS"
                         }
                     ]
                 },
@@ -107,11 +107,13 @@ curl -g -X GET \
         },
         {
             "type": "passenger_types",
-            "id": "PADV",
+            "id": "PNOS",
             "attributes": {
-                "name": "Adults",
+                "name": "Adult",
+                "min_age": 0,
+                "max_age": 99,
                 "description": "",
-                "code": "PADV"
+                "code": "PNOS"
             }
         },
         {
@@ -190,7 +192,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T02:25-2019-12-15T03:15-0"
         },
         {
             "type": "vehicle_types",
@@ -203,51 +205,306 @@ curl -g -X GET \
             "type": "fare_classes",
             "relationships": {
                 "fare_features": {
-                    "data": []
+                    "data": [
+                        {
+                            "type": "fare_features",
+                            "id": "ACON"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "TOIL"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "ALRO"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "NREF"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AMEN"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "WIFI"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "MSYS"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "UCHA"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AAFO"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "BLUG"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AAFR"
+                        }
+                    ]
                 }
             },
             "id": "FARE-1",
             "attributes": {
                 "name": "Standard",
+                "journey_type": "single",
                 "iata_category": null,
                 "code": "FARE-1"
             }
         },
         {
+            "type": "fare_features",
+            "id": "ACON",
+            "attributes": {
+                "name": "Air Conditioning",
+                "description": "The bus has a cooling ventilation.",
+                "code": "ACON"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "TOIL",
+            "attributes": {
+                "name": "Toilet",
+                "description": "A toilet is available on board.",
+                "code": "TOIL"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "ALRO",
+            "attributes": {
+                "name": "Additional Leg Room",
+                "description": "The seat has additional leg space.",
+                "code": "ALRO"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "NREF",
+            "attributes": {
+                "name": "Non-refundable ",
+                "description": "The ticket cannot be refunded.",
+                "code": "NREF"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "AMEN",
+            "attributes": {
+                "name": "Amendable",
+                "description": "The ticket is amendable. Please contact the carrier for further steps. A £5 amendment fee is applicable. ",
+                "code": "AMEN"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "WIFI",
+            "attributes": {
+                "name": "Wifi",
+                "description": "Free wifi is available on board.",
+                "code": "WIFI"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "MSYS",
+            "attributes": {
+                "name": "Media System",
+                "description": "Free-of-charge infotainment system VUER. Travellers can download the VUER app, which allows them to stream films and TV shows on their own phone or tablet.",
+                "code": "MSYS"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "UCHA",
+            "attributes": {
+                "name": "USB charger",
+                "description": "USB plug is available at each seat. ",
+                "code": "UCHA"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "AAFO",
+            "attributes": {
+                "name": "Accessible area for bicycles",
+                "description": "Bicycles are allowed on board as long as they are designed to fold in half by means of a special link in the main frame and are carried in a proper protective carrying case. A passenger has to pay an extra fee for a bike.",
+                "code": "AAFO"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "BLUG",
+            "attributes": {
+                "name": "Bulky Luggage",
+                "description": "Folding pushchairs/buggies will be carried free of charge in the hold, in addition to the standard luggage allowance. Except this National Express will accept bulky luggage for an extra charge.",
+                "code": "BLUG"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "AAFR",
+            "attributes": {
+                "name": "Accessible area for wheelchairs",
+                "description": "Fully collapsible wheelchairs and fully collapsible pushchairs may be stowed free of charge. Passenger have to contact bus operator 36 hours before the departure.",
+                "code": "AAFR"
+            }
+        },
+        {
             "type": "fare_classes",
             "relationships": {
                 "fare_features": {
-                    "data": []
+                    "data": [
+                        {
+                            "type": "fare_features",
+                            "id": "ACON"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "TOIL"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "ALRO"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "NAME"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "NREF"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "WIFI"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "MSYS"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "UCHA"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AAFO"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "BLUG"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AAFR"
+                        }
+                    ]
                 }
             },
             "id": "FARE-2",
             "attributes": {
                 "name": "Restricted",
+                "journey_type": "single",
                 "iata_category": null,
                 "code": "FARE-2"
+            }
+        },
+        {
+            "type": "fare_features",
+            "id": "NAME",
+            "attributes": {
+                "name": "Non-amendable",
+                "description": "The ticket is not amendable.",
+                "code": "NAME"
             }
         },
         {
             "type": "fare_classes",
             "relationships": {
                 "fare_features": {
-                    "data": []
+                    "data": [
+                        {
+                            "type": "fare_features",
+                            "id": "ACON"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "TOIL"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "ALRO"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "REFU"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AMEN"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "WIFI"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "MSYS"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "UCHA"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AAFO"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "BLUG"
+                        },
+                        {
+                            "type": "fare_features",
+                            "id": "AAFR"
+                        }
+                    ]
                 }
             },
             "id": "FARE-3",
             "attributes": {
                 "name": "Fully Flexible",
+                "journey_type": "single",
                 "iata_category": null,
                 "code": "FARE-3"
             }
         },
         {
+            "type": "fare_features",
+            "id": "REFU",
+            "attributes": {
+                "name": "Refundable",
+                "description": "The ticket is refundable and can be cancelled no less than 72 hours in advance of travel. Please contact the carrier for further steps. ",
+                "code": "REFU"
+            }
+        },
+        {
             "type": "segments",
             "relationships": {
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T02:25-2019-08-15T03:15-0"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-0"
                     }
                 },
                 "operating_carrier": {
@@ -269,105 +526,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T02:25-2019-08-15T03:15-0",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2019-08-15T02:25",
-                "arrival_time": "2019-08-15T03:15"
-            }
-        },
-        {
-            "type": "vehicles",
-            "relationships": {
-                "vehicle_type": {
-                    "data": {
-                        "type": "vehicle_types",
-                        "id": "BUS"
-                    }
-                }
-            },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T02:25-2019-08-15T03:15-0"
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "vehicle": {
-                    "data": {
-                        "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0"
-                    }
-                },
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBXVHPET"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGCCE"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2019-08-15T09:15",
-                "arrival_time": "2019-08-15T10:15"
-            }
-        },
-        {
-            "type": "vehicles",
-            "relationships": {
-                "vehicle_type": {
-                    "data": {
-                        "type": "vehicle_types",
-                        "id": "BUS"
-                    }
-                }
-            },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0"
-        },
-        {
-            "type": "segments",
-            "relationships": {
-                "vehicle": {
-                    "data": {
-                        "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
-                    }
-                },
-                "operating_carrier": {
-                    "data": {
-                        "type": "operating_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBXVHPET"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGCCE"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0",
-            "attributes": {
-                "index": 0,
-                "departure_time": "2019-08-15T06:10",
-                "arrival_time": "2019-08-15T07:40"
+                "departure_time": "2019-12-15T07:15",
+                "arrival_time": "2019-12-15T08:25"
             }
         },
         {
@@ -376,7 +539,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-1"
                     }
                 },
                 "operating_carrier": {
@@ -398,11 +561,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2019-08-15T09:05",
-                "arrival_time": "2019-08-15T09:15"
+                "departure_time": "2019-12-15T09:05",
+                "arrival_time": "2019-12-15T09:15"
             }
         },
         {
@@ -440,7 +603,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-0"
         },
         {
             "type": "vehicles",
@@ -452,7 +615,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-1"
         },
         {
             "type": "segments",
@@ -460,7 +623,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:15-2019-12-15T08:25-0"
                     }
                 },
                 "operating_carrier": {
@@ -482,11 +645,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:15-2019-12-15T08:25-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2019-08-15T06:10",
-                "arrival_time": "2019-08-15T07:40"
+                "departure_time": "2019-12-15T07:15",
+                "arrival_time": "2019-12-15T08:25"
             }
         },
         {
@@ -499,7 +662,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:15-2019-12-15T08:25-0"
         },
         {
             "type": "segments",
@@ -507,7 +670,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-0"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T20:30-2019-12-15T21:20-0"
                     }
                 },
                 "operating_carrier": {
@@ -529,11 +692,152 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-0",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T20:30-2019-12-15T21:20-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2019-08-15T09:15",
-                "arrival_time": "2019-08-15T10:15"
+                "departure_time": "2019-12-15T20:30",
+                "arrival_time": "2019-12-15T21:20"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T20:30-2019-12-15T21:20-0"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:00-2019-12-15T08:10-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:00-2019-12-15T08:10-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-12-15T07:00",
+                "arrival_time": "2019-12-15T08:10"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:00-2019-12-15T08:10-0"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T09:20-2019-12-15T10:15-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T09:20-2019-12-15T10:15-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-12-15T09:20",
+                "arrival_time": "2019-12-15T10:15"
+            }
+        },
+        {
+            "type": "vehicles",
+            "relationships": {
+                "vehicle_type": {
+                    "data": {
+                        "type": "vehicle_types",
+                        "id": "BUS"
+                    }
+                }
+            },
+            "id": "BUS-NEXP-GBXVHPET-GBCBGCCE-2019-12-15T09:20-2019-12-15T10:15-0"
+        },
+        {
+            "type": "segments",
+            "relationships": {
+                "vehicle": {
+                    "data": {
+                        "type": "vehicles",
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-0"
+                    }
+                },
+                "operating_carrier": {
+                    "data": {
+                        "type": "operating_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-0",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2019-12-15T09:20",
+                "arrival_time": "2019-12-15T10:15"
             }
         },
         {
@@ -542,7 +846,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-1"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-1"
                     }
                 },
                 "operating_carrier": {
@@ -564,11 +868,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-1",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2019-08-15T11:20",
-                "arrival_time": "2019-08-15T11:30"
+                "departure_time": "2019-12-15T11:20",
+                "arrival_time": "2019-12-15T11:30"
             }
         },
         {
@@ -581,7 +885,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-0"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-0"
         },
         {
             "type": "vehicles",
@@ -593,7 +897,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-1"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-1"
         },
         {
             "type": "segments",
@@ -601,7 +905,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-0"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-0"
                     }
                 },
                 "operating_carrier": {
@@ -623,11 +927,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-0",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-0",
             "attributes": {
                 "index": 0,
-                "departure_time": "2019-08-15T02:25",
-                "arrival_time": "2019-08-15T03:15"
+                "departure_time": "2019-12-15T02:25",
+                "arrival_time": "2019-12-15T03:15"
             }
         },
         {
@@ -636,7 +940,7 @@ curl -g -X GET \
                 "vehicle": {
                     "data": {
                         "type": "vehicles",
-                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-1"
+                        "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-1"
                     }
                 },
                 "operating_carrier": {
@@ -658,11 +962,11 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-1",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-1",
             "attributes": {
                 "index": 1,
-                "departure_time": "2019-08-15T04:05",
-                "arrival_time": "2019-08-15T04:20"
+                "departure_time": "2019-12-15T04:05",
+                "arrival_time": "2019-12-15T04:20"
             }
         },
         {
@@ -675,7 +979,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-0"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-0"
         },
         {
             "type": "vehicles",
@@ -687,7 +991,7 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-1"
+            "id": "BUS-NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-1"
         }
     ],
     "data": [
@@ -698,7 +1002,7 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50-0"
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T02:25-2019-12-15T03:15-0"
                         }
                     ]
                 },
@@ -721,13 +1025,13 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T21:00-2019-08-15T21:50",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T02:25-2019-12-15T03:15",
             "attributes": {
                 "duration": 3000,
-                "departure_time": "2019-08-15T21:00",
-                "cheapest_total_adult_price": 1221,
+                "departure_time": "2019-12-15T02:25",
+                "cheapest_total_adult_price": 998,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T21:50"
+                "arrival_time": "2019-12-15T03:15"
             }
         },
         {
@@ -737,7 +1041,50 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T02:25-2019-08-15T03:15-0"
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-0"
+                        },
+                        {
+                            "type": "segments",
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15-1"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGTPR"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15",
+            "attributes": {
+                "duration": 7200,
+                "departure_time": "2019-12-15T07:15",
+                "cheapest_total_adult_price": 1206,
+                "booked_out": false,
+                "arrival_time": "2019-12-15T09:15"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:15-2019-12-15T08:25-0"
                         }
                     ]
                 },
@@ -760,13 +1107,52 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T02:25-2019-08-15T03:15",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:15-2019-12-15T08:25",
+            "attributes": {
+                "duration": 4200,
+                "departure_time": "2019-12-15T07:15",
+                "cheapest_total_adult_price": 987,
+                "booked_out": false,
+                "arrival_time": "2019-12-15T08:25"
+            }
+        },
+        {
+            "type": "connections",
+            "relationships": {
+                "segments": {
+                    "data": [
+                        {
+                            "type": "segments",
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T20:30-2019-12-15T21:20-0"
+                        }
+                    ]
+                },
+                "marketing_carrier": {
+                    "data": {
+                        "type": "marketing_carriers",
+                        "id": "NEXP"
+                    }
+                },
+                "departure_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBXVHPET"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "type": "stations",
+                        "id": "GBCBGCCE"
+                    }
+                }
+            },
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T20:30-2019-12-15T21:20",
             "attributes": {
                 "duration": 3000,
-                "departure_time": "2019-08-15T02:25",
-                "cheapest_total_adult_price": 1069,
+                "departure_time": "2019-12-15T20:30",
+                "cheapest_total_adult_price": 987,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T03:15"
+                "arrival_time": "2019-12-15T21:20"
             }
         },
         {
@@ -776,7 +1162,7 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15-0"
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:00-2019-12-15T08:10-0"
                         }
                     ]
                 },
@@ -799,13 +1185,13 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T07:00-2019-12-15T08:10",
             "attributes": {
-                "duration": 3600,
-                "departure_time": "2019-08-15T09:15",
-                "cheapest_total_adult_price": 1069,
+                "duration": 4200,
+                "departure_time": "2019-12-15T07:00",
+                "cheapest_total_adult_price": 987,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T10:15"
+                "arrival_time": "2019-12-15T08:10"
             }
         },
         {
@@ -815,50 +1201,7 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-0"
-                        },
-                        {
-                            "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15-1"
-                        }
-                    ]
-                },
-                "marketing_carrier": {
-                    "data": {
-                        "type": "marketing_carriers",
-                        "id": "NEXP"
-                    }
-                },
-                "departure_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBXVHPET"
-                    }
-                },
-                "arrival_station": {
-                    "data": {
-                        "type": "stations",
-                        "id": "GBCBGTPR"
-                    }
-                }
-            },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T06:10-2019-08-15T09:15",
-            "attributes": {
-                "duration": 11100,
-                "departure_time": "2019-08-15T06:10",
-                "cheapest_total_adult_price": 1456,
-                "booked_out": false,
-                "arrival_time": "2019-08-15T09:15"
-            }
-        },
-        {
-            "type": "connections",
-            "relationships": {
-                "segments": {
-                    "data": [
-                        {
-                            "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40-0"
+                            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T09:20-2019-12-15T10:15-0"
                         }
                     ]
                 },
@@ -881,13 +1224,13 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T06:10-2019-08-15T07:40",
+            "id": "NEXP-GBXVHPET-GBCBGCCE-2019-12-15T09:20-2019-12-15T10:15",
             "attributes": {
-                "duration": 5400,
-                "departure_time": "2019-08-15T06:10",
-                "cheapest_total_adult_price": 1221,
+                "duration": 3300,
+                "departure_time": "2019-12-15T09:20",
+                "cheapest_total_adult_price": 998,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T07:40"
+                "arrival_time": "2019-12-15T10:15"
             }
         },
         {
@@ -897,11 +1240,11 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-0"
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-0"
                         },
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30-1"
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30-1"
                         }
                     ]
                 },
@@ -924,13 +1267,13 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T09:15-2019-08-15T11:30",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T09:20-2019-12-15T11:30",
             "attributes": {
-                "duration": 8100,
-                "departure_time": "2019-08-15T09:15",
-                "cheapest_total_adult_price": 1303,
+                "duration": 7800,
+                "departure_time": "2019-12-15T09:20",
+                "cheapest_total_adult_price": 1217,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T11:30"
+                "arrival_time": "2019-12-15T11:30"
             }
         },
         {
@@ -940,11 +1283,11 @@ curl -g -X GET \
                     "data": [
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-0"
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-0"
                         },
                         {
                             "type": "segments",
-                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20-1"
+                            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20-1"
                         }
                     ]
                 },
@@ -967,17 +1310,17 @@ curl -g -X GET \
                     }
                 }
             },
-            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-08-15T02:25-2019-08-15T04:20",
+            "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T02:25-2019-12-15T04:20",
             "attributes": {
                 "duration": 6900,
-                "departure_time": "2019-08-15T02:25",
-                "cheapest_total_adult_price": 1303,
+                "departure_time": "2019-12-15T02:25",
+                "cheapest_total_adult_price": 1217,
                 "booked_out": false,
-                "arrival_time": "2019-08-15T04:20"
+                "arrival_time": "2019-12-15T04:20"
             }
         }
     ]
-}
+}        
 ```
 
 The endpoint searches for and delivers all the connections matching your query. The delivered set of objects will have all the necessary data for displaying on the search results page.
