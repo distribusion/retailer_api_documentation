@@ -1377,7 +1377,7 @@ Error Code  | Meaning
 
 ```shell
 curl -g -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=NEXP&departure_station=GBXVHPET&arrival_station=GBCBGCCE&departure_time=2019-08-15T09:15&arrival_time=2019-08-15T10:15&currency=EUR&passengers[][pax]=2&passengers[][type]=PADV&fare_class=FARE-1' \
+  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=NEXP&departure_station=GBXVHPET&arrival_station=GBCBGTPR&departure_time=2019-12-15T07:15&arrival_time=2019-12-15T09:15&currency=EUR&passengers[][pax]=2&passengers[][type]=PNOS&fare_class=FARE-1' \
   -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
   -H 'content-type: application/json'
 ```
@@ -1387,11 +1387,11 @@ curl -g -X GET \
 ```json
 {
     "data": {
-        "id": "NEXP-GBXVHPET-GBCBGCCE-2019-08-15T09:15-2019-08-15T10:15",
+        "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15",
         "type": "vacancies",
         "attributes": {
             "vacant": true,
-            "total_price": 2020
+            "total_price": 2303
         }
     },
     "jsonapi": {
@@ -1403,7 +1403,9 @@ curl -g -X GET \
 }
 ```
 
-This endpoint should be used during a booking to get a binding price and availability for a specified group of travellers. "Specified" is defined as having not only the right amount of passengers but also selected the passenger types for each passenger and the fare class. The passenger types can be used in two ways: standardised or specific to each marketing carrier. The fare class are marketing carrier specific (both can be retrieved from connections#find or using #marketing_carriers). If you are looking into getting the general availability of a connection (true / false) please use the connections#find endpoint, which also show the availability at the last point in time this connection was requested by our system.
+This endpoint checks the availability and prices for the specific number and type of passengers for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
+
+In parallel, we send the outbound requests to the operating carrier integration systems to retrieve the latest prices and vacant seats information.
 
 ### HTTP Request
 
@@ -1423,7 +1425,7 @@ Parameter           | Mandatory | Description
 `fare_class`        | false     | Code consisting of 6-7 alphanumerical characters.
                     |           |
 `passengers`        | true      | Array
-_`pax`              | true      | Number of passenger for a specific passenger type
+_`pax`              | true      | Number of passengers for a specific passenger type
 _`type`             | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
                     |           |
 `extras`            | false     | Array
