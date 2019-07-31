@@ -1403,7 +1403,9 @@ curl -g -X GET \
 }
 ```
 
-This endpoint should be used during a booking to get a binding price and availability for a specified group of travellers. "Specified" is defined as having not only the right amount of passengers but also specific passenger type and fare class for each passenger. The passenger types can be used in two ways: standardised or specific to each marketing carrier. The fare class are marketing carrier specific (both can be retrieved from connections#find or using #marketing_carriers). If you are looking into getting the general availability of a connection (true / false) please use the connections#find endpoint, which also shows the availability at the last point in time this connection was requested by our system.
+This endpoint checks the availability and prices for the specific number and type of passengers for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
+
+In parallel, we send the outbound requests to the operating carrier integration systems to retrieve the latest prices and vacant seats information.
 
 ### HTTP Request
 
