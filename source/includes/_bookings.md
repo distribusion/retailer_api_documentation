@@ -10,6 +10,7 @@ curl -X POST \
   -d '{
        "marketing_carrier": "NEXP",
        "departure_station": "GBXVHPET",
+       "arrival_station": "GBCBGTPR",
        "departure_time": "2019-12-15T07:15",
        "arrival_time": "2019-12-15T09:15",
        "retailer_partner_number": "{number}",
