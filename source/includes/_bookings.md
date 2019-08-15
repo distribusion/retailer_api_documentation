@@ -992,7 +992,7 @@ Error Code  | Meaning
 ## Redirect for Affiliates
 
 ```curl
-https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=ISIL&departure_station_code=FRLILBDT&arrival_station_code=FRLYSPER&departure_time=2019-01-15T17:00&arrival_time=2019-01-16T05:40&currency=EUR&retailer_partner_number={number}&locale=en
+https://bustickets-demo.distribusion.com/redirect?marketing_carrier_code=NEXP&departure_station_code=GBXVHPET&arrival_station_code=GBCBGCCE&departure_time=2019-12-15T02:25&arrival_time=2019-12-15T03:15&currency=EUR&retailer_partner_number={number}&locale=en&pax=1
 ```
 
 Affiliates that do not use our [bookings#create](https://api-demo.distribusion.com/retailers/v4/docs/#create) endpoint, can redirect their customers to our booking page after searching connections on [connections#find](https://api-demo.distribusion.com/retailers/v4/docs/#find). The locale will be taken from the setting of the browser, which the customer is using. Alternatively, you can overwrite this functionality by sending your own locale (the order of priority is: locale parameter in URL, then cached locale in browser, and finally the browser locale). The currency can be set within the redirect link.
@@ -1017,7 +1017,7 @@ You can now retrieve a list of all your booking by calling the [bookings#index](
 
 Parameter                 | Mandatory | Description
 ------------------------- | :-------: | :----------
-`marketing_carrier`       | true      | 4-letter alphanumeric uppercase code.
+`marketing_carrier_code`  | true      | 4-letter alphanumeric uppercase code.
 `departure_station_code`  | true      | 8- or 9-letter alphanumeric uppercase code.
 `arrival_station_code`    | true      | 8- or 9-letter alphanumeric uppercase code.
 `departure_time`          | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
@@ -1025,6 +1025,7 @@ Parameter                 | Mandatory | Description
 `retailer_partner_number` | true      | 5 - 12 digits number of retailer partner.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `locale`                  | false     | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
+`pax`                     | false     | Number of passengers - Integer in a range of 1..9.
 
 ### Errors
 
