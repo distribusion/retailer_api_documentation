@@ -1022,7 +1022,7 @@ Parameter                 | Mandatory | Description
 `arrival_station_code`    | true      | 8- or 9-letter alphanumeric uppercase code.
 `departure_time`          | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
 `arrival_time`            | true      | departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
-`retailer_partner_number` | true      | 5 - 12 digits number of retailer partner.
+`retailer_partner_number` | true      | 6 digits number of retailer partner.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `locale`                  | false     | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `pax`                     | false     | Number of passengers - Integer in a range of 1..9.
