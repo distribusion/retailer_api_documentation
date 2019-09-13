@@ -1536,6 +1536,8 @@ Note: Not all carriers support mobile tickets. To know if a specific marketing c
 
 <aside class="notice">When retrieving the ticket in .pkpass format, you will be provided with a link to download the mobile ticket from AWS.</aside>
 
+<a href="Distribusion Technologies_Tickets.zip" download ticket examples.>Click to Download</a>
+
 ![alt text](/images/tickets_7P7JF8.png)
 
 ### HTTP Request
