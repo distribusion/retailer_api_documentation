@@ -133,34 +133,38 @@ For example, while searching from Barcelona Airport to Barcelona City, you could
 
 ## Find Connections
 
-After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://docs.distribusion.com/#find). We do not provide pairs of stations in order to allow our engine to learn from the consumers demand. By doing so, if a specific ride is highly requested but currently unavailable, you can be assured that it will be soon delivered through our API.
+After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://docs.distribusion.com/#find). We do not provide station pairs in order to allow you to be flexible and adapt to your consumer needs.
 
 <aside class="success">
 Remember — in order to query information from our API, you need to get your own API key by submitting a request to <a href='mailto:partner@distribusion.com'>partner@distribusion.com</a>!
 </aside>
 
-## Passenger types
+## Passenger Types
 
-We also thrive to standardise passenger (ticket) types across multiple carriers. While booking through Distribusion API, you can choose the use the specific passenger types of the operator, or use Distribusion own standardise definition of an infant, child and adult. 
+We thrive to standardise passenger (ticket) types across multiple operators. While booking through Distribusion API, you can can be sure to have the following five global codes: Infant (PINT), Child (PCIL), Youth (PYPO), Adult (PNOS),
+Senior (PSOE) across the operators.
 
 ## Fare Classes
 
-Operators are often providing different service class and features to their consumers. You will find the possibility to select each fare based on the operator offer. Fares classes are covering a large amount of features, such as 1st/2nd class, extra leg seats, drinks, cancellation policies, validity period, etc.
+Operators are often providing different service classes and features to their consumers. You will find the possibility to select each fare based on the operator offer. Fares classes are covering a large amount of features, such as 1st/2nd class, extra leg seats, drinks, cancellation policies, validity period, etc.
 
+## Return Ticket
+
+Distribusion API supports both open return and fixed return tickets depending on the operators' capabilities. This functionality allows you to have access to the discounted fares if that is the case with the operators.
 
 ## Confirm Price and Availability
 
-As [connections#find](https://docs.distribusion.com/#find) provides the cheapest adult price, it is some time necessary to confirm the price of specific passenger types by calling [connections#vacancy](https://docs.distribusion.com/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the prices and availability are still up to date.
+As [connections#find](https://docs.distribusion.com/#find) provides the cheapest adult price, it is some time necessary to confirm the price of the specific passenger types by calling [connections#vacancy](https://docs.distribusion.com/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the price and availability are still up to date.
 
 ## Create an Order or a Booking
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion's API on [bookings#create](https://docs.distribusion.com/#create). You can also perform an order, and later retrieve it status by calling our [orders#create](https://docs.distribusion.com/#create-orders) endpoint. The main difference between a booking and an order is the workflow. A booking is synchronous, while an order is asynchronous. In case any information is missing, the API will recognise it and inform you accordingly.
+After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion API on [bookings#create](https://docs.distribusion.com/#create). You can also perform an order, and later retrieve its status by calling our [orders#create](https://docs.distribusion.com/#create-orders) endpoint. The main difference between a booking and an order is the workflow. A booking is synchronous, while an order is asynchronous. In case any information is missing, the API will recognise it and inform you accordingly.
 
-Note: we currently support *EUR*, *USD*, *GBP* *SEK*, *MYR*, *PLN* and *CHF* currencies. More can be enabled on demand.
+Note: we currently support *EUR*, *USD*, *GBP* *SEK*, *MYR*, *PLN*, *CHF*, *BRL* and *CAD* currencies. More can be enabled on demand.
 
 ## Manage your Bookings
 
-Once you start making bookings, you will certainly want to monitor them and sometime, if need be, cancel them. For this, we created a new feature, allowing you to retrieve a full list of your bookings: [bookings#index](https://docs.distribusion.com/#index). Once you have this list, you can call [bookings#show](https://docs.distribusion.com/#show) for more details on a specific booking, or call [cancellations#conditions](https://docs.distribusion.com/#conditions) and [cancellations#create](https://docs.distribusion.com/#create27) to cancel a booking.
+Once you start making bookings, you will certainly want to monitor them and, if requested by consumer, cancel them. For this, we created a feature, allowing you to retrieve a full list of your bookings: [bookings#index](https://docs.distribusion.com/#index). Once you have this list, you can call [bookings#show](https://docs.distribusion.com/#show) for more details on a specific booking, or call [cancellations#conditions](https://docs.distribusion.com/#conditions) and [cancellations#create](https://docs.distribusion.com/#create27) to cancel a booking.
 
 ## Postman
 
