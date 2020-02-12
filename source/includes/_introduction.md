@@ -52,71 +52,73 @@ Distribusion aims to standardize the station codes across the bus industry, the 
 
 The first step in the booking process, is collecting the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://docs.distribusion.com/#stations7) and [#marketing_carriers](https://docs.distribusion.com/#marketing-carriers) endpoints. To retrieve station codes, simply send a `GET` request to our [#stations](https://docs.distribusion.com/#stations7) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, coordinates, associated city, etc). The [#marketing_carriers](https://docs.distribusion.com/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
 
-Currently our content can be fetch in English, French, Italian, Spanish, Dutch, Swedish, Bulgarian and German, with the following locale values: en, fr, it, es, nl, sv, bg and de.
+Currently our content can be fetched in English, French, Italian, Spanish, Dutch, Swedish, Bulgarian and German, with the following locale values: en, fr, it, es, nl, sv, bg and de.
 
 ## Map Stations to Cities and Areas
 
 ```json
-{
-    "id": "ESBCNBFT",
-    "type": "stations",
-    "attributes": {
-        "code": "ESBCNBFT",
-        "name": "Barcelona Airport T1",
-        "description": "The stop is located in front of Terminal 1. ",
-        "street_and_number": null,
-        "zip_code": null,
-        "longitude": 2.084151,
-        "latitude": 41.298291,
-        "time_zone": "Europe/Madrid"
-    },
-    "relationships": {
-        "city": {
-            "data": {
-                "id": "ESBCN",
-                "type": "cities"
+        {
+            "id": "ESBCNBFT",
+            "type": "stations",
+            "attributes": {
+                "station_type": "bus_station",
+                "code": "ESBCNBFT",
+                "name": "Barcelona El Prat Airport Terminal 1",
+                "description": "The bus stop is located in front of Arrivals Terminal 1. Please follow the signs to bus.",
+                "street_and_number": "Arrivals Terminal 1",
+                "zip_code": "08820",
+                "longitude": 2.073312,
+                "latitude": 41.287529,
+                "time_zone": "Europe/Madrid"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "ESBCN",
+                        "type": "cities"
+                    }
+                },
+                "area": {
+                    "data": {
+                        "id": "ESBCNBA",
+                        "type": "areas"
+                    }
+                }
             }
         },
-        "area": {
-            "data": {
-                "id": "ESBCNBA",
-                "type": "areas"
+        {
+            "id": "ESBCNBFU",
+            "type": "stations",
+            "attributes": {
+                "station_type": "bus_station",
+                "code": "ESBCNBFU",
+                "name": "Barcelona El Prat Airport Terminal 2",
+                "description": "The bus stop is located close to building B Terminal 2. Please follow the signs to bus. ",
+                "street_and_number": "C-32B",
+                "zip_code": "08820",
+                "longitude": 2.0769014954567,
+                "latitude": 41.30330453852957,
+                "time_zone": "Europe/Madrid"
+            },
+            "relationships": {
+                "city": {
+                    "data": {
+                        "id": "ESBCN",
+                        "type": "cities"
+                    }
+                },
+                "area": {
+                    "data": {
+                        "id": "ESBCNBA",
+                        "type": "areas"
+                    }
+                }
             }
-        }
-    }
-},
-{
-    "id": "ESBCNBFU",
-    "type": "stations",
-    "attributes": {
-        "code": "ESBCNBFU",
-        "name": "Barcelona Airport T2",
-        "description": "The stop is located in front of Terminal 2. ",
-        "street_and_number": "El Prat de Llobregat, Barcelona",
-        "zip_code": "08820",
-        "longitude": 2.083273,
-        "latitude": 41.297614,
-        "time_zone": "Europe/Madrid"
-    },
-    "relationships": {
-        "city": {
-            "data": {
-                "id": "ESBCN",
-                "type": "cities"
-            }
-        },
-        "area": {
-            "data": {
-                "id": "ESBCNBA",
-                "type": "areas"
-            }
-        }
-    }
-}
+         }
 ```
 
-Our API maps stations to cities, allowing you to easily groupe stations together when they belong to the same city. This is to facilite city to city search.
-We also recently introduced the notion of areas. An area is smaller than a city, represent multiple stations, and can only be attached to one city.
+Our API maps stations to cities, allowing you to easily groupe stations together when they belong to the same city. This is to facilite city to city search on your side.
+We also have the notion of areas. An area is smaller than a city, represent multiple stations, and can only be attached to one city.
 
 In the example bellow, Barcelona Airport is mapped with **"Barcelona Airport T1"** and **"Barcelona Airport T2"** stations, while the area and the stations are all mapped to Barcelona city. Bellow is an extract of our [#stations](https://docs.distribusion.com/#stations7) endpoint response:
 
@@ -127,7 +129,7 @@ Code description:
 
 For example, while searching from Barcelona Airport to Barcelona City, you could perform the following request:
 
-[https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2019-03-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2019-03-29&pax=1&currency=EUR&locale=en)
+[https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2020-10-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2020-10-29&pax=1&currency=EUR&locale=en)
 
 ## Find Connections
 
