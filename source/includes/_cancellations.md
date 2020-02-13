@@ -31,7 +31,7 @@ curl -X GET \
 }
 ```
 
-This endpoint enables users to retrieve detailed information about the cancellation conditions of a specific booking. Note that not all marketing carriers offer cancellations and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allows a full (or partial) refund of the booking, no options for vouchers are currently available.
+This endpoint enables users to retrieve detailed information about the cancellation conditions of a specific booking. Note that not all marketing carriers offer cancellations, and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allows a full (or partial) refund of the booking, no options for vouchers are currently available.
 
 ### HTTP Request
 
@@ -118,4 +118,4 @@ Error Code  | Meaning
 
 ## Webhook
 
-Distribusion offers the possibility for retailer partners to be informed about cancellations happening outside their own environment (on marketing carrier or Distribusion's side). To enable this functionality, please contact your integration manager. 
+Distribusion offers the possibility for retailer partners to be informed about cancellations happening outside their own environment (on marketing carrier or Distribusion's side). To enable this functionality, please contact your integration manager.
