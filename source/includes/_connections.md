@@ -1411,7 +1411,7 @@ curl -g -X GET \
 
 This endpoint checks the availability and price for the specific number and type of passengers for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
 
-In parallel, we send the outbound requests to the operating carrier integration systems to retrieve the latest price and vacant seats information.
+In parallel, we send the outbound requests to the operating carrier integration systems to retrieve the latest prices and vacant seats information.
 
 ### HTTP Request
 
