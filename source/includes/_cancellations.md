@@ -4,34 +4,34 @@
 
 ```shell
 curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/cancellations/conditions?booking=ZpXv69xrzHzk8Nb-YHGllA' \
-  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
-  -H 'content-type: application/json' 
+  'https://api-demo.distribusion.com/retailers/v4/cancellations/conditions?booking=O9xf1EqAQfsuNcRdtum-2g' \
+  -H 'api-key: {demo_api_key}' \
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data": {
-    "id": "ZpXv69xrzHzk8Nb-YHGllA",
-    "type": "cancellation_conditions",
-    "attributes": {
-      "allowed": true,
-      "fee": 1500,
-      "cutoff": "2018-03-28T12:00"
+    "data": {
+        "id": "O9xf1EqAQfsuNcRdtum-2g",
+        "type": "cancellation_conditions",
+        "attributes": {
+            "allowed": true,
+            "fee": 119,
+            "cutoff": "2020-06-15T06:05"
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "currency": "EUR"
     }
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "currency": "EUR"
-  }
 }
 ```
 
-This endpoint enable users to retrieve detailed information about the cancellation of a specific booking. Note that not all marketing carriers offer cancellations and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allow a full (or partial) refund of the booking, no options for vouchers are currently available.
+This endpoint enables users to retrieve detailed information about the cancellation conditions of a specific booking. Note that not all marketing carriers offer cancellations, and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allows a full (or partial) refund of the booking, no options for vouchers are currently available.
 
 ### HTTP Request
 
@@ -61,37 +61,36 @@ Error Code  | Meaning
 ```shell
 curl -X POST \
   https://api-demo.distribusion.com/retailers/v4/cancellations/create \
-  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json' \
-  -d '{ "booking": "ZpXv69xrzHzk8Nb-YHGllA" }'
+  -d '{ "booking": "O9xf1EqAQfsuNcRdtum-2g" }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "data": {
-    "id": "6JXfs7hJpMe3FsF-JfudLA",
-    "type": "cancellations",
-    "attributes": {
-      "total_price": 2000,
-      "fee": 1500,
-      "total_refund": 500,
-      "created_at": "2017-05-23T16:21"
+    "data": {
+        "id": "SlxcRz_gNL_BtOaYy6FPFA",
+        "type": "cancellations",
+        "attributes": {
+            "total_price": 2266,
+            "fee": 119,
+            "total_refund": 2147,
+            "created_at": "2020-02-13T09:37"
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "currency": "EUR"
     }
-  },
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "currency": "EUR"
-  }
 }
 ```
 
-This endpoint enables users to perform the cancellation of a specific booking. 
+This endpoint enables users to perform the cancellation of a specific booking.
 
-Note: The cancellation example is not linked to the previous booking example, as it is not cancellable. 
 
 ### HTTP Request
 
@@ -119,5 +118,4 @@ Error Code  | Meaning
 
 ## Webhook
 
-Distribusion offer the possibility for retailer to get informed about cancellations happening outside their own environment (on marketing carrier or Distribusion's side). To enable this functionality, please contact your integration manager. 
-
+Distribusion offers the possibility for retailer partners to be informed about cancellations happening outside their own environment (on marketing carrier or Distribusion's side). To enable this functionality, please contact your integration manager.
