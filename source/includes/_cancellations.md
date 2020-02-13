@@ -6,7 +6,7 @@
 curl -X GET \
   'https://api-demo.distribusion.com/retailers/v4/cancellations/conditions?booking=O9xf1EqAQfsuNcRdtum-2g' \
   -H 'api-key: {demo_api_key}' \
-  -H 'content-type: application/json' 
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
@@ -89,7 +89,7 @@ curl -X POST \
 }
 ```
 
-This endpoint enables users to perform the cancellation of a specific booking. 
+This endpoint enables users to perform the cancellation of a specific booking.
 
 
 ### HTTP Request
@@ -118,5 +118,4 @@ Error Code  | Meaning
 
 ## Webhook
 
-Distribusion offers the possibility for retailer partners to get informed about cancellations happening outside their own environment (on marketing carrier or Distribusion's side). To enable this functionality, please contact your integration manager. 
-
+Distribusion offers the possibility for retailer partners to be informed about cancellations happening outside their own environment (on marketing carrier or Distribusion's side). To enable this functionality, please contact your integration manager. 
