@@ -1454,8 +1454,8 @@ Error Code  | Meaning
 
 ```shell
 curl -g -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?marketing_carrier=NEXP&departure_station=GBXVHPET&arrival_station=GBCBGTPR&departure_time=2019-12-15T07:15&arrival_time=2019-12-15T09:15&currency=EUR&passengers[][pax]=2&passengers[][type]=PNOS&fare_class=FARE-1' \
-  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  'https://api-demo.distribusion.com/retailers/v4/connections/vacancy?departure_station=GBXVHPET&arrival_station=GBCBGCCE&departure_time=2020-06-15T06:05&arrival_time=2020-06-15T07:35&currency=EUR&passengers[][pax]=1&passengers[][type]=PNOS&passengers[][pax]=1&passengers[][type]=PCIL&marketing_carrier=NEXP&fare_class=FARE-3' \
+  -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json'
 ```
 
@@ -1464,11 +1464,16 @@ curl -g -X GET \
 ```json
 {
     "data": {
-        "id": "NEXP-GBXVHPET-GBCBGTPR-2019-12-15T07:15-2019-12-15T09:15",
+        "id": "NEXP-GBXVHPET-GBCBGCCE-2020-06-15T06:05-2020-06-15T07:35",
         "type": "vacancies",
         "attributes": {
             "vacant": true,
-            "total_price": 2303
+            "total_price": 2266
+        },
+        "relationships": {
+            "fees": {
+                "data": []
+            }
         }
     },
     "jsonapi": {
@@ -1476,11 +1481,12 @@ curl -g -X GET \
     },
     "meta": {
         "currency": "EUR"
-    }
+    },
+    "included": []
 }
 ```
 
-This endpoint checks the availability and prices for the specific number and type of passengers for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
+This endpoint checks the availability and price for the specific number and type of passengers for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
 
 In parallel, we send the outbound requests to the operating carrier integration systems to retrieve the latest prices and vacant seats information.
 
@@ -1500,10 +1506,10 @@ Parameter           | Mandatory | Description
 `currency`          | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `discount_code`     | false     | Code consisting of minimum 3 alphanumeric characters.
 `fare_class`        | false     | Code consisting of 6-7 alphanumerical characters.
-                    |           |
+`return_date`       | false     | Departure date for the inbound trip (ISO 8601 format).
 `passengers`        | true      | Array
 _`pax`              | true      | Number of passengers for a specific passenger type
-_`type`             | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
+_`type`             | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
                     |           |
 `extras`            | false     | Array
 _`quantity`         | true      | Integer in a range of 1..999.
