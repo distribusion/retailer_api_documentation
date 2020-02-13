@@ -5,7 +5,7 @@
 ```shell
 curl -X GET \
   https://api-demo.distribusion.com/retailers/v4/marketing_carriers \
-  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json' 
 ```
 
@@ -55,7 +55,7 @@ curl -X GET \
 }
 ```
 
-This endpoint provides a list of marketing carriers with their trade name and code.
+This endpoint provides the list of marketing carriers with their trade name and code.
 
 ### HTTP Request
 
@@ -72,8 +72,8 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/marketing_carriers/SIBU?locale=en&currency=EUR' \
-  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  'https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP?locale=en&currency=EUR' \
+  -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json' 
 ```
 
@@ -92,33 +92,47 @@ curl -X GET \
             "phone": "+44 (0)3717 818181",
             "fax": "",
             "customer_service_phone": "+44 (0)3717 818181",
+            "customer_service_email": "customerrelations@nationalexpress.com",
             "email": "customerrelations@nationalexpress.com",
             "commercial_register": "",
             "commercial_register_number": "0023767",
             "vat_no": "GB487038714",
             "authorised_representative": "Tom Stables",
-            "white_label_logo": "data:image/png;base64",
+            "white_label_logo": "",
             "white_label_colour_code": "",
             "terms": "Issued subject to National Express Conditions of Carriage, which can be viewed at \r\n<a href=\"https://www.nationalexpress.com/en/help/conditions-of-carriage\" target=\"blank\">https://www.nationalexpress.com/en/help/conditions-of-carriage</a>",
             "flight_number_required": false,
-            "has_mobile_tickets": false,
+            "has_mobile_tickets": true,
             "tickets_validity_in_hours": null,
             "tickets_validity_info": "In case of traveling from/to an airport this ticket is valid for 12 hours after the departure time stated above.",
-            "booking_fee": 116,
+            "cancellation_type": "no_cancellation",
+            "booking_fee": 119,
             "cancellation_fee": 0,
             "cancellation_cutoff": null
         },
         "relationships": {
             "default_passenger_type": {
                 "data": {
-                    "id": "PADV",
+                    "id": "PNOS",
                     "type": "passenger_types"
                 }
             },
             "passenger_types": {
                 "data": [
                     {
-                        "id": "PADV",
+                        "id": "PNOS",
+                        "type": "passenger_types"
+                    },
+                    {
+                        "id": "PINT",
+                        "type": "passenger_types"
+                    },
+                    {
+                        "id": "PCIL",
+                        "type": "passenger_types"
+                    },
+                    {
+                        "id": "PSOE",
                         "type": "passenger_types"
                     }
                 ]
@@ -137,15 +151,19 @@ curl -X GET \
             "fare_classes": {
                 "data": [
                     {
-                        "id": "FARE-1",
+                        "id": "NEXP-FARE-1",
                         "type": "fare_classes"
                     },
                     {
-                        "id": "FARE-2",
+                        "id": "NEXP-FARE-2",
                         "type": "fare_classes"
                     },
                     {
-                        "id": "FARE-3",
+                        "id": "NEXP-FARE-3",
+                        "type": "fare_classes"
+                    },
+                    {
+                        "id": "NEXP-FARE-4",
                         "type": "fare_classes"
                     }
                 ]
@@ -156,17 +174,52 @@ curl -X GET \
         "version": "1.0"
     },
     "meta": {
-        "locale": "it",
+        "locale": "en",
         "currency": "EUR"
     },
     "included": [
         {
-            "id": "PADV",
+            "id": "PNOS",
             "type": "passenger_types",
             "attributes": {
-                "code": "PADV",
-                "name": "Adulti",
-                "description": ""
+                "code": "PNOS",
+                "name": "Adult",
+                "description": "",
+                "min_age": 16,
+                "max_age": 59
+            }
+        },
+        {
+            "id": "PINT",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PINT",
+                "name": "Infant",
+                "description": "",
+                "min_age": 0,
+                "max_age": 2
+            }
+        },
+        {
+            "id": "PCIL",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PCIL",
+                "name": "Child",
+                "description": "",
+                "min_age": 3,
+                "max_age": 15
+            }
+        },
+        {
+            "id": "PSOE",
+            "type": "passenger_types",
+            "attributes": {
+                "code": "PSOE",
+                "name": "Senior",
+                "description": "",
+                "min_age": 60,
+                "max_age": 99
             }
         },
         {
@@ -179,96 +232,318 @@ curl -X GET \
             }
         },
         {
-            "id": "FARE-1",
+            "id": "NEXP-FARE-1",
             "type": "fare_classes",
             "attributes": {
                 "code": "FARE-1",
                 "name": "Standard",
-                "iata_category": null
+                "iata_category": null,
+                "journey_type": "single"
             },
             "relationships": {
                 "fare_features": {
-                    "data": [{
-               "id": "amendable",
-               "type": "fare_features"
-            },
-            {
-               "id": "not cancellable",
-               "type": "fare_features"
-            }]
+                    "data": [
+                        {
+                            "id": "NEXP-ACON",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-TOIL",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-ALRO",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-NREF",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AMEN",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-WIFI",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-MSYS",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-UCHA",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AAFO",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-BLUG",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AAFR",
+                            "type": "fare_features"
+                        }
+                    ]
                 }
             }
         },
         {
-            "id": "FARE-2",
+            "id": "NEXP-FARE-2",
             "type": "fare_classes",
             "attributes": {
                 "code": "FARE-2",
                 "name": "Restricted",
-                "iata_category": null
+                "iata_category": null,
+                "journey_type": "single"
             },
             "relationships": {
                 "fare_features": {
-                    "data": [{
-              "id": "not amendable",
-              "type": "fare_features"
-            },
-            {
-              "id": "not cancellable",
-              "type": "fare_features"
-            }]
+                    "data": [
+                        {
+                            "id": "NEXP-ACON",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-TOIL",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-ALRO",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-NAME",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-NREF",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-WIFI",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-MSYS",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-UCHA",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AAFO",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-BLUG",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AAFR",
+                            "type": "fare_features"
+                        }
+                    ]
                 }
             }
         },
         {
-            "id": "FARE-3",
+            "id": "NEXP-FARE-3",
             "type": "fare_classes",
             "attributes": {
                 "code": "FARE-3",
                 "name": "Fully Flexible",
-                "iata_category": null
+                "iata_category": null,
+                "journey_type": "single"
             },
             "relationships": {
                 "fare_features": {
-                    "data": [{
-              "id": "amendable",
-              "type": "fare_features"
-            },
-            {
-              "id": "cancellable",
-              "type": "fare_features"
-            }]
+                    "data": [
+                        {
+                            "id": "NEXP-ACON",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-TOIL",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-ALRO",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-REFU",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AMEN",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-WIFI",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-MSYS",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-UCHA",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AAFO",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-BLUG",
+                            "type": "fare_features"
+                        },
+                        {
+                            "id": "NEXP-AAFR",
+                            "type": "fare_features"
+                        }
+                    ]
                 }
             }
         },
         {
-          "id": "amendable",
-          "type": "fare_features",
-          "attributes": {
-            "code": "amendable",
-            "name": "Amendable",
-            "description": "You can make changes to your booking for an additional fee (starting from £5) by contacting National Express customer service."
-          }
+            "id": "NEXP-FARE-4",
+            "type": "fare_classes",
+            "attributes": {
+                "code": "FARE-4",
+                "name": "Open Return",
+                "iata_category": null,
+                "journey_type": "open_return"
+            },
+            "relationships": {
+                "fare_features": {
+                    "data": []
+                }
+            }
         },
         {
-          "id": "not cancellable",
-          "type": "fare_features",
-          "attributes": {
-            "code": "not cancellable",
-            "name": "Not Cancellable",
-            "description": "No refund or cancellation possible."
-          }
+            "id": "NEXP-ACON",
+            "type": "fare_features",
+            "attributes": {
+                "code": "ACON",
+                "name": "Air Conditioning",
+                "description": "The bus has a cooling ventilation."
+            }
         },
         {
-          "id": "cancellable",
-          "type": "fare_features",
-          "attributes": {
-            "code": "cancellable",
-            "name": "Cancellable",
-            "description": "Cancellable up to 72h before the departure of your trip."
-          }
+            "id": "NEXP-TOIL",
+            "type": "fare_features",
+            "attributes": {
+                "code": "TOIL",
+                "name": "Toilet",
+                "description": "A toilet is available on board."
+            }
+        },
+        {
+            "id": "NEXP-ALRO",
+            "type": "fare_features",
+            "attributes": {
+                "code": "ALRO",
+                "name": "Additional Leg Room",
+                "description": "The seat has additional leg space."
+            }
+        },
+        {
+            "id": "NEXP-NREF",
+            "type": "fare_features",
+            "attributes": {
+                "code": "NREF",
+                "name": "Non-refundable ",
+                "description": "The ticket cannot be refunded."
+            }
+        },
+        {
+            "id": "NEXP-AMEN",
+            "type": "fare_features",
+            "attributes": {
+                "code": "AMEN",
+                "name": "Amendable",
+                "description": "The ticket is amendable. Please proceed via the link https://coach.nationalexpress.com/nxbooking/mmb2ManageMyBooking. A £5 amendment fee is applicable. "
+            }
+        },
+        {
+            "id": "NEXP-WIFI",
+            "type": "fare_features",
+            "attributes": {
+                "code": "WIFI",
+                "name": "Wifi",
+                "description": "Free wifi is available on board."
+            }
+        },
+        {
+            "id": "NEXP-MSYS",
+            "type": "fare_features",
+            "attributes": {
+                "code": "MSYS",
+                "name": "Media System",
+                "description": "Free-of-charge infotainment system VUER. Travellers can download the VUER app, which allows them to stream films and TV shows on their own phone or tablet."
+            }
+        },
+        {
+            "id": "NEXP-UCHA",
+            "type": "fare_features",
+            "attributes": {
+                "code": "UCHA",
+                "name": "USB charger",
+                "description": "USB plug is available at each seat. "
+            }
+        },
+        {
+            "id": "NEXP-AAFO",
+            "type": "fare_features",
+            "attributes": {
+                "code": "AAFO",
+                "name": "Accessible area for bicycles",
+                "description": "Bicycles are allowed on board as long as they are designed to fold in half by means of a special link in the main frame and are carried in a proper protective carrying case. A passenger has to pay an extra fee for a bike."
+            }
+        },
+        {
+            "id": "NEXP-BLUG",
+            "type": "fare_features",
+            "attributes": {
+                "code": "BLUG",
+                "name": "Bulky Luggage",
+                "description": "Folding pushchairs/buggies will be carried free of charge in the hold, in addition to the standard luggage allowance. Except this National Express will accept bulky luggage for an extra charge."
+            }
+        },
+        {
+            "id": "NEXP-AAFR",
+            "type": "fare_features",
+            "attributes": {
+                "code": "AAFR",
+                "name": "Accessible area for wheelchairs",
+                "description": "Fully collapsible wheelchairs and fully collapsible pushchairs may be stowed free of charge. Passenger have to contact bus operator 36 hours before the departure."
+            }
+        },
+        {
+            "id": "NEXP-NAME",
+            "type": "fare_features",
+            "attributes": {
+                "code": "NAME",
+                "name": "Non-amendable",
+                "description": "The ticket is not amendable."
+            }
+        },
+        {
+            "id": "NEXP-REFU",
+            "type": "fare_features",
+            "attributes": {
+                "code": "REFU",
+                "name": "Refundable",
+                "description": "The ticket is refundable and can be cancelled no less than 72 hours in advance of travel."
+            }
         }
-    ] 
+    ]
 }
 ```
 
@@ -304,8 +579,8 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/marketing_carriers/SIBU/stations \
-  -H 'api-key: AIzaSyBGEpZdxbufTSpcIxWXoRjSdKu6ZctiuyI' \
+  https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP/stations \
+  -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json' 
 ```
 
@@ -315,31 +590,43 @@ curl -X GET \
 {
     "data": [
         {
-            "id": "ITROMCGI",
+            "id": "GBBRSCSA",
             "type": "stations"
         },
         {
-            "id": "ITROMVMA",
+            "id": "GBBRSBRI",
             "type": "stations"
         },
         {
-            "id": "ITZRRPGA",
+            "id": "GBBRSBBH",
             "type": "stations"
         },
         {
-            "id": "ITROMVCE",
+            "id": "GBBRSCDO",
             "type": "stations"
         },
         {
-            "id": "ITROMRCF",
+            "id": "GBBRSUQR",
             "type": "stations"
         },
         {
-            "id": "ITROMRVA",
+            "id": "GBBIXBRI",
             "type": "stations"
         },
         {
-            "id": "ITROMRFB",
+            "id": "GBBOTBRO",
+            "type": "stations"
+        },
+        {
+            "id": "GBBOEBOS",
+            "type": "stations"
+        },
+        {
+            "id": "GBBOEHAV",
+            "type": "stations"
+        },
+        {
+            "id": "GBBURCCS",
             "type": "stations"
         }
     ],
