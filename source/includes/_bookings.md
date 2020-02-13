@@ -32,12 +32,12 @@ curl -X POST \
        "send_customer_email": false,
        "fare_class": "FARE-3",
        "passengers":[
-          { 
+          {
             "first_name": "Balibalo",
             "last_name": "Bateau",
             "type": "PNOS"
           },
-          { 
+          {
             "first_name": "Charlotte",
             "last_name": "Bateau",
             "type": "PCIL"
@@ -64,7 +64,7 @@ curl -X POST \
 }
 ```
 
-Use this endpoint to conduct an order. Orders created in this way are not a booking per se, but a confirmation that your booking request has been successfully taken into account by our platform. In order to retrieve the status of your booking, please call [orders/{:id}] (https://api-demo.distribusion.com/retailers/v4/docs/#orders-status). 
+Use this endpoint to conduct an order. Orders created in this way are not a booking per se, but a confirmation that your booking request has been successfully taken into account by our platform. In order to retrieve the status of your booking, please call [orders/{:id}] (https://api-demo.distribusion.com/retailers/v4/docs/#orders-status).
 
 The endpoint currently supports one-way bookings only. It will also send out booking e-mails to customers. E-Mails are blocked on demo, so feel free to conduct tests bookings on our demo server (api-demo.distribusion.com).
 
@@ -101,9 +101,9 @@ Parameter                 | Mandatory | Description
 `payer_id`                | false     | Unique identifier supplied by Paypal.
 `total_price`             | true      | Total price of the requested passenger types and extras with added bus marketing carrier booking fee in fractional currency unit (if there is one, in cent) in requested currency. Minimum value - 0, maximum value - 9999900. Provided on successful vacancy request.
 `pax`                     | true      | Number of passengers. Integer in a range of 1..9.
-`discount_code`           | false     | Code consisting of minimum 3 alphanumeric characters. 
+`discount_code`           | false     | Code consisting of minimum 3 alphanumeric characters.
 `flight_number`           | false     | Required by marketing carriers in some cases. 3-9-letter alphanumeric uppercase code.
-`terms_accepted`          | true      | Flag signalling whether Terms & Conditions of the marketing carrier have been accepted. Can be `true` or `false`. 
+`terms_accepted`          | true      | Flag signalling whether Terms & Conditions of the marketing carrier have been accepted. Can be `true` or `false`.
 `locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`.
@@ -510,11 +510,11 @@ curl -X GET \
 
 Use this endpoint to retrieve the status of your order. The state can have one of the three values:
 
-- `created`: your order has been taken into account successfully and will be processed soon 
-- `executed`: your order has been successfully conducted at our partner's remote system
+- `created`: your order has been taken into account successfully and will be processed soon
+- `executed`: your order has been successfully processed on our partner's remote system
 - `failed`: your order could not be executed at our partner's remote system
 
-Once your order has been executed, you will also obtain a booking ID. This booking ID can be used to call our [bookings#show] (https://api.distribusion.com/retailers/v4/docs/#show) in order to get detailed information about the booking and [bookings/{:id}/tickets] (https://api.distribusion.com/retailers/v4/docs/#tickets) to retrieve the ticket in PDF, PKPASS or HTML formats. 
+Once your order has been executed, you will also obtain a booking ID. This booking ID can be used to call our [bookings#show] (https://api.distribusion.com/retailers/v4/docs/#show) in order to get detailed information about the booking and [bookings/{:id}/tickets] (https://api.distribusion.com/retailers/v4/docs/#tickets) to retrieve the ticket in PDF, PKPASS or HTML formats.
 
 ### HTTP Request
 
@@ -629,12 +629,12 @@ curl -X POST \
        "send_customer_email": false,
        "fare_class": "FARE-3",
        "passengers":[
-          { 
+          {
             "first_name": "Balibalo",
             "last_name": "Bateau",
             "type": "PNOS"
           },
-          { 
+          {
             "first_name": "Charlotte",
             "last_name": "Bateau",
             "type": "PCIL"
@@ -1211,9 +1211,9 @@ Parameter                 | Mandatory | Description
 `payer_id`                | false     | Unique identifier supplied by Paypal.
 `total_price`             | true      | Total price of the requested passenger types and extras with added bus marketing carrier booking fee in fractional currency unit (if there is one, in cent) in requested currency. Minimum value - 0, maximum value - 9999900. Provided on successful vacancy request.
 `pax`                     | true      | Number of passengers. Integer in a range of 1..9.
-`discount_code`           | false     | Code consisting of minimum 3 alphanumeric characters. 
+`discount_code`           | false     | Code consisting of minimum 3 alphanumeric characters.
 `flight_number`          | false     | Required by marketing carriers in some cases. 3-9-letter alphanumeric uppercase code.
-`terms_accepted`         | true      | Flag signalling whether Terms & Conditions of the marketing carrier have been accepted. Can be `true` or `false`. 
+`terms_accepted`         | true      | Flag signalling whether Terms & Conditions of the marketing carrier have been accepted. Can be `true` or `false`.
 `locale`                  | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
 `currency`                | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
 `send_customer_email`     | true      | Flag for sending out (or preventing) of the customer confirmation email from Distribusion. Can be `true` or `false`.
@@ -1321,7 +1321,7 @@ We currently supports 7 currencies:
 * PLN: Polish Zloty
 * CAD: Canadian Dollar
 
-You can now retrieve a list of all your bookings by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index). 
+You can now retrieve a list of all your bookings by calling the [bookings#index](https://api-demo.distribusion.com/retailers/v4/docs/#index).
 
 ### Checkout Link
 
@@ -1354,7 +1354,7 @@ Error Code  | Meaning
 curl -X GET \
   https://api-demo.distribusion.com/retailers/v4/bookings?created_at=2020-02-14 \
   -H 'api-key: {demo_api_key}' \
-  -H 'content-type: application/json' 
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
@@ -1449,7 +1449,7 @@ Error Code  | Meaning
 curl -X GET \
   https://api-demo.distribusion.com/retailers/v4/bookings/O9xf1EqAQfsuNcRdtum-2g \
   -H 'api-key: {demo_api_key}' \
-  -H 'content-type: application/json' 
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
@@ -2019,7 +2019,7 @@ curl -X GET \
   -H 'Content-Type: application/json'
 ```
 
-This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint. 
+This endpoint is dedicated to retailers sending their own confirmation email. If you have set `send_customer_email` to `true`, you do not need this endpoint.
 
 The ticket either has one page containing the information of all the passengers, or it consists of one page per passenger (in PDF format). You can also retrieve your ticket in HTML, or in mobile format by adding the `type` parameter.
 
