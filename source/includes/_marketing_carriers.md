@@ -648,3 +648,77 @@ Error Code  | Meaning
 ----------- | -------
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
+
+## Booking schema
+
+```shell
+curl -X GET \
+  https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP/booking/schema \
+  -H 'api-key: {demo_api_key}' \
+  -H 'content-type: application/json' 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "id": "NEXP",
+        "type": "booking_schema",
+        "attributes": {
+            "mandatory": [
+                "marketing_carrier",
+                "departure_station",
+                "arrival_station",
+                "departure_time",
+                "arrival_time",
+                "retailer_partner_number",
+                "execute_payment",
+                "payment_method",
+                "passengers",
+                "terms_accepted",
+                "locale",
+                "currency",
+                "total_price",
+                "send_customer_email",
+                "pax",
+                "title",
+                "first_name",
+                "last_name",
+                "street_and_number",
+                "zip_code",
+                "city",
+                "email"
+            ],
+            "optional": [
+                "discount_code",
+                "fare_class",
+                "payment_token",
+                "payer_id",
+                "phone",
+                "flight_number",
+                "government_id",
+                "government_id_type",
+                "passengers[].government_id",
+                "passengers[].government_id_type"
+            ]
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    }
+}
+```
+
+This endpoint provides the information which parameters are mandatory and which are optional to conduct a booking for a specific marketing carrier.
+
+### HTTP Request
+
+`GET api.distribusion.com/retailers/v4/marketing_carriers/{code}/booking/schema `
+
+### Errors
+
+Error Code  | Meaning
+----------- | -------
+400.101.040 | Marketing carrier is invalid or missing
+400.800.040 | Marketing Carrier not found
