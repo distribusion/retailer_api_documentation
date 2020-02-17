@@ -6,10 +6,10 @@
 curl -X GET \
   https://api-demo.distribusion.com/retailers/v4/marketing_carriers \
   -H 'api-key: {demo_api_key}' \
-  -H 'content-type: application/json' 
+  -H 'content-type: application/json'
 ```
 
-> The above command returns JSON structured like this:
+> The above command should return a JSON structured like this:
 
 ```json
 {
@@ -74,10 +74,10 @@ Error Code  | Meaning
 curl -X GET \
   'https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP?locale=en&currency=EUR' \
   -H 'api-key: {demo_api_key}' \
-  -H 'content-type: application/json' 
+  -H 'content-type: application/json'
 ```
 
-> The above command returns JSON structured like this:
+> The above command should return a JSON structured like this:
 
 ```json
 {
@@ -581,7 +581,7 @@ Error Code  | Meaning
 curl -X GET \
   https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP/stations \
   -H 'api-key: {demo_api_key}' \
-  -H 'content-type: application/json' 
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
@@ -655,7 +655,7 @@ Error Code  | Meaning
 curl -X GET \
   https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP/booking/schema \
   -H 'api-key: {demo_api_key}' \
-  -H 'content-type: application/json' 
+  -H 'content-type: application/json'
 ```
 
 > The above command returns JSON structured like this:
@@ -710,7 +710,7 @@ curl -X GET \
 }
 ```
 
-This endpoint provides the information which parameters are mandatory and which are optional to conduct a booking for a specific marketing carrier.
+This endpoint provides information about which parameters are mandatory, and which are optional to conduct a booking for a specific marketing carrier.
 
 ### HTTP Request
 
