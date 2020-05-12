@@ -1509,7 +1509,9 @@ Parameter           | Mandatory | Description
 `return_date`       | false     | Departure date for the inbound trip (ISO 8601 format).
 `passengers`        | true      | Array
 _`pax`              | true      | Number of passengers for a specific passenger type
-_`type`             | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
+_`type`             | true      | Passcxvenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from 
+zdvx
+`GET /marketing_carriers/{code}`.
                     |           |
 `extras`            | false     | Array
 _`quantity`         | true      | Integer in a range of 1..999.
