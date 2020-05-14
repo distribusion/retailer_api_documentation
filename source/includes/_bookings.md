@@ -113,7 +113,11 @@ Parameter                 | Mandatory | Description
     `fist_name`           | true      | First name of the passenger, 1-50-letter alphanumeric string.
     `last_name`           | true      | Last name of the customer, 1-50-letter alphanumeric string.
     `type`                | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
-                          |           |
+    `government_id_type`  | false     | Allowed value: `national_id`, `passport_id`, `drivers_license`, `tax_number`.
+    `government_id`       | false     | Alphanumeric lowercase code, according to ISO 639-1 standard.
+    `seats`               | false     | Array
+         `seat_code`      | false     | 1 or 2 digit seat number.
+         `segment_index`  | false     | 1 digit segment number.
 `extras`                  | false     | Array
     `quantity`            | true      | Integer in a range of 1..999.
     `type`                | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
@@ -167,6 +171,10 @@ Error Code  | Meaning
 400.101.050 | Extras are invalid or missing
 400.101.051 | Passengers are invalid or missing
 400.101.052 | Discount code is invalid or missing
+400.101.065 | Passenger government ID is invalid or missing
+400.101.066 | Passenger government ID type is invalid or missing
+400.101.067 | Passenger seat segment index is invalid or missing
+400.101.068 | Passenger seat code is invalid or missing
 400.102.040 | Unknown marketing carrier
 400.200.001 | API key is invalid or missing
 400.501.003 | Not implemented at Distribusion on bookings#create
@@ -189,6 +197,7 @@ Error Code  | Meaning
 600.702.000 | Marketing Carrier remote booking price change error
 600.703.000 | Marketing Carrier remote booking tariff unavailable error
 600.705.000 | Marketing Carrier remote booking vacancy unknown error
+600.706.000 | Remote booking seat not available error
 600.900.000 | Response received from a remote server technically cannot be processed
 600.901.000 | Response from remote server logically cannot be processed (is invalid)
 600.703.026 | Booking price unknown
@@ -1223,7 +1232,11 @@ Parameter                 | Mandatory | Description
     `fist_name`           | true      | First name of the passenger, 1-50-letter alphanumeric string.
     `last_name`           | true      | Last name of the customer, 1-50-letter alphanumeric string.
     `type`                | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
-                          |           |
+    `government_id_type`  | false     | Allowed value: `national_id`, `passport_id`, `drivers_license`, `tax_number`.
+    `government_id`       | false     | Alphanumeric lowercase code, according to ISO 639-1 standard.
+    `seats`               | false     | Array
+         `seat_code`      | false     | 1 or 2 digit seat number.
+         `segment_index`  | false     | 1 digit segment number.
 `extras`                  | false     | Array
     `quantity`            | true      | Integer in a range of 1..999.
     `type`                | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
@@ -1277,6 +1290,10 @@ Error Code  | Meaning
 400.101.050 | Extras are invalid or missing
 400.101.051 | Passengers are invalid or missing
 400.101.052 | Discount code is invalid or missing
+400.101.065 | Passenger government ID is invalid or missing
+400.101.066 | Passenger government ID type is invalid or missing
+400.101.067 | Passenger seat segment index is invalid or missing
+400.101.068 | Passenger seat code is invalid or missing
 400.102.040 | Unknown marketing carrier
 400.200.001 | API key is invalid or missing
 400.501.003 | Not implemented at Distribusion on bookings#create
@@ -1299,6 +1316,7 @@ Error Code  | Meaning
 600.702.000 | Marketing Carrier remote booking price change error
 600.703.000 | Marketing Carrier remote booking tariff unavailable error
 600.705.000 | Marketing Carrier remote booking vacancy unknown error
+600.706.000 | Remote booking seat not available error
 600.900.000 | Response received from a remote server technically cannot be processed
 600.901.000 | Response from remote server logically cannot be processed (is invalid)
 600.703.026 | Booking price unknown
