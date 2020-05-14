@@ -1488,7 +1488,7 @@ curl -g -X GET \
 
 This endpoint checks the availability and price for the specific number and type of passengers for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
 
-In parallel, we send the outbound requests to the operating carrier integration systems to retrieve the latest prices and vacant seats information.
+We send the outbound request to the operating carrier integration system to retrieve the latest prices and vacant seat information.
 
 ### HTTP Request
 
@@ -1677,9 +1677,9 @@ curl -g -X GET \
 }
 ```
 
-This endpoint checks and provides the data on the seats availability for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
+This endpoint checks and provides the data on the seats availability for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.  Bookings a specific seat may be required for some regions, like Brazil.
 
-In parallel, we send the outbound request to the operating carrier integration systems to retrieve the latest available seats information.
+We send the outbound request to the operating carrier integration system to retrieve the latest available seats information.
 
 ### HTTP Request
 
@@ -1708,5 +1708,6 @@ Error Code  | Meaning
 400.200.001 | API key is invalid or missing
 400.300.006 | Marketing carrier does not support seat layouts
 400.800.040 | Marketing carrier not found
+500.100.000 | Service Unavailable
 600.000.000 | Marketing Carrier remote system unavailable
 600.100.000 | Marketing Carrier remote system time-out
