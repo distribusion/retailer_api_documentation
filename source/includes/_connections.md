@@ -1677,7 +1677,7 @@ curl -g -X GET \
 }
 ```
 
-This endpoint checks and provides the data on the seats availability for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.  Bookings a specific seat may be required for some regions, like Brazil.
+This endpoint checks and provides the data on the seats availability for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.  Booking a specific seat may be required for some regions, like Brazil.
 
 We send the outbound request to the operating carrier integration system to retrieve the latest available seats information.
 
