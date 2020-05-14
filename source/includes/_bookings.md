@@ -113,11 +113,11 @@ Parameter                 | Mandatory | Description
     `fist_name`           | true      | First name of the passenger, 1-50-letter alphanumeric string.
     `last_name`           | true      | Last name of the customer, 1-50-letter alphanumeric string.
     `type`                | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
-    `government_id_type`  | false     | Allowed value: `national_id`, `passport_id`, `passport_id`, `drivers_license`, `tax_number`.
+    `government_id_type`  | false     | Allowed value: `national_id`, `passport_id`, `drivers_license`, `tax_number`.
     `government_id`       | false     | Alphanumeric lowercase code, according to ISO 639-1 standard.
     `seats`               | false     | Array
-         `seat_code`      | false     | 1-2 digit seat number
-         `segment_index`  | false     | 1 digit segment number
+         `seat_code`      | false     | 1 or 2 digit seat number.
+         `segment_index`  | false     | 1 digit segment number.
 `extras`                  | false     | Array
     `quantity`            | true      | Integer in a range of 1..999.
     `type`                | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
@@ -1232,11 +1232,11 @@ Parameter                 | Mandatory | Description
     `fist_name`           | true      | First name of the passenger, 1-50-letter alphanumeric string.
     `last_name`           | true      | Last name of the customer, 1-50-letter alphanumeric string.
     `type`                | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
-    `government_id_type`  | false     | Allowed value: `national_id`, `passport_id`, `passport_id`, `drivers_license`, `tax_number`.
+    `government_id_type`  | false     | Allowed value: `national_id`, `passport_id`, `drivers_license`, `tax_number`.
     `government_id`       | false     | Alphanumeric lowercase code, according to ISO 639-1 standard.
     `seats`               | false     | Array
-         `seat_code`      | false     | 1-2 digit seat number
-         `segment_index`  | false     | 1 digit segment number
+         `seat_code`      | false     | 1 or 2 digit seat number.
+         `segment_index`  | false     | 1 digit segment number.
 `extras`                  | false     | Array
     `quantity`            | true      | Integer in a range of 1..999.
     `type`                | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
