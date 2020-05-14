@@ -1488,7 +1488,7 @@ curl -g -X GET \
 
 This endpoint checks the availability and price for the specific number and type of passengers for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.
 
-In parallel, we send the outbound requests to the operating carrier integration systems to retrieve the latest prices and vacant seats information.
+We send the outbound request to the operating carrier integration system to retrieve the latest prices and vacant seat information.
 
 ### HTTP Request
 
@@ -1496,24 +1496,24 @@ In parallel, we send the outbound requests to the operating carrier integration 
 
 ### URL Parameters
 
-Parameter           | Mandatory | Description
-------------------- | --------- | -----------
-`marketing_carrier` | true      | 4-letter alphanumeric uppercase code.
-`departure_station` | true      | 8 or 9-letter alphanumeric uppercase code.
-`arrival_station`   | true      | 8 or 9-letter alphanumeric uppercase code.
-`departure_time`    | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
-`arrival_time`      | true      | Arrival time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
-`currency`          | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
-`discount_code`     | false     | Code consisting of minimum 3 alphanumeric characters.
-`fare_class`        | false     | Code consisting of 6-7 alphanumerical characters.
-`return_date`       | false     | Departure date for the inbound trip (ISO 8601 format).
-`passengers`        | true      | Array
-_`pax`              | true      | Number of passengers for a specific passenger type
-_`type`             | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers/{code}`.
-                    |           |
-`extras`            | false     | Array
-_`quantity`         | true      | Integer in a range of 1..999.
-_`type`             | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
+Parameter              | Mandatory | Description
+---------------------- | --------- | -----------
+`marketing_carrier`    | true      | 4-letter alphanumeric uppercase code.
+`departure_station`    | true      | 8 or 9-letter alphanumeric uppercase code.
+`arrival_station`      | true      | 8 or 9-letter alphanumeric uppercase code.
+`departure_time`       | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+`arrival_time`         | true      | Arrival time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+`currency`             | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
+`discount_code`        | false     | Code consisting of minimum 3 alphanumeric characters.
+`fare_class`           | false     | Code consisting of 6-7 alphanumerical characters.
+`return_departure_time`| false     | Return departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+`return_arrival_time`  | false     | Return arrival time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+`passengers`           | true      | Array
+_`pax`                 | true      | Number of passengers for a specific passenger type
+_`type`                | true      | Passenger type. 4-letter alphanumeric uppercase code, available codes can be obtained     from `GET /marketing_carriers/{code}`.
+`extras`               | false     | Array
+_`quantity`            | true      | Integer in a range of 1..999.
+_`type`                | true      | Extra type. 4-letter alphanumeric uppercase code, available codes can be obtained from `GET /marketing_carriers`.
 
 
 ### Errors
@@ -1545,3 +1545,169 @@ Error Code  | Meaning
 600.900.000 | Response received from a remote server technically cannot be processed
 600.901.000 | Response from remote server logically cannot be processed (is invalid)
 600.703.026 | Booking price unknown
+
+## Seats
+
+```shell
+curl -g -X GET \
+  'https://api-demo.distribusion.com/retailers/v4/connections/seats?departure_station=BRABMSLR&arrival_station=BRGELSAB&departure_time=2020-05-20T22:10&arrival_time=2020-05-21T05:55&marketing_carrier=VOEP' \
+  -H 'api-key: {demo_api_key}' \
+  -H 'content-type: application/json'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+        {
+            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0-SEAT-LAYOUT",
+            "type": "seat_layouts",
+            "relationships": {
+                "segment": {
+                    "data": {
+                        "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0",
+                        "type": "segments"
+                    }
+                },
+                "cars": {
+                    "data": [
+                        {
+                            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0-0",
+                            "type": "cars"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "included": [
+        {
+            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0",
+            "type": "segments",
+            "attributes": {
+                "index": 0,
+                "departure_time": "2020-05-20T22:10",
+                "arrival_time": "2020-05-21T05:55"
+            },
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "BRABMSLR",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "BRGELSAB",
+                        "type": "stations"
+                    }
+                }
+            }
+        },
+        {
+            "id": "BRABMSLR",
+            "type": "stations",
+            "attributes": {
+                "code": "BRABMSLR"
+            }
+        },
+        {
+            "id": "BRGELSAB",
+            "type": "stations",
+            "attributes": {
+                "code": "BRGELSAB"
+            }
+        },
+        {
+            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0-0",
+            "type": "cars",
+            "attributes": {
+                "index": 0
+            },
+            "relationships": {
+                "seats": {
+                    "data": [
+                        {
+                            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0-0-21",
+                            "type": "seats"
+                        },
+                        {
+                            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0-0-23",
+                            "type": "seats"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0-0-21",
+            "type": "seats",
+            "attributes": {
+                "code": "21",
+                "label": "21",
+                "fare_class": "FARE-4",
+                "vacant": true,
+                "coordinates": {
+                    "x": 5,
+                    "y": 0,
+                    "z": 0
+                }
+            }
+        },
+        {
+            "id": "VOEP-BRABMSLR-BRGELSAB-2020-05-20T22:10-2020-05-21T05:55-0-0-23",
+            "type": "seats",
+            "attributes": {
+                "code": "23",
+                "label": "23",
+                "fare_class": "FARE-4",
+                "vacant": true,
+                "coordinates": {
+                    "x": 5,
+                    "y": 4,
+                    "z": 0
+                }
+            }
+        }
+    ]
+}
+```
+
+This endpoint checks and provides the data on the seats availability for the selected trip. The trip is defined as a ride from one station to another at a particular day and time.  Booking a specific seat may be required for some regions, like Brazil.
+
+We send the outbound request to the operating carrier integration system to retrieve the latest available seats information.
+
+### HTTP Request
+
+`GET api.distribusion.com/retailers/v4/connections/seats`
+
+### URL Parameters
+
+Parameter           | Mandatory | Description
+------------------- | --------- | -----------
+`marketing_carrier` | true      | 4-letter alphanumeric uppercase code.
+`departure_station` | true      | 8 or 9-letter alphanumeric uppercase code.
+`arrival_station`   | true      | 8 or 9-letter alphanumeric uppercase code.
+`departure_time`    | true      | Departure time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+`arrival_time`      | true      | Arrival time in ISO 8601 format without timezone yyyy-mm-ddThh:mm.
+
+### Errors
+
+Error Code  | Meaning
+----------- | -------
+400.000.000 | The provided json is invalid
+400.100.000 | Request invalid
+400.101.004 | Departure station is invalid or missing
+400.101.005 | Arrival station is invalid or missing
+400.101.044 | Departure date is in the past
+400.101.049 | Departure time must be before arrival time
+400.200.001 | API key is invalid or missing
+400.300.006 | Marketing carrier does not support seat layouts
+400.800.040 | Marketing carrier not found
+500.100.000 | Service Unavailable
+600.000.000 | Marketing Carrier remote system unavailable
+600.100.000 | Marketing Carrier remote system time-out
