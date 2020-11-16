@@ -1,0 +1,15 @@
+---
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t=eu.gcr.io/$PROJECT_ID/retailer-api-documentation:$SHORT_SHA
+      - -t=eu.gcr.io/$PROJECT_ID/retailer-api-documentation:latest
+      - --build-arg
+      - REVISION=$SHORT_SHA
+      - --cache-from=eu.gcr.io/$PROJECT_ID/retailer-api-documentation:latest
+      - .
+
+images:
+  - eu.gcr.io/$PROJECT_ID/retailer-api-documentation:$SHORT_SHA
+  - eu.gcr.io/$PROJECT_ID/retailer-api-documentation:latest
