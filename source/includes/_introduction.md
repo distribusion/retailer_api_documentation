@@ -2,7 +2,7 @@
 
 ![alt text](/images/bus-picture.png)
 
-You can use our API to access Distribusion content and book bus rides. We have put a lot of thought into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
+You can use our API to access Distribusion content and book ground transportation rides. We have put a lot of thought into making it as easy as possible to integrate with us. Have fun and share your feedback with us!
 
 **When integrating and testing our API, please use the following URL:**
 
@@ -12,159 +12,359 @@ You can use our API to access Distribusion content and book bus rides. We have p
 
 [Retailer API v2](https://api-demo.distribusion.com/reseller/v2/docs)
 
-# Getting Started
+# Key Concepts
 
-When performing a booking through Distribusion API, there are multiple steps that are required. This section is dedicated to describe the standard flow, necessary for:
+## Authentication
 
-- Searching for connections
-- Retrieving availability and prices
-- Conducting bookings
-- Retrieving tickets
-- Retrieving cancellation conditions
-- Performing cancellations
+Distribusion uses API keys to enable access to the API content and perform requests. Distribusion expects for the API key to be included in all API requests to the server in the header of the request. Moreover, each retail partner is assigned with a unique retailer_partner_number that is expected to be passed in the body of each [bookings#create](https://docs.distribusion.com/#create) or [orders#create](https://docs.distribusion.com/#create-orders) request.
 
-![alt text](/images/API_V4.0_workflow.png)
 
-## Integration Workflow
+## Stations, Cities, and Areas
 
-1. _(1-4 weeks)_ **Integrate our API**, using this documentation. 
-If you have any questions, do not hesitate to write us at [partner@distribusion.com](mailto:partner@distribusion.com)
+The [#stations](https://docs.distribusion.com/#stations7) endpoint returns all the stations available in the Distribusion API, as well as detailed information for each, including: 
+ - type
+- name
+- address
+- description
+- latitude/longitude
+- time zone
+- city
+- area
 
-2. _(Up to 1 week)_ In order to get access to our production environment, we will first test the integration logic (from search to booking, and if implemented, cancellations) and the data mapping logic (stations associations to cities and airports). For this, we will require **access to your demo environment**, with all the necessary information to perform bookings (test payment credentials, etc). 
+<details>
+  <summary>Table of supported station types</summary>
+  
+| Station type name  |  Distribusion station type code |
+|---|---|
+| Bus station | bus_station |
+| Train station | train_station |
+| Ferry station | ferry_station |
+| Tram station | tram_station |
+</details>
 
-3. _(Up to 2 week after launch)_ Once this is validated, we will provide you the production API key for you to start mapping stations on the production environment. A few weeks after your launch, we will have our customer experience team going through your integration and provide a **full report to improve data mapping and overall L/B ratio**. 
+Distribusion aims to standardize station codes across the entire ground transportation industry, the same way IATA does so in the flight industry. Our station codes are designed to represent specific locations using a set of 8 capital letters. The construction of such code follow a simple logic:
 
-4. Later on, our team will get in touch with you in order to support your processes related to L/B ratio optimisation and overall customer journey: from searching to booking and after sales services. 
+- The first two letters represent the country in which the station is located
+- The next three represent the city in which the station is located
+- The last three letters more precisely represent the location of the station
 
-## Station Coding
-
-Distribusion aims to standardize the station codes across the bus industry, the same way IATA did in the flight industry. Our station codes are designed to represent specific locations using a **set of 8 capital letters**. The construction of such code follow a simple logic:
-
-- The first two letters represent the country
-- The next three, the city in which the station is located
-- The last three letters represent a more precise location
-
-###Example
+**Example**
 
 **GB**(Great Britain) + **LON**(London) + **VSA**(Victoria station) = **GBLONVSA**
 
-## Importing Master Data
+Besides city grouping, there is also an area grouping that unites all the stations that belong to one airport. The area has a 7 letter code
 
-The first step in the booking process, is collecting the stations and marketing carriers available through our API. To do so, we provide the [#stations](https://docs.distribusion.com/#stations7) and [#marketing_carriers](https://docs.distribusion.com/#marketing-carriers) endpoints. To retrieve station codes, simply send a `GET` request to our [#stations](https://docs.distribusion.com/#stations7) endpoint, which will send you a list of the stations, with station codes and additional information concerning the stations (address, coordinates, associated city, etc). The [#marketing_carriers](https://docs.distribusion.com/#marketing-carriers) endpoint provides you with additional information related to a specific marketing carrier; such as logos, contact details, cancellation policy, as well as the terms and conditions.
+**Example**
 
-Currently our content can be fetched in English, French, Italian, Spanish, Dutch, Swedish, Bulgarian and German, with the following locale values: en, fr, it, es, nl, sv, bg and de.
+Area: London Heathrow Airport (GBLONLA)
+Stations: 
+London Heathrow Airport Terminal 3 (GBLONAHT)
+London Heathrow Airport Terminal 4 (GBLONHAI)
+London Heathrow Airport Terminal 5 (GBLONHAR)
 
-## Map Stations to Cities and Areas
+**!Note:** as Distribusion updates stations weekly, in order to always have the full content it is recommended to update stations on a weekly basis as well.
 
-```json
-        {
-            "id": "ESBCNBFT",
-            "type": "stations",
-            "attributes": {
-                "station_type": "bus_station",
-                "code": "ESBCNBFT",
-                "name": "Barcelona El Prat Airport Terminal 1",
-                "description": "The bus stop is located in front of Arrivals Terminal 1. Please follow the signs to bus.",
-                "street_and_number": "Arrivals Terminal 1",
-                "zip_code": "08820",
-                "longitude": 2.073312,
-                "latitude": 41.287529,
-                "time_zone": "Europe/Madrid"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ESBCN",
-                        "type": "cities"
-                    }
-                },
-                "area": {
-                    "data": {
-                        "id": "ESBCNBA",
-                        "type": "areas"
-                    }
-                }
-            }
-        },
-        {
-            "id": "ESBCNBFU",
-            "type": "stations",
-            "attributes": {
-                "station_type": "bus_station",
-                "code": "ESBCNBFU",
-                "name": "Barcelona El Prat Airport Terminal 2",
-                "description": "The bus stop is located close to building B Terminal 2. Please follow the signs to bus. ",
-                "street_and_number": "C-32B",
-                "zip_code": "08820",
-                "longitude": 2.0769014954567,
-                "latitude": 41.30330453852957,
-                "time_zone": "Europe/Madrid"
-            },
-            "relationships": {
-                "city": {
-                    "data": {
-                        "id": "ESBCN",
-                        "type": "cities"
-                    }
-                },
-                "area": {
-                    "data": {
-                        "id": "ESBCNBA",
-                        "type": "areas"
-                    }
-                }
-            }
-         }
-```
+## Marketing Carriers
 
-Our API maps stations to cities, allowing you to easily groupe stations together when they belong to the same city. This is to facilite city to city search on your side.
-We also have the notion of areas. An area is smaller than a city, represent multiple stations, and can only be attached to one city.
+In order to retrieve all marketing carriers available for your API credentials, please use the [marketing_carriers#index](https://docs.distribusion.com/#index33) endpoint. After receiving the full list of offered marketing carriers, you can collect the specific information for each carrier through [marketing_carriers#show](https://docs.distribusion.com/#show34) endpoint. It includes the basic information required for the initial integration of a carrier such as its logo, terms and conditions, vehicle type, operating status, customer support contacts, etc.
 
-In the example bellow, Barcelona Airport is mapped with **"Barcelona Airport T1"** and **"Barcelona Airport T2"** stations, while the area and the stations are all mapped to Barcelona city. Bellow is an extract of our [#stations](https://docs.distribusion.com/#stations7) endpoint response:
+## Passengers
 
-Code description:
+The Distribusion API offers 5 various passenger types: 
+- Infant
+- Child
+- Youth
+- Adult
+- Senior
 
-- **ESBCN**: Barcelona City
-- **ESBCNBA**: Barcelona Airport
+The existence and age range for each passenger type is dependent upon the respective marketing carrier’s policies. While keeping the age range carrier-specific, Distribusion has standardised passenger type codes across all the suppliers.
 
-For example, while searching from Barcelona Airport to Barcelona City, you could perform the following request:
+<details>
+  <summary>Table of supported passenger types</summary>
+  
+| Passenger type name  |  Distribusion passenger type code |
+|---|---|
+| Infant | PINT |
+| Child | PCIL |
+| Youth | PYPO |
+| Adult | PNOS |
+| Senior | PSOE |
+</details>
 
-[https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2020-10-29&pax=1&currency=EUR&locale=en](https://api-demo.distribusion.com/retailers/v4/connections/find?departure_stations[]=ESBCNBFT&departure_stations[]=ESBCNBFU&arrival_stations[]=ESBCNNOR&arrival_stations[]=ESBCNZOB&arrival_stations[]=ESBCNEDA&arrival_stations[]=ESBCNPCA&arrival_stations[]=ESBCNSUR&arrival_stations[]=ESBCNPES&arrival_stations[]=ESBCNGVU&arrival_stations[]=ESBCNPDU&arrival_stations[]=ESBCNBFT&arrival_stations[]=ESBCNBFU&departure_date=2020-10-29&pax=1&currency=EUR&locale=en)
-
-## Find Connections
-
-After retrieving station codes, you can now start searching for connections by sending us `GET` requests to [connections#find](https://docs.distribusion.com/#find). We do not provide station pairs in order to allow you to be flexible and adapt to your consumer needs.
-
-<aside class="success">
-Remember — in order to query information from our API, you need to get your own API key by submitting a request to <a href='mailto:partner@distribusion.com'>partner@distribusion.com</a>!
-</aside>
-
-## Passenger Types
-
-We thrive to standardise passenger (ticket) types across multiple operators. While booking through Distribusion API, you can can be sure to have the following five global codes: Infant (PINT), Child (PCIL), Youth (PYPO), Adult (PNOS),
-Senior (PSOE) across the operators.
+**! Note:** To start trading, at minimum the Adult passenger type (PNOS) must be integrated. However, it means that not all possible passenger discounts can be applied.
 
 ## Fare Classes
 
-Operators are often providing different service classes and features to their consumers. You will find the possibility to select each fare based on the operator offer. Fares classes are covering a large amount of features, such as 1st/2nd class, extra leg seats, drinks, cancellation policies, validity period, etc.
+The Distribusion API supports multiple fare classes to ensure that complete parity to the carrier’s full offering can be provided. In case a marketing carrier offers various fare classes such as Economy and Business or Sleeper (Leito) and Conventional (Convencional) then they are provided in the API. Each fare class is defined by its price, fare features (amenities and cancellation policy), journey type, ticket validity rules, and passenger group rules.
 
-## Return Ticket
+The [connections#find](https://docs.distribusion.com/#find) endpoint response includes the price for each fare class available per trip under "type": "fares". In case only one fare class is available for a specific trip, only one fare class will be provided.
 
-Distribusion API supports both open return and fixed return tickets depending on the operators' capabilities. This functionality allows you to have access to the discounted fares if that is the case with the operators.
+The [marketing_carriers#show](https://docs.distribusion.com/#show34) endpoint response includes all fare classes that the requested marketing carrier supports. Each fare class is described using the following parameters: 
 
-## Confirm Price and Availability
+- "journey_type"
+- "fare_features"
+- “ticket_validity_rules"
+- "passenger_group_rules"
 
-As [connections#find](https://docs.distribusion.com/#find) provides the cheapest adult price, it is some time necessary to confirm the price of the specific passenger types by calling [connections#vacancy](https://docs.distribusion.com/#vacancy). This call is also recommended prior to performing a booking, in order to ensure the price and availability are still up to date.
+<details>
+  <summary>Table of supported journey types</summary>
+  
+| Journey type name  |  Distribusion journey type code | Description |
+|---|---|---|
+| Single | single | Travel is supported only one way |
+| Open return | open_return | Travel is supported both ways with inbound trip having an open date  |
+| Fixed return| fixed_return | Travel is supported both ways with inbound trip having an exact travel date |
+</details>
 
-## Create an Order or a Booking
+<details>
+  <summary>Table of ticket validity rules parameters</summary>
+  
+| Ticket validity parameter  |  Possible values | Description |
+|---|---|---|
+| Type | outbound; inbound | The rule for outbound or outbound trip  |
+| Use type | once; multiple | Ticket can be used for a single or the multiple trips |
+| Reference time| departure_time; beginning of departure day; purchase_time; beginning_of_purchase_day; outbound_voucher_redemption; inbound_voucher_redemption| Defined time from which ticket validity starts |
+| Offset | minutes; hours; days; months | |
+| Duration | minutes; hours; days; months |  |
+</details>
 
-After gathering information on a specific connection and the passenger information, you can now send a booking request towards Distribusion API on [bookings#create](https://docs.distribusion.com/#create). You can also perform an order, and later retrieve its status by calling our [orders#create](https://docs.distribusion.com/#create-orders) endpoint. The main difference between a booking and an order is the workflow. A booking is synchronous, while an order is asynchronous. In case any information is missing, the API will recognise it and inform you accordingly.
+## Return Trip
 
-Note: we currently support *EUR*, *USD*, *GBP* *SEK*, *MYR*, *PLN*, *CHF*, *BRL* and *CAD* currencies. More can be enabled on demand.
+The Distribusion API supports single, open return and fixed return trips.
 
-## Manage your Bookings
+A single trip is defined as a one-way trip between a departure and arrival station, on a specific date.
 
-Once you start making bookings, you will certainly want to monitor them and, if requested by consumer, cancel them. For this, we created a feature, allowing you to retrieve a full list of your bookings: [bookings#index](https://docs.distribusion.com/#index). Once you have this list, you can call [bookings#show](https://docs.distribusion.com/#show) for more details on a specific booking, or call [cancellations#conditions](https://docs.distribusion.com/#conditions) and [cancellations#create](https://docs.distribusion.com/#create27) to cancel a booking.
+An open return trip is defined as a return trip between a departure and arrival station with a specific date for the outbound trip and no fixed date for the inbound trip. Marketing carriers that support open return trips also define the timeframe within which return trip is valid. This information is provided in the marketing_carriers/show endpoint under fare classes -> open return fare class -> ticket validity.
+
+A fixed return trip is defined as a return trip between a departure and arrival station with a specific date of both the outbound and the inbound trip. 
+
+In case a marketing carrier does not support return trips in its API or system, the Distribusion API still allows you to book a fixed return ticket by placing and combining two single trip bookings in the carrier’s system.
+
+## Currencies
+
+The Distribusion API supports the majority of global currencies, including EUR, USD, GBP SEK, MYR, PLN, CHF, BRL and CAD currencies.
+
+<details>
+  <summary>Table of supported currencies</summary>
+  
+|Distribusion currency code| Currency name|
+|--- |--- |
+|AED|United Arab Emirates Dirham|
+|AFN|Afghan Afghani|
+|ALL|Albanian Lek|
+|AMD|Armenian Dram|
+|ANG|Netherlands Antillean Guilder|
+|AOA|Angolan Kwanza|
+|ARS|Argentine Peso|
+|AUD|Australian Dollar|
+|AWG|Aruban Florin|
+|AZN|Azerbaijani Manat|
+|BAM|Bosnia-Herzegovina Convertible Mark|
+|BBD|Barbadian Dollar|
+|BDT|Bangladeshi Taka|
+|BGN|Bulgarian Lev|
+|BHD|Bahraini Dinar|
+|BIF|Burundian Franc|
+|BMD|Bermudan Dollar|
+|BND|Brunei Dollar|
+|BOB|Bolivian Boliviano|
+|BRL|Brazilian Real|
+|BSD|Bahamian Dollar|
+|BTC|Bitcoin|
+|BTN|Bhutanese Ngultrum|
+|BWP|Botswanan Pula|
+|BYN|Belarusian Ruble|
+|BYR|Belarusian Ruble|
+|BZD|Belize Dollar|
+|CAD|Canadian Dollar|
+|CDF|Congolese Franc|
+|CHF|Swiss Franc|
+|CLF|Chilean Unit of Account (UF)|
+|CLP|Chilean Peso|
+|CNY|Chinese Yuan|
+|COP|Colombian Peso|
+|CRC|Costa Rican Colón|
+|CUC|Cuban Convertible Peso|
+|CUP|Cuban Peso|
+|CVE|Cape Verdean Escudo|
+|CZK|Czech Republic Koruna|
+|DJF|Djiboutian Franc|
+|DKK|Danish Krone|
+|DOP|Dominican Peso|
+|DZD|Algerian Dinar|
+|EEK|Estonian Kroon|
+|EGP|Egyptian Pound|
+|ERN|Eritrean Nakfa|
+|ETB|Ethiopian Birr|
+|EUR|Euro|
+|FJD|Fijian Dollar|
+|FKP|Falkland Islands Pound|
+|GBP|British Pound Sterling|
+|GEL|Georgian Lari|
+|GGP|Guernsey Pound|
+|GHS|Ghanaian Cedi|
+|GIP|Gibraltar Pound|
+|GMD|Gambian Dalasi|
+|GNF|Guinean Franc|
+|GTQ|Guatemalan Quetzal|
+|GYD|Guyanaese Dollar|
+|HKD|Hong Kong Dollar|
+|HNL|Honduran Lempira|
+|HRK|Croatian Kuna|
+|HTG|Haitian Gourde|
+|HUF|Hungarian Forint|
+|IDR|Indonesian Rupiah|
+|ILS|Israeli New Sheqel|
+|IMP|Manx pound|
+|INR|Indian Rupee|
+|IQD|Iraqi Dinar|
+|IRR|Iranian Rial|
+|ISK|Icelandic Króna|
+|JEP|Jersey Pound|
+|JMD|Jamaican Dollar|
+|JOD|Jordanian Dinar|
+|JPY|Japanese Yen|
+|KES|Kenyan Shilling|
+|KGS|Kyrgystani Som|
+|KHR|Cambodian Riel|
+|KMF|Comorian Franc|
+|KPW|North Korean Won|
+|KRW|South Korean Won|
+|KWD|Kuwaiti Dinar|
+|KYD|Cayman Islands Dollar|
+|KZT|Kazakhstani Tenge|
+|LAK|Laotian Kip|
+|LBP|Lebanese Pound|
+|LKR|Sri Lankan Rupee|
+|LRD|Liberian Dollar|
+|LSL|Lesotho Loti|
+|LTL|Lithuanian Litas|
+|LVL|Latvian Lats|
+|LYD|Libyan Dinar|
+|MAD|Moroccan Dirham|
+|MDL|Moldovan Leu|
+|MGA|Malagasy Ariary|
+|MKD|Macedonian Denar|
+|MMK|Myanma Kyat|
+|MNT|Mongolian Tugrik|
+|MOP|Macanese Pataca|
+|MRO|Mauritanian Ouguiya|
+|MUR|Mauritian Rupee|
+|MVR|Maldivian Rufiyaa|
+|MWK|Malawian Kwacha|
+|MXN|Mexican Peso|
+|MYR|Malaysian Ringgit|
+|MZN|Mozambican Metical|
+|NAD|Namibian Dollar|
+|NGN|Nigerian Naira|
+|NIO|Nicaraguan Córdoba|
+|NOK|Norwegian Krone|
+|NPR|Nepalese Rupee|
+|NZD|New Zealand Dollar|
+|OMR|Omani Rial|
+|PAB|Panamanian Balboa|
+|PEN|Peruvian Nuevo Sol|
+|PGK|Papua New Guinean Kina|
+|PHP|Philippine Peso|
+|PKR|Pakistani Rupee|
+|PLN|Polish Zloty|
+|PYG|Paraguayan Guarani|
+|QAR|Qatari Rial|
+|RON|Romanian Leu|
+|RSD|Serbian Dinar|
+|RUB|Russian Ruble|
+|RWF|Rwandan Franc|
+|SAR|Saudi Riyal|
+|SBD|Solomon Islands Dollar|
+|SCR|Seychellois Rupee|
+|SDG|Sudanese Pound|
+|SEK|Swedish Krona|
+|SGD|Singapore Dollar|
+|SHP|Saint Helena Pound|
+|SLL|Sierra Leonean Leone|
+|SOS|Somali Shilling|
+|SRD|Surinamese Dollar|
+|STD|São Tomé and Príncipe Dobra|
+|SVC|Salvadoran Colón|
+|SYP|Syrian Pound|
+|SZL|Swazi Lilangeni|
+|THB|Thai Baht|
+|TJS|Tajikistani Somoni|
+|TMT|Turkmenistani Manat|
+|TND|Tunisian Dinar|
+|TOP|Tongan Paʻanga|
+|TRY|Turkish Lira|
+|TTD|Trinidad and Tobago Dollar|
+|TWD|New Taiwan Dollar|
+|TZS|Tanzanian Shilling|
+|UAH|Ukrainian Hryvnia|
+|UGX|Ugandan Shilling|
+|USD|United States Dollar|
+|UYU|Uruguayan Peso|
+|UZS|Uzbekistan Som|
+|VEF|Venezuelan Bolívar Fuerte|
+|VND|Vietnamese Dong|
+|VUV|Vanuatu Vatu|
+|WST|Samoan Tala|
+|XAF|CFA Franc BEAC|
+|XAG|Silver (troy ounce)|
+|XAU|Gold (troy ounce)|
+|XCD|East Caribbean Dollar|
+|XDR|Special Drawing Rights|
+|XOF|CFA Franc BCEAO|
+|XPF|CFP Franc|
+|YER|Yemeni Rial|
+|ZAR|South African Rand|
+|ZMK|Zambian Kwacha (pre-2013)|
+|ZMW|Zambian Kwacha|
+|ZWL|Zimbabwean Dollar|
+</details>
+
+## Locales
+
+Currently Distribusion API offers translation to various languages for 
+
+- station name and description
+- amenities
+- cancellation policy
+
+<details>
+  <summary>Table of supported languages</summary>
+  
+| Distribusion locale code  | Locale name|
+|---|---|
+|de|German|
+|en|English|
+|bg|Bulgarian|
+|cs|Czech|
+|da|Danish|
+|es|Spanish|
+|fr|French|
+|hr|Croatian|
+|it|Italian|
+|nl|Dutch|
+|pl|Polish|
+|pt|Portuguese|        
+|ru|Russian|
+|sv|Swedish|
+|tr|Turkish|
+|zh|Chinese|
+</details>
+
+## Real and Virtual carriers
+
+Distribusion demo environment offers both real and virtual carriers to intehrate against. As marketing carriers do not always have reliable and stable testing environments to integrate and test the booking flow, Distribusion has introduced virtual carriers that simulate the capabilities & characteristics of marketing carriers and can be used for onboarding purposes.
+
+<details>
+  <summary>Table of virtual carriers</summary>
+  
+|Carrier code|Carrier name|Departure station|Arrival Station|
+|---|---|---|---|
+|VICA|Virtual Carrier European intercity bus|DEBERCBS|FRPARPGB|
+|VCBA|Virtual Carrier Brazilian intercity bus|BRSAOSPB|BRLZSRDJ|
+|VCAI|Virtual Carrier Airport shuttle|GBLONLTH|GBLONLHB|
+|VCFE|Virtual Carrier Ferry|GBCAICHA|GBPMEPHA|
+</details>
 
 ## Postman
 
