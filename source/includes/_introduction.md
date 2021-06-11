@@ -22,7 +22,7 @@ Distribusion uses API keys to enable access to the API content and perform reque
 ## Stations, Cities, and Areas
 
 The [#stations](https://docs.distribusion.com/#stations7) endpoint returns all the stations available in the Distribusion API, as well as detailed information for each, including: 
- - type
+- type
 - name
 - address
 - description
