@@ -32,7 +32,7 @@ ENV EXECJS_RUNTIME=Node
 WORKDIR /docs
 
 RUN apk add --no-cache \
-        nodejs~=12.15 \
+        nodejs~=12.22 \
  && apk add --no-cache --virtual .cloud-sdk-deps \
         python3~=3.8 \
  && gem install bundler -v $BUNDLER_VERSION
