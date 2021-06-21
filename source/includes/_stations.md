@@ -1,8 +1,10 @@
 # Stations
 
+## Stations
+
 ```shell
 curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/stations?locale=en' \
+  'https://api.demo.distribusion.com/retailers/v4/stations?locale=en' \
   -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json' 
 ```
@@ -104,18 +106,27 @@ curl -X GET \
 }
 ```
 
-This endpoint enables users to retrieve detailed information about stations, such as name, id, GPS location, address and description.
+This endpoint can be used to retrieve all stations available in the Distribusion API. The API provides the following information for each station:
+- station type
+- station name
+- description
+- address
+- latitude/longitude
+- time zone
+- city
+- area
 
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v4/stations`
+- Prod: `GET api.distribusion.com/retailers/v4/stations`
+- Demo: `GET api.demo.distribusion.com/retailers/v4/stations`
 
 ### URL Parameters
 
-Parameter           | Mandatory | Description
-------------------- | --------- | -----------
-`locale`            | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
+Parameter           | Mandatory | Description | Example |
+------------------- | --------- | ----------- | --------- |
+`locale`            | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard | en |
 
 ### Errors
 
@@ -124,5 +135,156 @@ Error Code  | Meaning
 400.000.000 | The provided json is invalid
 400.100.000 | Request invalid
 400.101.014 | Locale is invalid or missing
+500.000.000 | Internal Server Error
+500.100.000 | Service Unavailable
+
+## Connected Stations
+
+```shell
+curl -X GET \
+  'https://api.demo.distribusion.com/retailers/v4/connected_stations' \
+  -H 'api-key: {demo_api_key}' \
+  -H 'content-type: application/json' 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+        {
+            "id": "ADALVABU-ATVIEZOB",
+            "type": "connected_stations",
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "ADALVABU",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "ATVIEZOB",
+                        "type": "stations"
+                    }
+                }
+            }
+        },
+        {
+            "id": "ADALVABU-BAGRIBGC",
+            "type": "connected_stations",
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "ADALVABU",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "BAGRIBGC",
+                        "type": "stations"
+                    }
+                }
+            }
+        },
+        {
+            "id": "ADALVABU-BEANREVS",
+            "type": "connected_stations",
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "ADALVABU",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "BEANREVS",
+                        "type": "stations"
+                    }
+                }
+            }
+        },
+        {
+            "id": "ADALVABU-BEBRUBCG",
+            "type": "connected_stations",
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "ADALVABU",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "BEBRUBCG",
+                        "type": "stations"
+                    }
+                }
+            }
+        },
+        {
+            "id": "ADALVABU-BEBRUBMO",
+            "type": "connected_stations",
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "ADALVABU",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "BEBRUBMO",
+                        "type": "stations"
+                    }
+                }
+            }
+        },
+        {
+            "id": "ADALVABU-BEGHEGDA",
+            "type": "connected_stations",
+            "relationships": {
+                "departure_station": {
+                    "data": {
+                        "id": "ADALVABU",
+                        "type": "stations"
+                    }
+                },
+                "arrival_station": {
+                    "data": {
+                        "id": "BEGHEGDA",
+                        "type": "stations"
+                    }
+                }
+            }
+        }
+      .....
+  ]
+}
+```
+
+This endpoint can be used to retrieve all station pairs that are available in Distribusion’s database as bookable origin-destination combinations. Requests to this endpoint can be filtered to identify connected station pairs for one or multiple marketing carriers.
+
+### HTTP Request
+
+- Prod: `GET api.distribusion.com/retailers/v4/connected_stations`
+- Demo: `GET api.demo.distribusion.com/retailers/v4/connected_stations`
+
+### URL Parameters
+
+Parameter           | Mandatory | Description | Example |
+------------------- | --------- | ----------- | --------- |
+page[size] | FALSE | Number, max 10.000 | 8000 |
+page[after] | FALSE | Station pair, retrieved from links.next within initial response | GBLONLPB-GBLONLHT |
+[marketing_carrier_codes][] | FALSE | 4-letter alphanumeric uppercase code| VICA |
+
+### Errors
+
+Error Code  | Meaning
+----------- | -------
+400.000.000 | The provided json is invalid
+400.100.000 | Request invalid
 500.000.000 | Internal Server Error
 500.100.000 | Service Unavailable
