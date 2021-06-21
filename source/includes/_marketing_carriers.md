@@ -1,10 +1,10 @@
-# Marketing Carriers
+# Marketing Carriers Setup
 
 ## Index
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/marketing_carriers \
+  https://api.demo.distribusion.com/retailers/v4/marketing_carriers \
   -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json'
 ```
@@ -55,11 +55,12 @@ curl -X GET \
 }
 ```
 
-This endpoint provides the list of marketing carriers with their trade name and code.
+Use this endpoint to retrieve all marketing carriers available for your API credentials. Each entry includes a unique marketing carrier id as well as a trade name that should be displayed to customers.
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v4/marketing_carriers`
+Prod: `GET api.distribusion.com/retailers/v4/marketing_carriers`
+Demo: `GET api.demo.distribusion.com/retailers/v4/marketing_carriers`
 
 ### Errors
 
@@ -72,7 +73,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP?locale=en&currency=EUR' \
+  'https://api.demo.distribusion.com/retailers/v4/marketing_carriers/VICA?locale=en&currency=EUR' \
   -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json'
 ```
@@ -82,33 +83,35 @@ curl -X GET \
 ```json
 {
     "data": {
-        "id": "NEXP",
+        "id": "VICA",
         "type": "marketing_carriers",
         "attributes": {
-            "code": "NEXP",
-            "trade_name": "National Express",
-            "legal_name": "National Express Limited",
-            "address": "Birmingham Coach Station, Mill Lane, Birmingham B5 6DD, United Kingdom",
-            "phone": "+44 (0)3717 818181",
+            "code": "VICA",
+            "trade_name": "Virtual Carrier European intercity bus",
+            "legal_name": "Virtual Carrier European Intercity Bus",
+            "address": "Wattstrasse 10",
+            "phone": "4900000000",
             "fax": "",
-            "customer_service_phone": "+44 (0)3717 818181",
-            "customer_service_email": "customerrelations@nationalexpress.com",
-            "email": "customerrelations@nationalexpress.com",
+            "customer_service_phone": "",
+            "customer_service_email": "",
+            "email": "",
             "commercial_register": "",
-            "commercial_register_number": "0023767",
-            "vat_no": "GB487038714",
-            "authorised_representative": "Tom Stables",
-            "white_label_logo": "",
+            "commercial_register_number": "",
+            "vat_no": "123456",
+            "authorised_representative": "",
+            "white_label_logo": "data:image/png;base64,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\nYII=\n",
             "white_label_colour_code": "",
-            "terms": "Issued subject to National Express Conditions of Carriage, which can be viewed at \r\n<a href=\"https://www.nationalexpress.com/en/help/conditions-of-carriage\" target=\"blank\">https://www.nationalexpress.com/en/help/conditions-of-carriage</a>",
+            "terms": "t&c",
+            "privacy_policy": null,
             "flight_number_required": false,
             "has_mobile_tickets": true,
             "tickets_validity_in_hours": null,
-            "tickets_validity_info": "In case of traveling from/to an airport this ticket is valid for 12 hours after the departure time stated above.",
-            "cancellation_type": "no_cancellation",
-            "booking_fee": 119,
-            "cancellation_fee": 0,
-            "cancellation_cutoff": null
+            "tickets_validity_info": "",
+            "cancellation_type": "fee_per_booking",
+            "status": "expected_demo",
+            "booking_fee": 0,
+            "cancellation_fee": 1,
+            "cancellation_cutoff": 0
         },
         "relationships": {
             "default_passenger_type": {
@@ -121,18 +124,6 @@ curl -X GET \
                 "data": [
                     {
                         "id": "PNOS",
-                        "type": "passenger_types"
-                    },
-                    {
-                        "id": "PINT",
-                        "type": "passenger_types"
-                    },
-                    {
-                        "id": "PCIL",
-                        "type": "passenger_types"
-                    },
-                    {
-                        "id": "PSOE",
                         "type": "passenger_types"
                     }
                 ]
@@ -151,19 +142,11 @@ curl -X GET \
             "fare_classes": {
                 "data": [
                     {
-                        "id": "NEXP-FARE-1",
+                        "id": "VICA-FARE-1",
                         "type": "fare_classes"
                     },
                     {
-                        "id": "NEXP-FARE-2",
-                        "type": "fare_classes"
-                    },
-                    {
-                        "id": "NEXP-FARE-3",
-                        "type": "fare_classes"
-                    },
-                    {
-                        "id": "NEXP-FARE-4",
+                        "id": "VICA-FARE-2",
                         "type": "fare_classes"
                     }
                 ]
@@ -175,7 +158,7 @@ curl -X GET \
     },
     "meta": {
         "locale": "en",
-        "currency": "EUR"
+        "currency": "GBP"
     },
     "included": [
         {
@@ -185,40 +168,7 @@ curl -X GET \
                 "code": "PNOS",
                 "name": "Adult",
                 "description": "",
-                "min_age": 16,
-                "max_age": 59
-            }
-        },
-        {
-            "id": "PINT",
-            "type": "passenger_types",
-            "attributes": {
-                "code": "PINT",
-                "name": "Infant",
-                "description": "",
                 "min_age": 0,
-                "max_age": 2
-            }
-        },
-        {
-            "id": "PCIL",
-            "type": "passenger_types",
-            "attributes": {
-                "code": "PCIL",
-                "name": "Child",
-                "description": "",
-                "min_age": 3,
-                "max_age": 15
-            }
-        },
-        {
-            "id": "PSOE",
-            "type": "passenger_types",
-            "attributes": {
-                "code": "PSOE",
-                "name": "Senior",
-                "description": "",
-                "min_age": 60,
                 "max_age": 99
             }
         },
@@ -232,11 +182,11 @@ curl -X GET \
             }
         },
         {
-            "id": "NEXP-FARE-1",
+            "id": "VICA-FARE-1",
             "type": "fare_classes",
             "attributes": {
                 "code": "FARE-1",
-                "name": "Standard",
+                "name": "Economy",
                 "iata_category": null,
                 "journey_type": "single"
             },
@@ -244,321 +194,88 @@ curl -X GET \
                 "fare_features": {
                     "data": [
                         {
-                            "id": "NEXP-ACON",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-TOIL",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-ALRO",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-NREF",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AMEN",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-WIFI",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-MSYS",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-UCHA",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AAFO",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-BLUG",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AAFR",
+                            "id": "VICA-WIFI",
                             "type": "fare_features"
                         }
                     ]
-                }
-            }
-        },
-        {
-            "id": "NEXP-FARE-2",
-            "type": "fare_classes",
-            "attributes": {
-                "code": "FARE-2",
-                "name": "Restricted",
-                "iata_category": null,
-                "journey_type": "single"
-            },
-            "relationships": {
-                "fare_features": {
-                    "data": [
-                        {
-                            "id": "NEXP-ACON",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-TOIL",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-ALRO",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-NAME",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-NREF",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-WIFI",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-MSYS",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-UCHA",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AAFO",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-BLUG",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AAFR",
-                            "type": "fare_features"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "id": "NEXP-FARE-3",
-            "type": "fare_classes",
-            "attributes": {
-                "code": "FARE-3",
-                "name": "Fully Flexible",
-                "iata_category": null,
-                "journey_type": "single"
-            },
-            "relationships": {
-                "fare_features": {
-                    "data": [
-                        {
-                            "id": "NEXP-ACON",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-TOIL",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-ALRO",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-REFU",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AMEN",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-WIFI",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-MSYS",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-UCHA",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AAFO",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-BLUG",
-                            "type": "fare_features"
-                        },
-                        {
-                            "id": "NEXP-AAFR",
-                            "type": "fare_features"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "id": "NEXP-FARE-4",
-            "type": "fare_classes",
-            "attributes": {
-                "code": "FARE-4",
-                "name": "Open Return",
-                "iata_category": null,
-                "journey_type": "open_return"
-            },
-            "relationships": {
-                "fare_features": {
+                },
+                "ticket_validity_rules": {
+                    "data": []
+                },
+                "passenger_group_rules": {
                     "data": []
                 }
             }
         },
         {
-            "id": "NEXP-ACON",
-            "type": "fare_features",
+            "id": "VICA-FARE-2",
+            "type": "fare_classes",
             "attributes": {
-                "code": "ACON",
-                "name": "Air Conditioning",
-                "description": "The bus has a cooling ventilation."
+                "code": "FARE-2",
+                "name": "Business",
+                "iata_category": null,
+                "journey_type": "single"
+            },
+            "fare_features": {
+                    "data": [
+                        {
+                            "id": "VICA-WIFI",
+                            "type": "fare_features"
+                        }
+                    ]
+                },
+                "ticket_validity_rules": {
+                    "data": []
+                },
+                "passenger_group_rules": {
+                    "data": []
+                }
             }
         },
         {
-            "id": "NEXP-TOIL",
-            "type": "fare_features",
-            "attributes": {
-                "code": "TOIL",
-                "name": "Toilet",
-                "description": "A toilet is available on board."
-            }
-        },
-        {
-            "id": "NEXP-ALRO",
-            "type": "fare_features",
-            "attributes": {
-                "code": "ALRO",
-                "name": "Additional Leg Room",
-                "description": "The seat has additional leg space."
-            }
-        },
-        {
-            "id": "NEXP-NREF",
-            "type": "fare_features",
-            "attributes": {
-                "code": "NREF",
-                "name": "Non-refundable ",
-                "description": "The ticket cannot be refunded."
-            }
-        },
-        {
-            "id": "NEXP-AMEN",
-            "type": "fare_features",
-            "attributes": {
-                "code": "AMEN",
-                "name": "Amendable",
-                "description": "The ticket is amendable. Please proceed via the link https://coach.nationalexpress.com/nxbooking/mmb2ManageMyBooking. A £5 amendment fee is applicable. "
-            }
-        },
-        {
-            "id": "NEXP-WIFI",
+            "id": "VICA-WIFI",
             "type": "fare_features",
             "attributes": {
                 "code": "WIFI",
                 "name": "Wifi",
                 "description": "Free wifi is available on board."
             }
-        },
-        {
-            "id": "NEXP-MSYS",
-            "type": "fare_features",
-            "attributes": {
-                "code": "MSYS",
-                "name": "Media System",
-                "description": "Free-of-charge infotainment system VUER. Travellers can download the VUER app, which allows them to stream films and TV shows on their own phone or tablet."
-            }
-        },
-        {
-            "id": "NEXP-UCHA",
-            "type": "fare_features",
-            "attributes": {
-                "code": "UCHA",
-                "name": "USB charger",
-                "description": "USB plug is available at each seat. "
-            }
-        },
-        {
-            "id": "NEXP-AAFO",
-            "type": "fare_features",
-            "attributes": {
-                "code": "AAFO",
-                "name": "Accessible area for bicycles",
-                "description": "Bicycles are allowed on board as long as they are designed to fold in half by means of a special link in the main frame and are carried in a proper protective carrying case. A passenger has to pay an extra fee for a bike."
-            }
-        },
-        {
-            "id": "NEXP-BLUG",
-            "type": "fare_features",
-            "attributes": {
-                "code": "BLUG",
-                "name": "Bulky Luggage",
-                "description": "Folding pushchairs/buggies will be carried free of charge in the hold, in addition to the standard luggage allowance. Except this National Express will accept bulky luggage for an extra charge."
-            }
-        },
-        {
-            "id": "NEXP-AAFR",
-            "type": "fare_features",
-            "attributes": {
-                "code": "AAFR",
-                "name": "Accessible area for wheelchairs",
-                "description": "Fully collapsible wheelchairs and fully collapsible pushchairs may be stowed free of charge. Passenger have to contact bus operator 36 hours before the departure."
-            }
-        },
-        {
-            "id": "NEXP-NAME",
-            "type": "fare_features",
-            "attributes": {
-                "code": "NAME",
-                "name": "Non-amendable",
-                "description": "The ticket is not amendable."
-            }
-        },
-        {
-            "id": "NEXP-REFU",
-            "type": "fare_features",
-            "attributes": {
-                "code": "REFU",
-                "name": "Refundable",
-                "description": "The ticket is refundable and can be cancelled no less than 72 hours in advance of travel."
-            }
         }
     ]
 }
 ```
 
-This endpoint enable users to retrieve detailed information about marketing carriers, such as passenger types, fare classes, cancellations conditions, terms & conditions, etc.
+This endpoint can be used to retrieve detailed information on a specific marketing carrier. The endpoint provides the following information:
+- legal and trade names
+- customer service contacts (email and phone)
+- logo
+- status
+- mobile ticket support
+- supported passenger types with the age range for each
+- supported fare classes with the fare features (amenities and cancellation conditions), ticket validity and passenger group rules
+
+Table of supported marketing carrier statuses
+
+| Marketing carrier status | Description                                                                                                                                     |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Active (prod)            | Integration is on production with full content. SLA is guaranteed.                                                                              |
+| Temporary offline        | Carrier's system is down due to technical reasons for a period of over 24 hours. Expected to resume.                                            |
+| Temporarily no operation | Carrier has suspended operations, e.g. due to coronavirus restrictions. Expected to resume.                                                     |
+| Expected Beta            | Integration is complete and available on production for a 2 week beta trial. Some content may not be available, and SLA rules do not yet apply. |
+| Expected Demo            | Integration is in final testing. Available on demo for retailers to start onboarding.                                                           |
+| Disabled                 | Carrier is disabled long term, and does not meet the definitions for paused (tech offline) or paused (no operations)                            |
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v4/marketing_carriers/{code}`
+Prod: `GET api.distribusion.com/retailers/v4/marketing_carriers/:code`
+Demo: `GET api.demo.distribusion.com/retailers/v4/marketing_carriers/:code`
 
 ### URL Parameters
 
-Parameter           | Mandatory | Description
-------------------- | --------- | -----------
-`locale`            | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard.
-`currency`          | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard.
+Parameter           | Mandatory | Description | Example |
+------------------- | --------- | ----------- | --------- |
+`locale`            | true      | 2-letter alphanumeric lowercase code, according to ISO 639-1 standard | end |
+`currency`          | true      | 3-letter alphanumeric uppercase code, according to ISO 4217 standard | EUR |
 
 ### Errors
 
@@ -579,7 +296,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP/stations \
+  https://api.demo.distribusion.com/retailers/v4/marketing_carriers/VICA/stations \
   -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json'
 ```
@@ -590,43 +307,11 @@ curl -X GET \
 {
     "data": [
         {
-            "id": "GBBRSCSA",
+            "id": "DEBERCBS",
             "type": "stations"
         },
         {
-            "id": "GBBRSBRI",
-            "type": "stations"
-        },
-        {
-            "id": "GBBRSBBH",
-            "type": "stations"
-        },
-        {
-            "id": "GBBRSCDO",
-            "type": "stations"
-        },
-        {
-            "id": "GBBRSUQR",
-            "type": "stations"
-        },
-        {
-            "id": "GBBIXBRI",
-            "type": "stations"
-        },
-        {
-            "id": "GBBOTBRO",
-            "type": "stations"
-        },
-        {
-            "id": "GBBOEBOS",
-            "type": "stations"
-        },
-        {
-            "id": "GBBOEHAV",
-            "type": "stations"
-        },
-        {
-            "id": "GBBURCCS",
+            "id": "FRPARPGB",
             "type": "stations"
         }
     ],
@@ -636,11 +321,12 @@ curl -X GET \
 }
 ```
 
-This endpoint provides a list of stations attached to a specific marketing carrier. This can help you map stations based on the marketing carrier you wish to display in your application.
+This endpoint can be used to retrieve all the stations that are served by a specific marketing carrier.
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v4/marketing_carriers/{code}/stations`
+Prod: `GET api.distribusion.com/retailers/v4/marketing_carriers/:code/stations`
+Demo: `GET api.demo.distribusion.com/retailers/v4/marketing_carriers/:code/stations`
 
 ### Errors
 
@@ -653,7 +339,7 @@ Error Code  | Meaning
 
 ```shell
 curl -X GET \
-  https://api-demo.distribusion.com/retailers/v4/marketing_carriers/NEXP/booking/schema \
+  https://api.demo.distribusion.com/retailers/v4/marketing_carriers/VICA/booking/schema \
   -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json'
 ```
@@ -663,7 +349,7 @@ curl -X GET \
 ```json
 {
     "data": {
-        "id": "NEXP",
+        "id": "VICA",
         "type": "booking_schema",
         "attributes": {
             "mandatory": [
@@ -688,19 +374,21 @@ curl -X GET \
                 "street_and_number",
                 "zip_code",
                 "city",
-                "email"
+                "email",
+                "phone"
             ],
             "optional": [
                 "discount_code",
                 "fare_class",
                 "payment_token",
                 "payer_id",
-                "phone",
                 "flight_number",
                 "government_id",
                 "government_id_type",
                 "passengers[].government_id",
-                "passengers[].government_id_type"
+                "passengers[].government_id_type",
+                "passengers[].birthdate",
+                "passengers[].nationality"
             ]
         }
     },
@@ -710,11 +398,12 @@ curl -X GET \
 }
 ```
 
-This endpoint provides information about which parameters are mandatory, and which are optional to conduct a booking for a specific marketing carrier.
+Information requirements for booking requests can differ between marketing carriers. This endpoint can be used to understand which parameters are mandatory for the bookings/create request of a specific marketing carrier.
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v4/marketing_carriers/{code}/booking/schema `
+Prod: `GET api.distribusion.com/retailers/v4/marketing_carriers/:code/booking/schema`
+Demo: `GET api.demo.distribusion.com/retailers/v4/marketing_carriers/:code/booking/schema`
 
 ### Errors
 
