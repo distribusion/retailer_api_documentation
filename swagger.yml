@@ -1,0 +1,306 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: Demo API
+    url: https://api-demo.distribusion.com/retailers/v4
+  - description: Production API
+    url: https://api.distribusion.com/retailers/v4
+info:
+  description: Access to Distribusion content and booking of ground transportation rides
+  version: "4.0.0"
+  title: Distribusion Retailer API
+  contact:
+    email: info@distribusion.com
+  license: # TODO: put proper license link
+    name: ''
+    url: ''
+tags:
+  - name: marketing_carriers
+  - name: connections
+  - name: orders
+  - name: bookings
+  - name: cancellations
+  - name: stations
+paths:
+  /connections/find:
+    get:
+      tags: 
+        - connections
+      operationId: getConnections
+      summary: Find connections by departure/arrival stations
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /connections/vacancy:
+    get:
+      tags: 
+        - connections
+      operationId: getVacancies
+      summary: TBD
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /orders/create:
+    post:
+      tags: 
+        - orders
+      operationId: createOrder
+      summary: TBD
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /orders/{order_id}:
+    get:
+      tags: 
+        - orders
+      operationId: getOrderById
+      summary: TBD
+      parameters:
+        - in: path
+          name: order_id
+          schema:
+            type: string
+          required: True
+          description: Id of order to get
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /bookings/create:
+    post:
+      tags:
+        - bookings
+      operationId: createBooking
+      summary: TBD
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /bookings:
+    get:
+      tags:
+        - bookings
+      operationId: getBookings
+      summary: TBD
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /bookings/{booking_id}:
+    get:
+      tags:
+        - bookings
+      operationId: getBookingById
+      summary: TBD
+      parameters:
+        - in: path
+          name: booking_id
+          schema:
+            type: string
+          required: True
+          description: Id of booking to get
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /bookings/{booking_id}/tickets:
+    get:
+      tags:
+        - bookings
+      operationId: getTickets
+      summary: TBD
+      parameters:
+        - in: path
+          name: booking_id
+          schema:
+            type: string
+          required: True
+          description: Id of booking to get tickets for
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /cancellations/conditions:
+    get:
+      tags:
+        - cancellations
+      operationId: getCancellationConditions
+      summary: Get cancellation conditions
+      parameters:
+        - in: query
+          name: booking
+          schema:
+            type: string
+          description: Booking Id
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /cancellations/create:
+    post:
+      tags:
+        - cancellations
+      operationId: createCancellation
+      summary: Create cancellation for specific booking
+      parameters:
+        - in: query
+          name: booking
+          schema:
+            type: string
+          description: Booking Id for cancellation
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /marketing_carriers:
+    get:
+      tags: 
+        - marketing_carriers
+      operationId: getMarketingCarriers
+      summary: get list of all marketing carriers enabled for specified API key
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /marketing_carriers/{marketing_carrier_id}:
+    get:
+      tags: 
+        - marketing_carriers
+      operationId: getMarketingCerrierById
+      summary: Get marketing carrier details
+      parameters:
+        - name: marketing_carrier_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Id of marketing carrier
+        - name: locale
+          in: query
+          required: true
+          style: form
+          schema:
+            type: string
+            example: it
+          description: Locale
+        - name: currency
+          in: query
+          required: true
+          style: form
+          schema:
+            type: string
+            example: EUR
+          description: Currency
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /marketing_carriers/{marketing_carrier_id}/stations:
+    get:
+      tags: 
+        - marketing_carriers
+      operationId: getMarketingCarrierStations
+      summary: Get list of all stations used by marketing carrier
+      parameters:
+        - name: marketing_carrier_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Id of marketing carrier
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /stations:
+    get:
+      tags:
+        - stations
+      operationId: getStations
+      summary: Get list of all stations available for specified API key
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /marketing_carriers/{marketing_carrier_id}/booking/schema:
+    get:
+      tags: 
+        - marketing_carriers
+      operationId: getBookingSchema
+      summary: Get booking schema for marketing carrier
+      parameters:
+        - name: marketing_carrier_id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Id of marketing carrier to return
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingSchema'
+
+components:
+  securitySchemes:
+    ApiKeyAuth:        # arbitrary name for the security scheme
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: Api-Key  # name of the header, query parameter or cookie
+  schemas:
+    BookingSchema:
+      type: object
+      required:
+        - id
+        - type
+        - attributes
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: ['booking_schema']
+        attributes:
+          type: object
+          properties:
+            mandatory:
+              type: array
+              items:
+                type: string
+              description: 'Array of mandatory parameters'
+              example: ['marketing_carrier','departure_station','arrival_station']
+            optional:
+              type: array
+              items:
+                type: string
+              description: 'Array of optional parameters'
+              example: ['discount_code', 'fare_class']
+    Booking: {}
+    CancellationCondition: {}
+    Cancellation: {}
+    Car: {}
+    City: {}
+    Connection: {}
+    FareClass: {}
+    FareFeature: {}
+    Fare: {}
+    MarketingCarrier: {}
+    OperatingCarrier: {}
+    Order: {}
+    PassengerType: {}
+    Passenger: {}
+    SeatLayout: {}
+    Seat: {}
+    SegmentPassenger: {}
+    Segment: {}
+    Station: {}
+    Vacancy: {}
+    VehicleType: {}
+security:
+   - ApiKeyAuth: []
