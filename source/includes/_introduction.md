@@ -34,12 +34,29 @@ The [#stations](https://docs.distribusion.com/#stations7) endpoint returns all t
 <details>
   <summary>Table of supported station types</summary>
   
-| Station type name  |  Distribusion station type code |
-|---|---|
-| Bus station | bus_station |
-| Train station | train_station |
-| Ferry station | ferry_station |
-| Tram station | tram_station |
+<table>
+  <tr>
+    <th>Station type name</th>
+    <th>Distribusion station type code</th>
+  </tr>
+  <tr>
+    <td>Bus station</td>
+    <td>bus_station</td>
+  </tr>
+  <tr>
+    <td>Train station</td>
+    <td>train_station</td>
+  </tr>
+  <tr>
+    <td>Ferry station</td>
+    <td>ferry_station</td>
+  </tr>
+  <tr>
+    <td>Tram station</td>
+    <td>tram_station</td>
+  </tr>
+</table>
+  
 </details>
 
 Distribusion aims to standardize station codes across the entire ground transportation industry, the same way IATA does so in the flight industry. Our station codes are designed to represent specific locations using a set of 8 capital letters. The construction of such code follow a simple logic:
