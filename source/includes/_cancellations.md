@@ -4,7 +4,7 @@
 
 ```shell
 curl -X GET \
-  'https://api-demo.distribusion.com/retailers/v4/cancellations/conditions?booking=O9xf1EqAQfsuNcRdtum-2g' \
+  'https://api.demo.distribusion.com/retailers/v4/cancellations/conditions?booking=O9xf1EqAQfsuNcRdtum-2g' \
   -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json'
 ```
@@ -19,7 +19,7 @@ curl -X GET \
         "attributes": {
             "allowed": true,
             "fee": 119,
-            "cutoff": "2020-06-15T06:05"
+            "cutoff": "2021-06-15T06:05"
         }
     },
     "jsonapi": {
@@ -31,17 +31,24 @@ curl -X GET \
 }
 ```
 
-This endpoint enables users to retrieve detailed information about the cancellation conditions of a specific booking. Note that not all marketing carriers offer cancellations, and that in some case, the cancellation `fee` do not reflect the flexibility of the terms and conditions due to technical reasons. The current workflow only allows a full (or partial) refund of the booking, no options for vouchers are currently available.
+This endpoint can be used to retrieve detailed information about the cancellation conditions of a specific booking. The details include the following information:
+- Whether the booking can be cancelled
+- If cancellable, what the respective cancellation fees are
+- If cancellable, what the cutoff time (in minutes) prior to departure is for making the cancellation.
+
+Only full cancellation is allowed, meaning it is applied to all tickets within a booking.
+
 
 ### HTTP Request
 
-`GET api.distribusion.com/retailers/v4/cancellations/conditions`
+Prod: `GET api.distribusion.com/retailers/v4/cancellations/conditions`
+Demo: `GET api.demo.distribusion.com/retailers/v4/cancellations/conditions`
 
 ### URL Parameters
 
-Parameter           | Mandatory | Description
-------------------- | --------- | -----------
-`booking`           | true      | 22-letter alphanumeric lowercase code, provided on successful booking.
+Parameter           | Mandatory | Description | Example |
+------------------- | --------- | ----------- | --------- |
+`booking`           | true      | 22-letter alphanumeric lowercase code, provided on successful booking | O9xf1EqAQfsuNcRdtum-2g |
 
 ### Errors
 
@@ -60,7 +67,7 @@ Error Code  | Meaning
 ## Create
 ```shell
 curl -X POST \
-  https://api-demo.distribusion.com/retailers/v4/cancellations/create \
+  https://api.demo.distribusion.com/retailers/v4/cancellations/create \
   -H 'api-key: {demo_api_key}' \
   -H 'content-type: application/json' \
   -d '{ "booking": "O9xf1EqAQfsuNcRdtum-2g" }'
@@ -77,7 +84,7 @@ curl -X POST \
             "total_price": 2266,
             "fee": 119,
             "total_refund": 2147,
-            "created_at": "2020-02-13T09:37"
+            "created_at": "2021-02-13T09:37"
         }
     },
     "jsonapi": {
@@ -89,18 +96,19 @@ curl -X POST \
 }
 ```
 
-This endpoint enables users to perform the cancellation of a specific booking.
+This endpoint can be used to cancel a specific booking.
 
 
 ### HTTP Request
 
-`POST api.distribusion.com/retailers/v4/cancellations/create`
+Prod: `POST api.distribusion.com/retailers/v4/cancellations/create`
+Demo: `POST api.demo.distribusion.com/retailers/v4/cancellations/create`
 
 ### URL Parameters
 
-Parameter           | Mandatory | Description
-------------------- | --------- | -----------
-`booking`           | true      | 22-letter alphanumeric lowercase code, provided on successful booking.
+Parameter           | Mandatory | Description | Example |
+------------------- | --------- | ----------- | --------- |
+`booking`           | true      | 22-letter alphanumeric lowercase code, provided on successful booking | O9xf1EqAQfsuNcRdtum-2g |
 
 ### Errors
 
