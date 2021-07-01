@@ -6,7 +6,7 @@ You can use our API to access Distribusion content and book ground transportatio
 
 **When integrating and testing our API, please use the following URL:**
 
-[https://api-demo.distribusion.com/retailers/v4](https://api-demo.distribusion.com/retailers/v4)
+[https://api.demo.distribusion.com/retailers/v4](https://api.demo.distribusion.com/retailers/v4)
 
 ## Deprecated API
 
