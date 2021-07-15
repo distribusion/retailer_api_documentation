@@ -94,16 +94,42 @@ curl -X GET \
                     }
                 }
             }
-        }
       .....
-  ],
-  "jsonapi": {
-    "version": "1.0"
-  },
-  "meta": {
-    "locale": "en"
-  }
-}
+ ],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "meta": {
+        "locale": "en"
+    },
+    "included": [
+        {
+            "id": "DEFAM",
+            "type": "cities",
+            "attributes": {
+                "code": "DEFAM",
+                "name": "Frankfurt am Main"
+            }
+        },
+        {
+            "id": "DEQMZ",
+            "type": "cities",
+            "attributes": {
+                "code": "DEQMZ",
+                "name": "Mainz"
+            }
+        },
+        {
+            "id": "DEROE",
+            "type": "cities",
+            "attributes": {
+                "code": "DEROE",
+                "name": "Rosenheim"
+            }
+        }
+        .....
+    ]
+ }
 ```
 
 This endpoint can be used to retrieve all stations available in the Distribusion API. The API provides the following information for each station:
@@ -259,13 +285,49 @@ curl -X GET \
                     }
                 }
             }
-        }
+        },
       .....
-  ]
+],
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "links": {
+        "next": "/connected_stations?page%5Bafter%5D=ADALVABU-BEGHEGDA"
+    },
+    "included": [
+        {
+            "id": "ADALVABU",
+            "type": "stations",
+            "attributes": {
+                "code": "ADALVABU"
+            }
+        },
+        {
+            "id": "BEGHEGDA",
+            "type": "stations",
+            "attributes": {
+                "code": "BRADTADT"
+            }
+        },
+        .....
+    ]
 }
 ```
 
 This endpoint can be used to retrieve all station pairs that are available in Distribusion’s database as bookable origin-destination combinations. Requests to this endpoint can be filtered to identify connected station pairs for one or multiple marketing carriers.
+
+The pagination parameters can be used for scrolling when there are more than 10,000 results. The parameters support forward (page[after]) scrolling. This requires the request to be split into two or more requests.
+
+a). First page (10 k results)
+
+http://api.demo.distribusion.com/retailers/v4/connected_stations?filter[marketing_carrier_codes][]=NEXP
+
+The response returns links.next which specifies the link that should be inserted in page[after] for the subsequent request to proceed to the next page.
+
+b) Second page
+
+http://api.demo.distribusion.com/retailers/v4/connected_stations?page[after]=GBLONLPB-GBLONLHT&filter[marketing_carrier_codes][]=NEXP
+
 
 ### HTTP Request
 
